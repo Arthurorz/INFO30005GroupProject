@@ -39,10 +39,6 @@ h3{font-size: 14px;}
 .mobile-logo{
     height: 48px;
     width: 76px;
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%); */
 }
 
 .mobile-nav-login{
@@ -88,10 +84,6 @@ h3{font-size: 14px;}
 
 .article1 p{
     padding-top: 0.375em;
-}
-
-.InfoTitle{
-    padding-top: 1.875em;
 }
 
 .article2 p{
