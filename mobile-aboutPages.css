@@ -99,7 +99,7 @@ h3{font-size: 14px;}
 }
 
 .article2 h3{
-    padding-top: 0.375em;
+    padding-top: 0.625em;
     text-decoration: underline;
 }
 
@@ -170,6 +170,7 @@ iframe{
 }
 
 .email{
-    /* ist-style: none; */
+    list-style: none;
     padding: 0.3725em 0 1em 0;
+    letter-spacing: -0.5px;
 }
