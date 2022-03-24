@@ -78,29 +78,29 @@ h3{font-size: 14px;}
     padding: 0 4% 0 4%;
 }
 
-.article1 h2{
+.article-intro h2{
     padding-top: 0.5em;
 }
 
-.article1 p{
+.article-intro p{
     padding-top: 0.375em;
 }
 
-.article2 p{
+.article-type p{
     padding-top: 0.125em;
 }
 
-.article2 h3{
+.article-type h3{
     padding-top: 0.625em;
     text-decoration: underline;
 }
 
-.article2 img{
+.article-type img{
     width: 100%;
     padding-top: 1.25em;
 }
 
-.article3 p{
+.article-moreInfor p{
     padding-top: 0.375em;
     color: #668cbb;
 }
@@ -158,6 +158,7 @@ iframe{
     
 .aboutWeb-footer{
     padding-top: 1em;
+    padding-bottom: 1.25em;
     text-align: center;
 }
 
