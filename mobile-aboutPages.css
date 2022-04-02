@@ -95,13 +95,9 @@ h3{font-size: 14px;}
     text-decoration: underline;
 }
 
-/* .article-type img{
+.article-type img{
     width: 100%;
     padding-top: 1.25em;
-} */
-
-.item2 img{
-    width: 100%;
 }
 
 .article-moreInfor p{
@@ -109,20 +105,13 @@ h3{font-size: 14px;}
     color: #668cbb;
 }
 
-/* iframe{
+iframe{
     padding-top: 1.25em;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-} */
-
-.aboutDia-top div:last-child{
-    position: relative; 
-    width: 46.83%; 
-    height: 0; 
-    padding-bottom: 56.25%;
 }
 
 .aboutDia-footer{
@@ -177,45 +166,4 @@ h3{font-size: 14px;}
     list-style: none;
     padding: 0.3725em 0 1em 0;
     letter-spacing: -0.5px;
-}
-
-
-
-@media screen and (min-width: 1024px){
-/* .article{
-    height: 694px;
-    width: 494px;
-} */
-/* .aboutDia-body{
-    margin: 0px 140px 0px 140px;
-} */
-.aboutDia-top div:last-child{
-    position: relative; 
-    width: 46.83%; 
-}
-.aboutDia-top{
-    display: flex;
-}
-
-.aboutDia-top div:first-child{
-    width: 50.79%;
-}
-.aboutDia-bottom{
-    display: grid;
-    grid-template-columns: 46.77% auto;
-    gap: 0px 20px;
-    padding: 14px;
-}
-
-.item2{
-    margin-top: 60px;
-}
-
-.item2 img{
-    width: 100%;
-}
-
-.item1{
-    grid-area: 1 / 2 / span 2 / span 1;
-}
 }
