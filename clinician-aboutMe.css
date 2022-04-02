@@ -1,0 +1,48 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0%;
+}
+
+.page-header {
+    height: 8.75em;
+    width: 100%;
+    background-color: #668cbb;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.logo{
+    height: 7.4375em;
+    width: 11.6875em;
+}
+
+.header-item {
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-item a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.page-header div{
+    display: flex;
+    align-items: center;
+}
+
+.header-logout{
+    color: #668CB8;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 8px;
+    width: 6.3125em;
+    height: 2.0625em;
+    border: none;
+    font-size: 1.875em;
+} 
