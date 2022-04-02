@@ -1,0 +1,36 @@
+.navbar {
+    height: 8em;
+    width: 100%;
+    background-color: #668cbb;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    line-height: 55px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+
+  .logo{
+      height: 119px;
+      width: 187px;
+  }
+
+  .navbar-item {
+    font-size: 30px;
+  }
+
+  .navbar div{
+      display: flex;
+      align-items: center;
+  }
+  .logout{
+    color: #668CB8;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 8px;
+    width: 10em;
+    height: 3em;
+    border: none;
+    font-size: 1.2em;
+  }
