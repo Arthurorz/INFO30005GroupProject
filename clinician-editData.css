@@ -3,6 +3,11 @@
     margin: 0%;
 }
 
+h1{
+    font-size: 38px;
+    font-weight: normal;
+}
+
 .page-header {
     height: 8.75em;
     width: 100%;
@@ -62,3 +67,23 @@
     border: none;
     font-size: 1.875em;
 } 
+
+.editData-title{
+    width: 100%;
+    margin-top: 222px;
+    display: flex;
+    align-items: center;
+    height: 39px;
+}
+
+.editData-title img{
+    width: 2.40%;
+    padding-left: 2.09%;
+}
+
+.editData-title h1{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+    font-family: Georgia, Times, 'Times New Roman', serif;
+}
