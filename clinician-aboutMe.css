@@ -3,32 +3,20 @@
     margin: 0%;
 }
 
+h1{
+    font-size: 38px;
+    font-weight: normal;
+}
+
 .page-header {
     height: 8.75em;
     width: 100%;
     background-color: #668cbb;
     position: fixed;
     display: flex;
-    justify-content: space-between;
     top: 0;
     left: 0;
     z-index: 1;
-}
-
-.logo{
-    height: 7.4375em;
-    width: 11.6875em;
-}
-
-.header-item {
-    font-size: 30px;
-    display: flex;
-    justify-content: space-between;
-}
-
-.header-item a{
-    color: #FFFFFF;
-    text-decoration: none;
 }
 
 .page-header div{
@@ -36,7 +24,40 @@
     align-items: center;
 }
 
-.header-logout{
+.page-header div:first-child{
+    padding-left: 2.5%;
+    width: 9.54%;
+}
+
+.page-header div:nth-child(2){
+    padding-left: 13.9%;
+    padding-right: 11.25%;
+    width: 49.54%;
+}
+
+.page-header div:last-child{
+    padding-right: 2.5%;
+    justify-content: end;
+    width: 10.99%;
+}
+
+.header-logo{
+    height: 7.4375em;
+    width: 11.6875em;
+}
+
+.header-navBar {
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between
+}
+
+.header-navBar a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.header-logOut{
     color: #668CB8;
     background-color: #FFFFFF;
     box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
@@ -46,3 +67,40 @@
     border: none;
     font-size: 1.875em;
 } 
+
+.aboutMe-title{
+    font-size: 2.375em;
+    height: 1.1315em;
+    width: 100%;
+    margin-top: 5.7894em;
+    text-align: center;
+}
+
+.aboutMe-body{
+    height: 20.0625em;
+    width: 100%;
+    margin-top: 9.75em;
+    margin-left: 32.3125em;
+    display:flex;
+}
+
+.aboutMe-left{
+    margin-right: 1.625em;
+    width: 15.3125em;
+    height: 20.0625em;
+}
+
+.aboutMe-left div{
+    text-align: center;
+    font-size: 1.625em;
+}
+
+.self-picture{
+    height: 15.3125rem;
+    width: 15.3125rem;
+}
+
+.aboutMe-right{
+    width: 15.3125em;
+    height: 20.0625em;
+}
