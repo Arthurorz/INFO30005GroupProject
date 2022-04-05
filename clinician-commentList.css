@@ -92,13 +92,15 @@ h1{
 .commentList-body{
     width: 60.4375em;
     margin: 0 auto;
-    margin-top: 3.8125em;
+    margin-top: 7.625em;
 }
 
-.cooment{
+.comment{
     display: flex;
+    justify-content: space-between;
     width:60.4375em;
 }
+
 .avatarBox{
     height: 4.625em;
     width: 4.625em;
@@ -114,6 +116,7 @@ h1{
 
 .commentInfo{
     display:flex;
+    justify-content: space-between;
     width: 49.625rem;
 }
 
