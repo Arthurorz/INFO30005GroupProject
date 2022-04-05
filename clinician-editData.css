@@ -87,3 +87,63 @@ h1{
     transform: translate(-50%,0);
     font-family: Georgia, Times, 'Times New Roman', serif;
 }
+
+.editData-body {
+    font-size: 22px;
+    padding-top: 25px;
+    padding-left: 807px;
+}
+
+.chooseRange{
+    padding-top: 62px;
+}
+
+.chooseBox {
+    width: 25px; 
+    height: 25px;
+}
+
+.category{
+    font-size: 26px;
+    padding-left: 14px;
+}
+
+.textBox {
+    width: 41px; 
+    height: 22px; 
+    font-size: 20px;
+}
+
+::-webkit-input-placeholder {
+    color: #CFCFCF;
+    font-size: 20px;
+    font-style: italic;
+    font-style: bold;
+}
+
+
+.textLine {
+    padding-top: 15px;
+    padding-left: 45px;
+}
+
+.inputBox {
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.submit{
+    padding-top: 58px;
+    padding-left: 53px;
+}
+
+.saveButton{
+    color: #FFFFFF;
+    background-color: #668CB8;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 8px;
+    width: 212px;
+    height: 83px;
+    border: none;
+    font-size: 34px;
+} 
