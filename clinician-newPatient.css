@@ -1,0 +1,149 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0%;
+}
+
+h1{
+    font-size: 38px;
+    font-weight: normal;
+}
+
+.page-header {
+    height: 8.75em;
+    width: 100%;
+    background-color: #668cbb;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.page-header div{
+    display: flex;
+    align-items: center;
+}
+
+.page-header div:first-child{
+    padding-left: 2.5%;
+    width: 9.54%;
+}
+
+.page-header div:nth-child(2){
+    padding-left: 13.9%;
+    padding-right: 11.25%;
+    width: 49.54%;
+}
+
+.page-header div:last-child{
+    padding-right: 2.5%;
+    justify-content: end;
+    width: 10.99%;
+}
+
+.header-logo{
+    height: 7.4375em;
+    width: 11.6875em;
+}
+
+.header-navBar {
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between
+}
+
+.header-navBar a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.header-logOut{
+    color: #668CB8;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 8px;
+    width: 6.3125em;
+    height: 2.0625em;
+    border: none;
+    font-size: 1.875em;
+} 
+
+.editData-title{
+    width: 100%;
+    margin-top: 222px;
+    display: flex;
+    align-items: center;
+    height: 39px;
+}
+
+.editData-title img{
+    width: 2.40%;
+    padding-left: 2.09%;
+}
+
+.editData-title h1{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+    font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+.editData-body {
+    font-size: 22px;
+    padding-top: 2.31%;
+    padding-left: 42.03%;
+    align-items: center;
+}
+
+.chooseRange{
+    padding-top: 5.74%;
+}
+
+.chooseBox {
+    width: 25px; 
+    height: 25px;
+}
+
+.category{
+    font-size: 26px;
+    padding-left: 0.73%;
+}
+
+.textBox {
+    width: 41px; 
+    height: 22px; 
+    font-size: 20px;
+}
+
+::-webkit-input-placeholder {
+    color: #CFCFCF;
+    font-size: 20px;
+    font-style: italic;
+    font-style: bold;
+}
+
+.textLine {
+    padding-top: 1.39%;
+    padding-left: 3.5%;
+}
+
+.rangeBox {
+    padding-left: 0.469%;
+    padding-right: 0.469%;
+}
+
+.submit{
+    padding-top: 5.37%;
+    padding-left: 2.76%;
+}
+
+.saveButton{
+    color: #FFFFFF;
+    background-color: #668CB8;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 8px;
+    width: 212px;
+    height: 83px;
+    border: none;
+    font-size: 34px;
+} 
