@@ -8,11 +8,6 @@ h1{
     font-weight: normal;
 }
 
-h2{
-    font-size: 34px;
-    font-weight: normal;
-    text-align: center;
-}
 
 .page-header {
     height: 8.75em;
@@ -74,7 +69,7 @@ h2{
     font-size: 1.875em;
 } 
 
-.aboutMe-title{
+.commentList-title{
     font-size: 2.375em;
     height: 1.1315em;
     width: 100%;
@@ -82,72 +77,57 @@ h2{
     align-items: center;
 }
 
-.aboutMe-title img{
+.commentList-title img{
     width: 2.40%;
     padding-left: 2.09%;
 }
 
-.aboutMe-title h1{
+.commentList-title h1{
     position: absolute;
     left: 50%;
     transform: translate(-50%,0);
     font-family: Georgia, Times, 'Times New Roman', serif;
 }
 
-/* .aboutMe-body{
-    height: 20.0625em;
-    width: 100%;
-    margin-top: 9.75em;
-    margin-left: 32.3125em;
-    display:flex;
-}
-
-.aboutMe-left{
-    margin-right: 1.625em;
-    width: 15.3125em;
-    height: 20.0625em;
-}
-
-
-
- */
-
-.aboutMe-body{
-    display: flex;
-    justify-content: space-between;
+.commentList-body{
+    width: 60.4375em;
     margin: 0 auto;
-    margin-top: 9.75em;
-    width: 55.83%;
+    margin-top: 3.8125em;
 }
 
-.aboutMe-left div{
-    text-align: center;
-    font-size: 1.625em;
+.cooment{
+    display: flex;
+    width:60.4375em;
+}
+.avatarBox{
+    height: 4.625em;
+    width: 4.625em;
+}
+.avatar{
+    height: 4.625em;
+    width: 4.625em;
 }
 
-.self-picture{
-    width: 15.3125rem;
+.commentDetail{
+    width: 53.75em;
 }
 
-.aboutMe-right{
-    width: 51.21%;
-    align-items: center;
-}
-.aboutMe-right p{
-    font-size: 1.625em;
+.commentInfo{
+    display:flex;
+    width: 49.625rem;
 }
 
-.textBoarder{
-    margin: auto;
-    width: 100%;
-    background-color: #fffbfb;
+.name{
+    text-align: left;
+    width: 11.0625em;
 }
 
-.self-intro {
-    margin: auto;
-    margin-top: 3.5625em;
-    height: 16.4375em;
-    width: 83.39%;
+.time{
+    text-align: right;
+    width: 7.8125em;
 }
 
-
+.commentContent{
+    font-size: 20px;
+    width: 49.625rem;
+}
