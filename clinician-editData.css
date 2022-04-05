@@ -90,12 +90,13 @@ h1{
 
 .editData-body {
     font-size: 22px;
-    padding-top: 25px;
-    padding-left: 807px;
+    padding-top: 2.31%;
+    padding-left: 42.03%;
+    align-items: center;
 }
 
 .chooseRange{
-    padding-top: 62px;
+    padding-top: 5.74%;
 }
 
 .chooseBox {
@@ -105,7 +106,7 @@ h1{
 
 .category{
     font-size: 26px;
-    padding-left: 14px;
+    padding-left: 0.73%;
 }
 
 .textBox {
@@ -121,20 +122,19 @@ h1{
     font-style: bold;
 }
 
-
 .textLine {
-    padding-top: 15px;
-    padding-left: 45px;
+    padding-top: 1.39%;
+    padding-left: 3.5%;
 }
 
 .inputBox {
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 0.469%;
+    padding-right: 0.469%;
 }
 
 .submit{
-    padding-top: 58px;
-    padding-left: 53px;
+    padding-top: 5.37%;
+    padding-left: 2.76%;
 }
 
 .saveButton{

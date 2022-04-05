@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clinician-newPatient</title>
+    <link rel="stylesheet" href="clinician-editData.css">
+</head>
+<body>
+    <header class="page-header"></header>
+    <header class="page-header">
+        <div><a href=""><img class="header-logo" src="./30005image/mobile-logo.png" alt="logo"></a></div>
+        <div class="header-navBar">
+            <!-- 这里要写链接-->
+            <a href="">DASHBOARD</a>
+            <a href="">COMMENT</a>
+            <a href="">NEW PATIENT</a>
+            <a href="">ABOUT ME</a>
+        </div>
+        <div><button class="header-logOut" onclick="window.location.href=''" type="button">Log Out</button></div>
+        <!-- <div><a href=""><button class="header-logOut" type="button">Log Out</button></a></div> -->
+    </header>
+
+    <main>
+        <div class="editData-title">
+            <img src="./30005image/mobile-arrow-back.png" alt="mobile-arrow-back">
+            <h1>New Patient</h1>
+        </div>
+        <div class="editData-body">
+           <form>
+               <div class="chooseRange">
+                   <input class="chooseBox" type="checkbox" name="check">
+                   <span class="category">Weight</span>
+                   <div class="textLine">
+                       From 
+                       <span class="inputBox"><input class="textBox" type="text" name="" placeholder="70"></span>
+                       To 
+                       <span class="inputBox"><input class="textBox" type="text" name="" placeholder="100"> </span>
+                       Kg
+                    </div>
+                </div>
+                <div class="chooseRange">
+                    <input class="chooseBox" type="checkbox" name="check">
+                    <span class="category">Exercise</span>
+                    <div class="textLine">
+                        From 
+                        <span class="inputBox"><input class="textBox" type="text" name="" placeholder="1000"></span>
+                        To 
+                        <span class="inputBox"><input class="textBox" type="text" name="" placeholder="4000"> </span>
+                        steps
+                     </div>
+                 </div>
+                 <div class="chooseRange">
+                    <input class="chooseBox" type="checkbox" name="check">
+                    <span class="category">Doses of Insulin Taken</span>
+                    <div class="textLine">
+                        <span class="inputBox"><input class="textBox" type="text" name="" placeholder="4000"> </span>
+                        Doses
+                     </div>
+                 </div>
+                 <div class="chooseRange">
+                    <input class="chooseBox" type="checkbox" name="check">
+                    <span class="category">Blood Glucose Level</span>
+                    <div class="textLine">
+                        From 
+                        <span class="inputBox"><input class="textBox" type="text" name="" placeholder="3.9"></span>
+                        To 
+                        <span class="inputBox"><input class="textBox" type="text" name="" placeholder="6.1"> </span>
+                        nmol/L
+                     </div>
+                 </div>
+            </form>
+            <div class="submit">
+                <button class="saveButton" onclick="window.location.href=''" type="button">Save</button>
+            </div>
+  
+        </div> 
+    </main>
+    
+</body>
+</html>
