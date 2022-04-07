@@ -99,6 +99,7 @@ h1{
     display: flex;
     justify-content: space-between;
     width:60.4375em;
+    border: 1px solid black;
 }
 
 .avatarBox{
