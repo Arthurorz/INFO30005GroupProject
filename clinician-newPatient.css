@@ -90,15 +90,11 @@ h1{
 
 .editData-body {
     font-size: 22px;
-    /* padding-top: 60px; */
-    padding-top: 5%;
+    padding-top: 4.8%;
+    display: flex;
 }
 
 .editData-body .infoList {
-    /* --width: 458px;
-    --height: 563px; */
-    float: left;
-    /* --padding-left: 471px; */
     width: 25.5%;
     height: 52.1%;
     padding-left: 23%;
@@ -106,36 +102,27 @@ h1{
 
 .editData-body .inputBox {
     float: right;
-    /* --position: absolute; */
     right: 50%;
 }
 
 .editData-body .chooseList {
-    /* -- width: 700px;
-    --height: 563px; */
     width: 36.5%;
     height: 52.1%;
-    float: left;
     padding-left: 10.6%;
 }
 
 .infoAdd {
     font-size: 26px;
-    /* padding-top: 27px; */
     padding-top: 4.8%;
 }
 
 .infoList input {
     width: 242px;
     height: 29px;
-    /* width: 12.6%;
-    height: 2.69%; */
     border-radius: 10px;
 }
 
 .chooseRange {
-    /* padding-top: 51px;
-    padding-left: 203px; */
     padding-top: 6%;
 }
 
@@ -173,7 +160,7 @@ h1{
 }
 
 .sendCode {
-    padding-top: 39px;
+    padding-top: 8%;
     padding-left: 12%;
 }
 
@@ -189,13 +176,14 @@ h1{
 }
 
 .enterCode {
-    padding-top: 20px;
+    padding-top: 4.2%;
     padding-left: 12%;
 }
 
 .codeBox .textBox {
     width: 315px;
     height: 40px;
+    text-align: center;
 }
 
 .codeBox ::-webkit-input-placeholder {
@@ -203,8 +191,8 @@ h1{
 }
 
 .submit{
-    padding-top: 624px;
-    padding-left: 869px;
+    padding-top: 2%;
+    padding-left: 45.26%;
 }
 
 .saveButton {
@@ -212,8 +200,8 @@ h1{
     background-color: #668CB8;
     /* box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24); */
     border-radius: 8px;
-    width: 212px;
-    height: 83px;
+    width: 200px;
+    height: 78px;
     border: none;
     font-size: 34px;
 } 
