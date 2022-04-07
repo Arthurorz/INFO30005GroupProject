@@ -140,7 +140,7 @@ h1{
 .saveButton{
     color: #FFFFFF;
     background-color: #668CB8;
-    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    /* box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24); */
     border-radius: 8px;
     width: 212px;
     height: 83px;
