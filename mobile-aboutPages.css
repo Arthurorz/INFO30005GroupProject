@@ -2,6 +2,7 @@
     font-family: 'Times New Roman', Times, serif;
     margin: 0%;
 }
+
 body{
     font-size: 12px;
 }
@@ -11,7 +12,9 @@ h2{font-size: 16px;}
 h3{font-size: 14px;}
 p{font-size: 14px;}
 
-.page-header{
+.web-page-header{display: none;}
+
+.mobile-page-header{
     height: 55px;
     width: 100%;
     background-color: #668cbb;
@@ -24,17 +27,17 @@ p{font-size: 14px;}
     z-index: 1;
 }
 
-.page-header div{
+.mobile-page-header div{
     display: flex;
     align-items: center;
     width: 76px;
 }
 
-.page-header div:first-child{
+.mobile-page-header div:first-child{
     padding-left: 2.67%;
 }
 
-.page-header div:last-child{
+.mobile-page-header div:last-child{
     padding-right: 2.67%;
     display: flex;
     justify-content: end;
@@ -194,11 +197,11 @@ p{font-size: 14px;}
 }
 
 @media screen and (min-width: 800px) and (max-width: 1400px) {
-h1{font-size: 1.75em;}
-h2{font-size: 1.7em;}
-h3{font-size: 1.5em;}
-p{font-size: 1.5em;}
-.email{font-size: 1.5em;}
+h1{font-size: 1.75rem;}
+h2{font-size: 1.7rem;}
+h3{font-size: 1.5rem;}
+p{font-size: 1.5rem;}
+.email{font-size: 1.5rem;}
 
 iframe{height: 400px;}
 
@@ -218,23 +221,78 @@ iframe{height: 400px;}
 /* .aboutDia-body{
     margin: 0px 140px 0px 140px;
 } */
+/* body{font-size: 26px;} */
 
-/* .page-header{
+main{margin-top: 200px;}
+
+.mobile-page-header{
     display: none;
-} */
-h1{font-size: 1.75em;}
+}
+
+h1{font-size: 2.375rem;}
 h2{font-size: 2.215em;}
-h3{font-size: 1.7em;}
-p{font-size: 1.7em;}
+h3{font-size: 1.625rem;}
+p{font-size: 1.625rem;}
 
-/* iframe{
-    height: 100%;
-} */
+.web-page-header {
+    height: 8.75em;
+    width: 100%;
+    background-color: #668cbb;
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
 
-/* .aboutDia-title img{
-    width: 2.38%;
-    padding-left: 2.1%;
-} */
+.web-page-header div{
+    display: flex;
+    align-items: center;
+}
+
+.web-page-header div:first-child{
+    padding-left: 2.5%;
+    width: 9.54%;
+}
+
+.web-page-header div:nth-child(2){
+    padding-left: 13.9%;
+    padding-right: 11.25%;
+    width: 49.54%;
+}
+
+.web-page-header div:last-child{
+    padding-right: 2.5%;
+    justify-content: end;
+    width: 10.99%;
+}
+
+.header-logo{
+    height: 7.4375em;
+    width: 11.6875em;
+}
+
+.header-navBar {
+    font-size: 30px;
+    display: flex;
+    justify-content: space-between
+}
+
+.header-navBar a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.header-logOut{
+    color: #668CB8;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 8px;
+    width: 6.3125em;
+    height: 2.0625em;
+    border: none;
+    font-size: 1.875em;
+} 
 
 .aboutDia-top div:last-child{
     position: relative; 
@@ -342,5 +400,5 @@ p{font-size: 1.7em;}
 
 .aboutWeb-bottom article{padding: 1.25em 0 0 1.25em;}
 
-.email{font-size: 1.7em;}
+.email{font-size: 1.625rem;}
 }
