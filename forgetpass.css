@@ -41,13 +41,7 @@
     width: 11.6875em;
 }
 
-.header-navBar {
-    font-size: 30px;
-    display: flex;
-    justify-content: space-between
-}
-
-.header-navBar a{
+.header-navBar a {
     display: none;
 }
 
@@ -163,7 +157,6 @@ button.sentcode{
     border: none;
     font-size: 34px;
     margin: 0 37.11% 0 37.11%;
-
 }
 
 

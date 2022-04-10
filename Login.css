@@ -3,6 +3,16 @@
     margin: 0%;
 }
 
+.background{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 5%);
+    z-index: -1;
+}
+
+.background img{width: 1920px;}
+
 .page-header {
     height: 8.75em;
     width: 100%;
@@ -14,10 +24,47 @@
     z-index: 1;
 }
 
+.page-header div{
+    display: flex;
+    align-items: center;
+}
+
+.page-header div:first-child{
+    padding-left: 2.5%;
+    width: 9.54%;
+}
+
+.page-header div:nth-child(2){
+    padding-left: 13.9%;
+    padding-right: 11.25%;
+    width: 49.54%;
+}
+
+.page-header div:last-child{
+    padding-right: 2.5%;
+    justify-content: end;
+    width: 10.99%;
+}
+
 .header-logo{
     height: 7.4375em;
     width: 11.6875em;
 }
+
+.header-navBar a {
+    display: none;
+}
+
+.header-logOut{
+    color: #668CB8;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 8px;
+    width: 6.3125em;
+    height: 2.0625em;
+    border: none;
+    font-size: 1.875em;
+} 
 
 .title{
     position: absolute;
@@ -27,7 +74,7 @@
     font-family: Georgia, Times, 'Times New Roman', serif;
 }
 
-.infoList{
+/* .infoList{
     position: absolute;
     left: 50%;
     top: 30%;
@@ -65,12 +112,88 @@
 }
 
 .loginbutton{
-    color: #FFFFFF;
+    height: 3.875rem;
+    width: 9.813rem;
+    color: white;
     background-color: #668CB8;
-    border-radius: 8px;
-    width: 200px;
-    height: 78px;
+    border-radius: 0.5rem;
     border: none;
     font-size: 34px;
-    transform: translate(100%,100%);
+    margin: 0 37.11% 0 37.11%;
+} */
+
+.login{
+    margin: 265px 34.16% 0 34.16%;
+    border-radius: 0.5rem;
+    border: 1px solid #EDEDED;
+    height: 28.75rem;
+    box-shadow: 3px 6px #EDEDED;
+    background-color: white;
+}
+
+h1{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 38px;
+    font-weight: normal;
+    text-align: center;
+    padding: 1.563rem 0 1.563rem 0;
+}
+
+.container{
+    padding: 0 5rem 0 5rem;
+
+}
+
+label{
+    font-size: 26px;
+}
+
+.container input{
+    width: 100%;
+    margin: 0.563rem 0 1.125rem;
+    height: 3.063rem;
+    border-radius: 0.625rem;
+    border: 1px solid #707070;
+    outline: none;
+}
+
+::placeholder{
+    color: #CFCFCF;
+    font-size: 20px;
+    font-style: italic;
+}
+
+.ForgetPassword{
+    text-decoration: none;
+    color: black;
+}
+
+.rememberMe{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5rem 0 5rem;
+    font-size: 1.25rem;
+}
+
+.middle-login{
+    height: 3.875rem;
+    width: 9.813rem;
+    color: white;
+    background-color: #668CB8;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 34px;
+    margin: 1.6rem 37.11% 0 37.11%;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1400px) {
+    h1{font-size: 1.75rem;}
+
+
+}
+
+@media screen and (min-width: 1400px){
+    .login{
+        margin: 252px 40px 0px 40px;
+    }
 }

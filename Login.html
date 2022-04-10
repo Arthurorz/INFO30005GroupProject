@@ -8,14 +8,47 @@
     <link rel="stylesheet" href="Login.css">
 </head>
 <body>
-    <header class="page-header"></header>
     <header class="page-header">
-       <div><a href=""><img class="header-logo" src="./30005image/mobile-logo.png" alt="logo"></a></div>
+        <div><a href=""><img class="header-logo" src="./30005image/mobile-logo.png" alt="logo"></a></div>
+        <div class="header-navBar">
+            <!-- 这里要写链接-->
+            <a href="">DASHBOARD</a>
+            <a href="">COMMENT</a>
+            <a href="">NEW PATIENT</a>
+            <a href="">ABOUT ME</a>
+        </div>
+        <div><button class="header-logOut" onclick="window.location.href=''" type="button">Log Out</button></div>
     </header>
-    <h1 class="title">Login</h1>
 
     <main>
-        <div class="infoList">
+        <div class="background">
+            <img src="./30005image/login-background.jpeg">
+        </div>
+        <div class="login">
+            <h1>Login</h1>
+            <div class="container">
+                <label for="email">Email Address:</label>
+                <input type="email" id="emails" name="email" placeholder="123@xxx.com">
+                <label for="pass">Password:</label>
+                <input type="password" id="pass" name="password" placeholder="at least 8 characters">
+            </div>
+            <div class="rememberMe">
+                <div>
+                    <input class="checkbox" type="checkbox" name="rememberme" value="rememberme">
+                    <span>Remember me</span>
+                </div>
+                <div>
+                    <a class="ForgetPassword" href="" >Forget Password?</a>
+                </div>
+            </div>
+            <button class="middle-login" onclick="window.location.href=''" type="button">Login</button>
+        </div>
+    </main>
+
+</body>
+</html>
+
+        <!-- <div class="infoList">
             <div class="infoAdd">
                 <span class="email">Email Address:</span>
                 <input class="inputbox" type="email" name="" placeholder="123@xxx.com">
@@ -26,14 +59,14 @@
             </div>
             <div class="bottom">
                 <input class="checkbox" type="checkbox" name="rememberme" value="rememberme">
-                <span class="rememberme">Remember me</span>
+                <span class="rememberme">Remember me</span> -->
                 <!--链接-->
-                <a class="ForgetPassword" href="" >Forget Password?</a>
+                <!-- <a class="ForgetPassword" href="" >Forget Password?</a> -->
                 <!--there is something still need to do-->
-                <button class="loginbutton" type="button">Login</button>
-            </div>
-        </div>
-    </main>
+            <!-- </div>              
+            <button class="loginbutton" type="button">Login</button>
+        </div> -->
 
-</body>
-</html>
+        <!-- <div class="background">
+            <img src="./30005image/login-background.jpeg">
+        </div> -->
