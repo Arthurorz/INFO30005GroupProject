@@ -1,0 +1,172 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0%;
+}
+
+.web-page-header{display: none;}
+
+.mobile-page-header{
+    height: 55px;
+    width: 100%;
+    background-color: #668cbb;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    line-height: 55px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.mobile-page-header div{
+    display: flex;
+    align-items: center;
+    width: 76px;
+}
+
+.mobile-page-header div:first-child{
+    padding-left: 2.67%;
+}
+
+.mobile-page-header div:last-child{
+    padding-right: 2.67%;
+    display: flex;
+    justify-content: end;
+}
+
+.mobile-logo{
+    height: 48px;
+    width: 76px;
+}
+
+.nav-login{
+    color: #668CB8;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 8px;
+    width: 59px;
+    height: 38px;
+    border: none;
+}
+
+.SupportMessage{
+    background-color: #BBD9F6;
+    border-radius: 0.875rem;
+    margin: 5.0625rem 10.13% 2.625rem 10.13%;
+    height: 4.375rem;
+    font-weight: bold;
+}
+
+.SupportMessage p:first-child{
+    text-align: center;
+    padding-top: 0.9375rem;
+}
+
+.SupportMessage p:nth-child(2){
+    padding: 0.5rem 0rem 0.5rem 12.75rem;
+    font-size: 0.75rem;
+}
+
+.homeSubtitle{
+    margin-left: 13.87%;
+}
+
+.homeTop{
+    width: 72.8%;
+    margin: 0.3125rem auto 2.265rem auto;
+    display: flex;
+    justify-content: space-between
+}
+
+.addbutton{
+    width: 42.86%;
+    height: 7.3125rem;
+    border: 1px solid #CFCFCF;
+    border-radius: 1.125rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.75rem;
+    position: relative;
+}
+
+.addbutton span{
+    margin-top: 0.5625rem;
+    color: #668CB8;
+}
+
+.bloodpng::after{
+    content: url(../30005image/blood_glucose.png);
+}
+
+@media screen and (min-width: 1400px){
+    .mobile-page-header{
+        display: none;
+    }
+    
+    h1{font-size: 2.375rem;}
+    h2{font-size: 2.215em;}
+    h3{font-size: 1.625rem;}
+    p{font-size: 1.625rem;}
+    
+    .web-page-header {
+        height: 8.75em;
+        width: 100%;
+        background-color: #668cbb;
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    
+    .web-page-header div{
+        display: flex;
+        align-items: center;
+    }
+    
+    .web-page-header div:first-child{
+        padding-left: 2.5%;
+        width: 9.54%;
+    }
+    
+    .web-page-header div:nth-child(2){
+        padding-left: 13.9%;
+        padding-right: 11.25%;
+        width: 49.54%;
+    }
+    
+    .web-page-header div:last-child{
+        padding-right: 2.5%;
+        justify-content: end;
+        width: 10.99%;
+    }
+    
+    .header-logo{
+        height: 7.4375em;
+        width: 11.6875em;
+    }
+    
+    .header-navBar {
+        font-size: 30px;
+        display: flex;
+        justify-content: space-between
+    }
+    
+    .header-navBar a{
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+    
+    .header-logOut{
+        color: #668CB8;
+        background-color: #FFFFFF;
+        box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+        border-radius: 8px;
+        width: 6.3125em;
+        height: 2.0625em;
+        border: none;
+        font-size: 1.875em;
+    } 
+}
