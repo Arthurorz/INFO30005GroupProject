@@ -59,15 +59,19 @@ body{
     margin: 5.0625rem 10.13% 2.625rem 10.13%;
     height: 4.375rem;
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
-.SupportMessage p:first-child{
+/* .SupportMessage p:first-child{
     text-align: center;
     padding-top: 0.9375rem;
-}
+} */
 
 .SupportMessage p:nth-child(2){
-    padding: 0.5rem 0rem 0.5rem 12.75rem;
+    /* padding: 0.5rem 0rem 0.5rem 12.75rem; */
     font-size: 0.75rem;
 }
 
@@ -102,6 +106,8 @@ body{
     align-items: center;
 }
 
+.iconpng{width: 0.9375rem;}
+
 .homeMiddle{
     width: 72.8%;
     height: 8rem;
@@ -126,6 +132,10 @@ body{
     padding: 0 1.93125rem 0 0.8625rem;
     width: 13.5%;
 }
+
+.running{width: 1.705rem;}
+
+.doses{width: 2.278rem;}
 
 .record div:nth-child(2){
     display: flex;
@@ -184,15 +194,99 @@ body{
     font-size: 0.6875rem;
 }
 
+@media screen and (min-width: 800px) and (max-width: 1400px){
+    .SupportMessage{
+        height: 7.8125rem;
+        margin-top: 8rem;
+    }
+    
+    .SupportMessage p:first-child{font-size: 1.8rem;}
+    
+    .SupportMessage p:nth-child(2){font-size: 1.2rem;}
+    
+    .homeSubtitle{font-size: 1.8rem;}
+    
+    .homeTop{
+        width: 52.5%;
+        margin: 0.25rem auto 4.875rem auto;
+    }
+    
+    .addbutton{
+        height: 14rem;
+        font-size: 1.625rem;
+    }
+    
+    .addbutton span{margin-top: 1.5rem;}
+
+    .add{width: 60.43%;}
+    
+    .iconpng{
+        width: 1.875rem;
+    }
+
+    .homeMiddle{
+        width: 52.5%;
+        height: 18.8125rem;
+        margin: 0.25rem auto 4.875rem auto;
+    }
+    
+    .record{
+        height: 8.515625rem;
+        border-radius: 0.8rem;
+        font-size: 1.625rem;
+    }
+    
+    .recordPng{
+        padding: 0 4.5rem 0 2.1875rem;
+        width: 10.5%;
+    }
+
+    .running{width: 3.87rem;}
+
+    .doses{width: 5.35rem;}
+    
+    .record div:nth-child(2){height: 4.4375rem;}
+    
+    .tableTop{
+        margin: auto auto 0.375rem 4.5rem;
+        font-size: 1.25rem;
+    }
+    
+    .tableTop span{padding: 0.3125rem;}
+    
+    .tableTop img{
+        width: 2.3125rem;
+        margin: auto 0.125rem;
+    }
+    
+    .homeTable table{
+        margin: 0 auto;
+        /* width: 60.14%; */
+    }
+    
+    .homeTable th,td,tr{font-size: 1.625rem;}
+    
+    .slope{-webkit-transform: rotate(13deg);}
+
+    .homeTable td:nth-child(1){
+        width: 16.5rem;
+        height: 5rem;
+    }
+
+    .homeTable th{
+        height: 4rem;
+    }
+
+    .viewData{
+        margin: 1.5rem;
+        font-size: 1.625rem;
+    }
+}
+
 @media screen and (min-width: 1400px){
     .mobile-page-header{
         display: none;
     }
-    
-    h1{font-size: 2.375rem;}
-    h2{font-size: 2.215em;}
-    h3{font-size: 1.625rem;}
-    p{font-size: 1.625rem;}
     
     .web-page-header {
         height: 8.75em;
@@ -256,22 +350,18 @@ body{
 
     /* body content */
     .SupportMessage{
-        margin: 20.6875rem 29.01% 6.8125rem 29.01%;
+        margin: 16rem 29.01% 6.8125rem 29.01%;
         height: 11.8125rem;
     }
     
-    .SupportMessage p:first-child{
-        padding-top: 2.5rem;
-        font-size: 2.375rem;
-    }
+    .SupportMessage p:first-child{font-size: 2.375rem;}
     
-    .SupportMessage p:nth-child(2){
-        padding: 1.625rem 0rem 1.625rem 43.75rem;
-        font-size: 1.625rem;
-    }
+    .SupportMessage p:nth-child(2){font-size: 1.625rem;}
     
     .homeSubtitle{
         margin-left: 23.85%;
+        font-size: 2.375rem;
+        font-family: Georgia, 'Times New Roman', Times, serif;
     }
     
     .homeTop{
@@ -284,13 +374,9 @@ body{
         font-size: 1.625rem;
     }
     
-    .addbutton span{
-        margin-top: 1.5rem;
-    }
+    .addbutton span{margin-top: 1.5rem;}
 
-    .add{
-        width: 60.43%;
-    }
+    .add{width: 60.43%;}
     
     .iconpng{
         width: 1.875rem;
@@ -304,69 +390,48 @@ body{
     
     .record{
         height: 8.515625rem;
-        border-radius: 0.8rem;
         font-size: 1.625rem;
     }
     
     .recordPng{
-        padding: 0 1.93125rem 0 0.8625rem;
-        width: 13.5%;
+        padding: 0 4.5rem 0 2.1875rem;
+        width: 10.5%;
     }
+
+    .running{width: 3.87rem;}
+
+    .doses{width: 5.35rem;}
     
-    .record div:nth-child(2){
-        display: flex;
-        flex-direction: column;
-        height: 2.0625rem;
-        justify-content: space-between;
-    }
+    .record div:nth-child(2){height: 4.4375rem;}
     
     .tableTop{
-        display: flex;
-        flex-direction: column;
-        margin: auto auto 0.1875rem 1.75rem;
-        font-size: 0.5625rem;
+        margin: auto auto 0.9375rem 25.5625rem;
+        font-size: 1.25rem;
     }
     
-    .tableTop span{
-        display: flex;
-        align-items: center;
-        padding: 0.1875rem;
-    }
+    .tableTop span{padding: 0.3125rem;}
     
     .tableTop img{
-        width: 0.5625rem;
+        width: 2.3125rem;
         margin: auto 0.125rem;
     }
     
     .homeTable table{
-        margin: 0 1.75rem 0 1.75rem;
-        width: 85.07%;
-        border-collapse: collapse;
+        margin: 0 21.3% 0 21.3%;
+        width: 60.14%;
     }
     
-    .homeTable th,td{
-        border: 1px solid #CFCFCF;
-        font-size: 0.6875rem;
-        text-align: center;
-    }
+    .homeTable th,td,tr{font-size: 1.625rem;}
     
-    .slope{
-        border-bottom: 1px solid #CFCFCF;
-        -webkit-transform: rotate(18deg);
-    }
+    .slope{-webkit-transform: rotate(32deg);}
     
-    .homeTable td:nth-child(1){
-        width: 4.6875rem;
-        height: 2.5rem;
+    .homeTable td:nth-child(1), .homeTable th{
+        width: 16.5rem;
+        height: 6.625rem;
     }
-    
-    .homeTable th{
-        height: 1.8125rem;
-    }
-    
+
     .viewData{
-        text-align: center;
-        margin: 0.375rem;
-        font-size: 0.6875rem;
+        margin: 1.5rem;
+        font-size: 1.625rem;
     }
 }
