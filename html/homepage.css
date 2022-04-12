@@ -3,6 +3,10 @@
     margin: 0%;
 }
 
+body{
+    font-size: 16px;
+}
+
 .web-page-header{display: none;}
 
 .mobile-page-header{
@@ -94,10 +98,90 @@
 .addbutton span{
     margin-top: 0.5625rem;
     color: #668CB8;
+    display: flex;
+    align-items: center;
 }
 
-.bloodpng::after{
-    content: url(../30005image/blood_glucose.png);
+.homeMiddle{
+    width: 72.8%;
+    height: 8rem;
+    margin: 0.3125rem auto 2.265rem auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.record{
+    width: 100%;
+    height: 3.625rem;
+    border: 1px solid #CFCFCF;
+    border-radius: 0.8rem;
+    box-shadow: 3px 3px 3px #EDEDED;
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
+}
+
+.recordPng{
+    padding: 0 1.93125rem 0 0.8625rem;
+    width: 13.5%;
+}
+
+.record div:nth-child(2){
+    display: flex;
+    flex-direction: column;
+    height: 2.0625rem;
+    justify-content: space-between;
+}
+
+.tableTop{
+    display: flex;
+    flex-direction: column;
+    margin: auto auto 0.1875rem 1.75rem;
+    font-size: 0.5625rem;
+}
+
+.tableTop span{
+    display: flex;
+    align-items: center;
+    padding: 0.1875rem;
+}
+
+.tableTop img{
+    width: 0.5625rem;
+    margin: auto 0.125rem;
+}
+
+.homeTable table{
+    margin: 0 1.75rem 0 1.75rem;
+    width: 85.07%;
+    border-collapse: collapse;
+}
+
+.homeTable th,td{
+    border: 1px solid #CFCFCF;
+    font-size: 0.6875rem;
+    text-align: center;
+}
+
+.slope{
+    border-bottom: 1px solid #CFCFCF;
+    -webkit-transform: rotate(18deg);
+}
+
+.homeTable td:nth-child(1){
+    width: 4.6875rem;
+    height: 2.5rem;
+}
+
+.homeTable th{
+    height: 1.8125rem;
+}
+
+.viewData{
+    text-align: center;
+    margin: 0.375rem;
+    font-size: 0.6875rem;
 }
 
 @media screen and (min-width: 1400px){
@@ -169,4 +253,120 @@
         border: none;
         font-size: 1.875em;
     } 
+
+    /* body content */
+    .SupportMessage{
+        margin: 20.6875rem 29.01% 6.8125rem 29.01%;
+        height: 11.8125rem;
+    }
+    
+    .SupportMessage p:first-child{
+        padding-top: 2.5rem;
+        font-size: 2.375rem;
+    }
+    
+    .SupportMessage p:nth-child(2){
+        padding: 1.625rem 0rem 1.625rem 43.75rem;
+        font-size: 1.625rem;
+    }
+    
+    .homeSubtitle{
+        margin-left: 23.85%;
+    }
+    
+    .homeTop{
+        width: 33.65%;
+        margin: 0.25rem auto 4.875rem auto;
+    }
+    
+    .addbutton{
+        height: 17.3047rem;
+        font-size: 1.625rem;
+    }
+    
+    .addbutton span{
+        margin-top: 1.5rem;
+    }
+
+    .add{
+        width: 60.43%;
+    }
+    
+    .iconpng{
+        width: 1.875rem;
+    }
+
+    .homeMiddle{
+        width: 33.65%;
+        height: 18.8125rem;
+        margin: 0.25rem auto 4.875rem auto;
+    }
+    
+    .record{
+        height: 8.515625rem;
+        border-radius: 0.8rem;
+        font-size: 1.625rem;
+    }
+    
+    .recordPng{
+        padding: 0 1.93125rem 0 0.8625rem;
+        width: 13.5%;
+    }
+    
+    .record div:nth-child(2){
+        display: flex;
+        flex-direction: column;
+        height: 2.0625rem;
+        justify-content: space-between;
+    }
+    
+    .tableTop{
+        display: flex;
+        flex-direction: column;
+        margin: auto auto 0.1875rem 1.75rem;
+        font-size: 0.5625rem;
+    }
+    
+    .tableTop span{
+        display: flex;
+        align-items: center;
+        padding: 0.1875rem;
+    }
+    
+    .tableTop img{
+        width: 0.5625rem;
+        margin: auto 0.125rem;
+    }
+    
+    .homeTable table{
+        margin: 0 1.75rem 0 1.75rem;
+        width: 85.07%;
+        border-collapse: collapse;
+    }
+    
+    .homeTable th,td{
+        border: 1px solid #CFCFCF;
+        font-size: 0.6875rem;
+        text-align: center;
+    }
+    
+    .slope{
+        border-bottom: 1px solid #CFCFCF;
+        -webkit-transform: rotate(18deg);
+    }
+    
+    .homeTable td:nth-child(1){
+        width: 4.6875rem;
+        height: 2.5rem;
+    }
+    
+    .homeTable th{
+        height: 1.8125rem;
+    }
+    
+    .viewData{
+        text-align: center;
+        margin: 0.375rem;
+        font-size: 0.6875rem;
+    }
 }

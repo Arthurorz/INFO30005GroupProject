@@ -1,6 +1,7 @@
 *{
     font-family: 'Times New Roman', Times, serif;
     margin: 0%;
+
 }
 
 h1{font-size: 18px;}
@@ -233,7 +234,6 @@ h1{
 
 .container{
     padding: 0 4.8% 0 3.39%;
-
 }
 
 .container input{
@@ -280,9 +280,8 @@ h1{
     ::placeholder{font-size: 1.2rem;}
 
     .login{
-        margin: 300px 20.67% 0 20.67%;
+        margin: 265px 24.17% 0 24.17%;
     }
-
     .container input{
         height: 2.5rem;
     }
@@ -291,7 +290,7 @@ h1{
         height: 3rem;
         width: 8.0625rem;
         font-size: 1.5rem;
-        margin: 0.75rem 14.6875rem;
+        margin: 0.75rem 12.5rem;
     }
 }
 
@@ -362,12 +361,13 @@ h1{
     ::placeholder{font-size: 1.25rem;}
 
     .login{
-        margin: 265px 34.17% 0 34.17%;
+        margin: 400px 34.17% 0 34.17%;
     }
 
     .rememberMe{
         font-size: 1.25rem;
-        padding: 0 12% 0 13.16%;}
+        padding: 0 12% 0 13.16%;
+    }
 
     .container {
         padding: 0 13.16% 0 13.16%;
