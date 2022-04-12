@@ -74,8 +74,7 @@ main{
 }
 
 .topleft, .topright{
-    display: inline;
-    
+    display: inline; 
 }
 
 .topleft{
@@ -140,17 +139,16 @@ form{
 input{
     background: transparent;
     padding-left: 1rem;
+    font-size: 26px;
     color: inherit;
     border: 1px solid transparent;
     border-radius: inherit;
     width: 80%;
-    font-size: 26px;
+    font-style: italic;
   }
   
-::placeholder {
+input::placeholder {
     color: #CFCFCF;
-    font-style: italic;
-    border-color: none;
 }
 
 form button{
@@ -160,6 +158,7 @@ form button{
     border-radius: 0 0.5rem 0.5rem 0;
     width: 1.75rem;
 }
+
 form button img{
     text-indent: -999px;
     overflow: hidden;

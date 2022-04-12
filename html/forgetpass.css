@@ -3,57 +3,6 @@
     margin: 0%;
 }
 
-.mobile-page-header{
-    height: 55px;
-    width: 100%;
-    background-color: #668cbb;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    line-height: 55px;
-    top: 0;
-    left: 0;
-    z-index: 1;
-}
-
-.mobile-page-header div{
-    display: flex;
-    align-items: center;
-    width: 76px;
-}
-
-.mobile-page-header div:first-child{
-    padding-left: 2.67%;
-}
-
-.mobile-page-header div:last-child{
-    padding-right: 2.67%;
-    display: flex;
-    justify-content: end;
-}
-
-.mobile-logo{
-    height: 48px;
-    width: 76px;
-}
-
-.nav-login{
-    color: #668CB8;
-    background-color: #FFFFFF;
-    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
-    border-radius: 8px;
-    width: 59px;
-    height: 38px;
-    border: none;
-}
-
-
-
-/*{
-    font-family: 'Times New Roman', Times, serif;
-    margin: 0%;   
-}
-
 .page-header {
     height: 8.75em;
     width: 100%;
@@ -92,13 +41,7 @@
     width: 11.6875em;
 }
 
-.header-navBar {
-    font-size: 30px;
-    display: flex;
-    justify-content: space-between
-}
-
-.header-navBar a{
+.header-navBar a {
     display: none;
 }
 
@@ -114,13 +57,13 @@
 } 
 
 main{
-    margin-top: 8.75em;
+    margin-top: 140px;
     font-size: 26px;
 }
 
 .forgetpass-backarrow{
     width: 100%;
-    padding-top: 5rem;
+    margin-top: 222px;
     display: flex;
     align-items: center;
     height: 39px;
@@ -160,7 +103,6 @@ label{
     width: 100%;
     margin: 0.563rem 0 1.125rem;
     height: 3.063rem;
-    /*padding-left: 1rem;*/
     border-radius: 0.625rem;
     border: 1px solid #707070;
     outline: none;
@@ -176,6 +118,7 @@ label{
     width: 18.625rem;
     text-align: center;
     margin: 0 9.688rem 2.313rem 9.688rem;
+    
 }
 
 button.sentcode{
@@ -195,6 +138,7 @@ button.sentcode{
     margin: 0.688rem 0 0 0;
     border-radius: 0.5rem;
     text-align: center;
+
 }
 
 .sendcode ::placeholder{

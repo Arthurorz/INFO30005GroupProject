@@ -1,0 +1,114 @@
+.page-header{display: none;}
+
+.background{
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%, 5%);
+    z-index: -1;
+}
+
+.background img{width: 375px;}
+
+.mobile-page-header{
+    height: 55px;
+    width: 100%;
+    background-color: #668cbb;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    line-height: 55px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.mobile-page-header div{
+    display: flex;
+    align-items: center;
+    width: 76px;
+}
+
+.mobile-page-header div:first-child{
+    padding-left: 2.67%;
+}
+
+.mobile-page-header div:last-child{
+    padding-right: 2.67%;
+    display: flex;
+    justify-content: end;
+}
+
+.mobile-logo{
+    height: 48px;
+    width: 76px;
+}
+
+.nav-login{
+    color: #668CB8;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 8px;
+    width: 59px;
+    height: 38px;
+    border: none;
+}
+
+@media screen and (min-width: 1400px){
+    .mobile-page-header{
+        display: none;
+    }
+
+    .page-header {
+        height: 8.75em;
+        width: 100%;
+        background-color: #668cbb;
+        position: fixed;
+        display: flex;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    
+    .page-header div{
+        display: flex;
+        align-items: center;
+    }
+    
+    .page-header div:first-child{
+        padding-left: 2.5%;
+        width: 9.54%;
+    }
+    
+    .page-header div:nth-child(2){
+        padding-left: 13.9%;
+        padding-right: 11.25%;
+        width: 49.54%;
+    }
+    
+    .page-header div:last-child{
+        padding-right: 2.5%;
+        justify-content: end;
+        width: 10.99%;
+    }
+    
+    .header-logo{
+        height: 7.4375em;
+        width: 11.6875em;
+    }
+    
+    .header-navBar a {
+        display: none;
+    }
+    
+    .header-logOut{
+        color: #668CB8;
+        background-color: #FFFFFF;
+        box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+        border-radius: 8px;
+        width: 6.3125em;
+        height: 2.0625em;
+        border: none;
+        font-size: 1.875em;
+    }   
+}  

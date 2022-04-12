@@ -8,14 +8,21 @@
     <link rel="stylesheet" href="forgetpass.css">
 </head>
 <body>
-    <header class="mobile-page-header">
-        <div><img style="display: none" class="mobile-menu" src="./30005image/mobile-menu.png" alt="mobile-menu"></div>
-        <div><img class="mobile-logo" src="./30005image/mobile-logo.png" alt="mobile-logo"></div>
-        <div><button class="nav-login" type="button">Login</button></div>
+    <header class="page-header">
+        <div><a href=""><img class="header-logo" src="./30005image/mobile-logo.png" alt="logo"></a></div>
+        <div class="header-navBar">
+            <!-- 这里要写链接-->
+            <a href="">DASHBOARD</a>
+            <a href="">COMMENT</a>
+            <a href="">NEW PATIENT</a>
+            <a href="">ABOUT ME</a>
+        </div>
+        <div><button class="header-logOut" onclick="window.location.href=''" type="button">Log Out</button></div>
+        <!-- <div><a href=""><button class="header-logOut" type="button">Log Out</button></a></div> -->
     </header>
     <main>
         <div class="forgetpass-backarrow" >
-        <img src="./30005image/mobile-arrow-back.png" alt="mobile-arrow-back">
+            <img src="./30005image/mobile-arrow-back.png" alt="mobile-arrow-back">
         </div>
         <div class="middle">
             <h1>Forget Password</h1>
@@ -29,11 +36,12 @@
             </div>
             <div class="sendcode">
                 <button class="sentcode">Send Authentication Code</button>
-                <input type="text" id="text" name="text" placeholder="enter the code">
+                <input type="number" id="number" name="number" placeholder="enter the code">
             </div>
-
+            
             <button class="middle-login" onclick="window.location.href=''" type="button">Login</button>
         </div>
-    </main> 
+    </main>
+    
 </body>
 </html>
