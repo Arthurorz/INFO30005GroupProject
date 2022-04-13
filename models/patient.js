@@ -9,7 +9,7 @@ const schema = new mongoose.Schema({
     yearofbirth: {type:String, required: true},
     height: {type:Number, required: true},
     records: [{
-        record_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Record',trim}
+        record_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Record'}
     }],
     brief_bio: {type:String},
     engagement:{type:Number},

@@ -1,9 +1,18 @@
+// Import handlebars
 const exphbs = require('express-handlebars')
 
 // Import express
 const express = require('express')
 // Set your app up as an express app
 const app = express()
+
+//connect to database
+require('./models/db.js')
+
+//test
+const patientRouter = require('./routes/patientRouter.js')
+
+
 
 // configure Handlebars
 app.engine(
@@ -26,6 +35,11 @@ app.use(express.urlencoded({ extended: false })) // only needed for URL-encoded 
 app.get('/', (req, res) => {
     res.render("normal-landingPage")
 }); 
+// app.get('/', (req, res) => {
+//     res.send('Our demo app is working!')
+// });
+
+// app.get('/patients', patientRouter)
 
 app.get('/patient', (req, res) => {
     res.render("normal-landingPage", {
