@@ -9,8 +9,9 @@ const schema = new mongoose.Schema({
     patients: [{
         patient_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Patient'}
     }],
-    brief_bio: {type:String}
+    brief_bio: {type:String},
+    photo:{stype:String}
 })
 
-const Patient = mongoose.model('Clinician', schema);
+const Clinician = mongoose.model('Clinician', schema);
 module.exports = Clinician;
