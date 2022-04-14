@@ -1,0 +1,53 @@
+* {
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0%;
+}
+
+h1 {
+    font-size: 38px;
+    font-weight: normal;
+}
+
+.clinician-header {
+    height: 8.75rem;
+    width: 100%;
+    background-color: #668cbb;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.clinician-header div:first-child{
+    padding-left: 2.5%;
+}
+
+.clinician-header div:last-child {
+    padding-right: 1%;
+    justify-content: end;
+}
+
+.clinician-logo {
+    height: 7.4375rem;
+    width: 11.6875rem;
+}
+
+.clinician-navBar a {
+    font-size: 30px;
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.clinician-logOut {
+    color: #668CB8;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 1.25rem;
+    width: 13.1875rem;
+    height: 4.375rem;
+    border: none;
+    font-size: 1.875em;
+} 

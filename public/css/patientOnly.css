@@ -1,3 +1,64 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0%;
+}
+
+html{font-size: 16px;}
+
+.patient-web-header{
+    display: none;
+}
+
+.patient-mobile-header{
+    height: 55px;
+    width: 100%;
+    background-color: #668cbb;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    line-height: 55px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.patient-mobile-header div{
+    display: flex;
+    align-items: center;
+    width: 76px;
+}
+
+.patient-mobile-header div:first-child{
+    padding-left: 2.67%;
+}
+
+.patient-mobile-header div:last-child{
+    padding-right: 2.67%;
+}
+
+.patient-mobile-logo{
+    height: 48px;
+    width: 76px;
+}
+.patient-mobile-aboutMe{
+    /* 记得改大小和图片 */
+    height: 48px;
+    width: 76px;
+}
+
+.SupportMessage{
+    background-color: #BBD9F6;
+    border-radius: 0.875rem;
+    margin: 5.0625rem 10.13% 2.625rem 10.13%;
+    height: 4.375rem;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+
 .SupportMessage{
     background-color: #BBD9F6;
     border-radius: 0.875rem;
@@ -140,9 +201,53 @@
 }
 
 @media screen and (min-width: 1400px){
-    .mobile-page-header{
+    .patient-mobile-header{
         display: none;
     }
+    
+    .patient-web-header {
+        height: 8.75em;
+        width: 100%;
+        background-color: #668cbb;
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    
+    .patient-web-header div:first-child{
+        padding-left: 2.5%;
+    }
+    
+    .patient-web-header div:last-child{
+        padding-right: 1%;
+        justify-content: end;
+    }
+    
+    .patient-web-logo{
+        height: 7.4375rem;
+        width: 11.6875rem;
+    }
+    
+    .patient-web-navBar a{
+        font-size: 30px;
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+    
+    .patient-web-logOut{
+        color: #668CB8;
+        background-color: #FFFFFF;
+        box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+        border-radius: 20px;
+        width: 6.3125em;
+        height: 2.0625em;
+        border: none;
+        font-size: 1.875em;
+    } 
 
     .SupportMessage{
         margin: 14rem 29.01% 4.8125rem 29.01%;

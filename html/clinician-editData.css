@@ -14,29 +14,36 @@ h1{
     background-color: #668cbb;
     position: fixed;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
     top: 0;
     left: 0;
     z-index: 1;
 }
 
-.page-header div{
+/* .header {
+    display: flex;
+    justify-content: space-between;
+} */
+
+/* .page-header div{
     display: flex;
     align-items: center;
-}
+}*/
 
 .page-header div:first-child{
     padding-left: 2.5%;
-    width: 9.54%;
+    /* width: 9.54%; */
 }
 
-.page-header div:nth-child(2){
+/* .page-header div:nth-child(2){
     padding-left: 13.9%;
     padding-right: 11.25%;
     width: 49.54%;
-}
+} */
 
 .page-header div:last-child{
-    padding-right: 2.5%;
+    padding-right: 1%;
     justify-content: end;
     width: 10.99%;
 }
@@ -48,8 +55,8 @@ h1{
 
 .header-navBar {
     font-size: 30px;
-    display: flex;
-    justify-content: space-between
+    /* display: flex;
+    justify-content: space-between */
 }
 
 .header-navBar a{
