@@ -3,10 +3,7 @@
     margin: 0%;
 }
 
-body{
-    font-size: 16px;
-}
-
+html{font-size: 16px;}
 .web-page-header{display: none;}
 
 .mobile-page-header{
@@ -139,7 +136,7 @@ body{
 .tableTop{
     display: flex;
     flex-direction: column;
-    margin: auto auto 0.1875rem 1.75rem;
+    margin: auto auto 0.1875rem 7%;
     font-size: 0.5625rem;
 }
 
@@ -155,7 +152,7 @@ body{
 }
 
 .homeTable table{
-    margin: 0 1.75rem 0 1.75rem;
+    margin: 0 auto;
     width: 85.07%;
     border-collapse: collapse;
 }
@@ -187,7 +184,12 @@ body{
 }
 
 @media screen and (min-width: 800px) and (max-width: 1400px){
-    .SupportMessage{
+    html{font-size: 24px;}
+
+    .homeTop{width: 52.5%;}
+
+    .homeMiddle{width: 52.5%;}
+    /* .SupportMessage{
         height: 7.8125rem;
         margin-top: 8rem;
     }
@@ -265,7 +267,7 @@ body{
     .viewData{
         margin: 1.5rem;
         font-size: 1.625rem;
-    }
+    } */
 }
 
 @media screen and (min-width: 1400px){
@@ -332,20 +334,19 @@ body{
         border: none;
         font-size: 1.875em;
     } 
-
-    /* body content */
+    
     .SupportMessage{
-        margin: 16rem 29.01% 6.8125rem 29.01%;
-        height: 11.8125rem;
+        margin: 14rem 29.01% 4.8125rem 29.01%;
+        height: 7.8125rem;
     }
     
-    .SupportMessage p:first-child{font-size: 2.375rem;}
+    .SupportMessage p:first-child{font-size: 1.875rem;}
     
-    .SupportMessage p:nth-child(2){font-size: 1.625rem;}
+    .SupportMessage p:nth-child(2){font-size: 1.375rem;}
     
     .homeSubtitle{
         margin-left: 23.85%;
-        font-size: 2.375rem;
+        font-size: 1.875rem;
         font-family: Georgia, 'Times New Roman', Times, serif;
     }
     
@@ -363,9 +364,7 @@ body{
 
     .add{width: 60.43%;}
     
-    .iconpng{
-        width: 1.875rem;
-    }
+    .iconpng{width: 1.875rem;}
 
     .homeMiddle{
         width: 33.65%;
@@ -390,7 +389,7 @@ body{
     .record div:nth-child(2){height: 4.4375rem;}
     
     .tableTop{
-        margin: auto auto 0.9375rem 25.5625rem;
+        margin: auto auto 0.9375rem 21%;
         font-size: 1.25rem;
     }
     
@@ -420,3 +419,14 @@ body{
         font-size: 1.625rem;
     }
 }
+
+
+
+
+
+
+
+
+
+
+

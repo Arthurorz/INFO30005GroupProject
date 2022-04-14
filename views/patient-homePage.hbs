@@ -1,0 +1,92 @@
+        <div class="SupportMessage">
+            <p>Don't give up and dont't give in.</p>
+            <p>——&nbsp;Doctor White</p>
+        </div>
+        <p class="homeSubtitle">My Plans</p>
+        <div class="homeTop">
+            <div class="addbutton">
+                <img class="add" src="../30005image/addbutton.png" alt="Blood Glucose">
+                <span>Blood Glucose<img class="iconpng" src="../30005image/blood_glucose.png" alt="bloodpng"></span>
+            </div>
+            <div class="addbutton">
+                <img class="add" src="../30005image/addbutton.png" alt="Weight">
+                <span>Weight&nbsp;<img class="iconpng" src="../30005image/weightscale.png" alt="weightpng"></span>
+            </div>
+        </div>
+        <p class="homeSubtitle">Recorded Data</p>
+        <div class="homeMiddle">
+            <div class="record">
+                <div class="recordPng">
+                    <div><img class="running" src="../30005image/running.png" alt=""></div>
+                </div>
+                <div>
+                    <span>Exercise: 10635</span>
+                    <span>2022/03/20 2PM</span>
+                </div>
+            </div>
+            <div class="record">
+                <div class="recordPng">
+                    <div><img class="doses" src="../30005image/doses.png" alt=""></div>
+                </div>
+                <div>
+                    <span>Doses of Insulin Taken: 3 Doses</span>
+                    <span>2022/03/20 5PM</span>
+                </div>
+            </div>
+        </div>
+        <div class="tableTop">
+            <span><img src="../30005image/redcircle.png">Above normal range</span>
+            <span><img src="../30005image/greycircle.png">Below normal range</span>
+            <span><img src="../30005image/Icon awesome-question-circle.png">Data was not recorded</span>
+        </div>
+        <div class="homeTable">
+            <table>
+                <tr>
+                    <th class="leftone"><div class="slope"></div></th>
+                    {{#each data}}
+                        <th>{{this.date}}</th>
+                    {{/each}}
+                </tr>
+                <tr>
+                    <td class="name">Weight<br>(Kg)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="name">Exercise<br>(Step)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="name">Doses of Insulin Taken<br>(Doses)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="name">Blood Glucose Level<br>(nmol/L)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <p class="viewData">View More Data &nbsp;></p>
