@@ -265,6 +265,8 @@ h1{
     font-size: 0.75rem;
 }
 
+.rememberMe .checkbox{width: 10px;}
+
 .middle-login{
     height: 2rem;
     width: 5.0625rem;
@@ -382,6 +384,11 @@ h1{
         padding: 0 12% 0 13.16%;
     }
 
+    .rememberMe .checkbox {
+        width: 20px;
+        height: 20px;
+    }
+
     .container {
         padding: 0 13.16% 0 13.16%;
     }
@@ -389,6 +396,7 @@ h1{
     .container input{
         height: 3.0625rem;
         margin: 0.5625rem 0 1.125rem;
+        font-size: 1.5rem;
     }
 
     .middle-login{

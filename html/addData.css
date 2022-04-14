@@ -91,20 +91,17 @@
 #addData{
     height: 31.21%;
     text-align: center;
+    font-size: 2.75rem;
 }
 
 #addComment{
-    height: 58.77%;
-
+    height: 55.77%;
+    padding: 0.625rem 0 0 0.625rem;
 }
 
-#addData ::-webkit-input-placeholder{
-    text-align: center;
-}
+#addData ::-webkit-input-placeholder{text-align: center;}
 
-#addComment ::-webkit-input-placeholder{
-    padding: 0.875rem;
-}
+.addSave{margin: 0 auto;}
 
 @media screen and (min-width: 1400px){
     .mobile-page-header{
