@@ -29,5 +29,6 @@ const schema = new mongoose.Schema({
     date: {type: Date, default: null, required: true},
 })
 
+// Create collection records in mongodb
 const Record = mongoose.model('Record', schema);
 module.exports = Record;

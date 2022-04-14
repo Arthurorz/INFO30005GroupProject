@@ -1,10 +1,11 @@
-//用不了
 const Patient = require('../models/patient.js');
 
 const getAllPatientData = async(req, res, next) => {
     try{
-        const patients = await Patient.find().lean()
-        return res.render('allData',{data:patients})
+        console.log("getAllPatientData");
+        const patients = await Patient.find().lean();
+        console.log(patients);
+        return res.render("normal-landingPage",{data:patients})
     }catch(err){
         return next(err)
     }

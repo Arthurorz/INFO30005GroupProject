@@ -7,7 +7,10 @@ const express = require('express')
 const app = express()
 
 //connect to database
-require('./models/db.js')
+require('./models/db')
+require('./models/patient')
+require('./models/record')
+
 
 //test
 const patientRouter = require('./routes/patientRouter.js')
@@ -32,14 +35,14 @@ app.use(express.json()) // needed if POST data is in JSON format
 app.use(express.urlencoded({ extended: false })) // only needed for URL-encoded input
 
 // Tells the app to send the string: "Our demo app is working!" when you hit the '/' endpoint.
-app.get('/', (req, res) => {
-    res.render("normal-landingPage")
-}); 
 // app.get('/', (req, res) => {
-//     res.send('Our demo app is working!')
-// });
+//     res.render("normal-landingPage")
+// }); 
+app.get('/', (req, res) => {
+    res.send('Our demo app is working!')
+});
 
-// app.get('/patients', patientRouter)
+app.get('/patients', patientRouter)
 
 app.get('/patient', (req, res) => {
     res.render("normal-landingPage", {
