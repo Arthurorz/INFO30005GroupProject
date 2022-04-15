@@ -59,10 +59,11 @@
     border: none;
 }
 
-.mobile-title{
+h1{
     margin: 5.0625rem auto 1.5625rem auto;
     text-align: center;
     font-size: 1.125rem;
+    font-weight: 100;
 }
 
 .normalRange{
@@ -80,6 +81,13 @@
     flex-direction: column;
     justify-content: space-between;
     height: 14.25rem;
+    position: relative;
+}
+
+.dataInput span{
+    position: absolute;
+    left: 62%;
+    top: 16.5%;
 }
 
 .dataInput input, textarea{
@@ -97,11 +105,30 @@
 #addComment{
     height: 55.77%;
     padding: 0.625rem 0 0 0.625rem;
+    font-size: 0.75rem;
 }
 
 #addData ::-webkit-input-placeholder{text-align: center;}
 
-.addSave{margin: 0 auto;}
+.saveButton{
+    display: block;
+    margin: 1.5rem auto;
+    width: 4.4375rem;
+    height: 1.8125rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: white;
+    background-color: #668CB8;
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1400px){
+    html{font-size: 24px;}
+
+    .normalRange{width: 68.33%;}
+    
+    .dataInput{width: 68.33%;}
+}
 
 @media screen and (min-width: 1400px){
     .mobile-page-header{
@@ -160,4 +187,38 @@
         border: none;
         font-size: 1.875em;
     } 
+
+    h1{
+        margin: 13.75rem auto 3.9375rem auto;
+        font-size: 2.375rem;
+    }
+    
+    .normalRange{
+        width: 47.4%;
+        font-size: 1.625rem;
+    }
+    
+    .dataInput{
+        width: 47.4%;
+        height: 33.625rem;
+    }
+
+    .dataInput span{
+        top: 17.5%;
+        font-size: 1.625rem;
+    }
+    
+    #addData{font-size: 5.625rem;}
+    
+    #addComment{
+        font-size: 1.625rem;
+        padding: 1rem 0 0 1rem;
+    }
+
+    .saveButton{
+        margin: 1.5rem auto;
+        width: 11.375rem;
+        height: 4.5rem;
+        font-size: 2.215rem;
+    }
 }

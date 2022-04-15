@@ -268,6 +268,7 @@ h1{
 .rememberMe .checkbox{width: 10px;}
 
 .middle-login{
+    display: block;
     height: 2rem;
     width: 5.0625rem;
     color: white;
@@ -275,13 +276,13 @@ h1{
     border-radius: 0.5rem;
     border: none;
     font-size: 1rem;
-    margin: 0.75rem 6.6875rem;
+    margin: 0.75rem auto;
 }
 
 @media screen and (min-width: 800px) and (max-width: 1400px) {
     html{font-size: 24px;}
 
-    .middle-login{margin: 0.75rem 38.5%;} 
+    .middle-login{margin: 0.75rem auto;} 
 
     .login{
         margin: 265px 24.17% 0 24.17%;
@@ -400,9 +401,10 @@ h1{
     }
 
     .middle-login{
+        display: block;
         height: 3.875rem;
         width: 25.82%;
         font-size: 2.215rem;
-        margin:  2rem 14.2rem;
+        margin: 2rem auto;
     }
 }

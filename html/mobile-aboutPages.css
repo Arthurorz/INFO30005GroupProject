@@ -162,6 +162,7 @@ p{font-size: 0.875rem;}
 
 @media screen and (min-width: 800px) and (max-width: 1400px) {
 html{font-size: 24px;}
+iframe{height: 400px;}
 /* h1{font-size: 1.75rem;}
 h2{font-size: 1.7rem;}
 h3{font-size: 1.5rem;}
@@ -277,9 +278,9 @@ p{font-size: 1.625rem;}
 
 .aboutDia-footer{padding: 1.875em 0px;}
 
-.aboutWeb-body{padding: 100px 0 0 0;}
+.aboutWeb-body{padding: 3.9375rem 0 0 0;}
 
-.aboutDia-body{padding: 100px 0 0 0;}
+.aboutDia-body{padding: 3.9375rem 0 0 0;}
 
 .article h2{padding: 0 0 0.6875em 0;}
 
