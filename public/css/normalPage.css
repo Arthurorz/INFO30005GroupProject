@@ -1,0 +1,99 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0%;
+}
+
+h1{font-size: 1.125rem;}
+h2{font-size: 1rem;}
+h3{font-size: 0.875rem;}
+p{font-size: 0.875rem;}
+
+.normal-logo-left{display: none;}
+
+.normal-header{
+    height: 55px;
+    width: 100%;
+    background-color: #668cbb;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    line-height: 55px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.normal-header div{
+    display: flex;
+    align-items: center;
+    width: 76px;
+}
+
+.normal-header div:first-child{
+    padding-left: 2.67%;
+}
+
+.normal-header div:last-child{
+    padding-right: 2.67%;
+    display: flex;
+    justify-content: end;
+}
+
+.normal-logo-center{
+    height: 48px;
+    width: 76px;
+}
+
+.normal-mobile-login{
+    color: #668CB8;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 8px;
+    width: 59px;
+    height: 38px;
+    border: none;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1400px) {
+    html{font-size: 24px;}
+}
+
+
+/* 要改里面的rem！！！ */
+@media screen and (min-width: 1400px){
+    main{margin-top: 200px;}
+
+    .normal-logo-center{display: none;}
+    .normal-logo-left{display: flex;}
+
+    h1 {
+        font-size: 38px;
+        font-weight: normal;
+    }
+    
+    .normal-header {
+        height: 8.75rem;
+    }
+    
+    .normal-header div:first-child{
+        padding-left: 2.5%;
+        display: flex;
+    }
+    
+    .normal-header div:last-child {
+        padding-right: 1%;
+    }
+    
+    .normal-logo-left {
+        height: 7.4375rem;
+        width: 11.6875rem;
+    }
+    
+    .normal-mobile-login {
+        border-radius: 1.25rem;
+        width: 13.1875rem;
+        height: 4.375rem;
+        font-size: 1.875em;
+    } 
+}

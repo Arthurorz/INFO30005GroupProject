@@ -41,13 +41,17 @@ app.use(express.urlencoded({ extended: false })); // only needed for URL-encoded
 // }); 
 
 app.get('/', (req, res) => {
-    res.send('Our demo app is working!')
+    res.send('Our demo app is working!');
+});
+
+app.get('/normal', (req, res) => {
+    res.render("normal-landingPage");
 });
 
 app.get('/patients', patientRouter);
 
 app.get('/patient', (req, res) => {
-    res.render("normal-landingPage", {
+    res.render("patient-homePage", {
         layout: "patient.hbs",
     }); 
 }); 
@@ -55,7 +59,7 @@ app.get('/patient', (req, res) => {
 app.get('/clinician', (req, res) => {
     res.render("normal-landingPage",{
         layout: "clinician.hbs",
-    })
+    });
 }); 
 
 // Tells the app to listen on port 3000 and logs that information to the console. 

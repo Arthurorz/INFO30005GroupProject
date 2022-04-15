@@ -34,6 +34,7 @@ html{font-size: 16px;}
 
 .patient-mobile-header div:last-child{
     padding-right: 2.67%;
+    justify-content: end;
 }
 
 .patient-mobile-logo{
@@ -42,8 +43,8 @@ html{font-size: 16px;}
 }
 .patient-mobile-aboutMe{
     /* 记得改大小和图片 */
-    height: 48px;
-    width: 76px;
+    height: 29px;
+    width: 29px;
 }
 
 .SupportMessage{
