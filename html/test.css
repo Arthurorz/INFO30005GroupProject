@@ -6,7 +6,9 @@
 a {
     text-decoration: none;
 }
-
+.patient-web-logOut{
+    display: none;
+}
 .patient-web-header{
     display: none;
 }
@@ -31,9 +33,9 @@ a {
     transition: 0.3s ease;
     border-radius: 5px;
 }
-.menu li + li {
+/* .menu li + li {
     margin-top: 12px;
-}
+} */
 input[type=checkbox]:checked ~ .menu{
     display: block;
 }
@@ -73,6 +75,7 @@ html{font-size: 16px;}
     left: 0;
     z-index: 1;
     color: #fff;
+    font-size: 20px;
 }
 
 .patient-mobile-header div{
@@ -85,9 +88,13 @@ html{font-size: 16px;}
     padding-left: 2.67%;
 }
 
-.patient-mobile-header div:last-child{
+.patient-mobile-header div:nth-child(3){
     padding-right: 2.67%;
     justify-content: end;
+}
+
+.patient-mobile-header div:last-child{
+    display: none;
 }
 
 .patient-mobile-logo{
@@ -109,33 +116,57 @@ html{font-size: 16px;}
 }
 
 @media screen and (min-width: 1400px){
-    .patient-mobile-header{
+    /* .patient-mobile-header{
+        display: none;
+    } */
+
+    .patient-mobile-aboutMe{
         display: none;
     }
+
+    /* .patient-mobile-header div:first-child{
+        padding-left: 2.67%;
+        justify-content: start;
+    } */
     
-    .patient-web-header {
-        height: 8.75em;
+    .patient-mobile-header {
+        height: 8.75rem;
         width: 100%;
         background-color: #668cbb;
         position: fixed;
         display: flex;
-        justify-content: space-between;
+        /* justify-content: space-between; */
+        /* justify-content: start; */
+        justify-content: flex-start;
         align-items: center;
         top: 0;
         left: 0;
         z-index: 1;
     }
+
+    /* .patient-mobile-header div{
+        width: 500px;
+    } */
+
+    .patient-mobile-header div:first-child{
+        padding-left: 0px;
+        width: 0px;
+        /* padding-left: 2.5%; */
+    }
     
-    .patient-web-header div:first-child{
+    .patient-mobile-header div:nth-child(2){
+        justify-content: start;
         padding-left: 2.5%;
+        /* margin-left: 0px; */
     }
     
-    .patient-web-header div:last-child{
-        padding-right: 1%;
-        justify-content: end;
+    .patient-mobile-header div:last-child{
+        display: block;
+        padding-left: 1400px;
+        /* justify-content: end; */
     }
     
-    .patient-web-logo{
+    .patient-mobile-logo{
         height: 7.4375rem;
         width: 11.6875rem;
     }
@@ -147,6 +178,7 @@ html{font-size: 16px;}
     }
     
     .patient-web-logOut{
+        display: block;
         color: #668CB8;
         background-color: #FFFFFF;
         box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
@@ -155,5 +187,47 @@ html{font-size: 16px;}
         height: 2.0625em;
         border: none;
         font-size: 1.875em;
+        justify-content: end;
     } 
+
+    .hamburger {
+        display: none;
+        user-select: none;
+    }
+
+    .menu {
+        text-align: center;
+        display: flex;
+        gap: 1em;
+        font-size: 18px;
+        /* left: 250px;
+        right: 280px; */
+        align-items: center;
+        left: 13%;
+        right: 14.6%;
+        justify-content: space-between;
+        line-height: 55px;
+        margin-top: 0px;
+        background-color: #668cbb;
+        font-size: 30px;
+        padding: 5px 14px;
+    }
+    .menu li:hover {
+        display: inline-block;
+        background-color: #87b7f2;
+        border-radius: 5px;
+        transition: 0.3s ease;
+        /* height: 50px; */
+    }
+    /* .menu li {
+        padding: 5px 14px;
+    } */
+    
+    /* a {
+        text-decoration: none;
+    } */
+    li {
+        list-style: none;
+    }
+    
 }
