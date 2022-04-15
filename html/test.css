@@ -1,0 +1,190 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0%;
+}
+
+a {
+    text-decoration: none;
+}
+li {
+    list-style: none;
+}
+
+.nav-links a {
+    color: #fff;
+}
+.menu { 
+    display:none;
+    width: 150px;
+    /* position: absolute; */
+    background-color:#668cbb;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding-top: 55px;
+    padding: 55px 0;
+}
+.menu li:hover {
+    display: inline-block;
+    background-color:#668cbb;
+    transition: 0.3s ease;
+}
+.menu li + li {
+    margin-top: 12px;
+}
+input[type=checkbox]:checked ~ .menu{
+    display: block;
+}
+.hamburger {
+    display: block;
+}
+
+.menu li {
+    padding: 5px 14px;
+}
+
+/*RESPONSIVE NAVBAR MENU STARTS*/
+/* CHECKBOX HACK */
+input[type=checkbox]{
+    display: none;
+} 
+
+/*HAMBURGER MENU*/
+/* .hamburger {
+    display: none;
+    font-size: 24px;
+    user-select: none;
+} */
+
+
+html{font-size: 16px;}
+
+.patient-web-header{
+    display: none;
+}
+
+.patient-mobile-header{
+    height: 55px;
+    width: 100%;
+    background-color: #668cbb;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    line-height: 55px;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    color: #fff;
+    font-size: 20px;
+}
+
+.patient-mobile-header div{
+    display: flex;
+    align-items: center;
+    width: 76px;
+}
+
+.patient-mobile-header div:first-child{
+    padding-left: 2.67%;
+}
+
+.patient-mobile-header div:last-child{
+    padding-right: 2.67%;
+    justify-content: end;
+}
+
+.patient-mobile-logo{
+    height: 48px;
+    width: 76px;
+}
+.patient-mobile-aboutMe{
+    /* 记得改大小和图片 */
+    height: 29px;
+    width: 29px;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1400px){
+    html{font-size: 24px;}
+
+    .homeTop{width: 52.5%;}
+
+    .homeMiddle{width: 52.5%;}
+}
+
+@media screen and (min-width: 1400px){
+    /* .patient-mobile-header{
+        display: none;
+    } */
+    
+    .patient-web-header {
+        height: 8.75em;
+        width: 100%;
+        background-color: #668cbb;
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        top: 0;
+        left: 0;
+        z-index: 1;
+    }
+    
+    .patient-web-header div:first-child{
+        padding-left: 2.5%;
+    }
+    
+    .patient-web-header div:last-child{
+        padding-right: 1%;
+        justify-content: end;
+    }
+    
+    .patient-web-logo{
+        height: 7.4375rem;
+        width: 11.6875rem;
+    }
+    
+    .patient-web-navBar a{
+        font-size: 30px;
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+    
+    .patient-web-logOut{
+        color: #668CB8;
+        background-color: #FFFFFF;
+        box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+        border-radius: 20px;
+        width: 6.3125em;
+        height: 2.0625em;
+        border: none;
+        font-size: 1.875em;
+    } 
+}
+
+/* APPLYING MEDIA QUERIES */
+/* @media (max-width: 768px) {
+    .menu { 
+        display:none;
+        position: absolute;
+        background-color:teal;
+        right: 0;
+        left: 0;
+        text-align: center;
+        padding: 16px 0;
+    }
+    .menu li:hover {
+        display: inline-block;
+        background-color:#4c9e9e;
+        transition: 0.3s ease;
+    }
+    .menu li + li {
+        margin-top: 12px;
+    }
+    input[type=checkbox]:checked ~ .menu{
+        display: block;
+    }
+    .hamburger {
+        display: block;
+    }
+
+} */
