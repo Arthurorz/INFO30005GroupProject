@@ -6,8 +6,9 @@
 a {
     text-decoration: none;
 }
-li {
-    list-style: none;
+
+.patient-web-header{
+    display: none;
 }
 
 .nav-links a {
@@ -15,19 +16,20 @@ li {
 }
 .menu { 
     display:none;
-    width: 150px;
-    /* position: absolute; */
+    position: absolute;
     background-color:#668cbb;
     right: 0;
     left: 0;
     text-align: center;
-    padding-top: 55px;
-    padding: 55px 0;
+    padding: 10px 0;
+    font-size: 18px;
+    margin-top: 400px;
 }
 .menu li:hover {
     display: inline-block;
     background-color:#668cbb;
     transition: 0.3s ease;
+    border-radius: 5px;
 }
 .menu li + li {
     margin-top: 12px;
@@ -37,10 +39,6 @@ input[type=checkbox]:checked ~ .menu{
 }
 .hamburger {
     display: block;
-}
-
-.menu li {
-    padding: 5px 14px;
 }
 
 /*RESPONSIVE NAVBAR MENU STARTS*/
@@ -70,12 +68,11 @@ html{font-size: 16px;}
     position: fixed;
     display: flex;
     justify-content: space-between;
-    line-height: 55px;
+    line-height: 45px;
     top: 0;
     left: 0;
     z-index: 1;
     color: #fff;
-    font-size: 20px;
 }
 
 .patient-mobile-header div{
@@ -112,9 +109,9 @@ html{font-size: 16px;}
 }
 
 @media screen and (min-width: 1400px){
-    /* .patient-mobile-header{
+    .patient-mobile-header{
         display: none;
-    } */
+    }
     
     .patient-web-header {
         height: 8.75em;
@@ -160,31 +157,3 @@ html{font-size: 16px;}
         font-size: 1.875em;
     } 
 }
-
-/* APPLYING MEDIA QUERIES */
-/* @media (max-width: 768px) {
-    .menu { 
-        display:none;
-        position: absolute;
-        background-color:teal;
-        right: 0;
-        left: 0;
-        text-align: center;
-        padding: 16px 0;
-    }
-    .menu li:hover {
-        display: inline-block;
-        background-color:#4c9e9e;
-        transition: 0.3s ease;
-    }
-    .menu li + li {
-        margin-top: 12px;
-    }
-    input[type=checkbox]:checked ~ .menu{
-        display: block;
-    }
-    .hamburger {
-        display: block;
-    }
-
-} */
