@@ -54,7 +54,13 @@ p{font-size: 0.875rem;}
     border: none;
 }
 
-.aboutDia-title{
+h1{
+    margin: 5.0625rem auto 1.5625rem auto;
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 100;
+}
+/* .aboutDia-title{
     width: 100%;
     margin-top: 55px;
     display: flex;
@@ -67,7 +73,7 @@ p{font-size: 0.875rem;}
     left: 50%;
     transform: translate(-50%,0);
     font-family: Georgia, Times, 'Times New Roman', serif;
-}
+} */
 
 .aboutDia-body{
     width: 81.33%;
@@ -100,6 +106,7 @@ p{font-size: 0.875rem;}
 .article-moreInfor p{
     padding-top: 0.45em;
     color: #668cbb;
+    text-decoration: underline;
 }
 
 .aboutDia-top div:last-child{
@@ -121,10 +128,10 @@ p{font-size: 0.875rem;}
     height: 66px;
 }
 
-.arrow-back {
+/* .arrow-back {
     width: 4.74%;
     padding-left: 4.53%;
-}
+} */
     
 .aboutWeb-title h1{
     position: absolute;

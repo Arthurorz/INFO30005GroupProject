@@ -37,16 +37,13 @@ html{font-size: 16px;}
     justify-content: end;
 }
 
-.patient-mobile-logo{
-    height: 48px;
-    width: 76px;
-}
-.patient-mobile-aboutMe{
-    /* 记得改大小和图片 */
-    height: 29px;
-    width: 29px;
-}
+.patient-mobile-menu{width: 29px;}
 
+.patient-mobile-logo{width: 76px;}
+
+.patient-mobile-aboutMe{ width: 29px;}
+
+/* Patient Homepage */
 .SupportMessage{
     background-color: #BBD9F6;
     border-radius: 0.875rem;
@@ -193,21 +190,97 @@ html{font-size: 16px;}
     font-size: 0.6875rem;
 }
 
-@media screen and (min-width: 800px) and (max-width: 1400px){
-    html{font-size: 24px;}
+/* Add Data Section */
+h1{
+    margin: 5.0625rem auto 1.5625rem auto;
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 100;
+}
 
+.normalRange{
+    width: 81.33%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: end;
+    font-size: 0.75rem;
+}
+
+.dataInput{
+    width: 81.33%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 14.25rem;
+    position: relative;
+}
+
+.dataInput span{
+    position: absolute;
+    left: 62%;
+    top: 16.5%;
+}
+
+.dataInput input, textarea{
+    border-radius: 0.625rem;
+    border: 1px solid #EDEDED;
+    box-shadow: 3px 3px #EDEDED;
+}
+
+#addData{
+    height: 31.21%;
+    text-align: center;
+    font-size: 2.75rem;
+}
+
+#addComment{
+    height: 55.77%;
+    padding: 0.625rem 0 0 0.625rem;
+    font-size: 0.75rem;
+}
+
+#addData ::-webkit-input-placeholder{text-align: center;}
+
+.saveButton{
+    display: block;
+    margin: 1.5rem auto;
+    width: 4.4375rem;
+    height: 1.8125rem;
+    border-radius: 0.5rem;
+    border: none;
+    color: white;
+    background-color: #668CB8;
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1400px){
+    html{font-size: 22px;}
+
+    .patient-mobile-header{height: 80px;}
+
+    .patient-mobile-logo{width: 98px;}
+
+    .patient-mobile-menu{width: 40px;}
+
+    .patient-mobile-aboutMe{width: 40px;}
+
+    /* Patient Ipad Homepage */
     .homeTop{width: 52.5%;}
 
     .homeMiddle{width: 52.5%;}
+
+    /* Add Data iPad Section */
+    .normalRange{width: 68.33%;}
+    
+    .dataInput{width: 68.33%;}
 }
 
 @media screen and (min-width: 1400px){
-    .patient-mobile-header{
-        display: none;
-    }
-    
+    .patient-mobile-header{display: none;}
+
     .patient-web-header {
-        height: 8.75em;
+        height: 8.75rem;
         width: 100%;
         background-color: #668cbb;
         position: fixed;
@@ -219,37 +292,36 @@ html{font-size: 16px;}
         z-index: 1;
     }
     
-    .patient-web-header div:first-child{
-        padding-left: 2.5%;
-    }
+    .patient-web-header div:first-child{padding-left: 2.5%;}
     
-    .patient-web-header div:last-child{
+    .patient-web-header div:last-child {
         padding-right: 1%;
         justify-content: end;
     }
     
-    .patient-web-logo{
+    .patient-web-logo {
         height: 7.4375rem;
         width: 11.6875rem;
     }
     
-    .patient-web-navBar a{
+    .patient-web-navBar a {
         font-size: 30px;
         color: #FFFFFF;
         text-decoration: none;
     }
     
-    .patient-web-logOut{
+    .patient-web-logOut {
         color: #668CB8;
         background-color: #FFFFFF;
         box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
-        border-radius: 20px;
-        width: 6.3125em;
-        height: 2.0625em;
+        border-radius: 1.25rem;
+        width: 13.1875rem;
+        height: 4.375rem;
         border: none;
         font-size: 1.875em;
     } 
 
+    /* Patient Web Homepage */
     .SupportMessage{
         margin: 14rem 29.01% 4.8125rem 29.01%;
         height: 7.8125rem;
@@ -332,5 +404,40 @@ html{font-size: 16px;}
     .viewData{
         margin: 1.5rem;
         font-size: 1.625rem;
+    }
+
+    /* Add Data Web Section */
+    h1{
+        margin: 13.75rem auto 3.9375rem auto;
+        font-size: 2.375rem;
+    }
+    
+    .normalRange{
+        width: 47.4%;
+        font-size: 1.625rem;
+    }
+    
+    .dataInput{
+        width: 47.4%;
+        height: 33.625rem;
+    }
+
+    .dataInput span{
+        top: 17.5%;
+        font-size: 1.625rem;
+    }
+    
+    #addData{font-size: 5.625rem;}
+    
+    #addComment{
+        font-size: 1.625rem;
+        padding: 1rem 0 0 1rem;
+    }
+
+    .saveButton{
+        margin: 1.5rem auto;
+        width: 11.375rem;
+        height: 4.5rem;
+        font-size: 2.215rem;
     }
 }

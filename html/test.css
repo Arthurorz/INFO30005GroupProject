@@ -15,8 +15,8 @@ li {
 }
 .menu { 
     display:none;
-    width: 150px;
-    /* position: absolute; */
+    /* width: 150px; */
+    position: absolute;
     background-color:#668cbb;
     right: 0;
     left: 0;

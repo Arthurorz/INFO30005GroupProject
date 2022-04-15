@@ -3,12 +3,12 @@
     margin: 0%;
 }
 
-h1{font-size: 1.125rem;}
+/* h1{font-size: 1.125rem;} */
 h2{font-size: 1rem;}
 h3{font-size: 0.875rem;}
 p{font-size: 0.875rem;}
 
-.normal-logo-left{display: none;}
+button{font-weight: bold;}
 
 .normal-header{
     height: 55px;
@@ -27,11 +27,11 @@ p{font-size: 0.875rem;}
 .normal-header div{
     display: flex;
     align-items: center;
-    width: 76px;
 }
 
 .normal-header div:first-child{
     padding-left: 2.67%;
+    width: 76px;
 }
 
 .normal-header div:last-child{
@@ -40,10 +40,9 @@ p{font-size: 0.875rem;}
     justify-content: end;
 }
 
-.normal-logo-center{
-    height: 48px;
-    width: 76px;
-}
+.normal-logo-left{display: none;}
+
+.normal-logo-center{width: 76px;}
 
 .normal-mobile-login{
     color: #668CB8;
@@ -55,26 +54,162 @@ p{font-size: 0.875rem;}
     border: none;
 }
 
-@media screen and (min-width: 800px) and (max-width: 1400px) {
-    html{font-size: 24px;}
+h1{
+    margin: 5.0625rem auto 1.5625rem auto;
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: normal;
 }
 
+/* About The Diabetes Page */
+.aboutDia-body{
+    width: 81.33%;
+    margin: 0 auto;
+}
+
+.article-intro h2{padding-top: 0.5em;}
+
+.article-intro p{padding-top: 0.375em;}
+
+.article-type p{padding-top: 0.125em;}
+
+.article-type h3{
+    padding-top: 0.625em;
+    text-decoration: underline;
+}
+
+.item2 img{
+    width: 100%;
+    padding-top: 1.25em;
+    padding-bottom: 1.875em;
+}
+
+.article-moreInfor p{
+    padding-top: 0.45em;
+    color: #668cbb;
+    text-decoration: underline;
+}
+
+.aboutDia-top div:last-child{
+    padding-bottom: 1.875em;
+    padding-top: 1.25em;
+}
+
+.aboutDia-footer{
+    padding-top: 1em;
+    padding-bottom: 1.25em;
+    text-align: center;
+}
+
+.aboutWeb-title{
+    width: 100%;
+    margin-top: 55px;
+    display: flex;
+    align-items: center;
+    height: 66px;
+}
+
+
+
+.aboutWeb-title h1{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    }
+    
+.aboutWeb-body{
+    width: 81.33%;
+    margin: 0 auto;
+    padding:0 4% 0 4%;
+}
+    
+.aboutWeb-body img{
+    width: 100%;
+    padding-top: 1.25em
+}
+    
+.article h2{
+    padding: 1em 0 0.3125em 0;
+}
+    
+.aboutWeb-footer{
+    padding-top: 1em;
+    padding-bottom: 1.25em;
+    text-align: center;
+}
+
+.email{
+    list-style: none;
+    padding: 0.3725em 0 1em 0;
+    letter-spacing: -0.5px;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1400px) {
+    html{font-size: 22px;}
+
+    .normal-header{height: 80px;}
+
+    .normal-logo-center{width: 98px;}
+
+    .normal-mobile-login{
+        width: 90px;
+        height: 45px;
+        font-size: 0.8rem;
+    }
+
+    /* About The Diabetes iPad Page */
+    .aboutDia-body{
+        width: 81.33%;
+        margin: 0 auto;
+    }
+    
+    .article-intro h2{padding-top: 0.5em;}
+    
+    .article-intro p{padding-top: 0.375em;}
+    
+    .article-type p{padding-top: 0.125em;}
+    
+    .article-type h3{
+        padding-top: 0.625em;
+        text-decoration: underline;
+    }
+    
+    .item2 img{
+        width: 100%;
+        padding-top: 1.25em;
+        padding-bottom: 1.875em;
+    }
+    
+    .article-moreInfor p{
+        padding-top: 0.45em;
+        color: #668cbb;
+        text-decoration: underline;
+    }
+
+    iframe{height: 400px;}
+    
+    .aboutDia-top div:last-child{
+        padding-bottom: 1.875em;
+        padding-top: 1.25em;
+    }
+    
+    .aboutDia-footer{
+        padding-top: 1em;
+        padding-bottom: 1.25em;
+        text-align: center;
+    }
+}
 
 /* 要改里面的rem！！！ */
 @media screen and (min-width: 1400px){
     main{margin-top: 200px;}
 
     .normal-logo-center{display: none;}
-    .normal-logo-left{display: flex;}
 
-    h1 {
-        font-size: 38px;
-        font-weight: normal;
-    }
+    .normal-logo-left{display: flex;}
     
-    .normal-header {
-        height: 8.75rem;
-    }
+    .normal-header {height: 8.75rem;}
     
     .normal-header div:first-child{
         padding-left: 2.5%;

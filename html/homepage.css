@@ -4,6 +4,7 @@
 }
 
 html{font-size: 16px;}
+
 .web-page-header{display: none;}
 
 .mobile-page-header{
@@ -64,9 +65,7 @@ html{font-size: 16px;}
 
 .SupportMessage p:nth-child(2){font-size: 0.75rem;}
 
-.homeSubtitle{
-    margin-left: 13.87%;
-}
+.homeSubtitle{margin-left: 13.87%;}
 
 .homeTop{
     width: 72.8%;

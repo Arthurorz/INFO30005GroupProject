@@ -11,11 +11,8 @@ require('./models/db');
 require('./models/patient');
 require('./models/record');
 
-
 //test
 const patientRouter = require('./routes/patientRouter.js');
-
-
 
 // configure Handlebars
 app.engine(
