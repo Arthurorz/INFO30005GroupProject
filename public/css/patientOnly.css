@@ -243,7 +243,7 @@ h1{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 14.25rem;
+    height: 20.25rem;
     position: relative;
 }
 
@@ -271,7 +271,10 @@ h1{
     font-size: 0.75rem;
 }
 
-#addData ::-webkit-input-placeholder{text-align: center;}
+#addData::-webkit-input-placeholder{
+    /* text-align: center; */
+    font-size: 2.75rem;
+}
 
 .saveButton{
     display: block;
@@ -462,6 +465,8 @@ h1{
     }
     
     #addData{font-size: 5.625rem;}
+
+    #addData::-webkit-input-placeholder{font-size: 5.625rem;}
     
     #addComment{
         font-size: 1.625rem;

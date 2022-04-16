@@ -64,6 +64,19 @@
 
 @media screen and (min-width: 800px) and (max-width: 1400px){
     .normal-header{height: 80px;}
+
+    .normalNav{
+        width: 49.33%;
+        padding-left: 48%;
+    }
+
+    .normal-logo{width: 98px;}
+
+    .normal-login{
+        width: 90px;
+        height: 40px;
+    }
+
 }
 
 @media screen and (min-width: 1400px){
@@ -96,7 +109,7 @@
     .normal-header{height: 8.75rem;}
     
     .normalNav{
-        width: 95.42%;
+        width: 96%;
         padding: 0 2%;
     }
     

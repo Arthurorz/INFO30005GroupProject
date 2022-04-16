@@ -10,7 +10,7 @@ p{font-size: 0.875rem;}
 
 /* button{font-weight: bold;} */
 
-.normal-header{
+/* .normal-header{
     height: 55px;
     width: 100%;
     background-color: #668cbb;
@@ -49,6 +49,36 @@ p{font-size: 0.875rem;}
     background-color: #FFFFFF;
     box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
     border-radius: 8px;
+    width: 59px;
+    height: 38px;
+    border: none;
+} */
+
+.normal-header{
+    height: 55px;
+    width: 100%;
+    background-color: #668cbb;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.normalNav{
+    width: 57.33%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 40%;
+}
+
+.normal-logo{width: 76px;}
+
+.normal-login{
+    color: #668CB8;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 0.5rem;
     width: 59px;
     height: 38px;
     border: none;
@@ -218,7 +248,7 @@ h4{
 @media screen and (min-width: 800px) and (max-width: 1400px) {
     html{font-size: 22px;}
 
-    .normal-header{height: 80px;}
+    /* .normal-header{height: 80px;}
 
     .normal-logo-center{width: 98px;}
 
@@ -226,6 +256,20 @@ h4{
         width: 90px;
         height: 45px;
         font-size: 0.8rem;
+    } */
+
+    .normal-header{height: 80px;}
+
+    .normalNav{
+        width: 49.33%;
+        padding-left: 48%;
+    }
+
+    .normal-logo{width: 98px;}
+
+    .normal-login{
+        width: 90px;
+        height: 40px;
     }
 
     /* About Diabetes Page iPad */
@@ -240,7 +284,7 @@ h4{
 @media screen and (min-width: 1400px){
     main{margin-top: 200px;}
 
-    .normal-logo-center{display: none;}
+    /* .normal-logo-center{display: none;}
 
     .normal-logo-left{display: flex;}
     
@@ -263,7 +307,23 @@ h4{
         width: 13.1875rem;
         height: 4.375rem;
         font-size: 1.875em;
-    } 
+    }  */
+
+    .normal-header{height: 8.75rem;}
+    
+    .normalNav{
+        width: 96%;
+        padding: 0 2%;
+    }
+    
+    .normal-logo{width: 187px;}
+    
+    .normal-login {
+        border-radius: 1.25rem;
+        width: 13.1875rem;
+        height: 4.375rem;
+        font-size: 1.875em;
+    }
 
     /* About The Diabetes Page Web */
     h1{
