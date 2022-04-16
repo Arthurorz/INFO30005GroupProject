@@ -109,7 +109,7 @@ input[type=checkbox]{
     
     .patient-header div:last-child{
         display: block;
-        padding-left: 75%;
+        padding-left: 74%;
     }
     
     .patient-logo{
@@ -146,7 +146,7 @@ input[type=checkbox]{
         justify-content: space-between;
         margin-top: 0px;
         font-size: 30px;
-        padding: 5px 14px;
+        padding: 5px 16px;
     }
     .menu li:hover {
         display: inline-block;
