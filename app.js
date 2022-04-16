@@ -42,13 +42,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/normal', (req, res) => {
-    res.render("normal-aboutDia");
+    res.render("normal-login");
 });
 
 app.get('/patients', patientRouter);
 
 app.get('/patient', (req, res) => {
-    res.render("patient-addData", {
+    res.render("patient-homePage", {
         layout: "patient.hbs",
     }); 
 }); 
