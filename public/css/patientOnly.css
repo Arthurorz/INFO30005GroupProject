@@ -203,7 +203,7 @@ input[type=checkbox]{display: none;}
 
 .slope{
     border-bottom: 1px solid #CFCFCF;
-    -webkit-transform: rotate(18deg);
+    transform: rotate(18deg);
 }
 
 .homeTable td:nth-child(1){
@@ -431,8 +431,8 @@ h1{
     
     .homeTable th,td,tr{font-size: 1.625rem;}
     
-    .slope{-webkit-transform: rotate(32deg);}
-    
+    .slope{transform: rotate(32deg);}
+
     .homeTable td:nth-child(1), .homeTable th{
         width: 16.5rem;
         height: 6.625rem;
