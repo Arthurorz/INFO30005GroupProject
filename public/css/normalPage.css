@@ -61,7 +61,7 @@ h1{
     font-weight: normal;
 }
 
-/* About The Diabetes Page */
+/* About Diabetes Page */
 .aboutDia-body{
     width: 81.33%;
     margin: 0 auto;
@@ -101,37 +101,26 @@ h1{
     text-align: center;
 }
 
-.aboutWeb-title{
+/* .aboutWeb-title{
     width: 100%;
     margin-top: 55px;
     display: flex;
     align-items: center;
     height: 66px;
-}
+} */
 
-
-
-.aboutWeb-title h1{
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%,0);
-    font-family: Georgia, Times, 'Times New Roman', serif;
-    }
-    
+/* About This Website Page */
 .aboutWeb-body{
     width: 81.33%;
     margin: 0 auto;
     padding:0 4% 0 4%;
 }
     
-.aboutWeb-body img{
-    width: 100%;
-    padding-top: 1.25em
-}
+.aboutWeb-body img{width: 100%;}
+
+.teamwork img{padding-top: 1.25rem;}
     
-.article h2{
-    padding: 1em 0 0.3125em 0;
-}
+.article h2{padding: 1em 0 0.3125em 0;}
     
 .aboutWeb-footer{
     padding-top: 1em;
@@ -143,6 +132,65 @@ h1{
     list-style: none;
     padding: 0.3725em 0 1em 0;
     letter-spacing: -0.5px;
+}
+
+/* Login */
+.login{
+    margin: 252px 10.67% 0 10.67%;
+    border-radius: 0.5rem;
+    border: 1px solid #EDEDED;
+    box-shadow: 3px 3px #EDEDED;
+    background-color: white;
+}
+
+h4{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    padding: 0.75rem;
+    font-weight: normal;
+    font-size: 1.125rem;
+}
+
+.container{padding: 0 4.8% 0 3.39%;}
+
+.container input{
+    width: 100%;
+    margin: 0.25rem 0 0.75rem;
+    height: 1.75rem;
+    border-radius: 0.4375rem;
+    border: 1px solid #707070;
+}
+
+::placeholder{
+    color: #CFCFCF;
+    font-size: 0.75rem;
+    font-style: italic;
+}
+
+.ForgetPassword{
+    text-decoration: none;
+    color: black;
+}
+
+.rememberMe{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3.39% 0 3.39%;
+    font-size: 0.75rem;
+}
+
+.rememberMe .checkbox{width: 10px;}
+
+.middle-login{
+    display: block;
+    height: 2rem;
+    width: 5.0625rem;
+    color: white;
+    background-color: #668CB8;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 1rem;
+    margin: 0.75rem auto;
 }
 
 @media screen and (min-width: 800px) and (max-width: 1400px) {
@@ -158,50 +206,15 @@ h1{
         font-size: 0.8rem;
     }
 
-    /* About The Diabetes iPad Page */
-    .aboutDia-body{
-        width: 81.33%;
-        margin: 0 auto;
-    }
-    
-    .article-intro h2{padding-top: 0.5em;}
-    
-    .article-intro p{padding-top: 0.375em;}
-    
-    .article-type p{padding-top: 0.125em;}
-    
-    .article-type h3{
-        padding-top: 0.625em;
-        text-decoration: underline;
-    }
-    
-    .item2 img{
-        width: 100%;
-        padding-top: 1.25em;
-        padding-bottom: 1.875em;
-    }
-    
-    .article-moreInfor p{
-        padding-top: 0.45em;
-        color: #668cbb;
-        text-decoration: underline;
-    }
-
+    /* About Diabetes Page iPad */
     iframe{height: 400px;}
-    
-    .aboutDia-top div:last-child{
-        padding-bottom: 1.875em;
-        padding-top: 1.25em;
-    }
-    
-    .aboutDia-footer{
-        padding-top: 1em;
-        padding-bottom: 1.25em;
-        text-align: center;
-    }
+
+    /* Login iPad */
+    .login{margin: 265px 24.17% 0 24.17%;}
+
+    .middle-login{margin: 0.75rem auto;} 
 }
 
-/* 要改里面的rem！！！ */
 @media screen and (min-width: 1400px){
     main{margin-top: 200px;}
 
@@ -216,9 +229,7 @@ h1{
         display: flex;
     }
     
-    .normal-header div:last-child {
-        padding-right: 1%;
-    }
+    .normal-header div:last-child {padding-right: 1%;}
     
     .normal-logo-left {
         height: 7.4375rem;
@@ -231,4 +242,110 @@ h1{
         height: 4.375rem;
         font-size: 1.875em;
     } 
+
+    /* About The Diabetes Page Web */
+    h1{
+        margin: 13.75rem auto 3.9375rem auto;
+        font-size: 2.375rem;
+    }
+    h2{font-size: 2.215em;}
+    h3{font-size: 1.625rem;}
+    p{font-size: 1.625rem;}
+
+    .aboutDia-top div:last-child{
+        position: relative; 
+        width: 46.83%; 
+    }
+
+    .aboutDia-top{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .aboutDia-top div:first-child{width: 50.79%;}
+    
+    .article-intro p{padding-top: 0.6875rem;}
+    
+    .aboutDia-bottom{
+        display: grid;
+        grid-template-columns: 46.77% auto;
+        gap: 0px 30px;
+        padding: 50px 0px 0px 0px;
+    }
+    
+    .article-type h3{padding-top: 1.25rem;}
+    
+    .item2 img{padding: 0px;}
+    
+    .item1{grid-area: 1 / 2 / span 2 / span 1;}
+    
+    .aboutDia-footer{padding: 1.875rem 0px;}
+    
+    .article h2{padding: 0 0 0.6875em 0;}
+
+    /* About This Website Page Web */
+    .aboutWeb-top article{padding: 1.25em 1.25em 0 0;}
+    
+    .aboutWeb-top{
+        display: grid;
+        grid-template-columns: 42.32% auto;
+        gap: 0px 30px;
+        padding: 0px 0px 107px 0px;
+    }
+    
+    .aboutWeb-top div:first-child{grid-area: 1 / 2 / span 1 / span 1;}
+    
+    .arrow-back{
+        width: 2.38%;
+        padding-left: 2.1%;
+    }
+    
+    .aboutWeb-bottom{
+        display: grid;
+        grid-template-columns: 47.866% auto;
+        gap: 0px 30px;
+    }
+    
+    .teamwork img{padding: 0%;}
+    
+    .aboutWeb-bottom article{padding: 1.25em 0 0 1.25rem;}
+    
+    .email{font-size: 1.625rem;}
+
+    /* Login Web */
+    h4{font-size: 2.375rem;}
+    
+    p{font-size: 1.625rem;}
+
+    ::placeholder{font-size: 1.25rem;}
+
+    .login{margin: 400px 34.17% 0 34.17%;}
+
+    .rememberMe{
+        font-size: 1.25rem;
+        padding: 0 12% 0 13.16%;
+    }
+
+    .rememberMe .checkbox {
+        width: 20px;
+        height: 20px;
+    }
+
+    .container {
+        padding: 0 13.16% 0 13.16%;
+    }
+
+    .container input{
+        height: 3.0625rem;
+        margin: 0.5625rem 0 1.125rem;
+        font-size: 1.5rem;
+    }
+
+    .middle-login{
+        display: block;
+        height: 3.875rem;
+        width: 25.82%;
+        font-size: 2.215rem;
+        margin: 2rem auto;
+    }
 }

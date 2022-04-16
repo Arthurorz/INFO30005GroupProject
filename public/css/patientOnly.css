@@ -20,6 +20,8 @@ html{font-size: 16px;}
     top: 0;
     left: 0;
     z-index: 1;
+    color: #fff;
+    font-size: 1.5625rem;
 }
 
 .patient-mobile-header div{
@@ -42,6 +44,37 @@ html{font-size: 16px;}
 .patient-mobile-logo{width: 76px;}
 
 .patient-mobile-aboutMe{ width: 29px;}
+
+/* Menu List */
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.menu { 
+    display: none;
+    position: absolute;
+    background-color:#668cbb;
+    right: 0;
+    left: 0;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 1.125rem;
+    margin-top: 405px;
+}
+
+.menu li:hover {
+    display: inline-block;
+    background-color:#668cbb;
+    transition: 0.3s ease;
+    border-radius: 5px;
+}
+
+input[type=checkbox]:checked ~ .menu{display: block;}
+
+.hamburger {display: block;}
+
+input[type=checkbox]{display: none;} 
 
 /* Patient Homepage */
 .SupportMessage{
@@ -71,9 +104,7 @@ html{font-size: 16px;}
 
 .SupportMessage p:nth-child(2){font-size: 0.75rem;}
 
-.homeSubtitle{
-    margin-left: 13.87%;
-}
+.homeSubtitle{margin-left: 13.87%;}
 
 .homeTop{
     width: 72.8%;
@@ -265,15 +296,18 @@ h1{
 
     .patient-mobile-aboutMe{width: 40px;}
 
-    /* Patient Ipad Homepage */
+    /* Patient Homepage iPad */
     .homeTop{width: 52.5%;}
 
     .homeMiddle{width: 52.5%;}
 
-    /* Add Data iPad Section */
+    /* Add Data Section iPad */
     .normalRange{width: 68.33%;}
     
     .dataInput{width: 68.33%;}
+
+    /* Menu List iPad*/
+    .menu { margin-top: 430px;}
 }
 
 @media screen and (min-width: 1400px){
