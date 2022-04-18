@@ -10,6 +10,10 @@ const getAllPatientData = async(req, res, next) => {
         return next(err)
     }
 }
+/* 存起来 以后可能有用
+var email = document.getElementById("emails").value;
+var password = document.getElementById("pass").value;
+*/
 
 async function addPatient(first_name, last_name, email, password, screen_name, yearofbirth, height, brief_bio, engagement, photo){
     const patient = await Patient.findOne({email:email})
@@ -81,12 +85,23 @@ const renderRecordData = async (req,res) => {
             recordDate:formatDate(new Date())
         }).lean();
         console.log(record);
-        res.render("",{data:patient, record:record});//render 某个hbs
+        res.render("",{record:record});//render 某个hbs
     }catch(err){
         res.status(400);
         res.send("error happened when rendering record data");
     }
 }
+/*
+const updateRecord = async(req,res) =>{
+    try{
+        const patientID = await addPatient();
+        const recordID = await addRecord(patientID);
+        const record = await Record.findById(recordID).lean();
+        const key = req.body.key;
+
+    }
+}
+*/
     
 
 module.exports={
