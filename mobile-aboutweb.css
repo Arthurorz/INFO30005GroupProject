@@ -1,0 +1,107 @@
+*{
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0%;
+}
+h1{
+    font-size: 18px;
+}
+
+h2{
+     font-size: 16px;
+ }
+
+ h3{
+     font-size: 14px;
+ }
+
+.page-header{
+    height: 55px;
+    width: 100%;
+    background-color: #668cbb;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    line-height: 55px;
+    top: 0;
+    left: 0;
+}
+
+.page-header div{
+    display: flex;
+    align-items: center;
+    width: 76px;
+}
+
+.page-header div:first-child{
+    padding-left: 2.67%;
+}
+
+.page-header div:last-child{
+    padding-right: 2.67%;
+    display: flex;
+    justify-content: end;
+}
+
+.mobile-logo{
+    height: 48px;
+    width: 76px;
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); */
+}
+
+.mobile-nav-login{
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    color: #668CB8;
+    width: 59px;
+    height: 38px;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+}
+
+.aboutweb-title{
+    width: 100%;
+    margin-top: 55px;
+    display: flex;
+    align-items: center;
+    height: 66px;
+}
+.aboutweb-title img{
+    width: 4.74%;
+    padding-left: 4.53%;
+}
+
+.aboutweb-title h1{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,0);
+    font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+.aboutweb-body{
+    background-color: #f5f5f5;
+    width: 81.33%;
+    margin: auto;
+    padding:0 4% 0 4%;
+}
+
+.aboutweb-body img{
+    width: 100%;
+    padding-top: 1.25em
+}
+
+.aboutweb-body article h2{
+    padding: 1em 0 0.3125em 0;
+}
+
+.aboutweb-body .email{
+    list-style: none;
+    padding: 0.3725em 0 1em 0;
+}
+
+.aboutweb-footer{
+    padding-top: 1em;
+    text-align: center;
+}
