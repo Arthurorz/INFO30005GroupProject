@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/normal', (req, res) => {
-    res.render("normal-login");
+    res.render("normal-landingPage");
 });
 
 app.get('/patients', patientRouter);
@@ -54,7 +54,7 @@ app.get('/patient', (req, res) => {
 }); 
 
 app.get('/clinician', (req, res) => {
-    res.render("normal-landingPage",{
+    res.render("clinician-individualData",{
         layout: "clinician.hbs",
     });
 }); 

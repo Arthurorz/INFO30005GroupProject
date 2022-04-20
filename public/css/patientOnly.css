@@ -139,6 +139,52 @@ input[type=checkbox]:checked ~ .menu{display: block;}
 
 input[type=checkbox]{display: none;}  */
 
+
+/* Landing Page */
+
+
+.mobile-head, .ABOUT-DIABETES, .ABOUT-WEBSITE, .bottom-word{
+    font-size: 1.375rem;
+}
+
+.mobile-head{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.web-head{
+    display: none;
+}
+
+.background{
+    /* transform: translate(0%, 5%); */
+    height: 25.985%;
+    width: 100%;
+}
+
+.background img{
+    height: 100%;
+    width: 100%;
+    /* margin-top: 140px; */
+}
+
+button{
+    color: #668CB8;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 0.5rem;
+    border: #EDEDED;
+    width: 18.5rem;
+    height: 7rem;
+}
+
+.ABOUT-DIABETES{
+    margin: 1.875rem 0 2.438rem 0;
+}
+
+.bottom-word{
+    margin: 3rem 2.5rem 0 2.5rem;
+}
+
 /* Patient Homepage */
 .SupportMessage{
     background-color: #BBD9F6;

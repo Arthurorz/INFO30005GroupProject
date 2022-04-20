@@ -1,8 +1,220 @@
 *{
     font-family: 'Times New Roman', Times, serif;
     margin: 0%;
+    font-weight: bold;
+    text-align: center;
 }
 
+.page-header{
+    height: 3.438rem;
+    width: 100%;
+    background-color: #668cbb;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    line-height: 3.438rem;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.page-header div{
+    display: flex;
+    align-items: center;
+    width: 76px;
+}
+
+.page-header div:first-child{
+    padding-left: 2.67%;
+}
+
+.page-header div:last-child{
+    padding-right: 2.67%;
+    display: flex;
+    justify-content: end;
+}
+
+.logo{
+    height: 48px;
+    width: 76px;
+}
+
+.login{
+    color: #668CB8;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 8px;
+    width: 59px;
+    height: 38px;
+    border: none;
+    font-size: 1rem;
+}
+
+main{
+    /* text-align: center; */
+    margin-top: 4.875rem;
+}
+
+.mobile-head, .ABOUT-DIABETES, .ABOUT-WEBSITE, .bottom-word{
+    font-size: 1.375rem;
+}
+
+.mobile-head{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.web-head{
+    display: none;
+}
+
+.background{
+    /* transform: translate(0%, 5%); */
+    height: 25.985%;
+    width: 100%;
+}
+
+.background img{
+    height: 100%;
+    width: 100%;
+    /* margin-top: 140px; */
+}
+
+button{
+    color: #668CB8;
+    background-color: #FFFFFF;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 0.5rem;
+    border: #EDEDED;
+    width: 18.5rem;
+    height: 7rem;
+}
+
+.ABOUT-DIABETES{
+    margin: 1.875rem 0 2.438rem 0;
+}
+
+.bottom-word{
+    width: 18.5rem;
+    margin: 3rem auto;
+    /* margin: 3rem 2.5rem 0 2.5rem; */
+}
+
+@media screen and (min-width: 1400px){
+    main{margin-top: 200px; }
+
+*{
+    font-weight: bold;
+}
+
+.page-header {
+    height: 8.75rem;
+}
+
+.logo{
+    height: 7.4375rem;
+    width: 11.688rem;
+}
+
+.login{
+    width: 13.188rem;
+    height: 4.375rem;
+    font-size: 1.875rem;
+    position: absolute;
+}
+
+main{
+    margin: 0;
+}
+
+.mobile-head{
+    display: none;
+}
+
+.landing-body{
+    position: relative;
+}
+
+.web-head{
+    text-align: center;
+    position: absolute;
+    top: 80px;
+    text-align: center;
+    font-size: 3.5rem;
+}
+
+.twobuttons{
+    position: absolute;
+    top: 43rem;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0 auto;
+    /* display: flex; */
+}
+
+button{
+    border-radius: 1rem;
+    width: 30.75rem;
+    height: 7.5rem;
+    border: none;
+    z-index: 98;
+    justify-content: center;
+    
+}
+
+.ABOUT-DIABETES{
+    margin-right: 20.625rem;
+}
+
+.ABOUT-DIABETES, .ABOUT-WEBSITE{
+    font-size: 2.375rem;
+}
+
+.bottom-word{
+    position: absolute;
+    top: 57rem;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* 
+.twobuttons{
+    display: flex;
+    justify-content: space-between;
+    transform: translate(0, -250%);
+}
+
+button{
+    border-radius: 1rem;
+    width: 30.75rem;
+    height: 7.5rem;
+    border: none;
+    z-index: 98;
+    justify-content: center;
+}
+
+.ABOUT-DIABETES, .ABOUT-WEBSITE{
+    font-size: 2.375rem;
+}
+
+.ABOUT-DIABETES{
+    margin: 0;
+    transform: translate(60%, 0);
+}
+
+.ABOUT-WEBSITE{
+    transform: translate(-40%, 0);
+}
+
+.bottom-word{
+    font-size: 2.5rem;
+    margin: 0;
+    transform: translate(0,-450%);
+
+} */
+
+    /*
 .page-header {
     height: 8.75em;
     width: 100%;
