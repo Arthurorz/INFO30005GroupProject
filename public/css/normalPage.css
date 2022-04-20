@@ -245,6 +245,7 @@ h4{
     margin: 0.75rem auto;
 }
 
+
 @media screen and (min-width: 800px) and (max-width: 1400px) {
     html{font-size: 22px;}
 
@@ -282,7 +283,7 @@ h4{
 }
 
 @media screen and (min-width: 1400px){
-    main{margin-top: 200px;}
+    /* main{margin-top: 200px;} */
 
     /* .normal-logo-center{display: none;}
 

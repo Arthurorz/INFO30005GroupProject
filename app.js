@@ -48,7 +48,7 @@ app.get('/normal', (req, res) => {
 app.get('/patients', patientRouter);
 
 app.get('/patient', (req, res) => {
-    res.render("patient-homePage", {
+    res.render("patient-addData", {
         layout: "patient.hbs",
     }); 
 }); 
