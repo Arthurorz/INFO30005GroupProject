@@ -13,6 +13,7 @@ require('./models/record');
 
 //test
 const patientRouter = require('./routes/patientRouter.js');
+const normalRouter = require('./routes/normalRouter.js');
 
 // configure Handlebars
 app.engine(
@@ -36,6 +37,7 @@ app.use(express.urlencoded({ extended: false })); // only needed for URL-encoded
 // app.get('/', (req, res) => {
 //     res.render("normal-landingPage")
 // }); 
+app.use('/normal', normalRouter);
 
 app.get('/', (req, res) => {
     res.send('Our demo app is working!');
@@ -54,7 +56,7 @@ app.get('/patient', (req, res) => {
 }); 
 
 app.get('/clinician', (req, res) => {
-    res.render("clinician-individualData",{
+    res.render("clinician-dashboard",{
         layout: "clinician.hbs",
     });
 }); 
