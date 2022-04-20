@@ -65,7 +65,9 @@
 }
 
 .middle{
-    margin: 1rem 2.5rem 0 2.5rem;
+    width: 78.66%;
+    /* margin: 1rem 2.5rem 0 2.5rem; */
+    margin: 8.625rem auto;
     border-radius: 0.5rem;
     border: 1px solid #EDEDED;
     height: 23.125rem;
@@ -74,7 +76,7 @@
 
 h1{
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-weight: normal;
     text-align: center;
     padding: 0.875rem 0 1rem 0;
@@ -104,9 +106,9 @@ label{
 }
 
 .sendcode{
-    width: 10.188rem;
+    width: 56%;
     text-align: center;
-    margin: 0 4.125rem 1.563rem 4.125rem;
+    margin: 0 auto 1.563rem auto;
 }
 
 button.sentcode, .sendcode input{
@@ -138,13 +140,13 @@ button.sentcode{
 
 .middle-login{
     height: 2rem;
-    width: 5.062rem;
+    width: 27.45%;
     color: white;
     background-color: #668CB8;
     border-radius: 0.5rem;
     border: none;
     font-size: 16px;
-    margin: 0 6.688rem 1.5rem 6.688rem;
+    margin: 0 auto 1.5rem auto;
 }
 
 
@@ -216,7 +218,8 @@ main{
 }
 
 .middle{
-    margin: 0 34.16% 0 34.16%;
+    margin: 0 auto;
+    width: 31.66%;
     height: 40.875rem;
 }
 
@@ -265,7 +268,4 @@ button.sentcode{
     font-size: 34px;
     margin: 0 37.11% 0 37.11%;
 }
-
-
-
-
+}
