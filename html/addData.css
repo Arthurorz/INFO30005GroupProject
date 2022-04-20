@@ -122,14 +122,28 @@ h1{
     font-size: 1rem;
 }
 
+#popLayer{
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: #EFEFEF;
+    width: 100%;
+    height: 100%;
+    opacity: .85;
+    display: none;
+}
+
 #popBox{
     width: 78.93%;
     background-color: #BBD9F6;
     margin: 0 auto;
     border-radius: 0.875rem;
     padding: 1.5625rem 0 1.5625rem 0;
-    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);;
-    
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    position: absolute;
+    top: 256px;
+    right: 10.67%;
+    display: none;
 }
 
 .boxTop{
@@ -149,8 +163,8 @@ h1{
 
 .boxTop span{
     position: absolute;
-    right: 28%;
-    top: 63%;
+    right: 21.5%;
+    top: 24%;
 }
 
 .boxButton{
@@ -185,7 +199,10 @@ h1{
     
     .dataInput{width: 68.33%;}
 
-    #popBox{width: 68.33%;}
+    #popBox{
+        width: 68.33%;
+        right: 15.67%;
+    }
 
     .boxTop{width: 80%;}
 
@@ -194,8 +211,8 @@ h1{
     .boxButton button{width: 40%;}
 
     .boxTop span {
-        right: 35%;
-        top: 100%;
+        right: 30%;
+        /* top: 100%; */
     }
 }
 
@@ -291,7 +308,11 @@ h1{
         font-size: 2.215rem;
     }
 
-    #popBox{width: 31.1%;}
+    #popBox{
+        width: 31.1%;
+        top: 353px;
+        right: 34.43%;
+    }
     
     .boxTop{height: 14.625rem;}
     
@@ -302,8 +323,8 @@ h1{
     .boxTop p:nth-child(4){padding: 1.5rem 0 0.75rem 0;}
     
     .boxTop span{
-        right: 40%;
-        top: 103.5%;
+        right: 18%;
+        top: 20%;
         font-size: 2.375rem;
     }
     

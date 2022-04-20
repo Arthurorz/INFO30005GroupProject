@@ -167,7 +167,7 @@ input[type=checkbox]{display: none;}  */
     /* margin-top: 140px; */
 }
 
-button{
+.twobuttons button{
     color: #668CB8;
     background-color: #FFFFFF;
     box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
@@ -399,6 +399,76 @@ h1{
     font-size: 1rem;
 }
 
+#popLayer{
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: #EFEFEF;
+    width: 100%;
+    height: 100%;
+    opacity: .85;
+    /* display: none; */
+}
+
+#popBox{
+    width: 78.93%;
+    background-color: #BBD9F6;
+    margin: 0 auto;
+    border-radius: 0.875rem;
+    padding: 1.5625rem 0 1.5625rem 0;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    position: absolute;
+    top: 256px;
+    right: 10.67%;
+    /* display: none; */
+}
+
+.boxTop{
+    width: 87.16%;
+    height: 6.8rem;
+    margin: 0 auto;
+    text-align: center;
+    background-color: white;
+    border-radius: 0.625rem;
+}
+
+.boxTop p{font-size: 0.75rem;}
+
+.boxTop p:nth-child(1){font-size: 2.75rem;}
+
+.boxTop p:nth-child(4){padding: 0.5rem 0 0.2rem 0;}
+
+.boxTop span{
+    position: absolute;
+    right: 21.5%;
+    top: 24%;
+}
+
+.boxButton{
+    width: 87.16%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    height: 1.8125rem;
+    margin-top: 1.75rem;
+}
+
+.boxButton button{
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 0.875rem;
+}
+
+.boxButton button:nth-child(1){
+    background-color: white;
+    color: #668CB8;
+}
+
+.boxButton button:nth-child(2){
+    background-color: #668CB8;
+    color: white;
+}
+
 @media screen and (min-width: 800px) and (max-width: 1400px){
     html{font-size: 22px;}
 
@@ -422,6 +492,19 @@ h1{
     .normalRange{width: 68.33%;}
     
     .dataInput{width: 68.33%;}
+
+    #popBox{
+        width: 68.33%;
+        right: 15.67%;
+    }
+
+    .boxTop{width: 80%;}
+
+    .boxButton{width: 80%;}
+
+    .boxButton button{width: 40%;}
+
+    .boxTop span {right: 30%;}
 }
 
 @media screen and (min-width: 1400px){
@@ -654,5 +737,35 @@ h1{
         height: 4.5rem;
         font-size: 2.215rem;
     }
+
+    #popBox{
+        width: 31.1%;
+        top: 353px;
+        right: 34.43%;
+    }
     
+    .boxTop{height: 14.625rem;}
+    
+    .boxTop p{font-size: 1.625rem;}
+    
+    .boxTop p:nth-child(1){font-size: 5.625rem;}
+    
+    .boxTop p:nth-child(4){padding: 1.5rem 0 0.75rem 0;}
+    
+    .boxTop span{
+        right: 18%;
+        top: 20%;
+        font-size: 2.375rem;
+    }
+    
+    .boxButton{
+        height: 3.375rem;
+        margin-top: 1.75rem;
+    }
+    
+    .boxButton button{
+        width: 45.35%;
+        border-radius: 0.5rem;
+        font-size: 1.75rem;
+    }
 }

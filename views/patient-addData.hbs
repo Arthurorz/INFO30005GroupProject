@@ -4,35 +4,17 @@
     <input type="number" id="addData" name="addData" placeholder="0.0"><span>nmol/L</span>
     <textarea type="text" id="addComment" name="addComment" placeholder="Please Leave Your Comment"></textarea>
 </div>
-<button class="saveButton" onclick="window.location.href=''" type="button">Save</button>
-<div class="popLayer"></div>
+<button class="saveButton" onclick="window.location.href=''" type="submit">Save</button>
+<div id="popLayer"></div>
 <div id="popBox" >
-    <div>
+    <div class="boxTop">
         <p>5.7</p><span>nmol/L</span>
         <p>Normal Range</p>
         <p>I ate a bit more for lunch today.</p>
         <p>2022/03/20 5:39PM</p>
     </div>
+    <div class="boxButton">
+        <button class="Editing" onclick="closeBox()" type="button">Continue Editing</button>
+        <button class="Back" onclick="window.location.href='homepage.html'" type="button">Back to Homepage</button>
+    </div>
 </div>
-
-<script type="text/javascript">
-    function popBox(){
-        var popBox = document.getElementById('popBox');
-        var popLayer = document.getElementById('popLayer');
-
-        {{!-- popLayer.style.width = document.body.scrollWidth + "px";
-        popLayer.style.height = document.body.scrollHeight + "px"; --}}
-
-        popLayer.style.display = "block";
-        popBox.style.display = "block";
-    }//end func popBox()
-
-    function closeBox(){
-        var popBox = document.getElementById('popBox');
-        var popLayer = document.getElementById('popLayer');
-
-        popLayer.style.display = "none";
-        popBox.style.display = "none";
-
-    }//end func closeBox()
-</script>

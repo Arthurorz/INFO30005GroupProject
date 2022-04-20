@@ -42,7 +42,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/normal', (req, res) => {
-    res.render("normal-landingPage");
+    res.render("normal-login");
 });
 
 app.get('/patients', patientRouter);
