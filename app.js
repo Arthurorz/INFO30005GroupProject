@@ -13,7 +13,11 @@ require('./models/record');
 
 //test
 const patientRouter = require('./routes/patientRouter.js');
+
 const normalRouter = require('./routes/normalRouter.js');
+
+const clinicianRouter = require('./routes/clinicianRouter.js');
+
 
 // configure Handlebars
 app.engine(
@@ -54,6 +58,7 @@ app.get('/patient', (req, res) => {
         layout: "patient.hbs",
     }); 
 }); 
+app.get('/clinicians', clinicianRouter);
 
 app.get('/clinician', (req, res) => {
     res.render("clinician-dashboard",{

@@ -13,7 +13,8 @@ const schema = new mongoose.Schema({
     }],
     brief_bio: {type:String}, 
     engagement:{type:Number, required: true},
-    photo:{type:String}
+    photo:{type:String},
+    clinician:{type:String,required: true}
 })
 
 //Create collection patients in mongodb
