@@ -3,5 +3,5 @@ const controller = require("../controllers/normalController.js");
 
 const normalRouter = express.Router();
 
-normalRouter.post("/", controller.login);
+normalRouter.get('/', (req, res) => res.render("normal-landingPage"));
 module.exports = normalRouter

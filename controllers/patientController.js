@@ -3,9 +3,9 @@ const Patient = require('../models/patient.js');
 const getAllPatientData = async(req, res, next) => {
     try{
         console.log("getAllPatientData");
-        const patients = await Patient.find().lean();
+        const patients = await Patient.findOne({first_name:'San'}).lean();
         console.log(patients);
-        return res.render("normal-landingPage",{data:patients})
+        return res.render("patient-homePage.hbs",{layout:'patient.hbs',data:patients})
     }catch(err){
         return next(err)
     }
@@ -106,4 +106,7 @@ const updateRecord = async(req,res) =>{
 
 module.exports={
     getAllPatientData,
+    addPatient,
+    addRecord,
+    renderRecordData
 }

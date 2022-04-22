@@ -58,7 +58,7 @@ app.get('/patient', (req, res) => {
         layout: "patient.hbs",
     }); 
 }); 
-app.get('/clinicians', clinicianRouter);
+app.use('/clinicians', clinicianRouter);
 
 app.get('/clinician', (req, res) => {
     res.render("clinician-dashboard",{

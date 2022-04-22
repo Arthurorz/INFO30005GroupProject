@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
+    clinicianID:{type:String,required: true},
     first_name: {type:String, required: true, trim: true},
     last_name: {type:String, required: true, trim: true},
     email: {type:String, required: true, unique: true},
@@ -13,8 +14,7 @@ const schema = new mongoose.Schema({
     }],
     brief_bio: {type:String}, 
     engagement:{type:Number, required: true},
-    photo:{type:String},
-    clinician:{type:String,required: true}
+    photo:{type:String}
 })
 
 //Create collection patients in mongodb

@@ -20,13 +20,16 @@
                     <th>Doses of Insulin Taken<br>(Doses)</th>
                     <th>Blood Glucose Level<br>(nmol/L)</th>
                 </tr>
+                {{#each patients}}
                 <tr>
                     <td data-href=""></td>
-                    <td></td>
+                    <td>{{this.first_name}}</td>
                     <td></td>
                     <td></td>
                     <td></td>
                 </tr>
+                {{/each}}
+                
                 <tr>
                     <td data-href=""></td>
                     <td></td>

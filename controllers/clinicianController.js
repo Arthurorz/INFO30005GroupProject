@@ -32,7 +32,6 @@ async function addPatient(first_name, last_name, email, password, screen_name, y
 const renderClinicianData = async (req,res) => {
     try{
         const clinician = await Clinician.findById(req.params.id).lean();
-        console.log(clinician);
         res.render('clinician-individualData.hbs',{layout: 'clinician.hbs',clinicianData:clinician});//render 某个hbs
     }catch(err){
         res.status(400);
@@ -43,6 +42,7 @@ const renderClinicianData = async (req,res) => {
 async function renderDashboard(clinicianID){
     try{
         const patients = await Patient.find({clinician:clinicianID}).lean();
+        
         res.render('clinician-dashboard.hbs',{layout:'clinician.hbs',patients:patients});
     }catch(err){
         res.status(400);
@@ -50,4 +50,8 @@ async function renderDashboard(clinicianID){
     }
 }
 
-
+module.exports={
+    renderDashboard,
+    renderClinicianData,
+    addPatient
+}
