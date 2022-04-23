@@ -42,7 +42,7 @@ const renderClinicianData = async (req,res) => {
 const renderPatientData = async (req,res) => {
     try{
         const patient = await Patient.findOne({_id:req.params.id}).populate({
-            path:'clinicianID',
+            path:'clinician',
             options:{lean:true}
         }).lean().populate({
             path:'records',
@@ -58,7 +58,7 @@ const renderPatientData = async (req,res) => {
 const renderDashboard = async (req, res) => {
     try{
         const result = await Patient.find({clinician_ID : req.params.clinicianID}).populate({
-            path:'clinicianID',
+            path:'clinician',
             options:{lean:true}
         }).lean().populate({
             path:'records',
@@ -67,8 +67,6 @@ const renderDashboard = async (req, res) => {
         console.log(result);
         if(result.length > 0){
             return res.render('clinician-dashboard.hbs',{layout:'clinician.hbs',patients:result});
-        }else{
-            return res.send('no patient found');
         }
     }catch(err){
         console.log(err)

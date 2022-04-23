@@ -23,10 +23,17 @@
                 {{#each patients}}
                     <tr>
                         <td data-href='/patients/{{this._id}}'>{{this.first_name}}</td>
-                        <td style = "background-color: {{#ifWeightOutOfRange}} red{{else}}white {{/ifWeightOutOfRange}}">{{this.records.weight.value}}</td>  <!-- weight肯定不是这么写的 但是先意思意思在这里 -->
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        {{#each this.record.data}}
+                        {{#ifUnrecorded this.status}}
+                        <td>{{this.status}}</td>
+                        {{else}}
+                        {{#ifNotRequired this.status}}
+                        <td>{{this.status}}</td>
+                        {{else}}
+                        <td style = "background-color: {{#ifOutOfRange  this.weight}} red{{else}}white {{/ifOutOfRange}}">{{this.value}}</td>  <!-- 先意思意思在这里 -->
+                        {{/ifNotRequired}}
+                        {{/ifUnrecorded}}
+
                     </tr>
                 {{/each}}
                 
