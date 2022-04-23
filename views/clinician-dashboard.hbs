@@ -5,8 +5,8 @@
                 <span><img src="Icon awesome-question-circle.png">Data was not recorded</span>
             </div>
             <div class="topright">
-                <form action = "/clinicians/:name" method="post">
-                    <input type="search" placeholder="Patient Name" name = "patientName">
+                <form><!--一个表单-->
+                    <input type="search" placeholder="Patient Name">
                     <button type="submit"><img src="Icon ionic-ios-search.png" alt="search"></img></button>
                 </form>
             </div>
@@ -22,18 +22,18 @@
                 </tr>
                 {{#each patients}}
                     <tr>
-                        <td><a href='/clinicians/individualData/{{this._id}}'>{{this.first_name}}<a></td>
+                        <td data-href='/patients/{{this._id}}'>{{this.first_name}}</td>
                         {{#each this.record.data}}
-                            {{#ifUnrecorded this.status}}
-                                <td>{{this.status}}</td>
-                            {{else}}
-                                {{#ifNotRequired this.status}}
-                                    <td>{{this.status}}</td>
-                                {{else}}
-                                    <td style = "background-color: {{#ifOutOfRange  this.weight}} red{{else}}white {{/ifOutOfRange}}">{{this.value}}</td>  <!-- 先意思意思在这里 -->
-                                {{/ifNotRequired}}
-                            {{/ifUnrecorded}}
-                        {{/each}}
+                        {{#ifUnrecorded this.status}}
+                        <td>{{this.status}}</td>
+                        {{else}}
+                        {{#ifNotRequired this.status}}
+                        <td>{{this.status}}</td>
+                        {{else}}
+                        <td style = "background-color: {{#ifOutOfRange  this.weight}} red{{else}}white {{/ifOutOfRange}}">{{this.value}}</td>  <!-- 先意思意思在这里 -->
+                        {{/ifNotRequired}}
+                        {{/ifUnrecorded}}
+
                     </tr>
                 {{/each}}
                 

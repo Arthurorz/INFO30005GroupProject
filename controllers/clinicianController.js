@@ -50,13 +50,14 @@ const renderPatientData = async (req,res) => {
         }).lean();
         res.render('clinician-individualData.hbs',{layout: 'clinician.hbs',patientData:patient});
     }catch(err){
-        console.log(err)
+        res.status(400);
+        res.send("error happened when rendering indivudual patient data",err);
     }
 }
 
 const renderDashboard = async (req, res) => {
     try{
-        const result = await Patient.find(/*{clinician_ID : req.params.clinicianID}*/).populate({
+        const result = await Patient.find({clinician_ID : req.params.clinicianID}).populate({
             path:'clinician',
             options:{lean:true}
         }).lean().populate({
@@ -71,25 +72,6 @@ const renderDashboard = async (req, res) => {
         console.log(err)
     }
 }
-
-const searchDashboard = async (req, res) => {
-    try{
-        const result = await Patient.find({first_name : req.params.patientName}).populate({
-            path:'clinician',
-            options:{lean:true}
-        }).lean().populate({
-            path:'records',
-            options:{date:formatDate(new Date())}
-        });
-        console.log(result);
-        if(result.length > 0){
-            return res.redirect('clinician-dashboard.hbs',{layout:'clinician.hbs',patients:result});
-        }
-    }catch(err){
-        console.log(err)
-    }
-}
-
 function formatDate(date){
     var d = new Date(date),
         month = '' + (d.getMonth() + 1),
@@ -106,6 +88,5 @@ module.exports={
     renderDashboard,
     renderClinicianData,
     addPatient,
-    renderPatientData,
-    searchDashboard
+    renderPatientData
 }

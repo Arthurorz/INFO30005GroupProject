@@ -8,9 +8,8 @@ const app = express();
 
 //connect to database
 require('./models/db');
-Patient = require('./models/patient');
-Record = require('./models/record');
-Clinician = require('./models/clinician');
+require('./models/patient');
+require('./models/record');
 
 //test
 const patientRouter = require('./routes/patientRouter.js');

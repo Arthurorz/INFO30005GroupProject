@@ -16,7 +16,7 @@ const schema = new mongoose.Schema({
     engagement:{type:Number, required: true},
     photo:{type:String},
     support_message:{type:String},
-    clinician:{clinicianID: {type: mongoose.Schema.Types.ObjectId, ref: 'Clinician'}}
+    clinician_ID:{type: mongoose.Schema.Types.ObjectId, ref: 'Clinician'}
 })
 
 //Create collection patients in mongodb
