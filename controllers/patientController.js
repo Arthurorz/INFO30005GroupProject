@@ -3,16 +3,16 @@ const Record = require('../models/record.js');
 const Clinician = require('../models/clinician.js');
 const patientRouter = require('../routes/patientRouter.js');
 
-// const getAllPatientData = async(req, res, next) => {
-//     try{
-//         console.log("getAllPatientData");
-//         const patients = await Patient.findOne({first_name:'San'}).lean();
-//         console.log(patients);
-//         return res.render("patient-homePage.hbs",{layout:'patient.hbs',data:patients})
-//     }catch(err){
-//         return next(err)
-//     }
-// }
+const getAllPatientData = async(req, res, next) => {
+    try{
+        console.log("getAllPatientData");
+        const patients = await Patient.findOne({first_name:'San'}).lean();
+        console.log(patients);
+        return res.render("patient-homePage.hbs",{layout:'patient.hbs',data:patients})
+    }catch(err){
+        return next(err)
+    }
+}
 // /* 存起来 以后可能有用
 // var email = document.getElementById("emails").value;
 // var password = document.getElementById("pass").value;
@@ -128,7 +128,7 @@ const renderHomePage = async (req, res, next) => {
 }
 
 module.exports={
-//     getAllPatientData,
+     getAllPatientData,
 //     addPatient,
 //     addRecord,
 //     renderRecordData
