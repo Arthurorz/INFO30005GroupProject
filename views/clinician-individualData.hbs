@@ -4,8 +4,8 @@
                 <div class="personal-info">
                     <a href=""></a><img class="edit"src="edit.png" alt="edit">
                     <img class="portrait"src="portrait.png" alt="sam">
-                    <h2>Name: Sam McDonald</h2>
-                    <h2>Clinician: Doctor White</h2>
+                    <h2>Name: {{patientData.first_name}} {{patientData.last_name}}</h2>
+                    <h2>Clinician: {{patientData.clinicianID}}</h2>
                     <div class="requirement">
                         <div class="top-two">
                             <div class="blood-glucose">
@@ -33,10 +33,12 @@
                         </div>
                     </div>
                 </div>
-                <div class="message">
-                    <div class="support"><input type="text" id="text" name="text" placeholder="Support Message..."></div>
-                    <button class="message-save" onclick="window.location.href=''" type="button">Save</button>
-                </div>
+                <form> <!--加post-->
+                    <div class="message">
+                        <div class="support"><input type="text" id="text" name="text" placeholder="Support Message..."></div>
+                        <button class="message-save" onclick="window.location.href=''" type="button">Save</button>
+                    </div>
+                </form>
             </div>
             <div class="individual-data">
                 <div class="individual-top">

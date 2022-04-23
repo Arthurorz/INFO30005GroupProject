@@ -15,9 +15,10 @@ var email = document.getElementById("emails").value;
 var password = document.getElementById("pass").value;
 */
 
-async function addPatient(first_name, last_name, email, password, screen_name, yearofbirth, height, brief_bio, engagement, photo){
-    const patient = await Patient.findOne({email:email})
-    if(!patient){
+async function findPatient(first_name, last_name, email, password, screen_name, yearofbirth, height,
+     brief_bio, engagement, photo,clinician,support_message){
+    const result = await Patient.findOne({email:email})
+    if(!result){
         try{
             const patient = new Patient({
                 first_name: first_name,
@@ -29,20 +30,24 @@ async function addPatient(first_name, last_name, email, password, screen_name, y
                 height: height,
                 brief_bio: brief_bio,
                 engagement: engagement,
-                photo: photo
+                photo: photo,
+                clinician:clinician,
+                support_message:support_message
             });
             await patient.save();
             console.log("Patient added");
+            return patient.id
         }catch(err){
             console.log(err);
         }
     }else{
         console.log("Patient already exists\n");
         console.log("Patient id is : ", patient.id);
+        return patient.id
     }   
 }
 
-async function addRecord(patientId){
+async function findRecord(patientId){
     try{
         const result = await Record.findOne({
             _id:patientId,
@@ -102,11 +107,12 @@ const updateRecord = async(req,res) =>{
     }
 }
 */
+
     
 
 module.exports={
     getAllPatientData,
-    addPatient,
-    addRecord,
+    findPatient,
+    findRecord,
     renderRecordData
 }

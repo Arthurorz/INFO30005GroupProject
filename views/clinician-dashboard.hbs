@@ -5,7 +5,7 @@
                 <span><img src="Icon awesome-question-circle.png">Data was not recorded</span>
             </div>
             <div class="topright">
-                <form>
+                <form><!--一个表单-->
                     <input type="search" placeholder="Patient Name">
                     <button type="submit"><img src="Icon ionic-ios-search.png" alt="search"></img></button>
                 </form>
@@ -21,106 +21,15 @@
                     <th>Blood Glucose Level<br>(nmol/L)</th>
                 </tr>
                 {{#each patients}}
-                <tr>
-                    <td data-href=""></td>
-                    <td>{{this.first_name}}</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                    <tr>
+                        <td data-href='/patients/{{this._id}}'>{{this.first_name}}</td>
+                        <td style = "background-color: {{#ifWeightOutOfRange}} red{{else}}white {{/ifWeightOutOfRange}}">{{this.records.weight.value}}</td>  <!-- weight肯定不是这么写的 但是先意思意思在这里 -->
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
                 {{/each}}
                 
-                <tr>
-                    <td data-href=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td data-href=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td data-href=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td data-href=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td data-href=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td data-href=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td data-href=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td data-href=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td data-href=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td data-href=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td data-href=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td data-href=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td data-href=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
                 <tr>
                     <td data-href=""></td>
                     <td></td>

@@ -4,7 +4,7 @@ const clinicianRouter = express.Router()
 
 const clinicianController = require('../controllers/clinicianController.js')
 
-clinicianRouter.get('/', clinicianController.renderDashboard)
-clinicianRouter.get('/individualData', clinicianController.renderClinicianData)
+clinicianRouter.get('/',(req,res)=> clinicianController.renderDashboard(req,res))
+clinicianRouter.get('/individualData/:id', (req,res)=>clinicianController.renderPatientData(req,res))
 
 module.exports = clinicianRouter
