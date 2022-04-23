@@ -48,7 +48,7 @@ app.get('/', (req, res) => {
 });
 
 app.get('/normal', (req, res) => {
-    res.render("normal-login");
+    res.render("normal-forgetpass");
 });
 
 app.get('/patients', patientRouter);
