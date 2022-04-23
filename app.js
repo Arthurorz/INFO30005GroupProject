@@ -46,6 +46,7 @@ app.get('/', (req, res) => {
     res.send('Our demo app is working!');
 });
 
+<<<<<<< Updated upstream
 app.use('/normal', normalRouter);
 app.get('/aboutDiabetes', (req, res) => {
     res.render("normal-aboutDia");
@@ -58,6 +59,10 @@ app.get('/login', (req, res) => {
 });
 app.get('/forgetPassword', (req, res) => {
     res.render("normal-forgetpass");
+=======
+app.get('/normal', (req, res) => {
+    res.render("normal-landingPage");
+>>>>>>> Stashed changes
 });
 
 app.get('/patients', patientRouter);

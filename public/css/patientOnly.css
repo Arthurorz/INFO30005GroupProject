@@ -198,28 +198,16 @@ input[type=checkbox]{display: none;}  */
     align-items: center;
 }
 
-
-.SupportMessage{
-    background-color: #BBD9F6;
-    border-radius: 0.875rem;
-    margin: 5.0625rem 10.13% 2.625rem 10.13%;
-    height: 4.375rem;
-    font-weight: bold;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-}
-
 .SupportMessage p:nth-child(2){font-size: 0.75rem;}
 
-.homeSubtitle{margin-left: 13.87%;}
+.homeSubtitle{margin: auto auto 0.3125rem 13.87%;}
 
 .homeTop{
     width: 72.8%;
-    margin: 0.3125rem auto 2.265rem auto;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+    flex-flow: wrap;
 }
 
 .addbutton{
@@ -233,54 +221,26 @@ input[type=checkbox]{display: none;}  */
     align-items: center;
     font-size: 0.75rem;
     position: relative;
+    color: #668CB8;
+    text-align: center;
+    margin-bottom: 1.875rem;
 }
-
-.addbutton a{display: contents;}
 
 .addbutton span{
     margin-top: 0.5625rem;
-    color: #668CB8;
     display: flex;
     align-items: center;
 }
+
+.addbutton p{font-size: 0.75rem;}
 
 .iconpng{width: 0.9375rem;}
 
-.homeMiddle{
-    width: 72.8%;
-    height: 8rem;
-    margin: 0.3125rem auto 2.265rem auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+.exercise{width: 37px;}
 
-.record{
-    width: 100%;
-    height: 3.625rem;
-    border: 1px solid #CFCFCF;
-    border-radius: 0.8rem;
-    box-shadow: 3px 3px 3px #EDEDED;
-    display: flex;
-    align-items: center;
-    font-size: 0.75rem;
-}
+.dose{width: 49px;}
 
-.recordPng{
-    padding: 0 1.93125rem 0 0.8625rem;
-    width: 13.5%;
-}
-
-.running{width: 1.705rem;}
-
-.doses{width: 2.278rem;}
-
-.record div:nth-child(2){
-    display: flex;
-    flex-direction: column;
-    height: 2.0625rem;
-    justify-content: space-between;
-}
+.time{margin-top: 5px;}
 
 .tableTop{
     display: flex;
@@ -314,7 +274,7 @@ input[type=checkbox]{display: none;}  */
 
 .slope{
     border-bottom: 1px solid #CFCFCF;
-    transform: rotate(18deg);
+    -webkit-transform: rotate(18deg);
 }
 
 .homeTable td:nth-child(1){
@@ -488,6 +448,10 @@ h1{
 
     .homeMiddle{width: 52.5%;}
 
+    .exercise{width: 45px;}
+    
+    .dose{width: 57px;}
+
     /* Add Data Section iPad */
     .normalRange{width: 68.33%;}
     
@@ -634,12 +598,13 @@ h1{
     
     .homeTop{
         width: 33.65%;
-        margin: 0.25rem auto 4.875rem auto;
+        margin: 0.25rem auto 0 auto;
     }
     
     .addbutton{
         height: 17.3047rem;
         font-size: 1.625rem;
+        margin-bottom: 3.75rem;
     }
     
     .addbutton span{margin-top: 1.5rem;}
@@ -654,7 +619,7 @@ h1{
         margin: 0.25rem auto 4.875rem auto;
     }
     
-    .record{
+    /* .record{
         height: 8.515625rem;
         font-size: 1.625rem;
     }
@@ -668,8 +633,16 @@ h1{
 
     .doses{width: 5.35rem;}
     
-    .record div:nth-child(2){height: 4.4375rem;}
-    
+    .record div:nth-child(2){height: 4.4375rem;} */
+
+    .exercise{width: 92px;}
+
+    .dose{width: 133px;}
+
+    .addbutton p{font-size: 1.625rem;}
+
+    .time {margin-top: 11.7px;}
+
     .tableTop{
         margin: auto auto 0.9375rem 21%;
         font-size: 1.25rem;
