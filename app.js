@@ -42,20 +42,28 @@ app.use(express.urlencoded({ extended: false })); // only needed for URL-encoded
 // app.get('/', (req, res) => {
 //     res.render("normal-landingPage")
 // }); 
-app.use('/normal', normalRouter);
-
 app.get('/', (req, res) => {
     res.send('Our demo app is working!');
 });
 
-app.get('/normal', (req, res) => {
+app.use('/normal', normalRouter);
+app.get('/aboutDiabetes', (req, res) => {
+    res.render("normal-aboutDia");
+});
+app.get('/aboutThisWeb', (req, res) => {
+    res.render("normal-aboutWeb");
+});
+app.get('/login', (req, res) => {
+    res.render("normal-login");
+});
+app.get('/forgetPassword', (req, res) => {
     res.render("normal-forgetpass");
 });
 
 app.get('/patients', patientRouter);
 
 app.get('/patient', (req, res) => {
-    res.render("patient-addData", {
+    res.render("patient-homePage", {
         layout: "patient.hbs",
     }); 
 }); 

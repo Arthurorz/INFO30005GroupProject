@@ -169,7 +169,10 @@ h1{
 .article-moreInfor p{
     padding-top: 0.45em;
     color: #668cbb;
-    text-decoration: underline;
+}
+
+.article-moreInfor a{
+    color: #668cbb;
 }
 
 .aboutDia-top div:last-child{
@@ -182,6 +185,7 @@ h1{
     padding-bottom: 1.25em;
     text-align: center;
 }
+.aboutDia-footer a{color: black}
 
 /* .aboutWeb-title{
     width: 100%;
@@ -209,6 +213,8 @@ h1{
     padding-bottom: 1.25em;
     text-align: center;
 }
+
+.aboutWeb-footer a{color: black}
 
 .email{
     list-style: none;
