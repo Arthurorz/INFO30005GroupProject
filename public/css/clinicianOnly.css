@@ -67,7 +67,7 @@
 /* dashboard page */
 
 .top {
-    padding: 13.75rem auto 1.063rem auto;
+    margin: 13.75rem auto 1.063rem auto;
     display: flex;
     width: 75rem;
 }
