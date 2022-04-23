@@ -15,7 +15,8 @@ const schema = new mongoose.Schema({
     brief_bio: {type:String}, 
     engagement:{type:Number, required: true},
     photo:{type:String},
-    support_message:{type:String}
+    support_message:{type:String},
+    clinician_ID:{type: mongoose.Schema.Types.ObjectId, ref: 'Clinician'}
 })
 
 //Create collection patients in mongodb
