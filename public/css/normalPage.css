@@ -371,6 +371,7 @@ button.sentcode{
     .normal-login{
         width: 90px;
         height: 40px;
+        font-size: 0.8rem;
     }
 
     /* Landing Page */
@@ -391,6 +392,10 @@ button.sentcode{
     .middle-login{margin: 0.75rem auto;} 
 
     /* Forget Password iPad */
+
+    .forget-body .login{
+        margin: 180px 24.17% 0 24.17%;;
+    }
 
     .sendcode input, .forget-container input{
         font-size: 1rem;
