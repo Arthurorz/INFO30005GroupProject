@@ -101,7 +101,7 @@
 
 form{
     display: flex;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 2.25rem;
     width: 100%;
 }
@@ -398,9 +398,7 @@ th{
     padding: 0;
 }
 
-.slope{
-    position: relative;
-    border-bottom: 1px solid #CFCFCF;
+.sam-table .slope{
     -webkit-transform: rotate(30deg);
 }
 
@@ -410,7 +408,7 @@ th{
 
 .note{
     height: 36.188rem;
-    margin: 2.313rem 7.6875rem 1.875rem 7.6875rem;
+    margin: 4.313rem 7.6875rem 1.875rem 7.6875rem;
     display: flex;
 }
 
