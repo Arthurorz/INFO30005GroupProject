@@ -1,23 +1,24 @@
 const res = require('express/lib/response');
 const Clinician = require('../models/clinician.js');
 const Patient = require('../models/patient.js');
+const Record = require('../models/record.js');
 
-async function addPatient(first_name, last_name, email, password, screen_name, yearofbirth, height, brief_bio, engagement, photo,clinician){
-    const patient = await Patient.findOne({email:email})
+const addPatient= async(req,res) =>{
+    const patient = await Patient.findOne({email:req.params.email})
     if(!patient){
         try{
             const patient = new Patient({
-                first_name: first_name,
-                last_name: last_name,
-                email: email,
-                password: password,
-                screen_name: screen_name,
-                yearofbirth: yearofbirth,
-                height: height,
-                brief_bio: brief_bio,
-                engagement: engagement,
-                photo: photo,
-                clinician :clinician
+                first_name: req.params.first_name,
+                last_name: req.params.last_name,
+                email: req.params.email,
+                password: req.params.password,
+                screen_name: req.params.screen_name,
+                yearofbirth: req.params.yearofbirth,
+                height: req.params.height,
+                brief_bio: req.params.brief_bio,
+                engagement: req.params.engagement,
+                photo: req.params.photo,
+                clinician :req.params.clinician
             });
             await patient.save();
             console.log("Patient added");
@@ -56,16 +57,18 @@ const renderPatientData = async (req,res) => {
 
 const renderDashboard = async (req, res) => {
     try{
-        const result = await Patient.find(/*{clinician_ID : req.params.clinicianID}*/).populate({
+        const patient = await Patient.find(/*{clinician_ID : req.params.clinicianID}*/).populate({
             path:'clinician',
             options:{lean:true}
         }).lean().populate({
             path:'records',
             options:{date:formatDate(new Date())}
         });
-        console.log(result);
-        if(result.length > 0){
-            return res.render('clinician-dashboard.hbs',{layout:'clinician.hbs',patients:result});
+        const records = await Record.find({date:formatDate(new Date())}).lean();
+        console.log(patient);
+        console.log(records)
+        if(patient.length > 0){
+            return res.render('clinician-dashboard.hbs',{layout:'clinician.hbs',patients:patient,records:records});
         }
     }catch(err){
         console.log(err)
