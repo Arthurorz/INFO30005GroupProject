@@ -471,7 +471,7 @@ li div{
     border: none;
     border-radius: 0;
     height: 96%;
-    width: 20%;
+    width: 55%;
     padding-left: 1rem;
     font-size: 2.125rem;
     font-weight: bold;
@@ -492,7 +492,7 @@ li div{
     padding-left: 1rem;
     padding-bottom: 4rem;
     font-size: 1.625rem;
-    font-style: italic;
+    /* font-style: italic; */
 }
 
 .note-save{

@@ -392,6 +392,10 @@ button.sentcode{
 
     /* Forget Password iPad */
 
+    .sendcode input, .forget-container input{
+        font-size: 1rem;
+    }
+
 
 
 }
@@ -641,5 +645,9 @@ button.sentcode{
         height: 2.688rem;
         width: 97%;
         margin: 0.688rem 0 0 0;
+    }
+
+    .sendcode input, .forget-container input{
+        font-size: 1.5rem;
     }
 }
