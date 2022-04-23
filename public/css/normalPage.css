@@ -305,7 +305,7 @@ h4{
     /* padding: 0 0.625rem 0 0.625rem; */
 }
 
-label, button.sentcode{
+.forget-container label, button.sentcode{
     font-size: 0.875rem;
 }
 
@@ -636,7 +636,7 @@ button.sentcode{
         border-radius: 0.625rem;
     }
 
-    label{
+    .forget-container label{
         font-size: 1.625rem;
     }
     

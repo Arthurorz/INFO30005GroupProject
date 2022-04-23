@@ -99,9 +99,9 @@
     align-items: stretch;
 }
 
-form{
+.topright form{
     display: flex;
-    /* border: 1px solid black; */
+    border: 1px solid black;
     border-radius: 2.25rem;
     width: 100%;
 }
@@ -121,7 +121,7 @@ input::placeholder {
     font-style: italic;
 }
 
-form button{
+.topright form button{
     background-image: url("/30005image/Icon\ ionic-ios-search.png");
     padding-right: 1.375rem;
     border: none;
@@ -130,7 +130,7 @@ form button{
     width: 1.75rem;
 }
 
-form button img{
+.topright form button img{
     text-indent: -999px;
     overflow: hidden;
     height: 1.688rem;
@@ -182,7 +182,6 @@ td{
     width: 10.75rem;
 }
 
-
 /* individual patient sam page */
 
 h1{
@@ -197,8 +196,13 @@ h1{
     margin: 0 auto;
     display: flex;
 }
+
  .individual-left{
     width: 25.507%;
+}
+
+.individual-left form{
+    border: none;
 }
 
 .individual-data{
@@ -229,7 +233,6 @@ h2{
     text-align: center;
     font-weight: normal;
 }
-
 
 .requirement{
     margin: 2.4375rem 1.125rem 2.1875rem 1.125rem;
