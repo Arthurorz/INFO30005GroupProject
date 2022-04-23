@@ -451,7 +451,7 @@ button.sentcode{
 
     .landing-body{
         position: relative;
-        margin-top: 140px;
+        /* margin-top: 140px; */
     }
 
     .mobile-head{
@@ -464,7 +464,7 @@ button.sentcode{
 
     .web-head{
         display: block;
-        top: 80px;
+        top: 200px;
         margin: 0 32%;
     }
 
