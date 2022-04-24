@@ -1,7 +1,6 @@
 const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 const Clinician = require('../models/clinician.js');
-const patientRouter = require('../routes/patientRouter.js');
 
 const getAllPatientData = async(req, res, next) => {
     try{
@@ -95,43 +94,86 @@ const getAllPatientData = async(req, res, next) => {
 //     }
 // }
 
-const updateRecord = async(req,res) =>{
+const updateRecord = async(req,res,next) =>{
     try{
-        const patient_name = 'San';
-        const patientid = await Patient.findOne({first_name:patient_name}).lean();
-        const record = await Record.find({_id:patientid.id}).sort({"date":-1}).limit(1).lean();
-        console.log("---record---");
-        const data = record[req.body.key];
-        data.status = "recorded";
-        data.value = req.body.value;
-        data.comment = req.body.comment;
-        data.date = new Date();
-        res.redirect('/patient/homePage');
+        const patient_id = '6263f5d7ef996dcc6dbf10af';
+        const type = req.params.type;
+        console.log(type);
+        const record = await Record.findOne({patientId: patient_id, date: (new Date()).toDateString()});
+        record.data[type].status = "recorded";
+        console.log( record.data[type]);
+        await record.save();
+        record.type.value = req.body.value;
+        record.type.comment = req.body.comment;
+        record.date = new Date().toDateString();
     }catch(err){
         return next(err);
     }
 };
 
 
+async function initialRecord (patient_id){
+    try{
+        const patient = await Patient.findOne({ _id: patient_id }).lean();
+        const record = await Record.findOne({patientid: patient._id, date: (new Date()).toDateString()}).lean();
+        if(record == null){
+            newRecord = new Record({
+                patientId: patient_id,
+                date: (new Date()).toDateString(),
+            })
+            if(!patient.required_data.glucose){
+                newRecord.data.glucose.status = "Not required";
+            }
+            if(!patient.required_data.weight){
+                newRecord.data.weight.status = "Not required";
+            }
+            if(!patient.required_data.exercise){
+                newRecord.data.exercise.status = "Not required";
+            }
+            if(!patient.required_data.insulin){
+                newRecord.data.insulin.status = "Not required";
+            }
+            await newRecord.save();  
+        }else{
+            console.log("record already exists");
+        }
+    }catch(err){
+        console.log(err);
+    }
+};
+
 const renderHomePage = async (req, res, next) => {
     try {
-        console.log("-----------------renderHomePage------------------");
-        const name = 'San';
-        const patient = await Patient.findOne({ first_name: name }).lean();
-        const clinician = await Clinician.findById(patient.clinician_ID).lean();
-        const records = await Record.find({ _id: patient.id}).sort({"date":-1}).limit(7).lean();
-        const today = records.find(record => record.date.toDateString() === new Date().toDateString());
-        res.render("new.hbs", { layout: 'patient.hbs', patient: patient, clinician: clinician, records: records, today:today });
+        const id = "6263f5d7ef996dcc6dbf10af";
+        initialRecord(id);
+        const patient = await Patient.findOne({ _id: id }).lean();
+        const clinician = await Clinician.findById(patient.clinician).lean();
+        const records = await Record.find({ patientid: id}).sort({"date":-1}).limit(7).lean();
+        const newdate = new Date();
+        const date = newdate.toDateString();
+        const today = await Record.findOne({date: date}).lean();
+        res.render("new.hbs", { layout: 'patient.hbs', patient: patient, clinician: clinician, records: records, today: today });
     } catch (err) {
         return next(err);
     }
 }
 
+const renderAddPage = async (req, res, next) => {
+    try{
+       const id = "6263f5d7ef996dcc6dbf10af";
+       res.render("patient-addData.hbs", { layout: 'patient.hbs'});
+    }catch(err){
+        return next(err);
+    }
+}
+
+
 module.exports={
-     getAllPatientData,
+    getAllPatientData,
 //     addPatient,
 //     addRecord,
 //     renderRecordData
+    renderAddPage,
     updateRecord,
     renderHomePage,
 }
