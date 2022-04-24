@@ -22,14 +22,14 @@ const schema = new mongoose.Schema({
             date: {type: Date, default: null},
         },
         insulin: {
-            status: {type: String, enum:["recorded", "unrecorded", "Not required"], default:"Unrecorded"},
+            status: {type: String, enum:["recorded", "unrecorded", "Not required"], default:"unrecorded"},
             value: {type: Number, default: 0},
             comment: {type: String, default: ""},
             date: {type: Date, default: null},
         }
     },
-    date: {type: Date, default: null, required: true},
-})
+    date: {type: String, default: null, required: true},
+},{versionKey: false})
 
 // Create collection records in mongodb
 const Record = mongoose.model('Record', schema);

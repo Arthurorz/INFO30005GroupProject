@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
     }],
     brief_bio: {type:String},
     photo:{stype:String}
-})
+},{versionKey: false})
 
 const Clinician = mongoose.model('Clinician', schema);
 module.exports = Clinician;

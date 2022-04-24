@@ -15,9 +15,24 @@ const schema = new mongoose.Schema({
     engagement:{type:Number, required: true},
     photo:{type:String},
     support_message:{type:String},
-    clinician: {type: mongoose.Schema.Types.ObjectId, ref: 'Clinician'}
-})
-
+    clinician:{clinicianID: {type: mongoose.Schema.Types.ObjectId, ref: 'Clinician'}},
+    required_data:{
+        glucose:{type:Boolean,required: true},
+        weight:{type:Boolean,required: true},
+        exercise:{type:Boolean,required: true},
+        insulin:{type:Boolean,required: true}
+    },
+    bound:{
+            glucose_upper:{type: Number, required: true},
+            glucose_lower:{type: Number, required: true},
+            weight_upper:{type: Number, required: true},
+            weight_lower:{type: Number, required: true},
+            exercise_upper:{type: Number, required: true},
+            exercise_lower:{type: Number, required: true},
+            insulin_upper:{type: Number, required: true},
+            insulin_lower:{type: Number, required: true}
+    }
+},{versionKey: false})
 //Create collection patients in mongodb
 const Patient = mongoose.model('Patient', schema);
 module.exports = Patient;
