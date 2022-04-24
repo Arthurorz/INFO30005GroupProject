@@ -58,17 +58,12 @@ const renderPatientData = async (req,res) => {
 const renderDashboard = async (req, res) => {
     try{
         const patient = await Patient.find(/*{clinician_ID : req.params.clinicianID}*/).populate({
-            path:'clinician',
-            options:{lean:true}
-        }).lean().populate({
-            path:'records',
-            options:{date:formatDate(new Date())}
-        });
-        const records = await Record.find({date:formatDate(new Date())}).lean();
+            path:'records'
+        }).lean()
+
         console.log(patient);
-        console.log(records)
         if(patient.length > 0){
-            return res.render('clinician-dashboard.hbs',{layout:'clinician.hbs',patients:patient,records:records});
+            return res.render('clinician-dashboard.hbs',{layout:'clinician.hbs',patients:patient});
         }
     }catch(err){
         console.log(err)
