@@ -15,7 +15,7 @@ const schema = new mongoose.Schema({
     engagement:{type:Number, required: true},
     photo:{type:String},
     support_message:{type:String},
-    clinician:{clinicianID: {type: mongoose.Schema.Types.ObjectId, ref: 'Clinician'}},
+    clinician:{type: mongoose.Schema.Types.ObjectId, ref: 'Clinician'},
     required_data:{
         glucose:{type:Boolean,required: true},
         weight:{type:Boolean,required: true},
