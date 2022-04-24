@@ -342,10 +342,7 @@ h1{
     font-size: 0.75rem;
 }
 
-#addData::-webkit-input-placeholder{
-    /* text-align: center; */
-    font-size: 2.75rem;
-}
+#addData::-webkit-input-placeholder{font-size: 2.75rem;}
 
 .saveButton{
     display: block;
@@ -385,14 +382,15 @@ h1{
 
 .boxTop{
     width: 87.16%;
-    height: 6.8rem;
+    /* height: 4.875rem; */
     margin: 0 auto;
     text-align: center;
     background-color: white;
     border-radius: 0.625rem;
+    line-height: 4.875rem;
 }
 
-.boxTop p{font-size: 0.75rem;}
+/* .boxTop p{font-size: 0.75rem;}
 
 .boxTop p:nth-child(1){font-size: 2.75rem;}
 
@@ -402,9 +400,20 @@ h1{
     position: absolute;
     right: 21.5%;
     top: 24%;
+} */
+
+.back{
+    background-color: #668CB8;
+    color: white;
+    height: 1.8125rem;
+    border-radius: 0.5rem;
+    border: none;
+    font-size: 0.875rem;
+    display: block;
+    margin: 1.5rem auto 0 auto;
 }
 
-.boxButton{
+/* .boxButton{
     width: 87.16%;
     margin: 0 auto;
     display: flex;
@@ -427,7 +436,7 @@ h1{
 .boxButton button:nth-child(2){
     background-color: #668CB8;
     color: white;
-}
+} */
 
 @media screen and (min-width: 800px) and (max-width: 1400px){
     html{font-size: 22px;}
@@ -713,11 +722,26 @@ h1{
 
     #popBox{
         width: 31.1%;
-        top: 353px;
+        top: 410px;
         right: 34.43%;
+        padding: 3.375rem 0 3.375rem 0;
+    }
+
+    .boxTop{height: 9.625rem;}
+
+    .boxTop span{
+        font-size: 1.875rem;
+        line-height: 9.625rem;
+    } 
+
+    .back{
+        height: 3.375rem;
+        width: 45.35%;
+        font-size: 1.75rem;
+        margin: 2.8125rem auto 0 auto;
     }
     
-    .boxTop{height: 14.625rem;}
+    /* .boxTop{height: 14.625rem;}
     
     .boxTop p{font-size: 1.625rem;}
     
@@ -740,5 +764,5 @@ h1{
         width: 45.35%;
         border-radius: 0.5rem;
         font-size: 1.75rem;
-    }
+    } */
 }
