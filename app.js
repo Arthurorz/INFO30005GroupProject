@@ -65,7 +65,7 @@ app.get('/forgetPassword', (req, res) => {
 app.get('/patients', patientRouter);
 
 app.get('/patient', (req, res) => {
-    res.render("patient-addData", {
+    res.render("patient-homePage", {
         layout: "patient.hbs",
     }); 
 }); 
