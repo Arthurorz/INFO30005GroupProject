@@ -69,6 +69,11 @@ app.get('/patient', (req, res) => {
         layout: "patient.hbs",
     }); 
 }); 
+app.get('/patient/homepage/123', (req, res) => {
+    res.render("new", {
+        layout: "patient.hbs",
+    }); 
+}); 
 app.use('/clinicians', clinicianRouter);
 
 app.get('/clinician', (req, res) => {

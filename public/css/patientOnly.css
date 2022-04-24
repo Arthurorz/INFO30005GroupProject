@@ -226,6 +226,10 @@ input[type=checkbox]{display: none;}  */
     margin-bottom: 1.875rem;
 }
 
+.addbutton a{
+    width: 100%;
+}
+
 .addbutton span{
     margin-top: 0.5625rem;
     display: flex;

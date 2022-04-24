@@ -9,29 +9,31 @@
     {{else}}
     {{#ifNotRecorded today.data.glucose.status}}
     <div class="addbutton">
-        <a href='/patient/addData/glucose/{{patient._id}}'><img class="add" src="/addbutton.png" alt="Blood Glucose">
-        <span>Blood Glucose<img class="iconpng" src="/blood_glucose.png" alt="bloodpng"></span></a>
+        <a href='/patient/addData/glucose/{{patient._id}}'></a>
+        <img class="add" src="/addbutton.png" alt="Blood Glucose">
+        <span>Blood Glucose<img class="iconpng" src="/blood_glucose.png" alt="bloodpng"></span>
     </div>
     {{else}}
     <div class = "addbutton">
-        <img class="add" src="/bgl.bng" alt="Blood Glucose">
+        <img class="dose" src="/blood_glucose.png" alt="Blood Glucose">
         <p>Blood Glucose: <br>{{today.data.glucose.value}} nmol/L</p>
         <p class="time">{{today.data.glucose.date}}</p>
     </div>
     {{/ifNotRecorded}}
     {{/ifNotRequired}}
 
-     {{!-- Render today's weight--}}
+    {{!-- Render today's weight--}}
     {{#ifNotRequired today.data.weight.status}}
     {{else}}
     {{#ifNotRecorded today.data.weight.status}}
     <div class = "addbutton">
-        <a href='/patient/addData/weight/{{patient._id}}'><img class="add" src="/addbutton.png" alt="Weight">
-        <span>Weight&nbsp;<img class="iconpng" src="/weightscale.png" alt="weightpng"></span></a>
+        <a href='/patient/addData/weight/{{patient._id}}'></a>
+        <img class="add" src="/addbutton.png" alt="Weight">
+        <span>Weight&nbsp;<img class="iconpng" src="/weightscale.png" alt="weightpng"></span>
     </div>
     {{else}}
     <div class = "addbutton">
-        <img class="add" src="/weight.png" alt="Weight">
+        <img class="dose" src="/weightscale.png" alt="Weight">
         <p>Weight: <br>{{today.data.weight.value}} kg</p>
         <p class="time">{{today.data.weight.date}}</p>
     </div>  
@@ -43,23 +45,27 @@
     {{else}}
     {{#ifNotRecorded today.data.exercise.status}}
     <div class = "addbutton">
-        <a href='/patient/addData/exercise/{{patient._id}}'><img class="add" src="/addbutton.png" alt="Exercise">
-        <span>Exercise&nbsp;<img class="iconpng" src="/exercise.png" alt="exercisepng"></span></a>
+        <a href='/patient/addData/exercise/{{patient._id}}'></a>
+        <img class="add" src="/addbutton.png" alt="Exercise">
+        <span>Exercise&nbsp;<img class="iconpng" src="/exercise.png" alt="exercisepng"></span>
     </div>
     {{else}}
     <div class = "addbutton">
-        <img class="add" src="/exercise.png" alt="Exercise">
+        <img class="exercise" src="/running.png" alt="Exercise">
         <p>Exercise: <br>{{today.data.exercise.value}} Step Count</p>
         <p class="time">{{today.data.exercise.date}}</p>
+    </div>
     {{/ifNotRecorded}}
     {{/ifNotRequired}}
+    
     {{!-- Render today's insulin--}}
     {{#ifNotRequired today.data.insulin.status}}
     {{else}}
     {{#ifNotRecorded today.data.insulin.status}}
     <div class = "addbutton">
-        <a href='/patient/addData/insulin/{{patient._id}}'><img class="add" src="/addbutton.png" alt="Insulin">
-        <span>Insulin&nbsp;<img class="iconpng" src="/doses.png" alt="insulpng"></span></a>
+        <a href='/patient/addData/insulin/{{patient._id}}'></a>
+        <img class="add" src="/addbutton.png" alt="Insulin">
+        <span>Insulin&nbsp;<img class="iconpng" src="/doses.png" alt="insulpng"></span>
     </div>
     {{else}}
     <div class="addbutton" >
