@@ -23,22 +23,11 @@
                 {{#each patients}}
                     <tr>
                         <td><a href='/clinicians/individualData/{{this._id}}'>{{this.first_name}}<a></td>
-                        <td>{{this.records.data.weight}}</td>
-                        <td>{{this.records.data.exercise}}</td>
-                        <td>{{this.records.data.insulin}}</td>
-                        <td>{{this.records.data.glucose}}</td>
-                        {{!-- {{#each records}}
-                            {{#ifNotRecorded this.status}}
-                                <td>{{this.status}}</td>
-                            {{else}}
-                                {{#ifNotRequired this.status}}
-                                    <td>{{this.status}}</td>
-                                {{else}}
-                                    <td style = "background-color: {{#ifOutOfRange  this.weight}} red{{else}}white {{/ifOutOfRange}}">{{this.value}}</td>  <!-- 先意思意思在这里 -->
-                                {{/ifNotRequired}}
-                            {{/ifNotRecorded}}
-                            
-                        {{/each}} --}}
+                        {{#each records.data}}
+                            {{#if}}
+                            <td>{{this.records.data.weight}}</td>
+                        {{/each}}
+                        
                     </tr>
                 {{/each}}
                 

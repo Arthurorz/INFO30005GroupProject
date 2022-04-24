@@ -34,4 +34,6 @@ const helpers = {
             return options.inverse(this);
         }
     }
-}
+};
+
+module.exports.helpers = helpers;
