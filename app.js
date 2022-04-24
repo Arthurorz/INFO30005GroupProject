@@ -26,6 +26,7 @@ app.engine(
     exphbs.engine({
         defaultLayout: 'normal',
         extname: 'hbs',
+        helpers: require("./public/js/helpers.js").helpers,
     })
 );
 // set Handlebars view engine

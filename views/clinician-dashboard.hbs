@@ -23,9 +23,11 @@
                 {{#each patients}}
                     <tr>
                         <td><a href='/clinicians/individualData/{{this._id}}'>{{this.first_name}}<a></td>
+                        
                         {{#each records.data}}
-                            {{#if}}
-                            <td>{{this.records.data.weight}}</td>
+                            {{#ifRecorded this.status}}
+                                <td>{{this.weight}}</td>
+                            {{/ifRecorded}}
                         {{/each}}
                         
                     </tr>
