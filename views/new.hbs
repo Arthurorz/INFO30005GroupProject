@@ -15,7 +15,7 @@
     </div>
     {{else}}
     <div class = "addbutton">
-        <img class="dose" src="/blood_glucose.png" alt="Blood Glucose">
+        <img class="recorded" src="/recordedBlood.png" alt="Blood Glucose">
         <p>Blood Glucose: <br>{{today.data.glucose.value}} nmol/L</p>
         <p class="time">{{today.data.glucose.date}}</p>
     </div>
@@ -33,7 +33,7 @@
     </div>
     {{else}}
     <div class = "addbutton">
-        <img class="dose" src="/weightscale.png" alt="Weight">
+        <img class="recorded" src="/recordedWeight.png" alt="Weight">
         <p>Weight: <br>{{today.data.weight.value}} kg</p>
         <p class="time">{{today.data.weight.date}}</p>
     </div>  
@@ -51,7 +51,7 @@
     </div>
     {{else}}
     <div class = "addbutton">
-        <img class="exercise" src="/running.png" alt="Exercise">
+        <img class="recorded" src="/recordedRunning.png" alt="Exercise">
         <p>Exercise: <br>{{today.data.exercise.value}} Step Count</p>
         <p class="time">{{today.data.exercise.date}}</p>
     </div>
@@ -69,7 +69,7 @@
     </div>
     {{else}}
     <div class="addbutton" >
-         <img class="dose" src="/doses.png" alt="Weight">
+         <img class="recorded" src="/recordedDoses.png" alt="Weight">
          <p>Dose of Insulin Taken: <br>{{today.data.insulin.value}} doses</p>
          <p class="time">{{today.data.insulin.date}}</p>
     </div>
