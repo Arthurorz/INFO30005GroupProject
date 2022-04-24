@@ -57,9 +57,13 @@ const renderPatientData = async (req,res) => {
 
 const renderDashboard = async (req, res) => {
     try{
-        const patient = await Patient.find(/*{clinician_ID : req.params.clinicianID}*/).populate({
-            path:'records'
-        }).lean()
+        const patient = await Patient.find(/*{clinician_ID : req.params.clinicianID}*/).populate([{
+            path:'records',
+            options:{lean:true}
+        }]).lean().populate({
+            path:'clinician',
+            options:{lean:true}
+        }).lean();
 
         console.log(patient);
         if(patient.length > 0){

@@ -22,11 +22,11 @@
                 </tr>
                 {{#each patients}}
                     <tr>
-                        <td><a href='/clinicians/individualData/{{_id}}'>{{first_name}}<a></td>
-                        <td>{{records.data.weight}}</td>
-                        <td>{{records.data.exercise}}</td>
-                        <td>{{records.data.insulin}}</td>
-                        <td>{{records.data.glucose}}</td>
+                        <td><a href='/clinicians/individualData/{{this._id}}'>{{this.first_name}}<a></td>
+                        <td>{{this.records.data.weight}}</td>
+                        <td>{{this.records.data.exercise}}</td>
+                        <td>{{this.records.data.insulin}}</td>
+                        <td>{{this.records.data.glucose}}</td>
                         {{!-- {{#each records}}
                             {{#ifNotRecorded this.status}}
                                 <td>{{this.status}}</td>

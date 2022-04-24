@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
-    patientid: {type: mongoose.Schema.Types.ObjectId, ref: 'Patient', required: true},
+    patientId: {type: mongoose.Schema.Types.ObjectId, ref: 'Patient', required: true},
     data:{
         glucose: {
             status: {type: String, enum:["recorded", "unrecorded", "Not required"], default:"unrecorded"},
