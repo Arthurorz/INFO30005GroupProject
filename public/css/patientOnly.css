@@ -274,7 +274,7 @@ input[type=checkbox]{display: none;}  */
 
 .slope{
     border-bottom: 1px solid #CFCFCF;
-    -webkit-transform: rotate(18deg);
+    transform: rotate(18deg);
 }
 
 .homeTable td:nth-child(1){
