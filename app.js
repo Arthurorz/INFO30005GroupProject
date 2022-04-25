@@ -8,11 +8,11 @@ const app = express();
 
 //connect to database
 require('./models/db');
+
 Patient = require('./models/patient');
 Record = require('./models/record');
 Clinician = require('./models/clinician');
-
-//test
+//Routers
 const patientRouter = require('./routes/patientRouter.js');
 
 const normalRouter = require('./routes/normalRouter.js');
@@ -62,7 +62,8 @@ app.get('/forgetPassword', (req, res) => {
     res.render("normal-forgetpass");
 });
 
-app.get('/patients', patientRouter);
+app.use('/patient', patientRouter);
+
 
 app.get('/patient', (req, res) => {
     res.render("patient-homePage", {

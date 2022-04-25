@@ -43,6 +43,34 @@ const helpers = {
         }else{
             return options.inverse(this);
         }
+    },
+    ifglucose:function (value, options){
+        if(value == "glucose"){
+            return options.fn(this);
+        }else{
+            return options.inverse(this);
+        }
+    },
+    ifinsulin:function (value, options){
+        if(value == "insulin"){
+            return options.fn(this);
+        }else{
+            return options.inverse(this);
+        }
+    },
+    ifweight:function (value, options){
+        if(value == "weight"){
+            return options.fn(this);
+        }else{
+            return options.inverse(this);
+        }
+    },
+    ifexercise:function (value, options){
+        if(value == "exercise"){
+            return options.fn(this);
+        }else{
+            return options.inverse(this);
+        }
     }
 };
 

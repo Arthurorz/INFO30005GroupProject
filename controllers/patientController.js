@@ -96,16 +96,16 @@ const getAllPatientData = async(req, res, next) => {
 
 const updateRecord = async(req,res,next) =>{
     try{
+        console.log("===========updateRecord===========");
         const patient_id = '6263f5d7ef996dcc6dbf10af';
         const type = req.params.type;
-        console.log(type);
         const record = await Record.findOne({patientId: patient_id, date: (new Date()).toDateString()});
         record.data[type].status = "recorded";
-        console.log( record.data[type]);
+        record.data[type].value = req.body.addData;
+        record.data[type].comment = req.body.addComment;
+        record.data[type].date = new Date().toDateString();
         await record.save();
-        record.type.value = req.body.value;
-        record.type.comment = req.body.comment;
-        record.date = new Date().toDateString();
+        res.redirect('/patient/homepage/'+patient_id);
     }catch(err){
         return next(err);
     }
@@ -114,10 +114,11 @@ const updateRecord = async(req,res,next) =>{
 
 async function initialRecord (patient_id){
     try{
-        const patient = await Patient.findOne({ _id: patient_id }).lean();
-        const record = await Record.findOne({patientid: patient._id, date: (new Date()).toDateString()}).lean();
+        console.log("===========initiate Record===========");
+        const patient = await Patient.findOne({ _id: patient_id });
+        const record = await Record.findOne({patientId: patient._id, date: (new Date()).toDateString()});
         if(record == null){
-            newRecord = new Record({
+            const newRecord = new Record({
                 patientId: patient_id,
                 date: (new Date()).toDateString(),
             })
@@ -134,6 +135,8 @@ async function initialRecord (patient_id){
                 newRecord.data.insulin.status = "Not required";
             }
             await newRecord.save();  
+            patient.records.push({record_id: newRecord._id});
+            await patient.save();
         }else{
             console.log("record already exists");
         }
@@ -144,26 +147,31 @@ async function initialRecord (patient_id){
 
 const renderHomePage = async (req, res, next) => {
     try {
+        console.log("==============renderHomePage===============");
         const id = "6263f5d7ef996dcc6dbf10af";
         initialRecord(id);
         const patient = await Patient.findOne({ _id: id }).lean();
         const clinician = await Clinician.findById(patient.clinician).lean();
-        const records = await Record.find({ patientid: id}).sort({"date":-1}).limit(7).lean();
+        const records = await Record.find({patientId: id}).sort({"date":-1}).limit(7).lean();
         const newdate = new Date();
         const date = newdate.toDateString();
         const today = await Record.findOne({date: date}).lean();
         res.render("new.hbs", { layout: 'patient.hbs', patient: patient, clinician: clinician, records: records, today: today });
-    } catch (err) {
+    }catch (err) {
         return next(err);
     }
 }
 
 const renderAddPage = async (req, res, next) => {
     try{
-       const id = "6263f5d7ef996dcc6dbf10af";
-       res.render("patient-addData.hbs", { layout: 'patient.hbs'});
+        console.log("===========renderAddPage===========");
+        const id = "6263f5d7ef996dcc6dbf10af";
+        const patient = await Patient.findOne({ _id: id }).lean();
+        const type = req.params.type;
+        const record = await Record.findOne({patientId: id, date: (new Date()).toDateString()}).lean();
+        res.render("patient-addData.hbs", { layout: 'patient.hbs', type: type, record: record , patient: patient});
     }catch(err){
-        return next(err);
+         return next(err);
     }
 }
 
