@@ -33,7 +33,7 @@
                         </div>
                     </div>
                 </div>
-                <form> <!--加post-->
+                <form> <!--add post in future-->
                     <div class="message">
                         <div class="support"><input type="text" id="text" name="text" placeholder="Support Message..."></div>
                         <button class="message-save" onclick="window.location.href=''" type="button">Save</button>
@@ -79,13 +79,94 @@
                             <th>Doses of Insulin Taken<br>(Doses)</th>
                             <th>Blood Glucose Level<br>(nmol/L)</th>
                         </tr>
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        {{#each patient.records}}
+                            <tr>
+                                <td>{{this.record_id.date}}</td>
+                                <!--weight-->
+                                {{#ifRecorded this.record_id.data.weight.status}}
+                                    <td style = "background-color:
+                                        {{#ifAboveRange this.record_id.data.weight.value patient.bound.weight_upper}}
+                                            #F29393
+                                        {{else}}
+                                            {{#ifBelowRange this.record_id.data.weight.value patient.bound.weight_lower}}
+                                                #AAA9A9
+                                            {{/ifBelowRange}}
+                                        {{/ifAboveRange}}
+                                    ;">
+                                    {{this.record_id.data.weight.value}}</td>
+                                {{else}}
+                                    {{#ifNotRecorded this.record_id.data.weight.status}}
+                                        <td><img src="/Icon awesome-question-circle.png"></td>
+                                    {{else}}
+                                        <td>{{this.record_id.data.weight.status}}</td>
+                                    {{/ifNotRecorded}}
+                                {{/ifRecorded}}
+
+                                <!--exercise-->
+                                {{#ifRecorded this.record_id.data.exercise.status}}
+                                    <td style = "background-color:
+                                        {{#ifAboveRange this.record_id.data.exercise.value this.bound.exercise_upper}}
+                                            #F29393
+                                        {{else}}
+                                            {{#ifBelowRange this.record_id.data.exercise.value this.bound.exercise_lower}}
+                                                #AAA9A9
+                                            {{/ifBelowRange}}
+                                        {{/ifAboveRange}}
+                                    ;">
+                                    {{this.record_id.data.exercise.value}}</td>
+                                {{else}} 
+                                    {{#ifNotRecorded this.record_id.data.exercise.status}}
+                                        <td><img src="/Icon awesome-question-circle.png"></td>
+                                    {{else}}
+                                        <td>{{this.record_id.data.exercise.status}}</td>
+                                    {{/ifNotRecorded}}
+                                {{/ifRecorded}}
+
+                                <!--insulin-->
+                                {{#ifRecorded this.record_id.data.insulin.status}}
+                                    <td style = "background-color:
+                                        {{#ifAboveRange this.record_id.data.insulin.value this.bound.insulin_upper}}
+                                            #F29393
+                                        {{else}}
+                                            {{#ifBelowRange this.record_id.data.insulin.value this.bound.insulin_lower}}
+                                                #AAA9A9
+                                            {{/ifBelowRange}}
+                                        {{/ifAboveRange}}
+                                    ;">
+                                    {{this.record_id.data.insulin.value}}</td>
+                                {{else}}
+                                    {{#ifNotRecorded this.record_id.data.insulin.status}}
+                                        <td><img src="/Icon awesome-question-circle.png"></td>
+                                    {{else}}
+                                        <td>{{this.record_id.data.insulin.status}}</td>
+                                    {{/ifNotRecorded}}
+                                {{/ifRecorded}}
+
+                                <!--glucose-->
+                                {{#ifRecorded this.record_id.data.glucose.status}}
+                                    <td style = "background-color:
+                                        {{#ifAboveRange this.record_id.data.glucose.value this.bound.glucose_upper}}
+                                            #F29393
+                                        {{else}}
+                                            {{#ifBelowRange this.record_id.data.glucose.value this.bound.glucose_lower}}
+                                                #AAA9A9
+                                            {{/ifBelowRange}}
+                                        {{/ifAboveRange}}
+                                    ;">
+                                    {{this.record_id.data.glucose.value}}</td>
+                                {{else}}
+                                    {{#ifNotRecorded this.record_id.data.glucose.status}}
+                                        <td><img src="/Icon awesome-question-circle.png"></td>
+                                    {{else}}
+                                        <td>{{this.record_id.data.glucose.status}}</td>
+                                    {{/ifNotRecorded}}
+                                {{/ifRecorded}}
+                            </tr>
+                        {{/each}}
+                    
+
+
+
                         <tr>
                             <td data-href=""></td>
                             <td></td>

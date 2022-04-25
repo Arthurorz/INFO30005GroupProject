@@ -31,17 +31,6 @@ const addPatient= async(req,res) =>{
     }   
 }
 
-const test = async(req,res) => {
-    try{
-        const clinicianID = "626392e9a4d69d527a31780f"
-        const clinician = await Clinician.findById({clinicianID});
-        
-
-    }catch{
-
-    }
-}
-
 
 const renderClinicianData = async (req,res) => {
     try{
@@ -52,6 +41,8 @@ const renderClinicianData = async (req,res) => {
         res.send("error happened when rendering clinician data");
     }
 }
+
+
 const renderPatientData = async (req,res) => {
     try{
         const patient = await Patient.findOne({_id:req.params.id}).populate({
@@ -64,8 +55,7 @@ const renderPatientData = async (req,res) => {
                 options:{lean:true}
             }).lean();
         
-        const records = patient.records;
-        res.render('clinician-individualData.hbs',{layout: 'clinician.hbs', patient:patient, records:records});
+        res.render('clinician-individualData.hbs',{layout: 'clinician.hbs', patient:patient});
     }catch(err){
         console.log(err)
     }
@@ -113,6 +103,40 @@ const renderDashboard = async (req, res) => {
     }
 }
 
+async function initialRecord (patient_id){
+    try{
+        const patient = await Patient.findById(patient_id);
+        const record = await Record.findOne({patientId: patient._id,date:(new Date()).toDateString()});
+        if(record == null){
+            const newRecord = new Record({
+                patientId: patient._id,
+                date: (new Date()).toDateString(),
+            });
+            if(!patient.require_data.glucose){
+                newRecord.data.glucose.status = "Not required";
+            }
+            if(!patient.require_data.weight){
+                newRecord.data.weight.status = "Not required";
+            }
+            if(!patient.require_data.exercise){
+                newRecord.data.exercise.status = "Not required";
+            }
+            if(!patient.require_data.insulin){
+                newRecord.data.insulin.status = "Not required";
+            }
+            await newRecord.save();
+            patient.records.push({record_id:newRecord._id});
+            await patient.save();
+        }else{
+            console.log("record already exists");
+        }
+
+
+    }catch(err){
+        console.log(err);
+    }
+}
+
 const searchDashboard = async (req, res) => {
     try{
         if (req.body.patientName==''){
@@ -152,5 +176,6 @@ module.exports={
     renderClinicianData,
     addPatient,
     renderPatientData,
-    searchDashboard
+    searchDashboard,
+
 }
