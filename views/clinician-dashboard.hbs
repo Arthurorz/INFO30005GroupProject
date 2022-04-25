@@ -1,44 +1,76 @@
-        <div class="top">
-            <div class="topleft">
-                <span><img src="/redcircle.png">Above normal range</span>
-                <span><img src="/greycircle.png">Below normal range</span>
-                <span><img src="/Icon awesome-question-circle.png">Data was not recorded</span>
-            </div>
-            <div class="topright">
-                <form action = "/clinicians/:name" method="post">
-                    <input type="search" placeholder="Patient Name" name = "patientName">
-                    <button type="submit"><img src="/Icon ionic-ios-search.png" alt="search"></img></button>
-                </form>
-            </div>
-        </div>
-        <div class="patient-table">
-            <table>
-                <tr>
-                    <th class="one-slope"><div class="slope"></div></th>
-                    <th class="one-weight">Weight<br>(Kg)</th>
-                    <th class="one-exercise">Exercise<br>(Step)</th>
-                    <th>Doses of Insulin Taken<br>(Doses)</th>
-                    <th>Blood Glucose Level<br>(nmol/L)</th>
-                </tr>
-                {{#each patients}}
-                    <tr>
-                        <td><a href='/clinicians/individualData/{{this._id}}'>{{this.first_name}}<a></td>
-                        
-                        {{#each records.data}}
-                            {{#ifRecorded this.status}}
-                                <td>{{this.weight}}</td>
-                            {{/ifRecorded}}
-                        {{/each}}
-                        
-                    </tr>
-                {{/each}}
-                
-                <tr>
-                    <td data-href=""></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </table>
-        </div>
+<div class="top">
+    <div class="topleft">
+        <span><img src="/redcircle.png">Above normal range</span>
+        <span><img src="/greycircle.png">Below normal range</span>
+        <span><img src="/Icon awesome-question-circle.png">Data was not recorded</span>
+    </div>
+    <div class="topright">
+        <form action = "/clinicians/:name" method="post">
+            <input type="search" placeholder="Patient Name" name = "patientName">
+            <button type="submit"><img src="/Icon ionic-ios-search.png" alt="search"></img></button>
+        </form>
+    </div>
+</div>
+<div class="patient-table">
+    <table>
+        <tr>
+            <th class="one-slope"><div class="slope"></div></th>
+            <th class="one-weight">Weight<br>(Kg)</th>
+            <th class="one-exercise">Exercise<br>(Step)</th>
+            <th>Doses of Insulin Taken<br>(Doses)</th>
+            <th>Blood Glucose Level<br>(nmol/L)</th>
+        </tr>
+        {{#each patientList}}
+            <tr>
+                <td><a href='/clinicians/individualData/{{this.patient_id}}'>{{this.first_name}}<a></td>
+
+
+
+                <!--weight-->
+                {{#ifRecorded this.today_record.data.weight.status}}
+                    <td style = "background-color:
+                      {{#ifOutOfRange this.today_record.data.weight.value this.bound.weight_lower this.bound.weight_upper}}
+                        red
+                      {{/ifOutOfRange}}
+                    ;">
+                    {{this.today_record.data.weight.value}}</td>
+                {{else}}
+                    <td><img src="/Icon awesome-question-circle.png"></td>
+                {{/ifRecorded}}
+                <!--exercise-->
+                {{#ifRecorded this.today_record.data.exercise.status}}
+                    <td style = "background-color:
+                      {{#ifOutOfRange this.today_record.data.exercise.value this.bound.exercise_lower this.bound.exercise_upper}}
+                        red
+                      {{/ifOutOfRange}}
+                    ;">
+                    {{this.today_record.data.exercise.value}}</td>
+                {{else}}
+                    <td><img src="/Icon awesome-question-circle.png"></td>
+                {{/ifRecorded}}
+                <!--insulin-->
+                {{#ifRecorded this.today_record.data.insulin.status}}
+                    <td style = "background-color:
+                      {{#ifOutOfRange this.today_record.data.insulin.value this.bound.insulin_lower this.bound.insulin_upper}}
+                        red
+                      {{/ifOutOfRange}}
+                    ;">
+                    {{this.today_record.data.insulin.value}}</td>
+                {{else}}
+                    <td><img src="/Icon awesome-question-circle.png"></td>
+                {{/ifRecorded}}
+                <!--glucose-->
+                {{#ifRecorded this.today_record.data.glucose.status}}
+                    <td style = "background-color:
+                      {{#ifOutOfRange this.today_record.data.glucose.value this.bound.glucose_lower this.bound.glucose_upper}}
+                        red
+                      {{/ifOutOfRange}}
+                    ;">
+                    {{this.today_record.data.glucose.value}}</td>
+                {{else}}
+                    <td><img src="/Icon awesome-question-circle.png"></td>
+                {{/ifRecorded}}
+            </tr>
+        {{/each}}
+    </table>
+</div>
