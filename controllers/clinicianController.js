@@ -82,6 +82,7 @@ const renderDashboard = async (req, res) => {
 
         const patientList = [];
         for(i in patients){
+            initialRecord(patients[i].patient_id);
             const patient = patients[i].patient_id;
             for(j in patient.records){
                 const record = patient.records[j].record_id;
@@ -142,17 +143,41 @@ const searchDashboard = async (req, res) => {
         if (req.body.patientName==''){
             renderDashboard(req,res);
         }else{
-            const result = await Patient.find({first_name : req.body.patientName}).populate({
-                path:'clinician',
-                options:{lean:true}
-            }).lean().populate({
-                path:'records',
-                options:{date:formatDate(new Date())}
-            });
-            console.log(result);
-            if(result.length > 0){
-                return res.render('clinician-dashboard.hbs',{layout:'clinician.hbs',patients:result});
+            const clinicianID = "626392e9a4d69d527a31780f";
+            const patients = (await Clinician.findById(clinicianID).populate({
+                path:'patients',
+                populate:{
+                    path:'patient_id',
+                    populate:{
+                        path:'records',
+                        options:{lean:true},
+                        populate:{
+                            path:'record_id',
+                            options:{lean:true},
+                        }
+                    }
+                }
+            }).lean()).patients;
+            const patientList = []
+            for(i in patients){
+                if (patients[i].patient_id.first_name.toLowerCase().includes(req.body.patientName.toLowerCase())){
+                    const patient = patients[i].patient_id;
+                    for(j in patient.records){
+                        const record = patient.records[j].record_id;
+                        if (record.date == (new Date()).toDateString()){
+                            patientList.push({
+                                patient_id: patient._id,
+                                first_name: patient.first_name,
+                                bound:patient.bound,
+                                today_record: record,
+                            });
+                        }
+                    }
+                }
             }
+            
+            res.render('clinician-dashboard.hbs',{layout:'clinician.hbs',patients:patientList});
+            
         }
     }catch(err){
         console.log(err)
