@@ -1,313 +1,313 @@
-        <h1>Sam McDonald</h1>
-        <div class="individual-body">
-            <div class="individual-left">
-                <div class="personal-info">
-                    <a href=""></a><img class="edit" src="/edit.png" alt="edit">
-                    <img class="portrait" src="/portrait.png" alt="sam">
-                    <h2>Name: {{patientData.first_name}} {{patientData.last_name}}</h2>
-                    <h2>Clinician: {{patientData.clinician}}</h2>
-                    <div class="requirement">
-                        <div class="top-two">
-                            <div class="blood-glucose">
-                                <img src="/bgl.png" alt="blood-glucose-level">
-                                <h4>Blood Glucose Level</h4>
-                                <h5>3.9-6.1 nmol/L</h5>
-                            </div>
-                            <div class="weight">
-                                <img src="/weight.png" alt="weight">
-                                <h4>Weight</h4>
-                                <h5>70-100 Kg</h5>
-                            </div>
-                        </div>
-                        <div class="bottom-two">
-                            <div class="exercise">
-                                <img src="/exercise.png" alt="exercise">
-                                <h4>Exercise</h4>
-                                <h5>5000-10000 Steps</h5>
-                            </div>
-                            <div class="insulin">
-                                <img src="/doit.png" alt="doses-of-insulin-taken">
-                                <h4>Doses of Insulin Taken</h4>
-                                <h5>3 Doses</h5>
-                            </div>
-                        </div>
+<h1>Sam McDonald</h1>
+<div class="individual-body">
+    <div class="individual-left">
+        <div class="personal-info">
+            <a href=""></a><img class="edit" src="/edit.png" alt="edit">
+            <img class="portrait" src="/portrait.png" alt="sam">
+            <h2>Name: {{patientData.first_name}} {{patientData.last_name}}</h2>
+            <h2>Clinician: {{patientData.clinician}}</h2>
+            <div class="requirement">
+                <div class="top-two">
+                    <div class="blood-glucose">
+                        <img src="/bgl.png" alt="blood-glucose-level">
+                        <h4>Blood Glucose Level</h4>
+                        <h5>3.9-6.1 nmol/L</h5>
+                    </div>
+                    <div class="weight">
+                        <img src="/weight.png" alt="weight">
+                        <h4>Weight</h4>
+                        <h5>70-100 Kg</h5>
                     </div>
                 </div>
-                <form> <!--add post in future-->
-                    <div class="message">
-                        <div class="support"><input type="text" id="text" name="text" placeholder="Support Message..."></div>
-                        <button class="message-save" onclick="window.location.href=''" type="button">Save</button>
+                <div class="bottom-two">
+                    <div class="exercise">
+                        <img src="/exercise.png" alt="exercise">
+                        <h4>Exercise</h4>
+                        <h5>5000-10000 Steps</h5>
                     </div>
-                </form>
-            </div>
-            <div class="individual-data">
-                <div class="individual-top">
-                    <div class="top-left">
-                        <span><img src="/redcircle.png">Above normal range</span>
-                        <span><img src="/greycircle.png">Below normal range</span>
-                        <span><img src="/Icon awesome-question-circle.png">Data was not recorded</span>
+                    <div class="insulin">
+                        <img src="/doit.png" alt="doses-of-insulin-taken">
+                        <h4>Doses of Insulin Taken</h4>
+                        <h5>3 Doses</h5>
                     </div>
-                    <div class="top-right">
-                        <select class="mm" placeholder="MM">
-                            <option name="" value="" style="display:none;">Month</option>
-                            <option name="January" value="Jan">January</option>
-                            <option name="February" value="Feb">February</option>
-                            <option name="March" value="Mar">March</option>
-                            <option name="April" value="Apr">April</option>
-                            <option name="May" value="May">May</option>
-                            <option name="June" value="Jun">June</option>
-                            <option name="July" value="Jul">July</option>
-                            <option name="August" value="Aug">August</option>
-                            <option name="September" value="Sep">September</option>
-                            <option name="October" value="Oct">October</option>
-                            <option name="November" value="Nov">November</option>
-                            <option name="December" value="Dec">December</option>
-                        </select>
-                        <select class="year" placeholder="Year">
-                            <option name="" value="" style="display:none;">Year</option>
-                            <option name="2021" value="Jan">2021</option>
-                            <option name="2022" value="">2022</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="individual-table">
-                    <table class="sam-table">
-                        <tr>
-                            <th class="leftone"><div class="slope"></div></th>
-                            <th class="table-weight">Weight<br>(Kg)</th>
-                            <th class="table-exercise">Exercise<br>(Step)</th>
-                            <th>Doses of Insulin Taken<br>(Doses)</th>
-                            <th>Blood Glucose Level<br>(nmol/L)</th>
-                        </tr>
-                        {{#each patient.records}}
-                            <tr>
-                                <td>{{this.record_id.date}}</td>
-                                <!--weight-->
-                                {{#ifRecorded this.record_id.data.weight.status}}
-                                    <td style = "background-color:
-                                        {{#ifAboveRange this.record_id.data.weight.value patient.bound.weight_upper}}
-                                            #F29393
-                                        {{else}}
-                                            {{#ifBelowRange this.record_id.data.weight.value patient.bound.weight_lower}}
-                                                #AAA9A9
-                                            {{/ifBelowRange}}
-                                        {{/ifAboveRange}}
-                                    ;">
-                                    {{this.record_id.data.weight.value}}</td>
-                                {{else}}
-                                    {{#ifNotRecorded this.record_id.data.weight.status}}
-                                        <td><img src="/Icon awesome-question-circle.png"></td>
-                                    {{else}}
-                                        <td>{{this.record_id.data.weight.status}}</td>
-                                    {{/ifNotRecorded}}
-                                {{/ifRecorded}}
-
-                                <!--exercise-->
-                                {{#ifRecorded this.record_id.data.exercise.status}}
-                                    <td style = "background-color:
-                                        {{#ifAboveRange this.record_id.data.exercise.value this.bound.exercise_upper}}
-                                            #F29393
-                                        {{else}}
-                                            {{#ifBelowRange this.record_id.data.exercise.value this.bound.exercise_lower}}
-                                                #AAA9A9
-                                            {{/ifBelowRange}}
-                                        {{/ifAboveRange}}
-                                    ;">
-                                    {{this.record_id.data.exercise.value}}</td>
-                                {{else}} 
-                                    {{#ifNotRecorded this.record_id.data.exercise.status}}
-                                        <td><img src="/Icon awesome-question-circle.png"></td>
-                                    {{else}}
-                                        <td>{{this.record_id.data.exercise.status}}</td>
-                                    {{/ifNotRecorded}}
-                                {{/ifRecorded}}
-
-                                <!--insulin-->
-                                {{#ifRecorded this.record_id.data.insulin.status}}
-                                    <td style = "background-color:
-                                        {{#ifAboveRange this.record_id.data.insulin.value this.bound.insulin_upper}}
-                                            #F29393
-                                        {{else}}
-                                            {{#ifBelowRange this.record_id.data.insulin.value this.bound.insulin_lower}}
-                                                #AAA9A9
-                                            {{/ifBelowRange}}
-                                        {{/ifAboveRange}}
-                                    ;">
-                                    {{this.record_id.data.insulin.value}}</td>
-                                {{else}}
-                                    {{#ifNotRecorded this.record_id.data.insulin.status}}
-                                        <td><img src="/Icon awesome-question-circle.png"></td>
-                                    {{else}}
-                                        <td>{{this.record_id.data.insulin.status}}</td>
-                                    {{/ifNotRecorded}}
-                                {{/ifRecorded}}
-
-                                <!--glucose-->
-                                {{#ifRecorded this.record_id.data.glucose.status}}
-                                    <td style = "background-color:
-                                        {{#ifAboveRange this.record_id.data.glucose.value this.bound.glucose_upper}}
-                                            #F29393
-                                        {{else}}
-                                            {{#ifBelowRange this.record_id.data.glucose.value this.bound.glucose_lower}}
-                                                #AAA9A9
-                                            {{/ifBelowRange}}
-                                        {{/ifAboveRange}}
-                                    ;">
-                                    {{this.record_id.data.glucose.value}}</td>
-                                {{else}}
-                                    {{#ifNotRecorded this.record_id.data.glucose.status}}
-                                        <td><img src="/Icon awesome-question-circle.png"></td>
-                                    {{else}}
-                                        <td>{{this.record_id.data.glucose.status}}</td>
-                                    {{/ifNotRecorded}}
-                                {{/ifRecorded}}
-                            </tr>
-                        {{/each}}
-                    
-
-
-
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td data-href=""></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                    </table>
                 </div>
             </div>
         </div>
-        <div class="note">
-            <div class="previous-note">
-                <h6>Previous Notes</h6>
-                <ul>
-                    <li>
-                        <div class="detail"></div>
-                        <div class="time"></div>
-                    </li>
-                    <li>
-                        <div class="detail"></div>
-                        <div class="time"></div>
-                    </li>
-                    <li>
-                        <div class="detail"></div>
-                        <div class="time"></div>
-                    </li>
-                    <li>
-                        <div class="detail"></div>
-                        <div class="time"></div>
-                    </li>
-                    <li>
-                        <div class="detail"></div>
-                        <div class="time"></div>
-                    </li>
-                    <li>
-                        <div class="detail"></div>
-                        <div class="time"></div>
-                    </li>
-                </ul>
+        <form> <!--add post in future-->
+            <div class="message">
+                <div class="support"><input type="text" id="text" name="text" placeholder="Support Message..."></div>
+                <button class="message-save" onclick="window.location.href=''" type="button">Save</button>
             </div>
-            <div class="add-note">
-                <div class="subject">
-                    <input type="text" id="text" name="text" placeholder="Subject">
-                    <!--<img src="./30005image/delete.png" alt="delete">-->
-                </div>
-                <div class="today-note">
-                    <input class="today-add" type="text" id="text" name="text" placeholder="Add a note...">
-                </div>
-                
+        </form>
+    </div>
+    <div class="individual-data">
+        <div class="individual-top">
+            <div class="top-left">
+                <span><img src="/redcircle.png">Above normal range</span>
+                <span><img src="/greycircle.png">Below normal range</span>
+                <span><img src="/Icon awesome-question-circle.png">Data was not recorded</span>
+            </div>
+            <div class="top-right">
+                <select class="mm" placeholder="MM">
+                    <option name="" value="" style="display:none;">Month</option>
+                    <option name="January" value="Jan">January</option>
+                    <option name="February" value="Feb">February</option>
+                    <option name="March" value="Mar">March</option>
+                    <option name="April" value="Apr">April</option>
+                    <option name="May" value="May">May</option>
+                    <option name="June" value="Jun">June</option>
+                    <option name="July" value="Jul">July</option>
+                    <option name="August" value="Aug">August</option>
+                    <option name="September" value="Sep">September</option>
+                    <option name="October" value="Oct">October</option>
+                    <option name="November" value="Nov">November</option>
+                    <option name="December" value="Dec">December</option>
+                </select>
+                <select class="year" placeholder="Year">
+                    <option name="" value="" style="display:none;">Year</option>
+                    <option name="2021" value="Jan">2021</option>
+                    <option name="2022" value="">2022</option>
+                </select>
             </div>
         </div>
-        <button class="note-save" onclick="window.location.href=''" type="button">Save</button>
+        <div class="individual-table">
+            <table class="sam-table">
+                <tr>
+                    <th class="leftone"><div class="slope"></div></th>
+                    <th class="table-weight">Weight<br>(Kg)</th>
+                    <th class="table-exercise">Exercise<br>(Step)</th>
+                    <th>Doses of Insulin Taken<br>(Doses)</th>
+                    <th>Blood Glucose Level<br>(nmol/L)</th>
+                </tr>
+                {{#each patient.records}}
+                    <tr>
+                        <td>{{this.record_id.date}}</td>
+                        <!--weight-->
+                        {{#ifRecorded this.record_id.data.weight.status}}
+                            <td style = "background-color:
+                                {{#ifAboveRange this.record_id.data.weight.value patient.bound.weight_upper}}
+                                    #F29393
+                                {{else}}
+                                    {{#ifBelowRange this.record_id.data.weight.value patient.bound.weight_lower}}
+                                        #AAA9A9
+                                    {{/ifBelowRange}}
+                                {{/ifAboveRange}}
+                            ;">
+                            {{this.record_id.data.weight.value}}</td>
+                        {{else}}
+                            {{#ifNotRecorded this.record_id.data.weight.status}}
+                                <td><img src="/Icon awesome-question-circle.png"></td>
+                            {{else}}
+                                <td>{{this.record_id.data.weight.status}}</td>
+                            {{/ifNotRecorded}}
+                        {{/ifRecorded}}
+
+                        <!--exercise-->
+                        {{#ifRecorded this.record_id.data.exercise.status}}
+                            <td style = "background-color:
+                                {{#ifAboveRange this.record_id.data.exercise.value this.bound.exercise_upper}}
+                                    #F29393
+                                {{else}}
+                                    {{#ifBelowRange this.record_id.data.exercise.value this.bound.exercise_lower}}
+                                        #AAA9A9
+                                    {{/ifBelowRange}}
+                                {{/ifAboveRange}}
+                            ;">
+                            {{this.record_id.data.exercise.value}}</td>
+                        {{else}} 
+                            {{#ifNotRecorded this.record_id.data.exercise.status}}
+                                <td><img src="/Icon awesome-question-circle.png"></td>
+                            {{else}}
+                                <td>{{this.record_id.data.exercise.status}}</td>
+                            {{/ifNotRecorded}}
+                        {{/ifRecorded}}
+
+                        <!--insulin-->
+                        {{#ifRecorded this.record_id.data.insulin.status}}
+                            <td style = "background-color:
+                                {{#ifAboveRange this.record_id.data.insulin.value this.bound.insulin_upper}}
+                                    #F29393
+                                {{else}}
+                                    {{#ifBelowRange this.record_id.data.insulin.value this.bound.insulin_lower}}
+                                        #AAA9A9
+                                    {{/ifBelowRange}}
+                                {{/ifAboveRange}}
+                            ;">
+                            {{this.record_id.data.insulin.value}}</td>
+                        {{else}}
+                            {{#ifNotRecorded this.record_id.data.insulin.status}}
+                                <td><img src="/Icon awesome-question-circle.png"></td>
+                            {{else}}
+                                <td>{{this.record_id.data.insulin.status}}</td>
+                            {{/ifNotRecorded}}
+                        {{/ifRecorded}}
+
+                        <!--glucose-->
+                        {{#ifRecorded this.record_id.data.glucose.status}}
+                            <td style = "background-color:
+                                {{#ifAboveRange this.record_id.data.glucose.value this.bound.glucose_upper}}
+                                    #F29393
+                                {{else}}
+                                    {{#ifBelowRange this.record_id.data.glucose.value this.bound.glucose_lower}}
+                                        #AAA9A9
+                                    {{/ifBelowRange}}
+                                {{/ifAboveRange}}
+                            ;">
+                            {{this.record_id.data.glucose.value}}</td>
+                        {{else}}
+                            {{#ifNotRecorded this.record_id.data.glucose.status}}
+                                <td><img src="/Icon awesome-question-circle.png"></td>
+                            {{else}}
+                                <td>{{this.record_id.data.glucose.status}}</td>
+                            {{/ifNotRecorded}}
+                        {{/ifRecorded}}
+                    </tr>
+                {{/each}}
+            
+
+
+
+                <tr>
+                    <td data-href=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-href=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-href=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-href=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-href=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-href=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-href=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-href=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-href=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-href=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-href=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-href=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-href=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td data-href=""></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="note">
+    <div class="previous-note">
+        <h6>Previous Notes</h6>
+        <ul>
+            <li>
+                <div class="detail"></div>
+                <div class="time"></div>
+            </li>
+            <li>
+                <div class="detail"></div>
+                <div class="time"></div>
+            </li>
+            <li>
+                <div class="detail"></div>
+                <div class="time"></div>
+            </li>
+            <li>
+                <div class="detail"></div>
+                <div class="time"></div>
+            </li>
+            <li>
+                <div class="detail"></div>
+                <div class="time"></div>
+            </li>
+            <li>
+                <div class="detail"></div>
+                <div class="time"></div>
+            </li>
+        </ul>
+    </div>
+    <div class="add-note">
+        <div class="subject">
+            <input type="text" id="text" name="text" placeholder="Subject">
+            <!--<img src="./30005image/delete.png" alt="delete">-->
+        </div>
+        <div class="today-note">
+            <input class="today-add" type="text" id="text" name="text" placeholder="Add a note...">
+        </div>
+        
+    </div>
+</div>
+<button class="note-save" onclick="window.location.href=''" type="button">Save</button>
