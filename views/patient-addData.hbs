@@ -18,7 +18,7 @@
 <h1>Exercise</h1>
 <form action="/patient/addData/{{type}}/{{patient._id}}" method="post">
     <div class ="dataInput">
-        <input type="number" id="addData" name="addData" placeholder="0"><span>Step count</span>
+        <input type="number" id="addData" name="addData" placeholder="0"><span>Steps</span>
         <textarea type="text" id="addComment" name="addComment" placeholder="Please Leave Your Comment"></textarea>
     </div>
 {{/ifexercise}}        
@@ -29,6 +29,7 @@
         <input type="number"id="addData" name="addData" placeholder="0"><span>doses</span>
         <textarea type="text" id="addComment" name="addComment" placeholder="Please Leave Your Comment"></textarea>
     </div>
-{{/ifinsulin}}   
-    <button class="saveButton" type="submit">Save</button>
+{{/ifinsulin}} 
+    <button class="saveButton" name="popBox" type="submit" onclick="alert('You have successfully svaed the data')">Save</button>
 </form>
+
