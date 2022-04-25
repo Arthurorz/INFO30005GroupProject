@@ -162,6 +162,16 @@ th{
     height: 4.563rem;
 }
 
+a{
+    color: black;
+}
+
+td img{
+    width: 2.5rem;
+    vertical-align: middle;
+}
+
+
 .one-slope{
     width: 11.625rem;
     background-color: white;
