@@ -181,7 +181,7 @@ td img{
 .slope{
     position: relative;
     border-bottom: 1px solid #CFCFCF;
-    -webkit-transform: rotate(20deg);
+    transform: rotate(20deg);
 }
 
 td{
@@ -412,7 +412,7 @@ th{
 }
 
 .sam-table .slope{
-    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
 }
 
 .table-weight, .table-exercise{
