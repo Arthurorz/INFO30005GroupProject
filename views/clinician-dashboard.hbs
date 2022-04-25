@@ -29,46 +29,81 @@
                 <!--weight-->
                 {{#ifRecorded this.today_record.data.weight.status}}
                     <td style = "background-color:
-                      {{#ifOutOfRange this.today_record.data.weight.value this.bound.weight_lower this.bound.weight_upper}}
-                        red
-                      {{/ifOutOfRange}}
+                        {{#ifAboveRange this.today_record.data.weight.value this.bound.weight_upper}}
+                            #F29393
+                        {{else}}
+                            {{#ifBelowRange this.today_record.data.weight.value this.bound.weight_lower}}
+                                #AAA9A9
+                            {{/ifBelowRange}}
+                        {{/ifAboveRange}}
                     ;">
                     {{this.today_record.data.weight.value}}</td>
                 {{else}}
-                    <td><img src="/Icon awesome-question-circle.png"></td>
+                    {{#ifNotRecorded this.today_record.data.weight.status}}
+                        <td><img src="/Icon awesome-question-circle.png"></td>
+                    {{else}}
+                        <td>{{this.today_record.data.weight.status}}</td>
+                    {{/ifNotRecorded}}
                 {{/ifRecorded}}
+
                 <!--exercise-->
                 {{#ifRecorded this.today_record.data.exercise.status}}
                     <td style = "background-color:
-                      {{#ifOutOfRange this.today_record.data.exercise.value this.bound.exercise_lower this.bound.exercise_upper}}
-                        red
-                      {{/ifOutOfRange}}
+                        {{#ifAboveRange this.today_record.data.exercise.value this.bound.exercise_upper}}
+                            #F29393
+                        {{else}}
+                            {{#ifBelowRange this.today_record.data.exercise.value this.bound.exercise_lower}}
+                                #AAA9A9
+                            {{/ifBelowRange}}
+                        {{/ifAboveRange}}
                     ;">
                     {{this.today_record.data.exercise.value}}</td>
-                {{else}}
-                    <td><img src="/Icon awesome-question-circle.png"></td>
+                {{else}} 
+                    {{#ifNotRecorded this.today_record.data.exercise.status}}
+                        <td><img src="/Icon awesome-question-circle.png"></td>
+                    {{else}}
+                        <td>{{this.today_record.data.exercise.status}}</td>
+                    {{/ifNotRecorded}}
                 {{/ifRecorded}}
+
                 <!--insulin-->
                 {{#ifRecorded this.today_record.data.insulin.status}}
                     <td style = "background-color:
-                      {{#ifOutOfRange this.today_record.data.insulin.value this.bound.insulin_lower this.bound.insulin_upper}}
-                        red
-                      {{/ifOutOfRange}}
+                        {{#ifAboveRange this.today_record.data.insulin.value this.bound.insulin_upper}}
+                            #F29393
+                        {{else}}
+                            {{#ifBelowRange this.today_record.data.insulin.value this.bound.insulin_lower}}
+                                #AAA9A9
+                            {{/ifBelowRange}}
+                        {{/ifAboveRange}}
                     ;">
                     {{this.today_record.data.insulin.value}}</td>
                 {{else}}
-                    <td><img src="/Icon awesome-question-circle.png"></td>
+                     {{#ifNotRecorded this.today_record.data.insulin.status}}
+                        <td><img src="/Icon awesome-question-circle.png"></td>
+                    {{else}}
+                        <td>{{this.today_record.data.insulin.status}}</td>
+                    {{/ifNotRecorded}}
                 {{/ifRecorded}}
+
                 <!--glucose-->
                 {{#ifRecorded this.today_record.data.glucose.status}}
                     <td style = "background-color:
-                      {{#ifOutOfRange this.today_record.data.glucose.value this.bound.glucose_lower this.bound.glucose_upper}}
-                        red
-                      {{/ifOutOfRange}}
+                        {{#ifAboveRange this.today_record.data.glucose.value this.bound.glucose_upper}}
+                            #F29393
+                        {{else}}
+                            {{#ifBelowRange this.today_record.data.glucose.value this.bound.glucose_lower}}
+                                #AAA9A9
+                            {{/ifBelowRange}}
+                        {{/ifAboveRange}}
                     ;">
                     {{this.today_record.data.glucose.value}}</td>
                 {{else}}
-                    <td><img src="/Icon awesome-question-circle.png"></td>
+                     {{#ifNotRecorded this.today_record.data.glucose.status}}
+                        <td><img src="/Icon awesome-question-circle.png"></td>
+                    {{else}}
+                        <td>{{this.today_record.data.glucose.status}}</td>
+                    {{/ifNotRecorded}}
                 {{/ifRecorded}}
             </tr>
         {{/each}}

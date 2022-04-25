@@ -23,14 +23,20 @@ const helpers = {
         }
     },
 
-    ifOutOfRange: function (value,lowerRange,higherRange, options){
-        if(value > higherRange ||value < lowerRange){
+    ifBelowRange: function (value,lowerRange, options){
+        if(value < lowerRange){
             return options.fn(this);
         }else{
             return options.inverse(this);
         }
     },
-
+    ifAboveRange: function (value,higherRange, options){
+        if(value > higherRange ){
+            return options.fn(this)
+        }else{
+            return options.inverse(this);
+        }
+    },
     ifEqual:function (value1,value2, options){
         if(value1 == value2){
             return options.fn(this);

@@ -58,11 +58,14 @@ const renderPatientData = async (req,res) => {
             path:'records',
             populate:{
                 path:'record_id',
-            }
-        }).lean();
-        console.log(patient);
+                options:{lean:true}
+            }}).populate({
+                path:'clinician',       
+                options:{lean:true}
+            }).lean();
+        
         const records = patient.records;
-        res.render('clinician-individualData.hbs',{layout: 'clinician.hbs',patient:patient, records:records});
+        res.render('clinician-individualData.hbs',{layout: 'clinician.hbs', patient:patient, records:records});
     }catch(err){
         console.log(err)
     }
