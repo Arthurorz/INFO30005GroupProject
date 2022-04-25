@@ -240,9 +240,6 @@ input[type=checkbox]{display: none;}  */
 .iconpng{width: 0.9375rem;}
 
 .recorded{width: 4rem;}
-/* .exercise{width: 37px;}
-
-.dose{width: 49px;} */
 
 .time{margin-top: 5px;}
 
@@ -275,6 +272,8 @@ input[type=checkbox]{display: none;}  */
     font-size: 0.6875rem;
     text-align: center;
 }
+
+.questionMark{width: 1.4rem;}
 
 .slope{
     border-bottom: 1px solid #CFCFCF;
@@ -386,25 +385,12 @@ h1{
 
 .boxTop{
     width: 87.16%;
-    /* height: 4.875rem; */
     margin: 0 auto;
     text-align: center;
     background-color: white;
     border-radius: 0.625rem;
     line-height: 4.875rem;
 }
-
-/* .boxTop p{font-size: 0.75rem;}
-
-.boxTop p:nth-child(1){font-size: 2.75rem;}
-
-.boxTop p:nth-child(4){padding: 0.5rem 0 0.2rem 0;}
-
-.boxTop span{
-    position: absolute;
-    right: 21.5%;
-    top: 24%;
-} */
 
 .back{
     background-color: #668CB8;
@@ -416,31 +402,6 @@ h1{
     display: block;
     margin: 1.5rem auto 0 auto;
 }
-
-/* .boxButton{
-    width: 87.16%;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    height: 1.8125rem;
-    margin-top: 1.75rem;
-}
-
-.boxButton button{
-    border-radius: 0.5rem;
-    border: none;
-    font-size: 0.875rem;
-}
-
-.boxButton button:nth-child(1){
-    background-color: white;
-    color: #668CB8;
-}
-
-.boxButton button:nth-child(2){
-    background-color: #668CB8;
-    color: white;
-} */
 
 @media screen and (min-width: 800px) and (max-width: 1400px){
     html{font-size: 22px;}
@@ -460,10 +421,6 @@ h1{
     .homeTop{width: 52.5%;}
 
     .homeMiddle{width: 52.5%;}
-
-    /* .exercise{width: 45px;}
-    
-    .dose{width: 57px;} */
 
     /* Add Data Section iPad */
     .normalRange{width: 68.33%;}
@@ -632,25 +589,6 @@ h1{
         margin: 0.25rem auto 4.875rem auto;
     }
     
-    /* .record{
-        height: 8.515625rem;
-        font-size: 1.625rem;
-    }
-    
-    .recordPng{
-        padding: 0 4.5rem 0 2.1875rem;
-        width: 10.5%;
-    }
-
-    .running{width: 3.87rem;}
-
-    .doses{width: 5.35rem;}
-    
-    .record div:nth-child(2){height: 4.4375rem;} */
-
-    /* .exercise{width: 92px;}
-
-    .dose{width: 133px;} */
     .recorded{width: 9rem;}
 
     .addbutton p{font-size: 1.625rem;}
@@ -673,6 +611,8 @@ h1{
         margin: 0 21.3% 0 21.3%;
         width: 60.14%;
     }
+
+    .questionMark{width: 3rem;}
     
     .homeTable th,td,tr{font-size: 1.625rem;}
     
@@ -745,29 +685,4 @@ h1{
         font-size: 1.75rem;
         margin: 2.8125rem auto 0 auto;
     }
-    
-    /* .boxTop{height: 14.625rem;}
-    
-    .boxTop p{font-size: 1.625rem;}
-    
-    .boxTop p:nth-child(1){font-size: 5.625rem;}
-    
-    .boxTop p:nth-child(4){padding: 1.5rem 0 0.75rem 0;}
-    
-    .boxTop span{
-        right: 18%;
-        top: 20%;
-        font-size: 2.375rem;
-    }
-    
-    .boxButton{
-        height: 3.375rem;
-        margin-top: 1.75rem;
-    }
-    
-    .boxButton button{
-        width: 45.35%;
-        border-radius: 0.5rem;
-        font-size: 1.75rem;
-    } */
 }
