@@ -2,13 +2,12 @@
     <div class="topleft">
         <span><img src="/redcircle.png">Above normal range</span>
         <span><img src="/greycircle.png">Below normal range</span>
-        <span><img src="/Icon awesome-question-circle.png">Data was not recorded</span>
+        <span><img src="/unrecorded.png">Data was not recorded</span>
     </div>
     <div class="topright">
-        <!--form is not usable now-->
         <form action = "/clinicians/:name" method="post">
             <input type="search" placeholder="Patient Name" name = "patientName">
-            <button type="submit"><img src="/Icon ionic-ios-search.png" alt="search"></img></button>
+            <button type="submit"><img src="/search_icon.png" alt="search"></img></button>
         </form> 
     </div>
 </div>
@@ -41,9 +40,9 @@
                     {{this.today_record.data.weight.value}}</td>
                 {{else}}
                     {{#ifNotRecorded this.today_record.data.weight.status}}
-                        <td><img src="/Icon awesome-question-circle.png"></td>
+                        <td><img src="/unrecorded.png"></td>
                     {{else}}
-                        <td>{{this.today_record.data.weight.status}}</td>
+                        <td><div class="inside_slope"></div></td>
                     {{/ifNotRecorded}}
                 {{/ifRecorded}}
 
@@ -61,9 +60,9 @@
                     {{this.today_record.data.exercise.value}}</td>
                 {{else}} 
                     {{#ifNotRecorded this.today_record.data.exercise.status}}
-                        <td><img src="/Icon awesome-question-circle.png"></td>
+                        <td><img src="/unrecorded.png"></td>
                     {{else}}
-                        <td>{{this.today_record.data.exercise.status}}</td>
+                        <td><div class="inside_slope"></div></td>
                     {{/ifNotRecorded}}
                 {{/ifRecorded}}
 
@@ -81,9 +80,9 @@
                     {{this.today_record.data.insulin.value}}</td>
                 {{else}}
                      {{#ifNotRecorded this.today_record.data.insulin.status}}
-                        <td><img src="/Icon awesome-question-circle.png"></td>
+                        <td><img src="/unrecorded.png"></td>
                     {{else}}
-                        <td>{{this.today_record.data.insulin.status}}</td>
+                        <td><div class="inside_slope"></div></td>
                     {{/ifNotRecorded}}
                 {{/ifRecorded}}
 
@@ -101,9 +100,9 @@
                     {{this.today_record.data.glucose.value}}</td>
                 {{else}}
                      {{#ifNotRecorded this.today_record.data.glucose.status}}
-                        <td><img src="/Icon awesome-question-circle.png"></td>
+                        <td><img src="/unrecorded.png"></td>
                     {{else}}
-                        <td>{{this.today_record.data.glucose.status}}</td>
+                        <td><div class="inside_slope"></div></td>
                     {{/ifNotRecorded}}
                 {{/ifRecorded}}
             </tr>

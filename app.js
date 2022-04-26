@@ -33,7 +33,7 @@ app.engine(
 app.set('view engine', 'hbs');
 
 app.use(express.static('public'));
-app.use(express.static('30005image'));
+app.use(express.static('public/static'));
 
 // Set up to handle POST requests
 app.use(express.json()); // needed if POST data is in JSON format

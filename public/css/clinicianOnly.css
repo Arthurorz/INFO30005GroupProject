@@ -184,6 +184,16 @@ td img{
     transform: rotate(20deg);
 }
 
+.inside_slope{
+    border-bottom: 1px solid #CFCFCF;
+    transform: rotate(15deg);
+}
+
+.ind_slope{
+    border-bottom: 1px solid #CFCFCF;
+    transform: rotate(18deg);
+}
+
 td{
     height: 3.563rem;
 }

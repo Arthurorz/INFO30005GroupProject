@@ -3,13 +3,13 @@
     <div class="individual-left">
         <div class="personal-info">
             <a href=""></a><img class="edit" src="/edit.png" alt="edit">
-            <img class="portrait" src="/portrait.png" alt="sam">
+            <img class="portrait" src="/Photo_Pat.png" alt="sam">
             <h2>Name: {{patient.first_name}} {{patient.last_name}}</h2>
             <h2>Clinician: {{patient.clinician.first_name}}</h2>
             <div class="requirement">
                 <div class="top-two">
                     <div class="blood-glucose">
-                        <img src="/bgl.png" alt="blood-glucose-level">
+                        <img src="/blood_glucose_background.png" alt="blood-glucose-level">
                         <h4>Blood Glucose Level</h4>
                         <h5>{{patient.bound.glucose_lower}}-{{patient.bound.glucose_upper}} nmol/L</h5>
                     </div>
@@ -26,7 +26,7 @@
                         <h5>{{patient.bound.exercise_lower}}-{{patient.bound.exercise_upper}} Steps</h5>
                     </div>
                     <div class="insulin">
-                        <img src="/doit.png" alt="doses-of-insulin-taken">
+                        <img src="/doses_background.png" alt="doses-of-insulin-taken">
                         <h4>Doses of Insulin Taken</h4>
                         <h5>{{patient.bound.insulin_lower}}-{{patient.bound.insulin_upper}} Doses</h5>
                     </div>
@@ -45,7 +45,7 @@
             <div class="top-left">
                 <span><img src="/redcircle.png">Above normal range</span>
                 <span><img src="/greycircle.png">Below normal range</span>
-                <span><img src="/Icon awesome-question-circle.png">Data was not recorded</span>
+                <span><img src="/unrecorded.png">Data was not recorded</span>
             </div>
             <div class="top-right">
                 <select class="mm" placeholder="MM">
@@ -96,9 +96,9 @@
                             {{this.record_id.data.weight.value}}</td>
                         {{else}}
                             {{#ifNotRecorded this.record_id.data.weight.status}}
-                                <td><img src="/Icon awesome-question-circle.png"></td>
+                                <td><img src="/unrecorded.png"></td>
                             {{else}}
-                                <td>{{this.record_id.data.weight.status}}</td>
+                                <td><div class="ind_slope"></div></td>
                             {{/ifNotRecorded}}
                         {{/ifRecorded}}
 
@@ -116,9 +116,9 @@
                             {{this.record_id.data.exercise.value}}</td>
                         {{else}} 
                             {{#ifNotRecorded this.record_id.data.exercise.status}}
-                                <td><img src="/Icon awesome-question-circle.png"></td>
+                                <td><img src="/unrecorded.png"></td>
                             {{else}}
-                                <td>{{this.record_id.data.exercise.status}}</td>
+                                <td><div class="ind_slope"></div></td>
                             {{/ifNotRecorded}}
                         {{/ifRecorded}}
 
@@ -136,9 +136,9 @@
                             {{this.record_id.data.insulin.value}}</td>
                         {{else}}
                             {{#ifNotRecorded this.record_id.data.insulin.status}}
-                                <td><img src="/Icon awesome-question-circle.png"></td>
+                                <td><img src="/unrecorded.png"></td>
                             {{else}}
-                                <td>{{this.record_id.data.insulin.status}}</td>
+                                <td><div class="ind_slope"></div></td>
                             {{/ifNotRecorded}}
                         {{/ifRecorded}}
 
@@ -156,9 +156,9 @@
                             {{this.record_id.data.glucose.value}}</td>
                         {{else}}
                             {{#ifNotRecorded this.record_id.data.glucose.status}}
-                                <td><img src="/Icon awesome-question-circle.png"></td>
+                                <td><img src="/unrecorded.png"></td>
                             {{else}}
-                                <td>{{this.record_id.data.glucose.status}}</td>
+                                <td><div class="ind_slope"></div></td>
                             {{/ifNotRecorded}}
                         {{/ifRecorded}}
                     </tr>
