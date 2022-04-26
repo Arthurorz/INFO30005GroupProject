@@ -4,31 +4,31 @@
         <div class="personal-info">
             <a href=""></a><img class="edit" src="/edit.png" alt="edit">
             <img class="portrait" src="/portrait.png" alt="sam">
-            <h2>Name: {{patientData.first_name}} {{patientData.last_name}}</h2>
-            <h2>Clinician: {{patientData.clinician}}</h2>
+            <h2>Name: {{patient.first_name}} {{patient.last_name}}</h2>
+            <h2>Clinician: {{patient.clinician.first_name}}</h2>
             <div class="requirement">
                 <div class="top-two">
                     <div class="blood-glucose">
                         <img src="/bgl.png" alt="blood-glucose-level">
                         <h4>Blood Glucose Level</h4>
-                        <h5>3.9-6.1 nmol/L</h5>
+                        <h5>{{patient.bound.glucose_lower}}-{{patient.bound.glucose_upper}} nmol/L</h5>
                     </div>
                     <div class="weight">
                         <img src="/weight.png" alt="weight">
                         <h4>Weight</h4>
-                        <h5>70-100 Kg</h5>
+                        <h5>{{patient.bound.weight_lower}}-{{patient.bound.weight_upper}} Kg</h5>
                     </div>
                 </div>
                 <div class="bottom-two">
                     <div class="exercise">
                         <img src="/exercise.png" alt="exercise">
                         <h4>Exercise</h4>
-                        <h5>5000-10000 Steps</h5>
+                        <h5>{{patient.bound.exercise_lower}}-{{patient.bound.exercise_upper}} Steps</h5>
                     </div>
                     <div class="insulin">
                         <img src="/doit.png" alt="doses-of-insulin-taken">
                         <h4>Doses of Insulin Taken</h4>
-                        <h5>3 Doses</h5>
+                        <h5>{{patient.bound.insulin_lower}}-{{patient.bound.insulin_upper}} Doses</h5>
                     </div>
                 </div>
             </div>
@@ -85,10 +85,10 @@
                         <!--weight-->
                         {{#ifRecorded this.record_id.data.weight.status}}
                             <td style = "background-color:
-                                {{#ifAboveRange this.record_id.data.weight.value patient.bound.weight_upper}}
+                                {{#ifAboveRange this.record_id.data.weight.value ../patient.bound.weight_upper}}
                                     #F29393
                                 {{else}}
-                                    {{#ifBelowRange this.record_id.data.weight.value patient.bound.weight_lower}}
+                                    {{#ifBelowRange this.record_id.data.weight.value ../patient.bound.weight_lower}}
                                         #AAA9A9
                                     {{/ifBelowRange}}
                                 {{/ifAboveRange}}
@@ -105,10 +105,10 @@
                         <!--exercise-->
                         {{#ifRecorded this.record_id.data.exercise.status}}
                             <td style = "background-color:
-                                {{#ifAboveRange this.record_id.data.exercise.value this.bound.exercise_upper}}
+                                {{#ifAboveRange this.record_id.data.exercise.value ../patient.bound.exercise_upper}}
                                     #F29393
                                 {{else}}
-                                    {{#ifBelowRange this.record_id.data.exercise.value this.bound.exercise_lower}}
+                                    {{#ifBelowRange this.record_id.data.exercise.value ../patient.bound.exercise_lower}}
                                         #AAA9A9
                                     {{/ifBelowRange}}
                                 {{/ifAboveRange}}
@@ -125,10 +125,10 @@
                         <!--insulin-->
                         {{#ifRecorded this.record_id.data.insulin.status}}
                             <td style = "background-color:
-                                {{#ifAboveRange this.record_id.data.insulin.value this.bound.insulin_upper}}
+                                {{#ifAboveRange this.record_id.data.insulin.value ../patient.bound.insulin_upper}}
                                     #F29393
                                 {{else}}
-                                    {{#ifBelowRange this.record_id.data.insulin.value this.bound.insulin_lower}}
+                                    {{#ifBelowRange this.record_id.data.insulin.value ../patient.bound.insulin_lower}}
                                         #AAA9A9
                                     {{/ifBelowRange}}
                                 {{/ifAboveRange}}
@@ -145,10 +145,10 @@
                         <!--glucose-->
                         {{#ifRecorded this.record_id.data.glucose.status}}
                             <td style = "background-color:
-                                {{#ifAboveRange this.record_id.data.glucose.value this.bound.glucose_upper}}
+                                {{#ifAboveRange this.record_id.data.glucose.value ../patient.bound.glucose_upper}}
                                     #F29393
                                 {{else}}
-                                    {{#ifBelowRange this.record_id.data.glucose.value this.bound.glucose_lower}}
+                                    {{#ifBelowRange this.record_id.data.glucose.value ../patient.bound.glucose_lower}}
                                         #AAA9A9
                                     {{/ifBelowRange}}
                                 {{/ifAboveRange}}

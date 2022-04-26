@@ -66,8 +66,10 @@ const renderDashboard = async (req, res) => {
         const clinicianID = "626392e9a4d69d527a31780f";
         const patients = (await Clinician.findById(clinicianID).populate({
             path:'patients',
+            options:{lean:true},
             populate:{
                 path:'patient_id',
+                options:{lean:true},
                 populate:{
                     path:'records',
                     options:{lean:true},
@@ -107,7 +109,7 @@ const renderDashboard = async (req, res) => {
 async function initialRecord (patient_id){
     try{
         const patient = await Patient.findById(patient_id);
-        const record = await Record.findOne({patientId: patient._id,date:(new Date()).toDateString()});
+        const record = await Record.findOne({patientId: patient._id, date:(new Date()).toDateString()});
         if(record == null){
             const newRecord = new Record({
                 patientId: patient._id,
@@ -138,6 +140,7 @@ async function initialRecord (patient_id){
     }
 }
 
+/* have problem in this function    */
 const searchDashboard = async (req, res) => {
     try{
         if (req.body.patientName==''){
@@ -160,7 +163,7 @@ const searchDashboard = async (req, res) => {
             }).lean()).patients;
             const patientList = []
             for(i in patients){
-                if (patients[i].patient_id.first_name.toLowerCase().includes(req.body.patientName.toLowerCase())){
+                if (patients[i].patient_id.first_name==(req.body.patientName)){
                     const patient = patients[i].patient_id;
                     for(j in patient.records){
                         const record = patient.records[j].record_id;
