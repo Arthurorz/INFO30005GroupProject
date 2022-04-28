@@ -66,7 +66,7 @@ app.use('/patient', patientRouter);
 
 
 app.get('/patient/add', (req, res) => {
-    res.render("adddata", {
+    res.render("test", {
         layout: "patient.hbs",
     }); 
 }); 

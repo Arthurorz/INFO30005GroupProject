@@ -1,0 +1,11 @@
+<h1>Weight</h1>
+<form action="/patient/addData/{{type}}/{{patient._id}}" method="post">
+    <div class ="dataInput">
+        <input type="number" required="required" step="0.01" id="addData" name="addData" placeholder="0.00"><span>kg</span>
+        <textarea type="text" id="addComment" name="addComment" placeholder="Please Leave Your Comment"></textarea>
+    </div>
+    <button class="saveButton" name="popBox" onclick="isNull()" type="submit">Save</button>
+</form>
+
+<script src="/js/hbshelp.js"></script>
+
