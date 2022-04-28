@@ -3,10 +3,10 @@ const Clinician = require('../models/clinician.js');
 const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 
-const addPatient= async(req,res) =>{
-    const patient = await Patient.findOne({email:req.params.email})
-    if(!patient){
-        try{
+const addPatient = async (req, res) => {
+    const patient = await Patient.findOne({ email: req.params.email })
+    if (!patient) {
+        try {
             const patient = new Patient({
                 first_name: req.body.first_name,
                 last_name: req.body.last_name,
@@ -18,205 +18,206 @@ const addPatient= async(req,res) =>{
                 brief_bio: req.body.brief_bio,
                 engagement: req.body.engagement,
                 photo: req.body.photo,
-                clinician :req.body.clinician
+                clinician: req.body.clinician
             });
             await patient.save();
             console.log("Patient added");
-        }catch(err){
+        } catch (err) {
             console.log(err);
         }
-    }else{
+    } else {
         console.log("Patient already exists\n");
         console.log("Patient id is : ", patient.id);
-    }   
+    }
 }
 
 
-const renderClinicianData = async (req,res) => {
-    try{
+const renderClinicianData = async (req, res) => {
+    try {
         const clinician = await Clinician.findById(req.params.id).lean();
-        res.render('',{layout: 'clinician.hbs',clinicianData:clinician});//render about me hbs page   not yet done
-    }catch(err){
+        res.render('', { layout: 'clinician.hbs', clinicianData: clinician });//render about me hbs page   not yet done
+    } catch (err) {
         res.status(400);
         res.send("error happened when rendering clinician data");
     }
 }
 
 
-const renderPatientData = async (req,res) => {
-    try{
-        const patient = await Patient.findOne({_id:req.params.id}).populate({
-            path:'records',
-            populate:{
-                path:'record_id',
-                options:{lean:true}
-            }}).populate({
-                path:'clinician',       
-                options:{lean:true}
-            }).lean();
-        res.render('clinician-individualData.hbs',{layout: 'clinician.hbs', patient:patient});
-    }catch(err){
+const renderPatientData = async (req, res) => {
+    try {
+        const patient = await Patient.findOne({ _id: req.params.id }).populate({
+            path: 'records',
+            populate: {
+                path: 'record_id',
+                options: { lean: true }
+            }
+        }).populate({
+            path: 'clinician',
+            options: { lean: true }
+        }).lean();
+
+        res.render('clinician-individualData.hbs', { layout: 'clinician.hbs', patient: patient });
+    } catch (err) {
         console.log(err)
     }
 }
 
 const renderDashboard = async (req, res) => {
-    try{
+    try {
         const clinicianID = "626392e9a4d69d527a31780f";
         const patients = (await Clinician.findById(clinicianID).populate({
-            path:'patients',
-            options:{lean:true},
-            populate:{
-                path:'patient_id',
-                options:{lean:true},
-                populate:{
-                    path:'records',
-                    options:{lean:true},
-                    populate:{
-                        path:'record_id',
-                        options:{lean:true},
+            path: 'patients',
+            options: { lean: true },
+            populate: {
+                path: 'patient_id',
+                options: { lean: true },
+                populate: {
+                    path: 'records',
+                    options: { lean: true },
+                    populate: {
+                        path: 'record_id',
+                        options: { lean: true },
                     }
                 }
             }
         }).lean()).patients;
-        
 
         const patientList = [];
-        for(i in patients){
+        for (i in patients) {
             initialRecord(patients[i].patient_id);
             const patient = patients[i].patient_id;
-            for(j in patient.records){
+            for (j in patient.records) {
                 const record = patient.records[j].record_id;
-                if (record.date == (new Date()).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})){
+                if (record.date == (new Date()).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" })) {
                     patientList.push({
                         patient_id: patient._id,
                         first_name: patient.first_name,
-                        bound:patient.bound,
+                        bound: patient.bound,
                         today_record: record,
                     });
                 }
             }
         }
-        
-        res.render('clinician-dashboard.hbs',{layout:'clinician.hbs',patientList:patientList});
-        
-    }catch(err){
+
+        res.render('clinician-dashboard.hbs', { layout: 'clinician.hbs', patientList: patientList });
+
+    } catch (err) {
         console.log(err)
     }
 }
 
-async function initialRecord (patient_id){
-    try{
+async function initialRecord(patient_id) {
+    try {
         const patient = await Patient.findById(patient_id);
-        const record = await Record.findOne({patientId: patient._id, date:(new Date()).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})});
-        if(record == null){
+        const record = await Record.findOne({ patientId: patient._id, date: (new Date()).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }) });
+        if (record == null) {
             const newRecord = new Record({
                 patientId: patient._id,
-                date: (new Date()).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"}),
+                date: (new Date()).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }),
             });
-            if(!patient.require_data.glucose){
+            if (!patient.require_data.glucose) {
                 newRecord.data.glucose.status = "Not required";
             }
-            if(!patient.require_data.weight){
+            if (!patient.require_data.weight) {
                 newRecord.data.weight.status = "Not required";
             }
-            if(!patient.require_data.exercise){
+            if (!patient.require_data.exercise) {
                 newRecord.data.exercise.status = "Not required";
             }
-            if(!patient.require_data.insulin){
+            if (!patient.require_data.insulin) {
                 newRecord.data.insulin.status = "Not required";
             }
             await newRecord.save();
-            patient.records.push({record_id:newRecord._id});
+            patient.records.push({ record_id: newRecord._id });
             await patient.save();
-        }else{
+        } else {
             console.log("record already exists");
         }
 
 
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
 }
 
 /* have problem in this function    */
 const searchDashboard = async (req, res) => {
-    try{
-        if (req.body.patientName==''){
-            renderDashboard(req,res);
-        }else{
+    try {
+        if (req.body.patientName == '') {
+            renderDashboard(req, res);
+        } else {
             const clinicianID = "626392e9a4d69d527a31780f";
             const patients = (await Clinician.findById(clinicianID).populate({
-                path:'patients',
-                populate:{
-                    path:'patient_id',
-                    populate:{
-                        path:'records',
-                        options:{lean:true},
-                        populate:{
-                            path:'record_id',
-                            options:{lean:true},
+                path: 'patients',
+                populate: {
+                    path: 'patient_id',
+                    populate: {
+                        path: 'records',
+                        options: { lean: true },
+                        populate: {
+                            path: 'record_id',
+                            options: { lean: true },
                         }
                     }
                 }
             }).lean()).patients;
             const patientList = []
-            for(i in patients){
-                if (patients[i].patient_id.first_name==(req.body.patientName)){
+            for (i in patients) {
+                if (patients[i].patient_id.first_name == (req.body.patientName)) {
                     const patient = patients[i].patient_id;
-                    for(j in patient.records){
+                    for (j in patient.records) {
                         const record = patient.records[j].record_id;
-                        if (record.date == (new Date()).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})){
+                        if (record.date == (new Date()).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" })) {
                             patientList.push({
                                 patient_id: patient._id,
                                 first_name: patient.first_name,
-                                bound:patient.bound,
+                                bound: patient.bound,
                                 today_record: record,
                             });
                         }
                     }
                 }
             }
-            
-            res.render('clinician-dashboard.hbs',{layout:'clinician.hbs',patients:patientList});
-            
+
+            res.render('clinician-dashboard.hbs', { layout: 'clinician.hbs', patients: patientList });
+
         }
-    }catch(err){
+    } catch (err) {
         console.log(err)
     }
 }
 
 
-const addRecords = async (req,res) => {
+const addRecords = async (req, res) => {
     const patient = await Patient.findById("6263f5d7ef996dcc6dbf10af");
     const newRecord = new Record({
         patientId: "6263f5d7ef996dcc6dbf10af",
-        date: "23/04/2022",
-        data:{
-            glucose:{
-                status:"recorded",
-                value:5.6,
+        date: "27/04/2022",
+        data: {
+            glucose: {
+                status: "unrecorded",
+                value: 0,
             },
-            weight:{
-                status:"recorded",
-                value:99.9,
+            weight: {
+                status: "Not required",
+                value: 0,
             },
-            exercise:{
-                status:"recorded",
-                value:9076,
+            exercise: {
+                status: "unrecorded",
+                value: 0,
             },
-            insulin:{
-                status:"recorded",
-                value:5,
+            insulin: {
+                status: "unrecorded",
+                value: 0,
             },
         },
     });
     await newRecord.save();
-    patient.records.push({record_id:newRecord._id});
+    patient.records.push({ record_id: newRecord._id });
     await patient.save();
 }
 
-module.exports={
+module.exports = {
     renderDashboard,
     renderClinicianData,
     addPatient,
