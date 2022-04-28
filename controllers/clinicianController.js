@@ -31,18 +31,18 @@ const addPatient = async (req, res) => {
     }
 }
 
-
+//render about me hbs page   not yet done
 const renderClinicianData = async (req, res) => {
     try {
         const clinician = await Clinician.findById(req.params.id).lean();
-        res.render('', { layout: 'clinician.hbs', clinicianData: clinician });//render about me hbs page   not yet done
+        res.render('', { layout: 'clinician.hbs', clinicianData: clinician });
     } catch (err) {
         res.status(400);
         res.send("error happened when rendering clinician data");
     }
 }
 
-
+//render individual patient hbs page
 const renderPatientData = async (req, res) => {
     try {
         const patient = await Patient.findOne({ _id: req.params.id }).populate({
@@ -62,9 +62,11 @@ const renderPatientData = async (req, res) => {
     }
 }
 
+//render the clinician dashboard hbs page
 const renderDashboard = async (req, res) => {
     try {
-        const clinicianID = "626392e9a4d69d527a31780f";
+        const clinicianID = "626392e9a4d69d527a31780f";//hardcode for D2
+        //get clinician's patients and populate their information
         const patients = (await Clinician.findById(clinicianID).populate({
             path: 'patients',
             options: { lean: true },
@@ -82,7 +84,9 @@ const renderDashboard = async (req, res) => {
             }
         }).lean()).patients;
 
+        // put needed data into an array to be passed to the hbs page
         const patientList = [];
+
         for (i in patients) {
             initialRecord(patients[i].patient_id);
             const patient = patients[i].patient_id;
@@ -106,6 +110,7 @@ const renderDashboard = async (req, res) => {
     }
 }
 
+// everytime when clinician logs in, this function will be called to make sure there at least every patient has a record for today
 async function initialRecord(patient_id) {
     try {
         const patient = await Patient.findById(patient_id);
@@ -140,7 +145,7 @@ async function initialRecord(patient_id) {
     }
 }
 
-/* have problem in this function    */
+// have problem in this function, not used in Deveriable 2
 const searchDashboard = async (req, res) => {
     try {
         if (req.body.patientName == '') {
@@ -187,7 +192,7 @@ const searchDashboard = async (req, res) => {
     }
 }
 
-
+//test function used for adding records
 const addRecords = async (req, res) => {
     const patient = await Patient.findById("6263f5d7ef996dcc6dbf10af");
     const newRecord = new Record({
