@@ -392,10 +392,17 @@ select a:hover{
     float: right;
 }
 
-.sam-table{
+.individual-table{
     margin-top: 0.625rem;
-    width: 100%;
+    width: auto;
     height: 55.75rem;
+    overflow-y: auto;
+}
+
+.sam-table{
+    /* margin-top: 0.625rem; */
+    width: 100%;
+    /* height: 55.75rem;  */
     margin-left: 0;
 }
 
@@ -416,13 +423,13 @@ th{
 
 
 .leftone{
-    width: 6.938rem;
+    width: 9rem;
     background-color: white;
     padding: 0;
 }
 
 .sam-table .slope{
-    transform: rotate(30deg);
+    transform: rotate(20deg);
 }
 
 .table-weight, .table-exercise{
