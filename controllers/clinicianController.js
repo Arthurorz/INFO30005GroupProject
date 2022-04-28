@@ -88,7 +88,7 @@ const renderDashboard = async (req, res) => {
             const patient = patients[i].patient_id;
             for(j in patient.records){
                 const record = patient.records[j].record_id;
-                if (record.date == (new Date()).toDateString()){
+                if (record.date == (new Date()).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})){
                     patientList.push({
                         patient_id: patient._id,
                         first_name: patient.first_name,
@@ -109,11 +109,11 @@ const renderDashboard = async (req, res) => {
 async function initialRecord (patient_id){
     try{
         const patient = await Patient.findById(patient_id);
-        const record = await Record.findOne({patientId: patient._id, date:(new Date()).toDateString()});
+        const record = await Record.findOne({patientId: patient._id, date:(new Date()).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})});
         if(record == null){
             const newRecord = new Record({
                 patientId: patient._id,
-                date: (new Date()).toDateString(),
+                date: (new Date()).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"}),
             });
             if(!patient.require_data.glucose){
                 newRecord.data.glucose.status = "Not required";
@@ -167,7 +167,7 @@ const searchDashboard = async (req, res) => {
                     const patient = patients[i].patient_id;
                     for(j in patient.records){
                         const record = patient.records[j].record_id;
-                        if (record.date == (new Date()).toDateString()){
+                        if (record.date == (new Date()).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})){
                             patientList.push({
                                 patient_id: patient._id,
                                 first_name: patient.first_name,
@@ -187,17 +187,6 @@ const searchDashboard = async (req, res) => {
     }
 }
 
-function formatDate(date){
-    var d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-
-    if (month.length < 2) month = '0' + month;
-    if (day.length < 2) day = '0' + day;
-
-    return [year, month, day].join('-');
-}
 
 module.exports={
     renderDashboard,
