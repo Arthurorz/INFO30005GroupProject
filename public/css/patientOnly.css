@@ -7,6 +7,10 @@ html {
     font-size: 16px;
 }
 
+main {
+    margin-bottom: 5%;
+}
+
 .patient-header {
     height: 55px;
     width: 100%;

@@ -3,6 +3,10 @@
     margin: 0%;
 }
 
+main {
+    margin-bottom: 5%;
+}
+
 h2 {
     font-size: 1rem;
 }
@@ -220,7 +224,7 @@ iframe {
 
 /* Login Page */
 .login {
-    margin: 252px 10.67% 0 10.67%;
+    margin: 200px 10.67% 0 10.67%;
     border-radius: 0.5rem;
     border: 1px solid #EDEDED;
     box-shadow: 3px 3px #EDEDED;
@@ -397,8 +401,6 @@ button.sentcode {
     .forget-container input {
         font-size: 1rem;
     }
-
-
 
 }
 
@@ -601,7 +603,7 @@ button.sentcode {
     }
 
     .login {
-        margin: 360px 34.17% 0 34.17%;
+        margin: 300px 34.17% 0 34.17%;
     }
 
     .rememberMe {

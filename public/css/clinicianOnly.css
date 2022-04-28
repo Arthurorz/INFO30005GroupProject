@@ -3,6 +3,10 @@
     margin: 0%;
 }
 
+main {
+    margin-bottom: 5%;
+}
+
 .clinician-header {
     height: 8.75rem;
     width: 100%;
