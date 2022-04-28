@@ -5,8 +5,6 @@ const exphbs = require('express-handlebars');
 const express = require('express');
 // Set your app up as an express app
 const app = express();
-require('dotenv').config();
-const port = process.env.PORT || 3000;
 
 //connect to database
 require('./models/db');
