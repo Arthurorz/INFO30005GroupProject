@@ -330,7 +330,7 @@ h1{
 
 .dataInput span{
     position: absolute;
-    left: 62%;
+    left: 68%;
     top: 16.5%;
 }
 
@@ -433,6 +433,8 @@ h1{
     .normalRange{width: 68.33%;}
     
     .dataInput{width: 68.33%;}
+
+    .dataInput span{left: 62%;}
 
     #popBox{
         width: 68.33%;
@@ -653,6 +655,7 @@ h1{
 
     .dataInput span{
         top: 17.5%;
+        left: 62%;
         font-size: 1.625rem;
     }
     
