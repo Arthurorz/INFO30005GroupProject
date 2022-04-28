@@ -2,7 +2,7 @@
 <h1>Blood Glucose Level</h1>
 <form action="/patient/addData/{{type}}/{{patient._id}}" method="post">
     <div class ="dataInput">
-        <input type="number" step="0.01" id="addData" name="addData" placeholder="0.00"><span>nmol/L</span>
+        <input type="number" required="required" step="0.01" id="addData" name="addData" placeholder="0.00"><span>nmol/L</span>
         <textarea type="text" id="addComment" name="addComment" placeholder="Please Leave Your Comment"></textarea>
     </div>
 {{/ifglucose}}    
@@ -10,7 +10,7 @@
 <h1>Weight</h1>
 <form action="/patient/addData/{{type}}/{{patient._id}}" method="post">
     <div class ="dataInput">
-        <input type="number" step="0.01" id="addData" name="addData" placeholder="0.00"><span>kg</span>
+        <input type="number" required="required" step="0.01" id="addData" name="addData" placeholder="0.00"><span>kg</span>
         <textarea type="text" id="addComment" name="addComment" placeholder="Please Leave Your Comment"></textarea>
     </div>
 {{/ifweight}}  
@@ -18,7 +18,7 @@
 <h1>Exercise</h1>
 <form action="/patient/addData/{{type}}/{{patient._id}}" method="post">
     <div class ="dataInput">
-        <input type="number" id="addData" name="addData" placeholder="0"><span>Steps</span>
+        <input type="number" required="required" id="addData" name="addData" placeholder="0"><span>Step count</span>
         <textarea type="text" id="addComment" name="addComment" placeholder="Please Leave Your Comment"></textarea>
     </div>
 {{/ifexercise}}        
@@ -26,7 +26,7 @@
 <h1>Doses of Insulin Taken Today</h1>
 <form action="/patient/addData/{{type}}/{{patient._id}}" method="post">
     <div class ="dataInput">
-        <input type="number"id="addData" name="addData" placeholder="0"><span>doses</span>
+        <input type="number"required="required" id="addData" name="addData" placeholder="0"><span>doses</span>
         <textarea type="text" id="addComment" name="addComment" placeholder="Please Leave Your Comment"></textarea>
     </div>
 {{/ifinsulin}} 
