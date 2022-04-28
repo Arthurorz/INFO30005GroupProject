@@ -105,8 +105,8 @@
 
                         <!--exercise-->
                         {{#ifRecorded this.record_id.data.exercise.status}}
+                        <!--draw different color if data out of range-->
                             <td style = "background-color:
-                                <!--draw different color if data out of range-->
                                 {{#ifAboveRange this.record_id.data.exercise.value ../patient.bound.exercise_upper}}
                                     #F29393
                                 {{else}}
@@ -126,8 +126,8 @@
 
                         <!--insulin-->
                         {{#ifRecorded this.record_id.data.insulin.status}}
+                        <!--draw different color if data out of range-->
                             <td style = "background-color:
-                            <!--draw different color if data out of range-->
                                 {{#ifAboveRange this.record_id.data.insulin.value ../patient.bound.insulin_upper}}
                                     #F29393
                                 {{else}}
@@ -147,8 +147,8 @@
 
                         <!--glucose-->
                         {{#ifRecorded this.record_id.data.glucose.status}}
+                        <!--draw different color if data out of range-->
                             <td style = "background-color:
-                            <!--draw different color if data out of range-->
                                 {{#ifAboveRange this.record_id.data.glucose.value ../patient.bound.glucose_upper}}
                                     #F29393
                                 {{else}}
