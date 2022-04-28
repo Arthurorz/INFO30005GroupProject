@@ -115,6 +115,7 @@ async function initialRecord(patient_id) {
     try {
         const patient = await Patient.findById(patient_id);
         const record = await Record.findOne({ patientId: patient._id, date: (new Date()).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }) });
+
         if (record == null) {
             const newRecord = new Record({
                 patientId: patient._id,
@@ -166,7 +167,9 @@ const searchDashboard = async (req, res) => {
                     }
                 }
             }).lean()).patients;
+            
             const patientList = []
+
             for (i in patients) {
                 if (patients[i].patient_id.first_name == (req.body.patientName)) {
                     const patient = patients[i].patient_id;
