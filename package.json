@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "prettier":"prettier --single-quote --no-semi --tab-width 4 --write'**/*.js' '*.js'"
+    "prettier": "prettier --single-quote --no-semi --tab-width 4 --write'**/*.js' '*.js'"
   },
   "repository": {
     "type": "git",
