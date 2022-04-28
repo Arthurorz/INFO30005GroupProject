@@ -7,7 +7,7 @@ const express = require('express');
 const app = express();
 
 //connect to database
-require('./models/db');
+require('./models');
 
 Patient = require('./models/patient');
 Record = require('./models/record');
