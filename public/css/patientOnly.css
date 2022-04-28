@@ -5,46 +5,6 @@
 
 html{font-size: 16px;}
 
-/* .patient-web-header{
-    display: none;
-}
-
-.patient-mobile-header{
-    height: 55px;
-    width: 100%;
-    background-color: #668cbb;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    line-height: 55px;
-    top: 0;
-    left: 0;
-    z-index: 1;
-    color: #fff;
-    font-size: 1.5625rem;
-}
-
-.patient-mobile-header div{
-    display: flex;
-    align-items: center;
-    width: 76px;
-}
-
-.patient-mobile-header div:first-child{
-    padding-left: 2.67%;
-}
-
-.patient-mobile-header div:last-child{
-    padding-right: 2.67%;
-    justify-content: end;
-}
-
-.patient-mobile-menu{width: 29px;}
-
-.patient-mobile-logo{width: 76px;}
-
-.patient-mobile-aboutMe{ width: 29px;} */
-
 .patient-header{
     height: 55px;
     width: 100%;
@@ -67,18 +27,14 @@ html{font-size: 16px;}
     width: 76px;
 }
 
-.patient-header div:first-child{
-    padding-left: 2.67%;
-}
+.patient-header div:first-child{padding-left: 2.67%;}
 
 .patient-header div:nth-child(3){
     padding-right: 2.67%;
     justify-content: end;
 }
 
-.patient-header div:last-child{
-    display: none;
-}
+.patient-header div:last-child{display: none;}
 
 .patient-logo{width: 76px;}
 
@@ -94,6 +50,7 @@ li {list-style: none;}
     border-bottom: 1px solid #CFCFCF;
     transform: rotate(28deg);
 }
+
 .menu { 
     display: none;
     position: absolute;
@@ -112,55 +69,14 @@ input[type=checkbox]:checked ~ .menu{display: block;}
 
 input[type=checkbox]{display: none;} 
 
-/* Menu List */
-/* .nav-links a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.menu { 
-    display: none;
-    position: absolute;
-    background-color:#668cbb;
-    right: 0;
-    left: 0;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 1.125rem;
-    margin-top: 405px;
-}
-
-.menu li:hover {
-    display: inline-block;
-    background-color:#668cbb;
-    transition: 0.3s ease;
-    border-radius: 5px;
-}
-
-input[type=checkbox]:checked ~ .menu{display: block;}
-
-.hamburger {display: block;}
-
-input[type=checkbox]{display: none;}  */
-
-
 /* Landing Page */
+.mobile-head, .ABOUT-DIABETES, .ABOUT-WEBSITE, .bottom-word{font-size: 1.375rem;}
 
+.mobile-head{font-family: Georgia, 'Times New Roman', Times, serif;}
 
-.mobile-head, .ABOUT-DIABETES, .ABOUT-WEBSITE, .bottom-word{
-    font-size: 1.375rem;
-}
-
-.mobile-head{
-    font-family: Georgia, 'Times New Roman', Times, serif;
-}
-
-.web-head{
-    display: none;
-}
+.web-head{display: none;}
 
 .background{
-    /* transform: translate(0%, 5%); */
     height: 25.985%;
     width: 100%;
 }
@@ -180,13 +96,9 @@ input[type=checkbox]{display: none;}  */
     height: 7rem;
 }
 
-.ABOUT-DIABETES{
-    margin: 1.875rem 0 2.438rem 0;
-}
+.ABOUT-DIABETES{margin: 1.875rem 0 2.438rem 0;}
 
-.bottom-word{
-    margin: 3rem 2.5rem 0 2.5rem;
-}
+.bottom-word{margin: 3rem 2.5rem 0 2.5rem;}
 
 /* Patient Homepage */
 .SupportMessage{
@@ -203,10 +115,10 @@ input[type=checkbox]{display: none;}  */
 
 .SupportMessage p:nth-child(2){font-size: 0.75rem;}
 
-.homeSubtitle{margin: auto auto 0.3125rem 13.87%;}
+.homeSubtitle{margin: auto auto 0.3125rem 10.13%;}
 
 .homeTop{
-    width: 72.8%;
+    width: 79.74%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -229,9 +141,7 @@ input[type=checkbox]{display: none;}  */
     margin-bottom: 1.875rem;
 }
 
-.addbutton a{
-    width: 100%;
-}
+.addbutton a{width: 100%;}
 
 .addbutton span{
     margin-top: 0.5625rem;
@@ -241,7 +151,7 @@ input[type=checkbox]{display: none;}  */
 
 .addbutton p{font-size: 0.75rem;}
 
-.iconpng{width: 0.9375rem;}
+.iconpng{width: 1.2rem;}
 
 .recorded{width: 4rem;}
 
@@ -302,7 +212,7 @@ td img{
     font-size: 0.6875rem;
 }
 
-/* Add Data Section */
+/* Add Data Page */
 h1{
     margin: 5.0625rem auto 1.5625rem auto;
     text-align: center;
@@ -429,7 +339,7 @@ h1{
 
     .homeMiddle{width: 52.5%;}
 
-    /* Add Data Section iPad */
+    /* Add Data Page iPad */
     .normalRange{width: 68.33%;}
     
     .dataInput{width: 68.33%;}
@@ -451,53 +361,7 @@ h1{
 }
 
 @media screen and (min-width: 1400px){
-    /* .patient-mobile-header{display: none;}
-
-    .patient-web-header {
-        height: 8.75rem;
-        width: 100%;
-        background-color: #668cbb;
-        position: fixed;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        top: 0;
-        left: 0;
-        z-index: 1;
-    }
-    
-    .patient-web-header div:first-child{padding-left: 2.5%;}
-    
-    .patient-web-header div:last-child {
-        padding-right: 1%;
-        justify-content: end;
-    }
-    
-    .patient-web-logo {
-        height: 7.4375rem;
-        width: 11.6875rem;
-    }
-    
-    .patient-web-navBar a {
-        font-size: 30px;
-        color: #FFFFFF;
-        text-decoration: none;
-    }
-    
-    .patient-web-logOut {
-        color: #668CB8;
-        background-color: #FFFFFF;
-        box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
-        border-radius: 1.25rem;
-        width: 13.1875rem;
-        height: 4.375rem;
-        border: none;
-        font-size: 1.875em;
-    }  */
-
-    .patient-mobile-aboutMe{
-        display: none;
-    }
+    .patient-mobile-aboutMe{display: none;}
     
     .patient-header {
         height: 8.75rem;
@@ -520,9 +384,7 @@ h1{
         width: 11.6875rem;
     }
     
-    .patient-web-navBar a{
-        font-size: 30px;
-    }
+    .patient-web-navBar a{font-size: 30px;}
     
     .patient-web-logOut{
         display: block;
@@ -559,7 +421,7 @@ h1{
         transition: 0.3s ease;
     }
 
-    /* Patient Web Homepage */
+    /* Patient Homepage Web */
     .SupportMessage{
         margin: 14rem 29.01% 4.8125rem 29.01%;
         height: 7.8125rem;
@@ -637,7 +499,7 @@ h1{
         font-size: 1.625rem;
     }
 
-    /* Add Data Web Section */
+    /* Add Data Page Web */
     h1{
         margin: 13.75rem auto 3.9375rem auto;
         font-size: 2.375rem;
