@@ -71,9 +71,10 @@ const renderHomePage = async (req, res, next) => {
         const today = await Record.findOne({date: date}).lean();
         const recent7 = [];
         for(let i=0;i<7;i++){
-            const recent7date = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"});
+            const recent7date = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"});       
             recent7.push({
-                date: recent7date,
+                // only record day and month
+                date: recent7date.substring(0,5),
                 record: await Record.findOne({date: recent7date}).lean(),
             });
         }
