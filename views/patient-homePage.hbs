@@ -1,91 +1,202 @@
-<div class="SupportMessage">
-    <p>{{data.screen_name}}</p>      <!-- 要改成SupportMessage-->
-    <p>——&nbsp;Doctor White</p>
+<div class ="SupportMessage">
+    <p>{{patient.support_message}}</p>      <!-- 要改成SupportMessage-->
+    <p>——&nbsp;Doctor {{clinician.last_name}}</p>
 </div>
-{{!-- <p class="homeSubtitle">My Plans</p>
-        <div class="SupportMessage">
-    <p>Don't give up and dont't give in.</p>
-    <p>——&nbsp;Doctor White</p>
-</div> --}}
 <p class="homeSubtitle">My Plans</p>
-
 <div class="homeTop">
+    {{!-- render todat's blood glucose --}}
+    {{#ifNotRequired today.data.glucose.status}}
+    {{else}}
+    {{#ifNotRecorded today.data.glucose.status}}
     <div class="addbutton">
-        <img class="add" src="/addbutton.png" alt="Blood Glucose">
+        <a href='/patient/addData/glucose/{{patient._id}}'>
+        <img class="add" src="/addbutton.png" alt="Blood Glucose"></a>
         <span>Blood Glucose<img class="iconpng" src="/blood_glucose.png" alt="bloodpng"></span>
     </div>
-    <div class="addbutton">
-        <img class="add" src="/addbutton.png" alt="Weight">
+    {{else}}
+    <div class = "addbutton">
+        <img class="recorded" src="/recordedBlood.png" alt="Blood Glucose">
+        <p>Blood Glucose: <br>{{today.data.glucose.value}}&nbsp;nmol/L</p>
+        <p class="time">{{today.data.glucose.date}}</p>
+    </div>
+    {{/ifNotRecorded}}
+    {{/ifNotRequired}}
+
+    {{!-- Render today's weight--}}
+    {{#ifNotRequired today.data.weight.status}}
+    {{else}}
+    {{#ifNotRecorded today.data.weight.status}}
+    <div class = "addbutton">
+        <a href='/patient/addData/weight/{{patient._id}}'>
+        <img class="add" src="/addbutton.png" alt="Weight"></a>
         <span>Weight&nbsp;<img class="iconpng" src="/weightscale.png" alt="weightpng"></span>
     </div>
-    <div class="addbutton">
-        <img class="recorded" src="/recordedRunning.png" alt="Blood Glucose">
-        <p>Exercise: <br>10635 Steps</p>
-        <p class="time">2022/03/20 2PM</p>
+    {{else}}
+    <div class = "addbutton">
+        <img class="recorded" src="/recordedWeight.png" alt="Weight">
+        <p>Weight: <br>{{today.data.weight.value}}&nbsp;Kg</p>
+        <p class="time">{{today.data.weight.date}}</p>
+    </div>  
+    {{/ifNotRecorded}}
+    {{/ifNotRequired}}
+
+    {{!-- Render today's exercise--}}
+    {{#ifNotRequired today.data.exercise.status}}
+    {{else}}
+    {{#ifNotRecorded today.data.exercise.status}}
+    <div class = "addbutton">
+        <a href='/patient/addData/exercise/{{patient._id}}'>
+        <img class="add" src="/addbutton.png" alt="Exercise"></a>
+        <span>Exercise&nbsp;<img class="iconpng" src="/recordedRunning.png" alt="exercisepng"></span>
     </div>
-    <div class="addbutton">
-        <img class="recorded" src="/recordedDoses.png" alt="Weight">
-        <p>Doses of Insulin Taken: <br>3 Doses</p>
-        <p class="time">2022/03/20 5PM</p>
+    {{else}}
+    <div class = "addbutton">
+        <img class="recorded" src="/recordedRunning.png" alt="Exercise">
+        <p>Exercise: <br>{{today.data.exercise.value}}&nbsp;Steps</p>
+        <p class="time">{{today.data.exercise.date}}</p>
     </div>
+    {{/ifNotRecorded}}
+    {{/ifNotRequired}}
+    
+    {{!-- Render today's insulin--}}
+    {{#ifNotRequired today.data.insulin.status}}
+    {{else}}
+    {{#ifNotRecorded today.data.insulin.status}}
+    <div class = "addbutton">
+        <a href='/patient/addData/insulin/{{patient._id}}'>
+        <img class="add" src="/addbutton.png" alt="Insulin"></a>
+        <span>Insulin&nbsp;<img class="iconpng" src="/doses.png" alt="insulpng"></span>
+    </div>
+    {{else}}
+    <div class="addbutton" >
+         <img class="recorded" src="/recordedDoses.png" alt="Weight">
+         <p>Dose of Insulin Taken: <br>{{today.data.insulin.value}}&nbsp;Doses</p>
+         <p class="time">{{today.data.insulin.date}}</p>
+    </div>
+    {{/ifNotRecorded}}
+    {{/ifNotRequired}}
 </div>
 <div class="tableTop">
-    <span><img src="redcircle.png">Above normal range</span>
-    <span><img src="greycircle.png">Below normal range</span>
-    <span><img src="Icon awesome-question-circle.png">Data was not recorded</span>
+    <span><img src="/redcircle.png">Above normal range</span>
+    <span><img src="/greycircle.png">Below normal range</span>
+    <span><img src="/unrecorded.png">Data was not recorded</span>
 </div>
 <div class="homeTable">
     <table>
         <tr>
-            <th class="leftone"><div class="slope"></div></th>
-            <th>3/14</th>
-            <th>3/15</th>
-            <th>3/16</th>
-            <th>3/17</th>
-            <th>3/18</th>
-            <th>3/19</th>
-            <th>3/20</th>
+            <th></th>
+            {{#each recent7}}
+            <th>{{this.date}}</th>
+            {{/each}}
         </tr>
         <tr>
-            <td class="name">Weight<br>(Kg)</td>
-            <td><img src="/Icon awesome-question-circle.png"></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Blood Glucose</td>
+            {{#each recent7}}
+                {{#ifNull this.record.data.glucose}}
+                    <td><img src="/unrecorded.png"></td>
+                {{else}}
+                    {{#ifRecorded this.record.data.glucose.status}}
+                        <td style="background-color:
+                            {{#ifAboveRange this.record.data.glucose.value ../patient.bound.glucose_upper}}
+                                #F29393
+                            {{/ifAboveRange}}
+                            {{#ifBelowRange this.record.data.glucose.value ../patient.bound.glucose_lower}}
+                                #AAA9A9
+                            {{/ifBelowRange}}
+                        ;">{{this.record.data.glucose.value}}</td>
+                    {{else}}
+                       {{#ifNotRequired this.record.data.glucose.status}}
+                            <td><div class="ind_slope"></div></td>
+                        {{else}}
+                            <td><img src="/unrecorded.png"></td>
+                        {{/ifNotRequired}}
+                    {{/ifRecorded}}
+                {{/ifNull}}
+            {{/each}}
+            </td>
         </tr>
+
         <tr>
-            <td class="name">Exercise<br>(Step)</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Weight</td>
+            {{#each recent7}}
+                {{#ifNull this.record.data.weight}}
+                    <td><img src="/unrecorded.png"></td>
+                {{else}}
+                    {{#ifRecorded this.record.data.weight.status}}
+                        <td style="background-color:
+                            {{#ifAboveRange this.record.data.weight.value ../patient.bound.weight_upper}}
+                                #F29393
+                            {{/ifAboveRange}}
+                            {{#ifBelowRange this.record.data.weight.value ../patient.bound.weight_lower}}
+                                #AAA9A9
+                            {{/ifBelowRange}}
+                        ;">{{this.record.data.weight.value}}</td>
+                    {{else}}
+                        {{#ifNotRequired this.record.data.weight.status}}
+                            <td><div class="ind_slope"></div></td>
+                        {{else}}
+                            <td><img src="/unrecorded.png"></td>
+                        {{/ifNotRequired}}
+                    {{/ifRecorded}}
+                {{/ifNull}}
+            {{/each}}
+            </td>
         </tr>
+
+         <tr>
+            <td>Exercise</td>
+            {{#each recent7}}
+                {{#ifNull this.record.data.exercise}}
+                    <td><img src="/unrecorded.png"></td>
+                {{else}}
+                    {{#ifRecorded this.record.data.exercise.status}}
+                        <td style="background-color:
+                            {{#ifAboveRange this.record.data.exercise.value ../patient.bound.exercise_upper}}
+                                #F29393
+                            {{/ifAboveRange}}
+                            {{#ifBelowRange this.record.data.exercise.value ../patient.bound.exercise_lower}}
+                                #AAA9A9
+                            {{/ifBelowRange}}
+                        ;">{{this.record.data.exercise.value}}</td>
+                    {{else}}
+                        {{#ifNotRequired this.record.data.exercise.status}}
+                            <td><div class="ind_slope"></div></td>
+                        {{else}}
+                            <td><img src="/unrecorded.png"></td>
+                        {{/ifNotRequired}}
+                    {{/ifRecorded}}
+                {{/ifNull}}
+            {{/each}}
+            </td>
+        </tr>
+
         <tr>
-            <td class="name">Doses of Insulin Taken<br>(Doses)</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td>Doses of Insulin</td>
+            {{#each recent7}}
+                {{#ifNull this.record.data.insulin}}
+                    <td><img src="/unrecorded.png"></td>
+                {{else}}
+                    {{#ifRecorded this.record.data.insulin.status}}
+                        <td style="background-color:
+                            {{#ifAboveRange this.record.data.insulin.value ../patient.bound.insulin_upper}}
+                                #F29393
+                            {{/ifAboveRange}}
+                            {{#ifBelowRange this.record.data.insulin.value ../patient.bound.insulin_lower}}
+                                #AAA9A9
+                            {{/ifBelowRange}}
+                        ;">{{this.record.data.insulin.value}}</td>
+                    {{else}}
+                        {{#ifNotRequired this.record.data.insulin.status}}
+                            <td><div class="ind_slope"></div></td>
+                        {{else}}
+                            <td><img src="/unrecorded.png"></td>
+                        {{/ifNotRequired}}
+                    {{/ifRecorded}}
+                {{/ifNull}}
+            {{/each}}
+            </td>
         </tr>
-        <tr>
-            <td class="name">Blood Glucose Level<br>(nmol/L)</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
+        
+
     </table>
 </div>
-<p class="viewData">View More Data &nbsp;></p>

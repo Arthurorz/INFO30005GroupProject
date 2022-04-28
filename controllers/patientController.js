@@ -12,98 +12,16 @@ const getAllPatientData = async(req, res, next) => {
         return next(err)
     }
 }
-// /* 存起来 以后可能有用
-// var email = document.getElementById("emails").value;
-// var password = document.getElementById("pass").value;
-// */
-
-// async function addPatient(first_name, last_name, email, password, screen_name, yearofbirth, height, brief_bio, engagement, photo){
-//     const patient = await Patient.findOne({email:email})
-//     if(!patient){
-//         try{
-//             const patient = new Patient({
-//                 first_name: first_name,
-//                 last_name: last_name,
-//                 email: email,
-//                 password: password,
-//                 screen_name: screen_name,
-//                 yearofbirth: yearofbirth,
-//                 height: height,
-//                 brief_bio: brief_bio,
-//                 engagement: engagement,
-//                 photo: photo
-//             });
-//             await patient.save();
-//             console.log("Patient added");
-//         }catch(err){
-//             console.log(err);
-//         }
-//     }else{
-//         console.log("Patient already exists\n");
-//         console.log("Patient id is : ", patient.id);
-//     }   
-// }
-
-// async function addRecord(patientId){
-//     try{
-//         const result = await Record.findOne({
-//             _id:patientId,
-//             recordDate:formatDate(new Date())
-//         });
-//         if(!result){
-//             const record = new Record({
-//                 _id: patientId,
-//                 recordDate: formatDate(new Date())
-//             });
-
-//             await record.save();
-//             return record.id;
-//         }else{
-//             return result.id;
-//         }
-//     }catch(err){
-//         console.log("error in addRecord:", err);
-//     }
-// }
-
-// function formatDate(date){
-//     var d = new Date(date),
-//         month = '' + (d.getMonth() + 1),
-//         day = '' + d.getDate(),
-//         year = d.getFullYear();
-
-//     if (month.length < 2) month = '0' + month;
-//     if (day.length < 2) day = '0' + day;
-
-//     return [year, month, day].join('-');
-// }
-
-
-// const renderRecordData = async (req,res) => {
-//     try{
-//         const patient = await Patient.findById(req.params.id).lean();
-//         const record = await Record.findOne({
-//             _id:patient.id,
-//             recordDate:formatDate(new Date())
-//         }).lean();
-//         console.log(record);
-//         res.render("",{record:record});//render 某个hbs
-//     }catch(err){
-//         res.status(400);
-//         res.send("error happened when rendering record data");
-//     }
-// }
 
 const updateRecord = async(req,res,next) =>{
     try{
-        console.log("===========updateRecord===========");
         const patient_id = '6263f5d7ef996dcc6dbf10af';
         const type = req.params.type;
-        const record = await Record.findOne({patientId: patient_id, date: (new Date()).toDateString()});
+        const record = await Record.findOne({patientId: patient_id, date: new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})});
         record.data[type].status = "recorded";
         record.data[type].value = req.body.addData;
         record.data[type].comment = req.body.addComment;
-        record.data[type].date = new Date().toDateString();
+        record.data[type].date =new Date().toLocaleString("en-AU",{"timeZone":"Australia/Melbourne"});
         await record.save();
         res.redirect('/patient/homepage/'+patient_id);
     }catch(err){
@@ -114,13 +32,12 @@ const updateRecord = async(req,res,next) =>{
 
 async function initialRecord (patient_id){
     try{
-        console.log("===========initiate Record===========");
         const patient = await Patient.findOne({ _id: patient_id });
-        const record = await Record.findOne({patientId: patient._id, date: (new Date()).toDateString()});
+        const record = await Record.findOne({patientId: patient._id, date: new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})});
         if(record == null){
             const newRecord = new Record({
                 patientId: patient_id,
-                date: (new Date()).toDateString(),
+                date: new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"}),
             })
             if(!patient.required_data.glucose){
                 newRecord.data.glucose.status = "Not required";
@@ -138,7 +55,6 @@ async function initialRecord (patient_id){
             patient.records.push({record_id: newRecord._id});
             await patient.save();
         }else{
-            console.log("record already exists");
         }
     }catch(err){
         console.log(err);
@@ -147,16 +63,21 @@ async function initialRecord (patient_id){
 
 const renderHomePage = async (req, res, next) => {
     try {
-        console.log("==============renderHomePage===============");
         const id = "6263f5d7ef996dcc6dbf10af";
         initialRecord(id);
         const patient = await Patient.findOne({ _id: id }).lean();
         const clinician = await Clinician.findById(patient.clinician).lean();
-        const records = await Record.find({patientId: id}).sort({"date":-1}).limit(7).lean();
-        const newdate = new Date();
-        const date = newdate.toDateString();
+        const date = new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"});
         const today = await Record.findOne({date: date}).lean();
-        res.render("new.hbs", { layout: 'patient.hbs', patient: patient, clinician: clinician, records: records, today: today });
+        const recent7 = [];
+        for(let i=0;i<7;i++){
+            const recent7date = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"});
+            recent7.push({
+                date: recent7date,
+                record: await Record.findOne({date: recent7date}).lean(),
+            });
+        }
+        res.render("patient-homePage.hbs", { layout: 'patient.hbs', patient: patient, clinician: clinician,today: today,recent7: recent7});
     }catch (err) {
         return next(err);
     }
@@ -164,11 +85,10 @@ const renderHomePage = async (req, res, next) => {
 
 const renderAddPage = async (req, res, next) => {
     try{
-        console.log("===========renderAddPage===========");
         const id = "6263f5d7ef996dcc6dbf10af";
         const patient = await Patient.findOne({ _id: id }).lean();
         const type = req.params.type;
-        const record = await Record.findOne({patientId: id, date: (new Date()).toDateString()}).lean();
+        const record = await Record.findOne({patientId: id, date: new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})}).lean();
         res.render("patient-addData.hbs", { layout: 'patient.hbs', type: type, record: record , patient: patient});
     }catch(err){
          return next(err);
@@ -178,9 +98,6 @@ const renderAddPage = async (req, res, next) => {
 
 module.exports={
     getAllPatientData,
-//     addPatient,
-//     addRecord,
-//     renderRecordData
     renderAddPage,
     updateRecord,
     renderHomePage,

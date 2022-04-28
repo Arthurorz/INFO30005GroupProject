@@ -71,6 +71,13 @@ const helpers = {
         }else{
             return options.inverse(this);
         }
+    },
+    ifNull:function (value, options){
+        if(value == null){
+            return options.fn(this);
+        }else{
+            return options.inverse(this);
+        }
     }
 };
 

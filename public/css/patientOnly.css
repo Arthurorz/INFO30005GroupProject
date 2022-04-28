@@ -90,6 +90,10 @@ li {list-style: none;}
 
 .nav-links a {color: #FFFFFF;}
 
+.ind_slope{
+    border-bottom: 1px solid #CFCFCF;
+    transform: rotate(18deg);
+}
 .menu { 
     display: none;
     position: absolute;
