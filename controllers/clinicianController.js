@@ -35,7 +35,7 @@ const addPatient= async(req,res) =>{
 const renderClinicianData = async (req,res) => {
     try{
         const clinician = await Clinician.findById(req.params.id).lean();
-        res.render('',{layout: 'clinician.hbs',clinicianData:clinician});//render 某个hbs
+        res.render('',{layout: 'clinician.hbs',clinicianData:clinician});//render about me hbs page   not yet done
     }catch(err){
         res.status(400);
         res.send("error happened when rendering clinician data");
@@ -54,7 +54,6 @@ const renderPatientData = async (req,res) => {
                 path:'clinician',       
                 options:{lean:true}
             }).lean();
-        
         res.render('clinician-individualData.hbs',{layout: 'clinician.hbs', patient:patient});
     }catch(err){
         console.log(err)
@@ -187,6 +186,35 @@ const searchDashboard = async (req, res) => {
     }
 }
 
+
+const addRecords = async (req,res) => {
+    const patient = await Patient.findById("6263f5d7ef996dcc6dbf10af");
+    const newRecord = new Record({
+        patientId: "6263f5d7ef996dcc6dbf10af",
+        date: "23/04/2022",
+        data:{
+            glucose:{
+                status:"recorded",
+                value:5.6,
+            },
+            weight:{
+                status:"recorded",
+                value:99.9,
+            },
+            exercise:{
+                status:"recorded",
+                value:9076,
+            },
+            insulin:{
+                status:"recorded",
+                value:5,
+            },
+        },
+    });
+    await newRecord.save();
+    patient.records.push({record_id:newRecord._id});
+    await patient.save();
+}
 
 module.exports={
     renderDashboard,
