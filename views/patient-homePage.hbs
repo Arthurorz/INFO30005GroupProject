@@ -1,5 +1,6 @@
+{{!--render supporting Message from clinician--}}
 <div class ="SupportMessage">
-    <p>{{patient.support_message}}</p>      <!-- 要改成SupportMessage-->
+    <p>{{patient.support_message}}</p>
     <p>——&nbsp;Doctor {{clinician.last_name}}</p>
 </div>
 <p class="homeSubtitle">My Plans</p>
@@ -76,6 +77,7 @@
     {{/ifNotRecorded}}
     {{/ifNotRequired}}
 </div>
+{{!--Render the table for recent 7 days record.--}}
 <div class="tableTop">
     <span><img src="/redcircle.png">Above normal range</span>
     <span><img src="/greycircle.png">Below normal range</span>
@@ -196,7 +198,5 @@
             {{/each}}
             </td>
         </tr>
-        
-
     </table>
 </div>

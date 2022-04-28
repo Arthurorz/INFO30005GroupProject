@@ -3,6 +3,10 @@
     margin: 0%;
 }
 
+main {
+    margin-bottom: 5%;
+}
+
 .clinician-header {
     height: 8.75rem;
     width: 100%;
@@ -75,7 +79,6 @@
 .topleft{
     display: flex;
     flex-direction: column;
-    /* margin: auto auto 0.1875rem 7%; */
     font-size: 1.25rem;
     width: 17.375rem;
 }
@@ -193,6 +196,11 @@ td img{
     transform: rotate(18deg);
 }
 
+.large_slope{
+    border-bottom: 1px solid #CFCFCF;
+    transform: rotate(8deg);
+}
+
 td{
     height: 3.563rem;
 }
@@ -201,8 +209,7 @@ td{
     width: 10.75rem;
 }
 
-/* individual patient sam page */
-
+/* individual patient page */
 h1{
     margin: 13.75rem auto 3.9375rem auto;
     font-size: 2.375rem;
@@ -510,7 +517,6 @@ li div{
     padding-left: 1rem;
     padding-bottom: 4rem;
     font-size: 1.625rem;
-    /* font-style: italic; */
 }
 
 .note-save{

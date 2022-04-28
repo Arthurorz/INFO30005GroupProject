@@ -7,6 +7,7 @@ html {
     font-size: 16px;
 }
 
+/* Patient Header */
 .patient-header {
     height: 55px;
     width: 100%;
@@ -64,7 +65,7 @@ li {
 
 .ind_slope {
     border-bottom: 1px solid #CFCFCF;
-    transform: rotate(28deg);
+    transform: rotate(45deg);
 }
 
 .menu {
@@ -334,6 +335,7 @@ textarea {
         font-size: 22px;
     }
 
+    /* Patient Header iPad*/
     .patient-header {
         height: 80px;
     }
@@ -377,6 +379,10 @@ textarea {
         left: 62%;
     }
 
+    .ind_slope {
+        transform: rotate(28deg);
+    }
+
     #popBox {
         width: 68.33%;
         right: 15.67%;
@@ -400,6 +406,7 @@ textarea {
 }
 
 @media screen and (min-width: 1400px) {
+    /* Patient Header Web */
     .patient-mobile-aboutMe {
         display: none;
     }
@@ -610,6 +617,10 @@ textarea {
         width: 11.375rem;
         height: 4.5rem;
         font-size: 2.215rem;
+    }
+
+    .ind_slope {
+        transform: rotate(35deg);
     }
 
     #popBox {

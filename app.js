@@ -12,11 +12,10 @@ require('./models/db');
 Patient = require('./models/patient');
 Record = require('./models/record');
 Clinician = require('./models/clinician');
+
 //Routers
 const patientRouter = require('./routes/patientRouter.js');
-
 const normalRouter = require('./routes/normalRouter.js');
-
 const clinicianRouter = require('./routes/clinicianRouter.js');
 
 
@@ -40,14 +39,11 @@ app.use(express.json()); // needed if POST data is in JSON format
 app.use(express.urlencoded({ extended: false })); // only needed for URL-encoded input
 
 // Tells the app to send the string: "Our demo app is working!" when you hit the '/' endpoint.
-// app.get('/', (req, res) => {
-//     res.render("normal-landingPage")
-// }); 
 app.get('/', (req, res) => {
-    res.send('Our demo app is working!');
+    res.send('Diabetes app listening on port 3000!');
 });
 
-
+// render page with normal header for testing
 app.use('/normal', normalRouter);
 app.get('/aboutDiabetes', (req, res) => {
     res.render("normal-aboutDia");
@@ -62,28 +58,13 @@ app.get('/forgetPassword', (req, res) => {
     res.render("normal-forgetpass");
 });
 
+// render page with patient header for testing
 app.use('/patient', patientRouter);
 
-
-app.get('/patient/add', (req, res) => {
-    res.render("test", {
-        layout: "patient.hbs",
-    }); 
-}); 
-app.get('/patient/homepage/123', (req, res) => {
-    res.render("new", {
-        layout: "patient.hbs",
-    }); 
-}); 
-app.use('/clinicians', clinicianRouter);
-
-app.get('/clinician', (req, res) => {
-    res.render("clinician-individualData",{
-        layout: "clinician.hbs",
-    });
-}); 
+// render page with clinician header for testing
+app.use('/clinician', clinicianRouter);
 
 // Tells the app to listen on port 3000 and logs that information to the console. 
-app.listen(3000, () => { 
-    console.log('Demo app is listening on port 3000!') 
+app.listen(process.env.PORT || 3000, () => {
+    console.log('Diabetes app listening on port 3000!');
 });

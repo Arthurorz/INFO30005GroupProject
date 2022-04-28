@@ -1,60 +1,29 @@
-*{
+* {
     font-family: 'Times New Roman', Times, serif;
     margin: 0%;
 }
 
-/* h1{font-size: 1.125rem;} */
-h2{font-size: 1rem;}
-h3{font-size: 0.875rem;}
-p{font-size: 0.875rem;}
-
-/* button{font-weight: bold;} */
-
-/* .normal-header{
-    height: 55px;
-    width: 100%;
-    background-color: #668cbb;
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    line-height: 55px;
-    top: 0;
-    left: 0;
-    z-index: 1;
+h1 {
+    margin: 5.0625rem auto 1.5625rem auto;
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: normal;
 }
 
-.normal-header div{
-    display: flex;
-    align-items: center;
+h2 {
+    font-size: 1rem;
 }
 
-.normal-header div:first-child{
-    padding-left: 2.67%;
-    width: 76px;
+h3 {
+    font-size: 0.875rem;
 }
 
-.normal-header div:last-child{
-    padding-right: 2.67%;
-    display: flex;
-    justify-content: end;
+p {
+    font-size: 0.875rem;
 }
 
-.normal-logo-left{display: none;}
-
-.normal-logo-center{width: 76px;}
-
-.normal-mobile-login{
-    color: #668CB8;
-    background-color: #FFFFFF;
-    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
-    border-radius: 8px;
-    width: 59px;
-    height: 38px;
-    border: none;
-} */
-
-.normal-header{
+/* Normal Header */
+.normal-header {
     height: 55px;
     width: 100%;
     background-color: #668cbb;
@@ -63,7 +32,7 @@ p{font-size: 0.875rem;}
     left: 0;
 }
 
-.normalNav{
+.normalNav {
     width: 57.33%;
     height: 100%;
     display: flex;
@@ -72,166 +41,173 @@ p{font-size: 0.875rem;}
     padding-left: 40%;
 }
 
-.normal-logo{width: 76px;}
+.normal-logo {
+    width: 76px;
+}
 
-.normal-login{
+.normal-login {
     color: #668CB8;
     background-color: #FFFFFF;
-    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.24);
     border-radius: 0.5rem;
     width: 59px;
     height: 38px;
     border: none;
 }
 
-h1{
-    margin: 5.0625rem auto 1.5625rem auto;
-    text-align: center;
-    font-size: 1.125rem;
-    font-weight: normal;
-}
-
 /* Landing Page */
-
-.mobile-head{
+.mobile-head {
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin-top: 16%;
 }
 
-.mobile-head p, .ABOUT-DIABETES, .ABOUT-WEBSITE, .bottom-word{
+.mobile-head p,
+.ABOUT-DIABETES,
+.ABOUT-WEBSITE,
+.bottom-word {
     font-size: 1.375rem;
     text-align: center;
     font-weight: bold;
 }
 
-.web-head{
+.web-head {
     display: none;
 }
 
-.landing-background{
+.landing-background {
     margin-top: 0.5rem;
-    background-image: url("/30005image/landingPage.webp") ;
+    background-image: url("/30005image/landingPage.webp");
     height: 25.985%;
 }
 
-.landing-background img{
+.landing-background img {
     height: 100%;
     width: 100%;
 }
 
-.twobuttons{
+.twobuttons {
     width: 78.67%;
     margin: 0 auto;
 }
 
-.twobuttons button{
+.twobuttons button {
     color: #668CB8;
     background-color: #FFFFFF;
-    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.24);
     border-radius: 0.5rem;
     border: #EDEDED;
     width: 100%;
     height: 7rem;
 }
 
-.ABOUT-DIABETES{
+.ABOUT-DIABETES {
     margin: 1.875rem 0 2.438rem 0;
 }
 
-.bottom-word{
+.bottom-word {
     margin: 3rem 2.5rem 2rem 2.5rem;
 }
 
 
 /* About Diabetes Page */
-.aboutDia-body{
+.aboutDia-body {
     width: 81.33%;
     margin: 0 auto;
 }
 
-.article-intro h2{padding-top: 0.5em;}
+.article-intro h2 {
+    padding-top: 0.5em;
+}
 
-.article-intro p{padding-top: 0.375em;}
+.article-intro p {
+    padding-top: 0.375em;
+}
 
-.article-type p{padding-top: 0.125em;}
+.article-type p {
+    padding-top: 0.125em;
+}
 
-.article-type h3{
+.article-type h3 {
     padding-top: 0.625em;
     text-decoration: underline;
 }
 
-.item2 img{
+.item2 img {
     width: 100%;
     padding-top: 1.25em;
     padding-bottom: 1.875em;
 }
 
-.article-moreInfor p{
+.article-moreInfor p {
     padding-top: 0.45em;
     color: #668cbb;
 }
 
-.article-moreInfor a{
+.article-moreInfor a {
     color: #668cbb;
 }
 
-.aboutDia-top div:last-child{
+.aboutDia-top div:last-child {
     padding-bottom: 1.875em;
     padding-top: 1.25em;
 }
 
-iframe{
-    width: 100%; height: 100% ;
+iframe {
+    width: 100%;
+    height: 100%;
 }
 
-.aboutDia-footer{
+.aboutDia-footer {
     padding-top: 1em;
     padding-bottom: 1.25em;
     text-align: center;
 }
-.aboutDia-footer a{color: black}
 
-/* .aboutWeb-title{
-    width: 100%;
-    margin-top: 55px;
-    display: flex;
-    align-items: center;
-    height: 66px;
-} */
+.aboutDia-footer a {
+    color: black
+}
 
 /* About This Website Page */
-.aboutWeb-body{
+.aboutWeb-body {
     width: 81.33%;
     margin: 0 auto;
-    padding:0 4% 0 4%;
+    padding: 0 4% 0 4%;
 }
-    
-.aboutWeb-body img{width: 100%;}
 
-.teamwork img{padding-top: 1.25rem;}
-    
-.article h2{padding: 1em 0 0.3125em 0;}
-    
-.aboutWeb-footer{
+.aboutWeb-body img {
+    width: 100%;
+}
+
+.teamwork img {
+    padding-top: 1.25rem;
+}
+
+.article h2 {
+    padding: 1em 0 0.3125em 0;
+}
+
+.aboutWeb-footer {
     padding-top: 1em;
     padding-bottom: 1.25em;
     text-align: center;
 }
 
-.aboutWeb-footer a{color: black}
+.aboutWeb-footer a {
+    color: black
+}
 
-.email{
+.email {
     list-style: none;
     padding: 0.3725em 0 1em 0;
     letter-spacing: -0.5px;
 }
 
-.login-background{
+.login-background {
     position: fixed;
     top: 0%;
     left: 0%;
     transform: translate(0%, 0%);
-    background-image: url("/login-background.jpeg") ;
+    background-image: url("/login-background.jpeg");
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -239,11 +215,11 @@ iframe{
     width: 100%;
     height: 100%;
     z-index: -10;
-    zoom:1;
+    zoom: 1;
 }
 
 /* Login */
-.login{
+.login {
     margin: 252px 10.67% 0 10.67%;
     border-radius: 0.5rem;
     border: 1px solid #EDEDED;
@@ -251,7 +227,7 @@ iframe{
     background-color: white;
 }
 
-h4{
+h4 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-align: center;
     padding: 0.75rem;
@@ -259,9 +235,11 @@ h4{
     font-size: 1.125rem;
 }
 
-.container{padding: 0 4.8% 0 3.39%;}
+.container {
+    padding: 0 4.8% 0 3.39%;
+}
 
-.container input{
+.container input {
     width: 100%;
     margin: 0.25rem 0 0.75rem;
     height: 1.75rem;
@@ -269,27 +247,29 @@ h4{
     border: 1px solid #707070;
 }
 
-::placeholder{
+::placeholder {
     color: #CFCFCF;
     font-size: 0.75rem;
     font-style: italic;
 }
 
-.ForgetPassword{
+.ForgetPassword {
     text-decoration: none;
     color: black;
 }
 
-.rememberMe{
+.rememberMe {
     display: flex;
     justify-content: space-between;
     padding: 0 3.39% 0 3.39%;
     font-size: 0.75rem;
 }
 
-.rememberMe .checkbox{width: 10px;}
+.rememberMe .checkbox {
+    width: 10px;
+}
 
-.middle-login{
+.middle-login {
     display: block;
     height: 2rem;
     width: 5.0625rem;
@@ -302,18 +282,17 @@ h4{
 }
 
 /* Forget Password Page */
-
-.forget-container{
+.forget-container {
     width: 93.22%;
     margin: 0 auto;
-    /* padding: 0 0.625rem 0 0.625rem; */
 }
 
-.forget-container label, button.sentcode{
+.forget-container label,
+button.sentcode {
     font-size: 0.875rem;
 }
 
-.forget-container input{
+.forget-container input {
     width: 98.5%;
     margin: 0.25rem 0 0.75rem;
     height: 1.5rem;
@@ -322,139 +301,138 @@ h4{
     outline: none;
 }
 
-.forget-container input ::placeholder, .sendcode ::placeholder{
+.forget-container input ::placeholder,
+.sendcode ::placeholder {
     color: #CFCFCF;
     font-size: 0.75rem;
     font-style: italic;
 }
 
-.sendcode{
+.sendcode {
     width: 56%;
     text-align: center;
     margin: 0 auto 1.563rem auto;
 }
 
-button.sentcode, .sendcode input{
+button.sentcode,
+.sendcode input {
     height: 1.75rem;
     border-radius: 0.5rem;
     text-align: center;
 }
 
-button.sentcode, .bottom-login{
+button.sentcode,
+.bottom-login {
     background-color: #668CB8;
     border: none;
     color: white;
 }
 
-button.sentcode{
+button.sentcode {
     width: 100%;
 }
 
-.sendcode input{
+.sendcode input {
     width: 95.5%;
     margin: 0.625rem 0 0 0;
     height: 1.375rem;
 }
 
+/* Ipad Screen */
 @media screen and (min-width: 800px) and (max-width: 1400px) {
-    html{font-size: 22px;}
+    html {
+        font-size: 22px;
+    }
 
-    /* .normal-header{height: 80px;}
+    /* Normal Header iPad */
+    .normal-header {
+        height: 80px;
+    }
 
-    .normal-logo-center{width: 98px;}
-
-    .normal-mobile-login{
-        width: 90px;
-        height: 45px;
-        font-size: 0.8rem;
-    } */
-
-    .normal-header{height: 80px;}
-
-    .normalNav{
+    .normalNav {
         width: 49.33%;
         padding-left: 48%;
     }
 
-    .normal-logo{width: 98px;}
+    .normal-logo {
+        width: 98px;
+    }
 
-    .normal-login{
+    .normal-login {
         width: 90px;
         height: 40px;
         font-size: 0.8rem;
     }
 
-    /* Landing Page */
-    .twobuttons{
+    /* Landing Page iPad*/
+    .twobuttons {
         width: 50%;
     }
 
-    .mobile-head{
+    .mobile-head {
         margin-top: 10%;
     }
 
     /* About Diabetes Page iPad */
-    iframe{height: 400px;}
+    iframe {
+        height: 400px;
+    }
 
     /* Login iPad */
-    .login{margin: 265px 24.17% 0 24.17%;}
+    .login {
+        margin: 265px 24.17% 0 24.17%;
+    }
 
-    .middle-login{margin: 0.75rem auto;} 
+    .middle-login {
+        margin: 0.75rem auto;
+    }
 
     /* Forget Password iPad */
-
-    .forget-body .login{
-        margin: 180px 24.17% 0 24.17%;;
+    .forget-body .login {
+        margin: 180px 24.17% 0 24.17%;
+        ;
     }
 
-    .sendcode input, .forget-container input{
+    .sendcode input,
+    .forget-container input {
         font-size: 1rem;
     }
-
-
-
 }
 
-@media screen and (min-width: 1400px){
-    /* main{margin-top: 200px;} */
-
-    /* .normal-logo-center{display: none;}
-
-    .normal-logo-left{display: flex;}
-    
-    .normal-header {height: 8.75rem;}
-    
-    .normal-header div:first-child{
-        padding-left: 2.5%;
-        display: flex;
+/* Web Screen */
+@media screen and (min-width: 1400px) {
+    h1 {
+        margin: 13.75rem auto 3.9375rem auto;
+        font-size: 2.375rem;
     }
-    
-    .normal-header div:last-child {padding-right: 2%;}
-    
-    .normal-logo-left {
-        height: 7.4375rem;
-        width: 11.6875rem;
-    }
-    
-    .normal-mobile-login {
-        border-radius: 1.25rem;
-        width: 13.1875rem;
-        height: 4.375rem;
-        font-size: 1.875em;
-    }  */
 
-    .normal-header{
+    h2 {
+        font-size: 2.215em;
+    }
+
+    h3 {
+        font-size: 1.625rem;
+    }
+
+    p {
+        font-size: 1.625rem;
+    }
+
+    /* Normal Header Web */
+    .normal-header {
         height: 8.75rem;
         z-index: 1;
     }
-    
-    .normalNav{
+
+    .normalNav {
         width: 96%;
         padding: 0 2%;
     }
-    
-    .normal-logo{width: 187px;}
-    
+
+    .normal-logo {
+        width: 187px;
+    }
+
     .normal-login {
         border-radius: 1.25rem;
         width: 13.1875rem;
@@ -462,34 +440,34 @@ button.sentcode{
         font-size: 1.875em;
     }
 
-    /* Landing Page */
-
-    .landing-body{
+    /* Landing Page Web*/
+    .landing-body {
         position: relative;
-        /* margin-top: 140px; */
     }
 
-    .mobile-head{
+    .mobile-head {
         display: none;
     }
 
-    .web-head, .twobuttons, .bottom-word{
+    .web-head,
+    .twobuttons,
+    .bottom-word {
         position: absolute;
     }
 
-    .web-head{
+    .web-head {
         display: block;
         top: 200px;
         margin: 0 32%;
     }
 
-    .web-head p{
+    .web-head p {
         font-size: 3.5rem;
         font-weight: bold;
         text-align: center;
     }
 
-    .twobuttons{
+    .twobuttons {
         position: absolute;
         top: 45rem;
         justify-content: space-between;
@@ -497,109 +475,129 @@ button.sentcode{
         margin: 0 15.729% 0 15.729%;
         display: flex;
     }
-    
-    .twobuttons button{
+
+    .twobuttons button {
         border-radius: 1rem;
         width: 30.75rem;
         height: 7.5rem;
         justify-content: center;
     }
 
-    .ABOUT-DIABETES{
+    .ABOUT-DIABETES {
         margin: 0;
     }
-    
-    .ABOUT-DIABETES, .ABOUT-WEBSITE{
+
+    .ABOUT-DIABETES,
+    .ABOUT-WEBSITE {
         font-size: 2.375rem;
     }
 
-    .bottom-word{
+    .bottom-word {
         top: 57rem;
         font-size: 2.5rem;
         margin: 0 auto;
         width: 100%;
     }
-    
 
     /* About The Diabetes Page Web */
-    h1{
-        margin: 13.75rem auto 3.9375rem auto;
-        font-size: 2.375rem;
-    }
-    h2{font-size: 2.215em;}
-    h3{font-size: 1.625rem;}
-    p{font-size: 1.625rem;}
-
-    .aboutDia-top div:last-child{
-        position: relative; 
-        width: 46.83%; 
+    .aboutDia-top div:last-child {
+        position: relative;
+        width: 46.83%;
     }
 
-    .aboutDia-top{
+    .aboutDia-top {
         display: flex;
         justify-content: space-between;
     }
-    
-    .aboutDia-top div:first-child{width: 50.79%;}
-    
-    .article-intro p{padding-top: 0.6875rem;}
-    
-    .aboutDia-bottom{
+
+    .aboutDia-top div:first-child {
+        width: 50.79%;
+    }
+
+    .article-intro p {
+        padding-top: 0.6875rem;
+    }
+
+    .aboutDia-bottom {
         display: grid;
         grid-template-columns: 46.77% auto;
         gap: 0px 30px;
         padding: 50px 0px 0px 0px;
     }
-    
-    .article-type h3{padding-top: 1.25rem;}
-    
-    .item2 img{padding: 0px;}
-    
-    .item1{grid-area: 1 / 2 / span 2 / span 1;}
-    
-    .aboutDia-footer{padding: 1.875rem 0px;}
-    
-    .article h2{padding: 0 0 0.6875em 0;}
+
+    .article-type h3 {
+        padding-top: 1.25rem;
+    }
+
+    .item2 img {
+        padding: 0px;
+    }
+
+    .item1 {
+        grid-area: 1 / 2 / span 2 / span 1;
+    }
+
+    .aboutDia-footer {
+        padding: 1.875rem 0px;
+    }
+
+    .article h2 {
+        padding: 0 0 0.6875em 0;
+    }
 
     /* About This Website Page Web */
-    .aboutWeb-top article{padding: 1.25em 1.25em 0 0;}
-    
-    .aboutWeb-top{
+    .aboutWeb-top article {
+        padding: 1.25em 1.25em 0 0;
+    }
+
+    .aboutWeb-top {
         display: grid;
         grid-template-columns: 42.32% auto;
         gap: 0px 30px;
         padding: 0px 0px 107px 0px;
     }
-    
-    .aboutWeb-top div:first-child{grid-area: 1 / 2 / span 1 / span 1;}
-    
-    .arrow-back{
+
+    .aboutWeb-top div:first-child {
+        grid-area: 1 / 2 / span 1 / span 1;
+    }
+
+    .arrow-back {
         width: 2.38%;
         padding-left: 2.1%;
     }
-    
-    .aboutWeb-bottom{
+
+    .aboutWeb-bottom {
         display: grid;
         grid-template-columns: 47.866% auto;
         gap: 0px 30px;
     }
-    
-    .teamwork img{padding: 0%;}
-    
-    .aboutWeb-bottom article{padding: 1.25em 0 0 1.25rem;}
-    
-    .email{font-size: 1.625rem;}
+
+    .teamwork img {
+        padding: 0%;
+    }
+
+    .aboutWeb-bottom article {
+        padding: 1.25em 0 0 1.25rem;
+    }
+
+    .email {
+        font-size: 1.625rem;
+    }
 
     /* Login Web */
-    h4{font-size: 2.375rem;}
-    
-    p{font-size: 1.625rem;}
+    ::placeholder {
+        font-size: 1.25rem;
+    }
 
-    ::placeholder{font-size: 1.25rem;}
+    .login {
+        margin: 360px 34.17% 0 34.17%;
+    }
 
-    .login{margin: 360px 34.17% 0 34.17%;}
+    h4 {
+        font-size: 2.375rem;
+    }
 
-    .rememberMe{
+    .rememberMe {
         font-size: 1.25rem;
         padding: 0 12% 0 13.16%;
     }
@@ -613,13 +611,13 @@ button.sentcode{
         padding: 0 13.16% 0 13.16%;
     }
 
-    .container input{
+    .container input {
         height: 3.0625rem;
         margin: 0.5625rem 0 1.125rem;
         font-size: 1.5rem;
     }
 
-    .middle-login{
+    .middle-login {
         display: block;
         height: 3.875rem;
         width: 25.82%;
@@ -627,42 +625,44 @@ button.sentcode{
         margin: 2rem auto;
     }
 
-    /* Forget Password Pge */
-    
-    .forget-container{
+    /* Forget Password Page Web*/
+    .forget-container {
         width: 73.68%;
     }
-    
-    .forget-container input{
+
+    .forget-container input {
         margin: 0.563rem 0 1.125rem;
         height: 3.063rem;
         padding-left: 1rem;
         border-radius: 0.625rem;
     }
 
-    .forget-container label{
+    .forget-container label {
         font-size: 1.625rem;
     }
-    
-    .forget-container input::placeholder , .sendcode ::placeholder, button.sentcode{
+
+    .forget-container input::placeholder,
+    .sendcode ::placeholder,
+    button.sentcode {
         font-size: 1.25rem;
     }
-    
-    .sendcode{
+
+    .sendcode {
         width: 49.01%;
     }
-    
-    button.sentcode{
-        height: 2.688rem;  
+
+    button.sentcode {
+        height: 2.688rem;
     }
-    
-    .sendcode input{
+
+    .sendcode input {
         height: 2.688rem;
         width: 97%;
         margin: 0.688rem 0 0 0;
     }
 
-    .sendcode input, .forget-container input{
+    .sendcode input,
+    .forget-container input {
         font-size: 1.5rem;
     }
 }
