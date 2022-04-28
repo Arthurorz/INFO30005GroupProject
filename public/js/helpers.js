@@ -51,6 +51,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    // check if the type of the input data is glucose
     ifglucose: function (value, options) {
         if (value == "glucose") {
             return options.fn(this);
@@ -58,6 +59,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    // check if the type of the input data is weight
     ifinsulin: function (value, options) {
         if (value == "insulin") {
             return options.fn(this);
@@ -65,6 +67,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    // check if the type of the input data is weight
     ifweight: function (value, options) {
         if (value == "weight") {
             return options.fn(this);
@@ -72,6 +75,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    // check if the type of the input data is exercise
     ifexercise: function (value, options) {
         if (value == "exercise") {
             return options.fn(this);
@@ -79,6 +83,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    // check if the record is null
     ifNull: function (value, options) {
         if (value == null) {
             return options.fn(this);

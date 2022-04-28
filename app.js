@@ -60,11 +60,6 @@ app.get('/forgetPassword', (req, res) => {
 
 // render page with patient header for testing
 app.use('/patient', patientRouter);
-app.get('/patient/homepage/123', (req, res) => {
-    res.render("new", {
-        layout: "patient.hbs",
-    });
-});
 
 // render page with clinician header for testing
 app.use('/clinician', clinicianRouter);
