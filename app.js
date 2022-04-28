@@ -67,12 +67,7 @@ app.get('/patient/homepage/123', (req, res) => {
 });
 
 // render page with clinician header for testing
-app.use('/clinicians', clinicianRouter);
-app.get('/clinician', (req, res) => {
-    res.render("clinician-individualData", {
-        layout: "clinician.hbs",
-    });
-});
+app.use('/clinician', clinicianRouter);
 
 // Tells the app to listen on port 3000 and logs that information to the console. 
 app.listen(3000, () => {
