@@ -7,10 +7,7 @@ html {
     font-size: 16px;
 }
 
-main {
-    margin-bottom: 5%;
-}
-
+/* Patient Header */
 .patient-header {
     height: 55px;
     width: 100%;
@@ -382,6 +379,7 @@ textarea {
         font-size: 22px;
     }
 
+    /* Patient Header iPad*/
     .patient-header {
         height: 80px;
     }
@@ -452,6 +450,7 @@ textarea {
 }
 
 @media screen and (min-width: 1400px) {
+    /* Patient Header Web */
     .patient-mobile-aboutMe {
         display: none;
     }

@@ -3,8 +3,11 @@
     margin: 0%;
 }
 
-main {
-    margin-bottom: 5%;
+h1 {
+    margin: 5.0625rem auto 1.5625rem auto;
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: normal;
 }
 
 h2 {
@@ -19,7 +22,7 @@ p {
     font-size: 0.875rem;
 }
 
-/* Page header */
+/* Normal Header */
 .normal-header {
     height: 55px;
     width: 100%;
@@ -50,13 +53,6 @@ p {
     width: 59px;
     height: 38px;
     border: none;
-}
-
-h1 {
-    margin: 5.0625rem auto 1.5625rem auto;
-    text-align: center;
-    font-size: 1.125rem;
-    font-weight: normal;
 }
 
 /* Landing Page */
@@ -222,9 +218,9 @@ iframe {
     zoom: 1;
 }
 
-/* Login Page */
+/* Login */
 .login {
-    margin: 200px 10.67% 0 10.67%;
+    margin: 252px 10.67% 0 10.67%;
     border-radius: 0.5rem;
     border: 1px solid #EDEDED;
     box-shadow: 3px 3px #EDEDED;
@@ -289,7 +285,6 @@ h4 {
 .forget-container {
     width: 93.22%;
     margin: 0 auto;
-    /* padding: 0 0.625rem 0 0.625rem; */
 }
 
 .forget-container label,
@@ -349,6 +344,7 @@ button.sentcode {
         font-size: 22px;
     }
 
+    /* Normal Header iPad */
     .normal-header {
         height: 80px;
     }
@@ -368,7 +364,7 @@ button.sentcode {
         font-size: 0.8rem;
     }
 
-    /* Landing Page */
+    /* Landing Page iPad*/
     .twobuttons {
         width: 50%;
     }
@@ -401,11 +397,28 @@ button.sentcode {
     .forget-container input {
         font-size: 1rem;
     }
-
 }
 
 /* Web Screen */
 @media screen and (min-width: 1400px) {
+    h1 {
+        margin: 13.75rem auto 3.9375rem auto;
+        font-size: 2.375rem;
+    }
+
+    h2 {
+        font-size: 2.215em;
+    }
+
+    h3 {
+        font-size: 1.625rem;
+    }
+
+    p {
+        font-size: 1.625rem;
+    }
+
+    /* Normal Header Web */
     .normal-header {
         height: 8.75rem;
         z-index: 1;
@@ -427,7 +440,7 @@ button.sentcode {
         font-size: 1.875em;
     }
 
-    /* Landing Page */
+    /* Landing Page Web*/
     .landing-body {
         position: relative;
     }
@@ -486,25 +499,7 @@ button.sentcode {
         width: 100%;
     }
 
-
     /* About The Diabetes Page Web */
-    h1 {
-        margin: 13.75rem auto 3.9375rem auto;
-        font-size: 2.375rem;
-    }
-
-    h2 {
-        font-size: 2.215em;
-    }
-
-    h3 {
-        font-size: 1.625rem;
-    }
-
-    p {
-        font-size: 1.625rem;
-    }
-
     .aboutDia-top div:last-child {
         position: relative;
         width: 46.83%;
@@ -590,20 +585,16 @@ button.sentcode {
     }
 
     /* Login Web */
-    h4 {
-        font-size: 2.375rem;
-    }
-
-    p {
-        font-size: 1.625rem;
-    }
-
     ::placeholder {
         font-size: 1.25rem;
     }
 
     .login {
-        margin: 300px 34.17% 0 34.17%;
+        margin: 360px 34.17% 0 34.17%;
+    }
+
+    h4 {
+        font-size: 2.375rem;
     }
 
     .rememberMe {
@@ -634,7 +625,7 @@ button.sentcode {
         margin: 2rem auto;
     }
 
-    /* Forget Password Pge */
+    /* Forget Password Page Web*/
     .forget-container {
         width: 73.68%;
     }
