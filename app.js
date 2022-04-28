@@ -40,7 +40,7 @@ app.use(express.urlencoded({ extended: false })); // only needed for URL-encoded
 
 // Tells the app to send the string: "Our demo app is working!" when you hit the '/' endpoint.
 app.get('/', (req, res) => {
-    res.send('Our demo app is working!');
+    res.send('Diabetes app listening on port 3000!');
 });
 
 // render page with normal header for testing
@@ -65,6 +65,6 @@ app.use('/patient', patientRouter);
 app.use('/clinician', clinicianRouter);
 
 // Tells the app to listen on port 3000 and logs that information to the console. 
-app.listen(3000, () => {
-    console.log('Demo app is listening on port 3000!')
+app.listen(process.env.PORT || 3000, () => {
+    console.log('Diabetes app listening on port 3000!');
 });
