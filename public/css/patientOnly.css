@@ -64,7 +64,7 @@ li {
 
 .ind_slope {
     border-bottom: 1px solid #CFCFCF;
-    transform: rotate(28deg);
+    transform: rotate(45deg);
 }
 
 .menu {
@@ -421,6 +421,10 @@ textarea {
         left: 62%;
     }
 
+    .ind_slope {
+        transform: rotate(28deg);
+    }
+
     #popBox {
         width: 68.33%;
         right: 15.67%;
@@ -654,6 +658,10 @@ textarea {
         width: 11.375rem;
         height: 4.5rem;
         font-size: 2.215rem;
+    }
+
+    .ind_slope {
+        transform: rotate(35deg);
     }
 
     #popBox {

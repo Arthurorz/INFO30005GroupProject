@@ -194,6 +194,11 @@ td img{
     transform: rotate(18deg);
 }
 
+.large_slope{
+    border-bottom: 1px solid #CFCFCF;
+    transform: rotate(8deg);
+}
+
 td{
     height: 3.563rem;
 }
