@@ -61,8 +61,24 @@ app.get('/forgetPassword', (req, res) => {
 // render page with patient header for testing
 app.use('/patient', patientRouter);
 
+app.get('/add', (req, res) => {
+    res.render("patient-addData", {
+        layout: "patient.hbs",
+    }); 
+}); 
 // render page with clinician header for testing
 app.use('/clinician', clinicianRouter);
+
+app.get('/editData', (req, res) => {
+    res.render("clinician-editData", {
+        layout: "clinician.hbs",
+    }); 
+}); 
+app.get('/newPatient', (req, res) => {
+    res.render("clinician-newPatient", {
+        layout: "clinician.hbs",
+    }); 
+}); 
 
 // Tells the app to listen on port 3000 and logs that information to the console. 
 app.listen(process.env.PORT || 3000, () => {

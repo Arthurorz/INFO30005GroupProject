@@ -88,24 +88,24 @@ h1{
     font-family: Georgia, Times, 'Times New Roman', serif;
 }
 
-.editData-body {
+.newPatient-body{
     font-size: 22px;
     padding-top: 4.8%;
     display: flex;
 }
 
-.editData-body .infoList {
+.newPatient-body .infoList {
     width: 25.5%;
     height: 52.1%;
     padding-left: 23%;
 }
 
-.editData-body .inputBox {
+.newPatient-body .inputBox {
     float: right;
     right: 50%;
 }
 
-.editData-body .chooseList {
+.newPatient-body .chooseList {
     width: 36.5%;
     height: 52.1%;
     padding-left: 10.6%;
