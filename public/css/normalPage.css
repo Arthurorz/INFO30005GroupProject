@@ -239,11 +239,11 @@ h4 {
     font-size: 1.125rem;
 }
 
-.container {
+.loginContainer {
     padding: 0 4.8% 0 3.39%;
 }
 
-.container input {
+.loginContainer input {
     width: 100%;
     margin: 0.25rem 0 0.75rem;
     height: 1.75rem;
@@ -611,11 +611,11 @@ button.sentcode {
         height: 20px;
     }
 
-    .container {
+    .loginContainer {
         padding: 0 13.16% 0 13.16%;
     }
 
-    .container input {
+    .loginContainer input {
         height: 3.0625rem;
         margin: 0.5625rem 0 1.125rem;
         font-size: 1.5rem;

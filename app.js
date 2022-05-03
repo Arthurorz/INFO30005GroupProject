@@ -61,8 +61,8 @@ app.get('/forgetPassword', (req, res) => {
 // render page with patient header for testing
 app.use('/patient', patientRouter);
 
-app.get('/add', (req, res) => {
-    res.render("patient-addData", {
+app.get('/dataDetail', (req, res) => {
+    res.render("patient-dataDetail", {
         layout: "patient.hbs",
     }); 
 }); 

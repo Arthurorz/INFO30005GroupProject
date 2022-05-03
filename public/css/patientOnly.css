@@ -290,7 +290,7 @@ textarea {
     font-size: 1rem;
 }
 
-#popLayer {
+/* #popLayer {
     top: 0;
     left: 0;
     position: absolute;
@@ -332,6 +332,37 @@ textarea {
     font-size: 0.875rem;
     display: block;
     margin: 1.5rem auto 0 auto;
+} */
+
+/* Daily Detail Data Page */
+.dataDatail{
+    width: 81.33%;
+    margin: 0 auto 3.125rem auto;
+}
+
+.dataBox{
+    border: 1px solid #EDEDED;
+    box-shadow: 3px 3px #EDEDED;
+    border-radius: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dataDatail p{
+    margin: 0 auto 3px auto;
+}
+
+.dataType{
+    font-weight: bold;
+}
+
+.dataNumber{
+    font-size: 2.75rem;
+}
+
+.dataNumber span{
+    font-size: 1rem;
 }
 
 @media screen and (min-width: 800px) and (max-width: 1400px) {
@@ -387,7 +418,7 @@ textarea {
         transform: rotate(28deg);
     }
 
-    #popBox {
+    /* #popBox {
         width: 68.33%;
         right: 15.67%;
     }
@@ -406,6 +437,11 @@ textarea {
 
     .boxTop span {
         right: 30%;
+    } */
+
+    /* Daily Detail Data Page iPad */
+    .dataDatail{
+        width: 61.33%;
     }
 }
 
@@ -627,7 +663,7 @@ textarea {
         transform: rotate(35deg);
     }
 
-    #popBox {
+    /* #popBox {
         width: 31.1%;
         top: 410px;
         right: 34.43%;
@@ -648,5 +684,36 @@ textarea {
         width: 45.35%;
         font-size: 1.75rem;
         margin: 2.8125rem auto 0 auto;
+    } */
+
+    /* Daily Detail Data Page iPad */
+    .dataContainer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        width: 64.58%;
+        margin: 0 auto;
+    }
+
+    .dataBox{
+        padding: 0.625rem;
+    }
+
+    .dataDatail {
+        width: 45%;
+        margin: 0%;
+        margin-bottom: 7rem;
+    }
+
+    .dataDatail p {
+        margin: 0 auto 8px auto;
+    }
+
+    .dataNumber {
+        font-size: 4.5rem;
+    }
+
+    .dataNumber span {
+        font-size: 2rem;
     }
 }
