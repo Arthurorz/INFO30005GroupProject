@@ -541,7 +541,8 @@ li div{
 }
 
 .editData-body form{
-    width: 16%;
+    width: 40%;
+    padding-left: 25%;
 }
 
 /* .editData-body div:first-child{
@@ -581,7 +582,7 @@ li div{
 
 .textLine {
     padding-top: 0.9rem;
-    /* padding-left: 3.5%; */
+    padding-left: 5.5%;
 }
 
 .rangeBox {
