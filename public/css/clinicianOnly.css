@@ -526,19 +526,34 @@ li div{
 }
 
 /* Edit Data Page */
-.editData-body {
+.editData-body{
     font-size: 22px;
     /* padding-top: 2.31%; */
-    padding-left: 42.03%;
+    /* padding-left: 42.03%;
+    align-items: center; */
+    font-size: 22px;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
+    /* height: 42.03%; */
+    /* align-items: center; */
 }
 
-.editData-body div:first-child{
+.editData-body form{
+    width: 16%;
+}
+
+/* .editData-body div:first-child{
     padding-top: 0%;
 }
 
 .chooseRange{
     padding-top: 5.74%;
+} */
+
+.chooseRange{
+    padding-bottom: 3.625rem;
 }
 
 .chooseBox {
@@ -546,10 +561,10 @@ li div{
     height: 25px;
 }
 
-.category{
+/* .category{
     font-size: 26px;
     padding-left: 0.73%;
-}
+} */
 
 .textBox {
     width: 2.875rem; 
@@ -565,8 +580,8 @@ li div{
 }
 
 .textLine {
-    padding-top: 1.39%;
-    padding-left: 3.5%;
+    padding-top: 0.9rem;
+    /* padding-left: 3.5%; */
 }
 
 .rangeBox {
@@ -574,10 +589,10 @@ li div{
     padding-right: 0.469%;
 }
 
-.submit{
+/* .submit{
     padding-top: 5.37%;
     padding-left: 2.76%;
-}
+} */
 
 .saveButton{
     color: #FFFFFF;
@@ -587,6 +602,9 @@ li div{
     height: 83px;
     border: none;
     font-size: 34px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 2%;
 } 
 
 /* New Patient Page */
@@ -610,7 +628,8 @@ li div{
 .newPatient-body .chooseList {
     width: 36.5%;
     height: 52.1%;
-    padding-left: 10.6%;
+    /* padding-left: 10.6%; */
+    margin: 3.1875rem auto auto 10.6%;
 }
 
 .infoAdd {
@@ -624,14 +643,14 @@ li div{
     border-radius: 10px;
 }
 
-.chooseRange {
+/* .chooseRange {
     padding-top: 6%;
-}
+} */
 
-.chooseBox {
+/* .chooseBox {
     width: 25px; 
     height: 25px;
-}
+} */
 
 .category{
     font-size: 26px;
@@ -644,17 +663,17 @@ li div{
     font-size: 20px;
 } */
 
-::-webkit-input-placeholder {
+/* ::-webkit-input-placeholder {
     color: #CFCFCF;
     font-size: 20px;
     font-style: italic;
     font-style: bold;
-}
+} */
 
-.textLine {
+/* .textLine {
     padding-top: 1.8%;
     padding-left: 5.6%;
-}
+} */
 
 .rangeBox {
     padding-left: 0.65%;
@@ -691,10 +710,10 @@ li div{
     text-align: center;
 }
 
-.submit{
+/* .submit{
     padding-top: 2%;
     padding-left: 45.26%;
-}
+} */
 
 /* .saveButton {
     color: #FFFFFF;
