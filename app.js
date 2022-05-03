@@ -45,18 +45,6 @@ app.get('/', (req, res) => {
 
 // render page with normal header for testing
 app.use('/normal', normalRouter);
-app.get('/aboutDiabetes', (req, res) => {
-    res.render("normal-aboutDia");
-});
-app.get('/aboutThisWeb', (req, res) => {
-    res.render("normal-aboutWeb");
-});
-app.get('/login', (req, res) => {
-    res.render("normal-login");
-});
-app.get('/forgetPassword', (req, res) => {
-    res.render("normal-forgetpass");
-});
 
 // render page with patient header for testing
 app.use('/patient', patientRouter);
