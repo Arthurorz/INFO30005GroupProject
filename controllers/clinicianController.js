@@ -1,3 +1,4 @@
+const { redirect } = require('express/lib/response');
 const res = require('express/lib/response');
 const Clinician = require('../models/clinician.js');
 const Patient = require('../models/patient.js');
@@ -65,6 +66,7 @@ const renderPatientData = async (req, res) => {
 //render the clinician dashboard hbs page
 const renderDashboard = async (req, res) => {
     try {
+        initialRecord("6263f5d7ef996dcc6dbf10af");
         const clinicianID = "626392e9a4d69d527a31780f";//hardcode for D2
         //get clinician's patients and populate their information
         const patients = (await Clinician.findById(clinicianID).populate({
@@ -88,7 +90,6 @@ const renderDashboard = async (req, res) => {
         const patientList = [];
 
         for (i in patients) {
-            initialRecord(patients[i].patient_id);
             const patient = patients[i].patient_id;
             for (j in patient.records) {
                 const record = patient.records[j].record_id;
@@ -121,16 +122,16 @@ async function initialRecord(patient_id) {
                 patientId: patient._id,
                 date: (new Date()).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }),
             });
-            if (!patient.require_data.glucose) {
+            if (!patient.required_data.glucose) {
                 newRecord.data.glucose.status = "Not required";
             }
-            if (!patient.require_data.weight) {
+            if (!patient.required_data.weight) {
                 newRecord.data.weight.status = "Not required";
             }
-            if (!patient.require_data.exercise) {
+            if (!patient.required_data.exercise) {
                 newRecord.data.exercise.status = "Not required";
             }
-            if (!patient.require_data.insulin) {
+            if (!patient.required_data.insulin) {
                 newRecord.data.insulin.status = "Not required";
             }
             await newRecord.save();
@@ -153,6 +154,7 @@ const searchDashboard = async (req, res) => {
             renderDashboard(req, res);
         } else {
             const clinicianID = "626392e9a4d69d527a31780f";
+        
             const patients = (await Clinician.findById(clinicianID).populate({
                 path: 'patients',
                 populate: {
@@ -171,10 +173,13 @@ const searchDashboard = async (req, res) => {
             const patientList = []
 
             for (i in patients) {
-                if (patients[i].patient_id.first_name == (req.body.patientName)) {
-                    const patient = patients[i].patient_id;
+                const patient = patients[i].patient_id;
+                
+                if(patient.first_name == req.body.patientName || patient.last_name == req.body.patientName){
                     for (j in patient.records) {
                         const record = patient.records[j].record_id;
+                        
+
                         if (record.date == (new Date()).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" })) {
                             patientList.push({
                                 patient_id: patient._id,
@@ -183,11 +188,11 @@ const searchDashboard = async (req, res) => {
                                 today_record: record,
                             });
                         }
-                    }
+                    } 
                 }
             }
 
-            res.render('clinician-dashboard.hbs', { layout: 'clinician.hbs', patients: patientList });
+            res.render('clinician-dashboard.hbs', { layout: 'clinician.hbs', patientList: patientList });
 
         }
     } catch (err) {
