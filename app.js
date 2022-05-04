@@ -48,6 +48,16 @@ app.use('/normal', normalRouter);
 
 // render page with patient header for testing
 app.use('/patient', patientRouter);
+app.get('/change', (req, res) => {
+    res.render("patient-changepass", {
+        layout: "patient.hbs"
+    });
+});
+app.get('/data', (req, res) => {
+    res.render("patient-data", {
+        layout: "patient.hbs"
+    });
+});
 
 app.get('/dataDetail', (req, res) => {
     res.render("patient-dataDetail", {

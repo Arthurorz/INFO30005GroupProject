@@ -1,0 +1,131 @@
+<h1>Data</h1>
+<div class="data-top">
+    <div class="tableTop">
+        <span><img src="/redcircle.png">Above normal range</span>
+        <span><img src="/greycircle.png">Below normal range</span>
+        <span><img src="/unrecorded.png">Data was not recorded</span>
+    </div>
+    <div class="topright">
+        <select class="mm" placeholder="MM">
+            <option name="" value="" style="display:none;">Month</option>
+            <option name="January" value="Jan">January</option>
+            <option name="February" value="Feb">February</option>
+            <option name="March" value="Mar">March</option>
+            <option name="April" value="Apr">April</option>
+            <option name="May" value="May">May</option>
+            <option name="June" value="Jun">June</option>
+            <option name="July" value="Jul">July</option>
+            <option name="August" value="Aug">August</option>
+            <option name="September" value="Sep">September</option>
+            <option name="October" value="Oct">October</option>
+            <option name="November" value="Nov">November</option>
+            <option name="December" value="Dec">December</option>
+        </select>
+        <select class="year" placeholder="Year">
+            <option name="" value="" style="display:none;">Year</option>
+            <option name="2021" value="Jan">2021</option>
+            <option name="2022" value="">2022</option>
+        </select>
+    </div>
+    
+</div>
+<div class="individual-table">
+    <table class="data-table">
+        <tr>
+            <th class="leftone"><div class="slope"></div></th>
+            <th class="table-weight">Weight<br>(Kg)</th>
+            <th class="table-exercise">Exercise<br>(Step)</th>
+            <th>Doses of Insulin Taken<br>(Doses)</th>
+            <th>Blood Glucose Level<br>(nmol/L)</th>
+        </tr>
+        {{#each patient.records}}
+            <tr>
+                <td>{{this.record_id.date}}</td>
+                <!--weight-->
+                {{#ifRecorded this.record_id.data.weight.status}}
+                    <!--draw different color if data out of range-->
+                    <td style = "background-color:
+                        {{#ifAboveRange this.record_id.data.weight.value ../patient.bound.weight_upper}}
+                            #F29393
+                        {{else}}
+                            {{#ifBelowRange this.record_id.data.weight.value ../patient.bound.weight_lower}}
+                                #AAA9A9
+                            {{/ifBelowRange}}
+                        {{/ifAboveRange}}
+                    ;">
+                    {{this.record_id.data.weight.value}}</td>
+                {{else}}
+                    {{#ifNotRecorded this.record_id.data.weight.status}}
+                        <td><img src="/unrecorded.png"></td>
+                    {{else}}
+                        <td><div class="ind_slope"></div></td>
+                    {{/ifNotRecorded}}
+                {{/ifRecorded}}
+
+                <!--exercise-->
+                {{#ifRecorded this.record_id.data.exercise.status}}
+                <!--draw different color if data out of range-->
+                    <td style = "background-color:
+                        {{#ifAboveRange this.record_id.data.exercise.value ../patient.bound.exercise_upper}}
+                            #F29393
+                        {{else}}
+                            {{#ifBelowRange this.record_id.data.exercise.value ../patient.bound.exercise_lower}}
+                                #AAA9A9
+                            {{/ifBelowRange}}
+                        {{/ifAboveRange}}
+                    ;">
+                    {{this.record_id.data.exercise.value}}</td>
+                {{else}} 
+                    {{#ifNotRecorded this.record_id.data.exercise.status}}
+                        <td><img src="/unrecorded.png"></td>
+                    {{else}}
+                        <td><div class="ind_slope"></div></td>
+                    {{/ifNotRecorded}}
+                {{/ifRecorded}}
+
+                <!--insulin-->
+                {{#ifRecorded this.record_id.data.insulin.status}}
+                <!--draw different color if data out of range-->
+                    <td style = "background-color:
+                        {{#ifAboveRange this.record_id.data.insulin.value ../patient.bound.insulin_upper}}
+                            #F29393
+                        {{else}}
+                            {{#ifBelowRange this.record_id.data.insulin.value ../patient.bound.insulin_lower}}
+                                #AAA9A9
+                            {{/ifBelowRange}}
+                        {{/ifAboveRange}}
+                    ;">
+                    {{this.record_id.data.insulin.value}}</td>
+                {{else}}
+                    {{#ifNotRecorded this.record_id.data.insulin.status}}
+                        <td><img src="/unrecorded.png"></td>
+                    {{else}}
+                        <td><div class="large_slope"></div></td>
+                    {{/ifNotRecorded}}
+                {{/ifRecorded}}
+
+                <!--glucose-->
+                {{#ifRecorded this.record_id.data.glucose.status}}
+                <!--draw different color if data out of range-->
+                    <td style = "background-color:
+                        {{#ifAboveRange this.record_id.data.glucose.value ../patient.bound.glucose_upper}}
+                            #F29393
+                        {{else}}
+                            {{#ifBelowRange this.record_id.data.glucose.value ../patient.bound.glucose_lower}}
+                                #AAA9A9
+                            {{/ifBelowRange}}
+                        {{/ifAboveRange}}
+                    ;">
+                    {{this.record_id.data.glucose.value}}</td>
+                {{else}}
+                    {{#ifNotRecorded this.record_id.data.glucose.status}}
+                        <td><img src="/unrecorded.png"></td>
+                    {{else}}
+                        <td><div class="large_slope"></div></td>
+                    {{/ifNotRecorded}}
+                {{/ifRecorded}}
+            </tr>
+        {{/each}}
+        
+    </table>
+</div>

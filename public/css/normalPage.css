@@ -315,15 +315,13 @@ button.sentcode {
     margin: 0 auto 1.563rem auto;
 }
 
-button.sentcode,
-.sendcode input {
+button.sentcode,.sendcode input {
     height: 1.75rem;
     border-radius: 0.5rem;
     text-align: center;
 }
 
-button.sentcode,
-.bottom-login {
+button.sentcode, .middle-login {
     background-color: #668CB8;
     border: none;
     color: white;
