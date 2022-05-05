@@ -42,6 +42,28 @@ const renderClinicianData = async (req, res) => {
         res.send("error happened when rendering clinician data");
     }
 }
+//render NewPatient hbs page
+const renderNewPatient = async (req, res) => {
+    try {
+        clinicianID = "626392e9a4d69d527a31780f";//hardcode 
+        const clinician = await Clinician.findById(clinicianID).lean();
+
+        res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', clinician: clinician });
+    } catch (err) {
+        console.log(err)
+    }
+}
+
+//render clinician edit data page
+const renderClinicianEditData = async (req, res) => {
+    try {
+        const patient = await Patient.findOne({ _id: req.params.id });
+
+        res.render('clinician-editData.hbs', { layout: 'clinician.hbs', patient: patient });
+    } catch (err) {
+        console.log(err)
+    }
+}
 
 //render individual patient hbs page
 const renderPatientData = async (req, res) => {
@@ -236,5 +258,6 @@ module.exports = {
     addPatient,
     renderPatientData,
     searchDashboard,
-
+    renderClinicianEditData,
+    renderNewPatient,
 }
