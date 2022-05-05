@@ -54,13 +54,20 @@ app.get('/change', (req, res) => {
     });
 });
 app.get('/data', (req, res) => {
-    res.render("patient-data", {
+    res.render("patient-moredata", {
         layout: "patient.hbs"
     });
 });
 
-app.get('/moti', (req, res) => {
-    res.render("patient-motivation", {
+
+app.get('/aboutme', (req, res) => {
+    res.render("patient-aboutme", {
+        layout: "patient.hbs",
+    }); 
+}); 
+
+app.get('/dataDetail', (req, res) => {
+    res.render("patient-dataDetail", {
         layout: "patient.hbs",
     }); 
 }); 

@@ -424,7 +424,7 @@ button.change-sentcode {
 /* Data Page */
 
 .data-top{
-    display: flex;
+    /* display: flex; */
     width: 76.53%;
     margin: auto;
 }
@@ -432,7 +432,17 @@ button.change-sentcode {
 .data-top .tableTop{
     margin: 0 ;
     font-size: 0.625rem;
+    /* width: 36.54%; */
+    float: left;
 }
+
+/* .data-top:first-child{
+    float: left;
+}
+
+.data-top:last-child{
+    float: right;
+} */
 
 .data-top .tableTop img{
     width: 1.063rem;
@@ -441,13 +451,16 @@ button.change-sentcode {
 
 .data-top .tableTop span{
     padding: 0.188rem;
+    padding-left: 0;
 }
 
 .topright{
-    width: 8rem;
+    /* width: 8rem; */
     height: 1.75rem; 
-    margin: 2.375rem 0 0 1.2rem;
-    display: flex;
+    float: right;
+    margin-top: 2.35rem;
+    /* margin: 2.375rem 0 0 1.2rem; */
+    /* display: flex; */
 }
 
 select{
@@ -473,6 +486,11 @@ select a:hover{
     font-size: 0.625rem;
     font-style: none;
 }
+
+.data-table{
+    width: 100%;
+}
+
 table, th, td{
     border: 1px solid #CFCFCF;
     border-collapse: collapse;
@@ -495,7 +513,7 @@ table, th, td{
 }
 
 .individual-table .leftone{
-    width: 1.875rem;
+    width: 10.45%;
     background-color: white;
     padding: 0;
 }
@@ -505,8 +523,9 @@ table, th, td{
 }
 
 .table-weight, .table-exercise{
-    width: 3.5rem;
+    width: 22.29%;
 }
+
 
 /* Motivation Page */
 .motiContainer{
@@ -621,6 +640,50 @@ table, th, td{
     margin: auto 7.6875rem auto 0.6875rem;
 }
 
+/* About Me Page */
+
+.aboutme-edit{
+    width: 1rem;
+    float: right;
+    margin-right: 2.125rem;
+}
+
+.aboutme-body{
+    width: 74.66%;
+    margin: 0 auto;
+}
+
+
+.about-detail{
+    text-align: center;
+}
+
+.aboutme-body img{
+    width: 43%;
+    margin: 0 auto;
+}
+
+.about-detail{
+    padding: 0;
+}
+
+.about-detail li{
+    padding-bottom: 0.625rem;
+}
+
+.about-detail li a{
+    text-decoration: underline;
+    color: black;
+}
+
+.text-bio{
+    margin-top: 1.188rem;
+}
+
+.bio-detail{
+    border: 1px solid #EDEDED;
+}
+
 @media screen and (min-width: 800px) and (max-width: 1400px) {
     html {
         font-size: 22px;
@@ -705,6 +768,7 @@ table, th, td{
         width: 97.5%;
     }
 
+
     /* Motivation iPad */
     .badgeInfo {
         top: 47%;
@@ -725,6 +789,19 @@ table, th, td{
 
     .boardName {
         margin: auto 20.6875rem auto 0.6875rem;
+    }
+    /* more data page */
+    .data-table .slope{
+        transform: rotate(30deg);
+    }
+
+    .individual-table th{
+        font-size: 0.8rem;
+    }
+
+    .table-weight, .table-exercise{
+        width: 18%;
+
     }
 }
 
@@ -1019,6 +1096,7 @@ table, th, td{
         width: 8.17%;
     }
 
+
     /* Motivation Web */
     .motiContainer{
         flex-direction: row;
@@ -1129,6 +1207,45 @@ table, th, td{
     
     .board span{
         font-size: 1.25rem;
+    }
+
+    /* more data page */
+    .data-top, .individual-table{
+        width: 56.09%;
+    }
+
+    .data-top .tableTop{
+        font-size: 1.25rem;
+    }
+
+    .data-top .tableTop img{
+        width: 2.563rem;
+    }
+
+    .topright{
+        margin-top: 5rem;
+        height: 3.063rem;
+    }
+
+    .topright select{
+        width: 8.875rem;
+        font-size: 1.625rem;
+    }
+
+    .individual-table th{
+        font-size: 1.625rem;
+    }
+
+    .individual-table tr{
+        height: 4.375rem;
+    }
+
+    .data-table .slope{
+        transform: rotate(30deg);
+    }
+
+    .table-weight, .table-exercise{
+        width: 18%;
     }
 
     .boardRank{
