@@ -59,8 +59,8 @@ app.get('/data', (req, res) => {
     });
 });
 
-app.get('/dataDetail', (req, res) => {
-    res.render("patient-dataDetail", {
+app.get('/moti', (req, res) => {
+    res.render("patient-motivation", {
         layout: "patient.hbs",
     }); 
 }); 

@@ -508,8 +508,118 @@ table, th, td{
     width: 3.5rem;
 }
 
+/* Motivation Page */
+.motiContainer{
+    display: flex;
+    flex-direction: column;
+}
 
+.selfRank{
+    border: 1px solid #CFCFCF;
+    box-shadow: 3px 3px #EDEDED;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+    width: 37.07%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.rank{
+    font-weight: bold;
+    padding: 0.3125rem;
+}
+
+.motiPhoto{
+    width: 3.9375rem;
+}
+
+.badge{
+    width: 3.75rem;
+    padding: 0.75rem;
+}
+
+.badgeInfo{
+    position: absolute;
+    width: 0.75rem;
+    top: 32%;
+    left: 58%;
+}
+
+.badgeAlert{
+    display: contents;
+}
+
+.leaderboard{
+    margin-top: 1.25rem;
+}
+
+.ranking{
+    font-size: 1.375rem;
+    color: #668CB8;
+    margin-top: -6px;
+}
+
+.firstLine{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.crown{
+    width: 1.75rem;
+}
+
+.numberOne{
+    width: 3.9375rem;
+}
+
+.secondLine{
+    display: flex;
+    width: 54.93%;
+    margin: 0 auto;
+    justify-content: space-between;
+    margin-top: -12px;
+}
+
+.lineTwo_pic{
+    width: 3.0625rem;
+}
+
+.thirdLine{
+    width: 44.27%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.board{
+    width: 73.33%;
+    margin: 1.25rem auto;
+}
+
+.boardLine{
+    display: flex;
+    align-items: center;
+    border: 1px solid #CFCFCF;
+    border-radius: 0.5rem;
+    height: 2.6875rem;
+    margin-bottom: -1px;
+}
+
+.boardPic{
+    width: 2.125rem;
+}
+
+.boardRank{
+    padding: 0.5rem;
+    font-size: 1.25rem;
+    color: #668CB8;
+}
+
+.boardName{
+    margin: auto 7.6875rem auto 0.6875rem;
+}
 
 @media screen and (min-width: 800px) and (max-width: 1400px) {
     html {
@@ -593,6 +703,28 @@ table, th, td{
     /* Change Password Page */
     .change-sendcode input{
         width: 97.5%;
+    }
+
+    /* Motivation iPad */
+    .badgeInfo {
+        top: 47%;
+        left: 55%;
+    }
+
+    .leaderboard {
+        margin-top: 2.25rem;
+    }
+
+    .thirdLine{
+        width: 50.27%;
+    }
+
+    .boardRank{
+        padding: 1.5rem;
+    }
+
+    .boardName {
+        margin: auto 20.6875rem auto 0.6875rem;
     }
 }
 
@@ -887,5 +1019,125 @@ table, th, td{
         width: 8.17%;
     }
 
+    /* Motivation Web */
+    .motiContainer{
+        flex-direction: row;
+        justify-content: space-between;
+        width: 61.77%;
+        margin: 0 auto;
+    }
+    
+    .selfRank{
+        /* border: 1px solid #CFCFCF;
+        box-shadow: 3px 3px #EDEDED;
+        border-radius: 0.5rem; */
+        margin: 0;
+        width: 27.74%;
+        height: 29rem;
+        margin-top: 7.375rem;
+        /* display: flex;
+        flex-direction: column;
+        align-items: center; */
+    }
+    
+    .rank{
+        /* font-weight: bold; */
+        padding: 0.75rem;
+    }
+    
+    .motiPhoto{
+        width: 7.375rem;
+    }
+    
+    .badge{
+        width: 8.875rem;
+        padding: 1.5rem;
+    }
+    
+    .badgeInfo{
+        /* position: absolute; */
+        width: 1.75rem;
+        top: 64%;
+        left: 31.5%;
+    }
+    
+    /* .badgeAlert{
+        display: contents;
+    } */
+    
+    .leaderboard{
+        margin-top: 0;
+        width: 41.48%;
+    }
+    
+    .ranking{
+        font-size: 1.625rem;
+        /* color: #668CB8; */
+        /* margin-top: -6px; */
+    }
+    
+    /* .firstLine{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    } */
+    
+    .crown{
+        width: 3.125rem;
+    }
+    
+    .numberOne{
+        width: 7.0625rem;
+    }
+    
+    .secondLine{
+        /* display: flex; */
+        width: 74.8%;
+        /* margin: 0 auto;
+        justify-content: space-between;
+        margin-top: -12px; */
+    }
+    
+    .lineTwo_pic{
+        width: 5.4375rem;
+    }
+    
+    .thirdLine{
+        width: 59.96%;
+        /* margin: 0 auto;
+        display: flex;
+        justify-content: space-between; */
+    }
+    
+    .board{
+        width: 100%;
+        /* margin: 1.25rem auto; */
+    }
+    
+    .boardLine{
+        /* display: flex;
+        align-items: center;
+        border: 1px solid #CFCFCF;
+        border-radius: 0.5rem; */
+        height: 4.75rem;
+        /* margin-bottom: -1px; */
+    }
+    
+    .boardPic{
+        width: 3.75rem;
+    }
+    
+    .board span{
+        font-size: 1.25rem;
+    }
 
+    .boardRank{
+        padding: 2rem;
+        /* font-size: 1.25rem; */
+        /* color: #668CB8; */
+    }
+    
+    .boardName{
+        margin: auto 13.6875rem auto 0.6875rem;
+    }
 }
