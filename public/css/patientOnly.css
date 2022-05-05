@@ -223,6 +223,17 @@ td img {
     font-size: 0.6875rem;
 }
 
+.homepage-footer {
+    padding-top: 1%;
+    text-align: center;
+}
+
+.homepage-footer a {
+    text-decoration: underline;
+    color: black;
+}
+
+
 /* Add Data Page */
 h1 {
     margin: 5.0625rem auto 1.5625rem auto;
@@ -425,7 +436,7 @@ button.change-sentcode {
 
 .data-top{
     /* display: flex; */
-    width: 76.53%;
+    width: 80%;
     margin: auto;
 }
 
@@ -476,12 +487,8 @@ select a:hover{
     width:3.938rem;
 }
 
-.year{
-    margin-left: 0.5rem;
-}
-
 .individual-table{
-    width: 76.53%;
+    width: 80%;
     margin: auto;
     font-size: 0.625rem;
     font-style: none;
@@ -489,6 +496,11 @@ select a:hover{
 
 .data-table{
     width: 100%;
+}
+
+.data-table a{
+    text-decoration: underline;
+    color: black;
 }
 
 table, th, td{
@@ -523,7 +535,7 @@ table, th, td{
 }
 
 .table-weight, .table-exercise{
-    width: 22.29%;
+    width: 18.6%;
 }
 
 
@@ -1256,5 +1268,9 @@ table, th, td{
     
     .boardName{
         margin: auto 13.6875rem auto 0.6875rem;
+    }
+
+    .year{
+        margin-left: 0.5rem;
     }
 }

@@ -49,12 +49,12 @@ app.use('/normal', normalRouter);
 // render page with patient header for testing
 app.use('/patient', patientRouter);
 app.get('/change', (req, res) => {
-    res.render("patient-changepass", {
+    res.render("patient-changePass", {
         layout: "patient.hbs"
     });
 });
 app.get('/data', (req, res) => {
-    res.render("patient-moredata", {
+    res.render("patient-moreData", {
         layout: "patient.hbs"
     });
 });

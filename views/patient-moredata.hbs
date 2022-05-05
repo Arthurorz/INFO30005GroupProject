@@ -40,7 +40,7 @@
         </tr>
         {{#each patient.records}}
             <tr>
-                <td>{{this.record_id.date}}</td>
+                <td><a href="">{{this.record_id.date}}</a></td>
                 <!--weight-->
                 {{#ifRecorded this.record_id.data.weight.status}}
                     <!--draw different color if data out of range-->

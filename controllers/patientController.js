@@ -105,9 +105,28 @@ const renderAddPage = async (req, res, next) => {
     }
 }
 
+//render more data hbs page
+const renderMoreData = async (req, res) => {
+    try {
+        const id = "6263f5d7ef996dcc6dbf10af";
+        const patient = await Patient.findOne({ _id: id }).populate({
+            path: 'records',
+            populate: {
+                path: 'record_id',
+                options: { lean: true }
+            }
+        }).lean();
+
+        res.render('patient-moreData.hbs', { layout: 'patient.hbs', patient: patient, record: record });
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 
 module.exports={
     renderAddPage,
     updateRecord,
     renderHomePage,
+    renderMoreData,
 }
