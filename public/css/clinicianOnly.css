@@ -615,6 +615,12 @@ li div{
     display: flex;
 }
 
+.errormsg {
+    color: red;
+    text-align: center;
+    font-style: bold;
+}
+
 .newPatient-body .infoList {
     width: 25.5%;
     height: 52.1%;

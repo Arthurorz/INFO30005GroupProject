@@ -19,17 +19,17 @@ function clicktest(){
         msg.style.color = 'green';
         sub.disabled = "";
     } else {
-        msg.innerHTML = "password not match";
+        msg.innerHTML = "* password not match";
         msg.style.color = 'red';
         sub.disabled = 'true';
     }
 }
 
 // Check if emial format is correct
-function IsEmail(str) {
-    var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
-    return  reg.test(str);
-}
+// function IsEmail(str) {
+//     var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+//     return  reg.test(str);
+// }
 
 // Check if all fields are filled and correct
 function isNewPatientNull(error) {
@@ -43,12 +43,8 @@ function isNewPatientNull(error) {
     var code = document.getElementById("code").value;
     var error;
 
-    if(error!=''){
-        alert(error);
-        return false;
-    }else{
-
-        if (familyName != "" && givenName != "" && email != "" && password != "" && confirmPassword != "" && height != "" && birth != "" && code != "" && IsEmail(email)) {
+    if (error =='') {
+        if (familyName != "" && givenName != "" && email != "" && password != "" && confirmPassword != "" && height != "" && birth != "" && code != "" ) {
             if (password == confirmPassword) {
                 alert("You have successfully saved the data");
             }

@@ -6,10 +6,10 @@ const Record = require('../models/record.js');
 
 const addNewPatient = async (req, res) => {
 
-    const missBoundError = 'Need to add upper and lower bound';
-    const upperAndLowerError = 'Upper bound should be larger than or equal to lower bound'
-    const passwordConfirmError = 'Password and confirm password do not match';
-    const mailExistError = 'Email already exists';
+    const missBoundError = 'Error: Need to add upper and lower bound';
+    const upperAndLowerError = 'Error: Upper bound should be larger than or equal to lower bound'
+    const passwordConfirmError = 'Error: Password and confirm password do not match';
+    const mailExistError = 'Error: Email already exists';
 
 
     const patient = await Patient.findOne({ email: req.body.email.toLowerCase() });
