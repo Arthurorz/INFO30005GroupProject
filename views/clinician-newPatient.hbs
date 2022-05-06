@@ -1,7 +1,6 @@
 <h1>New Patient</h1>
-<form action = '/clinician/newPatient' method = 'post'>
+<form action = "/clinician/newPatient" method = "post">
     <div class="newPatient-body">
-        
             <div class="infoList">
                 <div class="infoAdd">
                     <span class="infoName">Family Name: </span>
@@ -18,21 +17,28 @@
                 <div class="infoAdd">
                     <span class="infoName">Password:</span>
                     <span class="inputBox"><input class="textBox" id="password" required="required" type="password" name="password"
+
                             placeholder="at least 8 characters"></span>
                 </div>
                 <div class="infoAdd">
                     <span class="infoName">Confirm Password:</span>
+
                     <span class="inputBox"><input class="textBox" id="confirmPassword" required="required" type="password" name="confirm_password"
+
                             placeholder="confirm the password"></span>
                 </div>
                 <div class="infoAdd">
                     <span class="infoName">Height:</span>
+
                     <span class="inputBox"><input class="textBox" id="height" required="required" type="text" name="height"
+
                             placeholder="enter the height in  meters"></span>
                 </div>
                 <div class="infoAdd">
                     <span class="infoName">Year of Birth:</span>
+
                     <span class="inputBox"><input class="textBox" id="birth" required="required" type="text" name="yearofbirth" placeholder="enter the integer"></span>
+
                 </div>
                 <div class="infoAdd">
                     <span class="infoName">A brief Text Bio:</span>
@@ -42,7 +48,9 @@
                     <button class="codeButton" onclick="window.location.href=''" type="button">Send Authentication Code</button>
                 </div>
                 <div class="enterCode">
+
                     <span class="codeBox"><input class="textBox" id="code" required="required" type="text" name="auth_code" placeholder="Enter the code"></span>
+
                 </div>
             </div>
 
