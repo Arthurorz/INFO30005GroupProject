@@ -479,12 +479,12 @@ select{
     border: 1px solid #707070;
     color: white;
     font-size: 0.75rem;
-    width: 3.938rem;
+    width: 3.5rem;
     height: 100%;
 }
 
 select a:hover{
-    width:3.938rem;
+    width:3.5rem;
 }
 
 .individual-table{
@@ -521,7 +521,7 @@ table, th, td{
     background-color: #BBD9F6;
     height: 2.25rem;
     font-size: 0.625rem;
-    font-weight: 0;
+    font-weight: normal;
 }
 
 .individual-table .leftone{
@@ -531,7 +531,12 @@ table, th, td{
 }
 
 .data-table .slope{
-    transform: rotate(50deg);
+    /* transform: rotate(50deg); */
+    display: none;
+}
+
+.data-table .ind_slope{
+    transform: rotate(30deg);
 }
 
 .table-weight, .table-exercise{
@@ -654,25 +659,91 @@ table, th, td{
 
 /* About Me Page */
 
-.aboutme-edit{
+.edit-page{
+    display: none;
+    width: 100%;
+    /* height: 70%; */
+    background-color: white;
+    position: absolute;
+}
+
+input[type=checkbox]:checked~.edit-page {
+    display: block;
+}
+
+.edit-button, .aboutme-delete{
     width: 1rem;
     float: right;
     margin-right: 2.125rem;
 }
 
-.aboutme-body{
+.aboutme-body, .edit-body{
     width: 74.66%;
     margin: 0 auto;
 }
 
+.user-info{
+    height: 1.438rem;
+    margin-bottom: 0.375rem;
+}
+
+.edit-body input, .user-bio textarea{
+    border: 1px solid #707070;
+    border-radius: 0.625rem;
+}
+
+.edit-body ::placeholder{
+    padding-left: 0.2rem;
+}
+
+.user-bio{
+    height: 9.125rem;
+}
+
+.user-bio label{
+    margin-bottom: 0.375rem;
+}
+
+.user-bio textarea{
+    width: 98%;
+    height: 7.375rem;
+    padding: 0.5rem 0 0 0.5rem;
+    font-size: 1rem;
+}
+
+.user-bio ::placeholder{
+    width: 80%;
+    height: 80%;
+}
+
+.edit-body p{
+    font-size: 0.75rem;
+    text-align: center;
+    font-style: italic;
+}
+
+.detail-change{
+    margin-top: 0.75rem;
+}
+
+.detail-change label{
+    float: left;
+    width: 40%;
+}
+
+.user-info input{
+    float: right;
+    width: 50.71%;
+}
 
 .about-detail{
     text-align: center;
 }
 
-.aboutme-body img{
+.userphoto{
     width: 43%;
     margin: 0 auto;
+    display: block;
 }
 
 .about-detail{
@@ -693,7 +764,21 @@ table, th, td{
 }
 
 .bio-detail{
+    margin-top: 0.625rem;
+    height: 7.375rem;
     border: 1px solid #EDEDED;
+    border-radius: 0.5rem;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.24);
+}
+
+.bio-detail li{
+    list-style-type:disc;
+    padding: 0.375rem 0 0 0.4rem;
+}
+
+.edit-page button{
+    width: 18.93%;
+    margin: 0.875rem auto;
 }
 
 @media screen and (min-width: 800px) and (max-width: 1400px) {
@@ -813,8 +898,26 @@ table, th, td{
 
     .table-weight, .table-exercise{
         width: 18%;
-
     }
+
+    /* About Me Page */
+
+    .aboutme-body img, .edit-body img{
+        width: 23%;
+    }
+
+    .user-info input{
+        height: 80%;
+        font-size: 0.8rem;
+    }
+
+    .user-bio input{
+        font-size: 0.8rem;
+    }
+
+    
+
+
 }
 
 @media screen and (min-width: 1400px) {
@@ -1273,4 +1376,82 @@ table, th, td{
     .year{
         margin-left: 0.5rem;
     }
+
+    /* About Me Page */
+
+    .edit-button, .aboutme-delete{
+        width: 2.375rem;
+        margin-right: 9%;
+    }
+
+    .aboutme-body, .edit-body{
+        display: flex;
+        width: 100%;
+        margin: 0;
+        justify-content: space-between;
+    }
+
+    .sam-detail{
+        height: 22.45%;
+        padding-left: 26.45%;
+        font-size: 1.625rem;
+    }
+
+    .edit-detail{
+        height: 30%;
+        padding-left: 21.45%;
+        width: 24.375%;
+        font-size: 1.625rem;
+    }
+
+    .edit-detail p{
+        font-size: 1.375rem;
+    }
+
+    .user-info{
+        height: 1.813rem;
+        margin-bottom: 1rem;
+    }
+
+    .user-info input{
+        height: 1.8rem;
+        font-size: 1.625rem;
+    }
+
+    ::placeholder{
+        font-size: 1.3rem;
+    }
+    
+    .sam-detail img, .edit-body img{
+        width: 12rem;
+    }
+
+    /* .text-bio{
+        padding-right: 17.5%;
+        width: 24.63%;
+    } */
+
+    .text-bio h2, .bio-detail{
+        font-size: 1.625rem;
+    }
+
+    .bio-detail{
+        height: 10.5rem;
+    }
+
+    .user-bio, .text-bio{
+        font-size: 1.625rem;
+        height: 18.89%;
+        margin: auto;
+        width: 24.63%;
+    }
+
+    .user-bio textarea{
+        font-size: 1.625rem;
+    }
+
+    .edit-page button{
+        width: 9.48%;
+    }
+
 }

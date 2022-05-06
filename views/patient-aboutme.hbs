@@ -1,8 +1,54 @@
 <h1>About Me</h1>
-<img class="aboutme-edit" src="/edit.png" alt="edit">
+<div class="edit-aboutme">
+    <input type="checkbox" id="checkbox-toggle">
+    <label for="checkbox-toggle" class="aboutme-edit"><img class="edit-button" src="/edit.png" alt="edit"></label>
+    <div class="edit-page">
+        <label for="checkbox-toggle" class="aboutme-edit"><img class="aboutme-delete" src="/delete.png" alt="delete"></label>
+        <div class="edit-body">
+            <div class="edit-detail">
+                <img class="userphoto" src="/Photo_Pat.png" alt="userphoto">
+                <p>Click to change your profile</p>
+                <div class="detail-change">
+                    {{!-- <div class="user-info">
+                        <label for="text">Name:</label>
+                        <input type="text" id="name" name="username" placeholder="Sam McDonald">
+                    </div>
+                    <div class="user-info">
+                        <label for="text">Clinician:</label>
+                        <input type="text" id="name" name="clinician-name" placeholder="Doctor White">
+                    </div> --}}
+                    <div class="user-info">
+                        <label for="text">Screen Name:</label>
+                        <input type="text" id="name" name="username" placeholder="Sam">
+                    </div>
+                    <div class="user-info">
+                        <label for="number">Height:</label>
+                        <input type="number" onchange="setTwoNumberDecimal" min="0" max="10" step="2.5" placeholder="1.80m">
+                    </div>
+                    <div class="user-info">
+                        <label for="number">Year of birth:</label>
+                        <input type="number" id="year" name="year" min="1922" max="2022" placeholder="1988">
+                    </div>
+                    <div class="user-info">
+                        <label for="email">Email Address:</label>
+                        <input type="email" id="emails" name="emails" placeholder="123@xxx.com">
+                    </div>
+                    <div class="user-info">
+                        <label for="number">Year of birth:</label>
+                        <input type="number" id="year" name="year" min="1922" max="2022" placeholder="1988">
+                    </div>
+                </div>  
+            </div>
+            <div class="user-bio">
+                <label for="text">A Breif Text Bio:</label>
+                <textarea type="text" id="text" name="text" placeholder="-diabetes mellitus type 2 &#10;-long-term treatment &#10;-I'm currently a freelance copywriter"></textarea>
+            </div>   
+        </div>
+        <button class="saveButton" name="popBox" onclick="popBox()" type="button">Save</button>
+</div>
 <div class="aboutme-body">
     <div class="sam-detail">
-        <img class="boardPic" src="/Photo_Pat.png" alt="">
+        <img class="userphoto" src="/Photo_Pat.png" alt="">
         <ul class="about-detail">
             <li>Screen Name: Sam</li>
             <li>Year of birth: 1988</li>

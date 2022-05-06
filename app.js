@@ -59,15 +59,14 @@ app.get('/data', (req, res) => {
     });
 });
 
-
 app.get('/aboutme', (req, res) => {
     res.render("patient-aboutme", {
         layout: "patient.hbs",
     }); 
 }); 
 
-app.get('/dataDetail', (req, res) => {
-    res.render("patient-dataDetail", {
+app.get('/editaboutme', (req, res) => {
+    res.render("patient-editaboutme", {
         layout: "patient.hbs",
     }); 
 }); 
