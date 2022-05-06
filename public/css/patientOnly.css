@@ -536,11 +536,11 @@ table, th, td{
 }
 
 .data-table .ind_slope{
-    transform: rotate(30deg);
+    transform: rotate(35deg);
 }
 
 .table-weight, .table-exercise{
-    width: 18.6%;
+    width: 15%;
 }
 
 
@@ -888,11 +888,24 @@ input[type=checkbox]:checked~.edit-page {
         margin: auto 20.6875rem auto 0.6875rem;
     }
     /* more data page */
+
+    .data-top .tableTop{
+        font-size: 0.8rem;
+    }
+    
     .data-table .slope{
         transform: rotate(30deg);
     }
 
+    .data-table .ind_slope{
+        transform: rotate(15deg);
+    }
+
     .individual-table th{
+        font-size: 0.8rem;
+    }
+
+    .individual-table td{
         font-size: 0.8rem;
     }
 
@@ -1335,6 +1348,10 @@ input[type=checkbox]:checked~.edit-page {
 
     .data-top .tableTop img{
         width: 2.563rem;
+    }
+
+    .data-table .ind_slope{
+        transform: rotate(18deg);
     }
 
     .topright{

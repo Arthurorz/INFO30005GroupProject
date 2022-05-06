@@ -6,7 +6,15 @@
         <label for="checkbox-toggle" class="aboutme-edit"><img class="aboutme-delete" src="/delete.png" alt="delete"></label>
         <div class="edit-body">
             <div class="edit-detail">
-                <img class="userphoto" src="/Photo_Pat.png" alt="userphoto">
+                <label for="userphoto"><img class="userphoto" src="/Photo_Pat.png" alt="userphoto"></label>
+                <input type="file" name="" id="userphoto" style="display: none; visibility:none;">
+                {{!-- <form action="addData.html" method="post">
+                    <label for ="file">files: </label>
+                    <input type="file" name="file" id="file" />
+                    <input type="submit" value="upload" />
+                </form> --}}
+                
+                
                 <p>Click to change your profile</p>
                 <div class="detail-change">
                     {{!-- <div class="user-info">
