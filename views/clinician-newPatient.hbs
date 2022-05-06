@@ -16,19 +16,20 @@
                 </div>
                 <div class="infoAdd">
                     <span class="infoName">Password:</span>
-                    <span class="inputBox"><input class="textBox" id="password" required="required" type="password" name="password" placeholder="at least 8 characters"></span>
+                    <span class="inputBox"><input class="textBox" id="password" required="required" type="password" name="password" onblur="clicktest()" placeholder="at least 8 characters"></span>
                 </div>
                 <div class="infoAdd">
                     <span class="infoName">Confirm Password:</span>
-                    <span class="inputBox"><input class="textBox" id="confirmPassword" required="required" type="password" name="confirm_password" placeholder="confirm the password"></span>
+                    <span class="inputBox"><input class="textBox" id="confirmPassword" required="required" type="password" name="confirm_password" onblur="clicktest()" placeholder="confirm the password"></span>
                 </div>
+                <span id="msg"></span>
                 <div class="infoAdd">
                     <span class="infoName">Height:</span>
-                    <span class="inputBox"><input class="textBox" id="height" required="required" type="text" name="height" placeholder="enter the height in  meters"></span>
+                    <span class="inputBox"><input class="textBox" id="height" required="required" type="number" name="height" placeholder="enter the height in  meters"></span>
                 </div>
                 <div class="infoAdd">
                     <span class="infoName">Year of Birth:</span>
-                     <span class="inputBox"><input class="textBox" id="birth" required="required" type="text" name="yearofbirth" placeholder="enter the integer"></span>
+                     <span class="inputBox"><input class="textBox" id="birth" required="required" type="number" name="yearofbirth" placeholder="enter the integer"></span>
                 </div>
                 <div class="infoAdd">
                     <span class="infoName">A brief Text Bio:</span>
@@ -91,7 +92,7 @@
     
     </div>
     <div class="submit">
-        <button class="saveButton" name="popBox" type="submit" onclick="isNewPatientNull()">Save</button>
+        <button class="saveButton" id="saveButton" name="popBox" type="submit" onclick="isNewPatientNull()">Save</button>
     </div>
 </form>
 
