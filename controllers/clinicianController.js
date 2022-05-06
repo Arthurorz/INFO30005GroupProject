@@ -62,10 +62,9 @@ const addNewPatient = async (req, res) => {
             } catch (err) {
                 console.log(err);
             }
+        }else{
+            res.redirect('/clinician/newPatient');
         }
-        // }else{
-        //     console.log('password not match with the confirmed password');//用其他方式提示
-        // }
     } else {
         console.log("Patient already exists\n");
         console.log("Patient id is : ", patient.id);
