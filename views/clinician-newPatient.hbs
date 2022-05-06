@@ -1,93 +1,100 @@
 <h1>New Patient</h1>
-<div class="newPatient-body">
-    <div class="infoList">
-        <div class="infoAdd">
-            <span class="infoName">Family Name: </span>
-            <span class="inputBox"><input class="textBox" type="text" name="" placeholder="xxx"></span>
-        </div>
-        <div class="infoAdd">
-            <span class="infoName">Given Name:</span>
-            <span class="inputBox"><input class="textBox" type="text" name="" placeholder="xxx"></span>
-        </div>
-        <div class="infoAdd">
-            <span class="infoName">Email Address:</span>
-            <span class="inputBox"><input class="textBox" type="email" name="" placeholder="123@xxx.com"></span>
-        </div>
-        <div class="infoAdd">
-            <span class="infoName">Password:</span>
-            <span class="inputBox"><input class="textBox" type="password" name=""
-                    placeholder="at least 8 characters"></span>
-        </div>
-        <div class="infoAdd">
-            <span class="infoName">Confirm Password:</span>
-            <span class="inputBox"><input class="textBox" type="password" name=""
-                    placeholder="confirm the password"></span>
-        </div>
-        <div class="infoAdd">
-            <span class="infoName">Height:</span>
-            <span class="inputBox"><input class="textBox" type="text" name=""
-                    placeholder="enter the height in  meters"></span>
-        </div>
-        <div class="infoAdd">
-            <span class="infoName">Year of Birth:</span>
-            <span class="inputBox"><input class="textBox" type="text" name="" placeholder="enter the integer"></span>
-        </div>
-        <div class="infoAdd">
-            <span class="infoName">A brief Text Bio:</span>
-            <span class="inputBox"><input class="textBox" type="text" name="" placeholder="enter the characters"></span>
-        </div>
-        <div class="sendCode">
-            <button class="codeButton" onclick="window.location.href=''" type="button">Send Authentication Code</button>
-        </div>
-        <div class="enterCode">
-            <span class="codeBox"><input class="textBox" type="text" name="" placeholder="Enter the code"></span>
-        </div>
-    </div>
+<form action = '/clinician/newPatient' method = 'post'>
+    <div class="newPatient-body">
+        
+            <div class="infoList">
+                <div class="infoAdd">
+                    <span class="infoName">Family Name: </span>
+                    <span class="inputBox"><input class="textBox" required="required" type="text" name="first_name" placeholder="xxx"></span>
+                </div>
+                <div class="infoAdd">
+                    <span class="infoName">Given Name:</span>
+                    <span class="inputBox"><input class="textBox" required="required" type="text" name="last_name" placeholder="xxx"></span>
+                </div>
+                <div class="infoAdd">
+                    <span class="infoName">Email Address:</span>
+                    <span class="inputBox"><input class="textBox" required="required" type="email" name="email" placeholder="123@xxx.com"></span>
+                </div>
+                <div class="infoAdd">
+                    <span class="infoName">Password:</span>
+                    <span class="inputBox"><input class="textBox" required="required" type="password" name="password"
+                            placeholder="at least 8 characters"></span>
+                </div>
+                <div class="infoAdd">
+                    <span class="infoName">Confirm Password:</span>
+                    <span class="inputBox"><input class="textBox" required="required" type="password" name="confirm_password"
+                            placeholder="confirm the password"></span>
+                </div>
+                <div class="infoAdd">
+                    <span class="infoName">Height:</span>
+                    <span class="inputBox"><input class="textBox" required="required" type="text" name="height"
+                            placeholder="enter the height in  meters"></span>
+                </div>
+                <div class="infoAdd">
+                    <span class="infoName">Year of Birth:</span>
+                    <span class="inputBox"><input class="textBox" required="required" type="text" name="yearofbirth" placeholder="enter the integer"></span>
+                </div>
+                <div class="infoAdd">
+                    <span class="infoName">A brief Text Bio:</span>
+                    <span class="inputBox"><input class="textBox" type="text" name="brief_bio" placeholder="enter the characters"></span>
+                </div>
+                <div class="sendCode">
+                    <button class="codeButton" onclick="window.location.href=''" type="button">Send Authentication Code</button>
+                </div>
+                <div class="enterCode">
+                    <span class="codeBox"><input class="textBox" required="required" type="text" name="auth_code" placeholder="Enter the code"></span>
+                </div>
+            </div>
 
-    <form class="chooseList">
-        <div class="chooseRange">
-            <input class="chooseBox" type="checkbox" name="check">
-            <span class="category">Weight</span>
-            <div class="textLine">
-                From
-                <span class="rangeBox"><input class="textBox" type="text" name="" placeholder="70"></span>
-                To
-                <span class="rangeBox"><input class="textBox" type="text" name="" placeholder="100"> </span>
-                Kg
+            <div class="chooseList">
+                <div class="chooseRange">
+                    <input class="chooseBox" type="checkbox" name="weight_check">
+                    <span class="category">Weight</span>
+                    <div class="textLine">
+                        From
+                        <span class="rangeBox"><input class="textBox" type="text" name="weight_lower" placeholder="70"></span>
+                        To
+                        <span class="rangeBox"><input class="textBox" type="text" name="weight_upper" placeholder="100"> </span>
+                        Kg
+                    </div>
+                </div>
+                <div class="chooseRange">
+                    <input class="chooseBox" type="checkbox" name="exercise_check">
+                    <span class="category">Exercise</span>
+                    <div class="textLine">
+                        From
+                        <span class="rangeBox"><input class="textBox" type="text" name="exercise_lower" placeholder="1000"></span>
+                        To
+                        <span class="rangeBox"><input class="textBox" type="text" name="exercise_upper" placeholder="4000"> </span>
+                        steps
+                    </div>
+                </div>
+                <div class="chooseRange">
+                    <input class="chooseBox" type="checkbox" name="insulin_check">
+                    <span class="category">Doses of Insulin Taken</span>
+                    <div class="textLine">
+                        From
+                        <span class="rangeBox"><input class="textBox" type="text" name="insulin_lower" placeholder="1"></span>
+                        To
+                        <span class="rangeBox"><input class="textBox" type="text" name="insulin_upper" placeholder="3"> </span>
+                        Doses
+                    </div>
+                </div>
+                <div class="chooseRange">
+                    <input class="chooseBox" type="checkbox" name="glucose_check">
+                    <span class="category">Blood Glucose Level</span>
+                    <div class="textLine">
+                        From
+                        <span class="rangeBox"><input class="textBox" type="text" name="glucose_lower" placeholder="3.9"></span>
+                        To
+                        <span class="rangeBox"><input class="textBox" type="text" name="glucose_upper" placeholder="6.1"> </span>
+                        nmol/L
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="chooseRange">
-            <input class="chooseBox" type="checkbox" name="check">
-            <span class="category">Exercise</span>
-            <div class="textLine">
-                From
-                <span class="rangeBox"><input class="textBox" type="text" name="" placeholder="1000"></span>
-                To
-                <span class="rangeBox"><input class="textBox" type="text" name="" placeholder="4000"> </span>
-                steps
-            </div>
-        </div>
-        <div class="chooseRange">
-            <input class="chooseBox" type="checkbox" name="check">
-            <span class="category">Doses of Insulin Taken</span>
-            <div class="textLine">
-                <span class="rangeBox"><input class="textBox" type="text" name="" placeholder="4000"> </span>
-                Doses
-            </div>
-        </div>
-        <div class="chooseRange">
-            <input class="chooseBox" type="checkbox" name="check">
-            <span class="category">Blood Glucose Level</span>
-            <div class="textLine">
-                From
-                <span class="rangeBox"><input class="textBox" type="text" name="" placeholder="3.9"></span>
-                To
-                <span class="rangeBox"><input class="textBox" type="text" name="" placeholder="6.1"> </span>
-                nmol/L
-            </div>
-        </div>
-    </form>
-</div>
-<div class="submit">
-    <button class="saveButton" onclick="window.location.href=''" type="button">Save</button>
-</div>
+    
+    </div>
+    <div class="submit">
+        <button class="saveButton" name="popBox" type="submit" onclick="window.location.href=''">Save</button>
+    </div>
+</form>

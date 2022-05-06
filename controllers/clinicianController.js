@@ -4,27 +4,63 @@ const Clinician = require('../models/clinician.js');
 const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 
-const addPatient = async (req, res) => {
-    const patient = await Patient.findOne({ email: req.params.email })
+const addNewPatient = async (req, res) => {
+    const patient = await Patient.findOne({ email: req.body.email })
     if (!patient) {
-        try {
-            const patient = new Patient({
-                first_name: req.body.first_name,
-                last_name: req.body.last_name,
-                email: req.body.email,
-                password: req.body.password,
-                screen_name: req.body.screen_name,
-                yearofbirth: req.body.yearofbirth,
-                height: req.body.height,
-                brief_bio: req.body.brief_bio,
-                engagement: req.body.engagement,
-                photo: req.body.photo,
-                clinician: req.body.clinician
-            });
-            await patient.save();
-            console.log("Patient added");
-        } catch (err) {
-            console.log(err);
+        if(req.body.password == req.body.confirm_password){
+            try {
+                const patient = new Patient({
+                    first_name: req.body.first_name,
+                    last_name: req.body.last_name,
+                    email: req.body.email,
+                    password: req.body.password,
+                    screen_name: req.body.first_name,
+                    yearofbirth: req.body.yearofbirth,
+                    height: req.body.height,
+                    brief_bio: req.body.brief_bio,
+                    engagement: 0,
+                    
+                    clinician: '626392e9a4d69d527a31780f',
+                    //register Date 需要增加
+                });
+                
+                if(req.body.weight_check=='on'){
+                    patient.required_data.weight = true;
+                    patient.bound.weight_upper=req.body.weight_upper;
+                    patient.bound.weight_lower=req.body.weight_lower;
+                } else{
+                    patient.required_data.weight = false;
+                }
+                if(req.body.exercise_check=='on'){
+                    patient.required_data.exercise = true;
+                    patient.bound.exercise_upper=req.body.exercise_upper;
+                    patient.bound.exercise_lower=req.body.exercise_lower;
+                }else{
+                    patient.required_data.exercise = false;
+                }
+                if(req.body.insulin_check=='on'){
+                    patient.required_data.insulin = true;
+                    patient.bound.insulin_upper=req.body.insulin_upper;
+                    patient.bound.insulin_lower=req.body.insulin_lower;
+                }else{
+                    patient.required_data.insulin = false;
+                }
+                if(req.body.glucose_check=='on'){
+                    patient.required_data.glucose = true;
+                    patient.bound.glucose_upper=req.body.glucose_upper;
+                    patient.bound.glucose_lower=req.body.glucose_lower;
+                }else{
+                    patient.required_data.glucose = false;
+                }
+
+                await patient.save();
+                console.log("Patient added");
+                res.redirect('/clinician/dashboard');
+            } catch (err) {
+                console.log(err);
+            }
+        }else{
+            console.log('password not match with the confirmed password');//用其他方式提示
         }
     } else {
         console.log("Patient already exists\n");
@@ -255,7 +291,7 @@ const addRecords = async (req, res) => {
 module.exports = {
     renderDashboard,
     renderClinicianData,
-    addPatient,
+    addNewPatient,
     renderPatientData,
     searchDashboard,
     renderClinicianEditData,
