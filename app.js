@@ -71,6 +71,12 @@ app.get('/dataDetail', (req, res) => {
         layout: "patient.hbs",
     }); 
 }); 
+
+app.get('/test', (req, res) => {
+    res.render("test-dataDetail", {
+        layout: "patient.hbs",
+    }); 
+}); 
 // render page with clinician header for testing
 app.use('/clinician', clinicianRouter);
 
