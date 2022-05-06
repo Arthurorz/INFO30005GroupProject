@@ -5,8 +5,8 @@ const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 
 const addNewPatient = async (req, res) => {
-    console.log("进来了")
-    const patient = await Patient.findOne({ email: req.body.email })
+    
+    const patient = await Patient.findOne({ email: req.body.email.toLowerCase() });
     if (!patient) {
         if(req.body.password == req.body.confirm_password){
             try {
@@ -62,14 +62,13 @@ const addNewPatient = async (req, res) => {
             } catch (err) {
                 console.log(err);
             }
-        }else{
-            res.redirect('/clinician/newPatient');
+        } else{
+            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Two password are not matched' , input: req.body});
         }
     } else {
-        console.log("Patient already exists\n");
-        console.log("Patient id is : ", patient.id);
+        const error = 'Email already exists';
+        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: error , input: req.body});
     }
-
 }
 
 //render about me hbs page   not yet done

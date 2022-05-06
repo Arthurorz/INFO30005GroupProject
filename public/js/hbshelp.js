@@ -32,7 +32,7 @@ function IsEmail(str) {
 }
 
 // Check if all fields are filled and correct
-function isNewPatientNull() {
+function isNewPatientNull(error) {
     var familyName = document.getElementById("familyName").value;
     var givenName = document.getElementById("givenName").value;
     var email = document.getElementById("email").value;
@@ -41,10 +41,17 @@ function isNewPatientNull() {
     var height = document.getElementById("height").value;
     var birth = document.getElementById("birth").value;
     var code = document.getElementById("code").value;
+    var error;
 
-    if (familyName != "" && givenName != "" && email != "" && password != "" && confirmPassword != "" && height != "" && birth != "" && code != "" && IsEmail(email)) {
-        if (password == confirmPassword) {
-            alert("You have successfully saved the data");
+    if(error!=''){
+        alert(error);
+        return false;
+    }else{
+
+        if (familyName != "" && givenName != "" && email != "" && password != "" && confirmPassword != "" && height != "" && birth != "" && code != "" && IsEmail(email)) {
+            if (password == confirmPassword) {
+                alert("You have successfully saved the data");
+            }
         }
     }
 }
