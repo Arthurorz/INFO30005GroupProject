@@ -5,11 +5,17 @@ const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 
 const addNewPatient = async (req, res) => {
+
+    const missBoundError = 'Need to add upper and lower bound';
+    const upperAndLowerError = 'Upper bound should be larger than or equal to lower bound'
+    const passwordConfirmError = 'Password and confirm password do not match';
+    const mailExistError = 'Email already exists';
+
+
     const patient = await Patient.findOne({ email: req.body.email.toLowerCase() });
     if (!patient) {
         if (req.body.password == req.body.confirm_password) {
             try {
-
                 const patient = new Patient({
                     first_name: req.body.first_name,
                     last_name: req.body.last_name,
@@ -24,6 +30,7 @@ const addNewPatient = async (req, res) => {
                     clinician: '626392e9a4d69d527a31780f',
                     //register Date 需要增加
                 });
+                
 
                 if (req.body.weight_check == 'on') {
                     patient.required_data.weight = true;
@@ -32,10 +39,10 @@ const addNewPatient = async (req, res) => {
                             patient.bound.weight_upper = req.body.weight_upper;
                             patient.bound.weight_lower = req.body.weight_lower;
                         } else {
-                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Upper bound should be larger then lower bound for weight', input: req.body });
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for weight', input: req.body });
                         }
                     } else {
-                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Need to add upper and lower bound for weight', input: req.body });
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for weight', input: req.body });
                     }
                 } else {
                     patient.required_data.weight = false;
@@ -48,10 +55,10 @@ const addNewPatient = async (req, res) => {
                             patient.bound.exercise_upper = req.body.exercise_upper;
                             patient.bound.exercise_lower = req.body.exercise_lower;
                         } else {
-                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Upper bound should be larger then lower bound for exercise', input: req.body });
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for exercise', input: req.body });
                         }
                     } else {
-                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Need to add upper and lower bound for exercise', input: req.body });
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError+'for exercise', input: req.body });
                     }
                 } else {
                     patient.required_data.exercise = false;
@@ -64,10 +71,10 @@ const addNewPatient = async (req, res) => {
                             patient.bound.insulin_upper = req.body.insulin_upper;
                             patient.bound.insulin_lower = req.body.insulin_lower;
                         } else {
-                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Upper bound should be larger then lower bound for insulin', input: req.body });
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for insulin', input: req.body });
                         }
                     } else {
-                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Need to add upper and lower bound for insulin', input: req.body });
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for insulin', input: req.body });
                     }
                 } else {
                     patient.required_data.insulin = false;
@@ -80,10 +87,10 @@ const addNewPatient = async (req, res) => {
                             patient.bound.glucose_upper = req.body.glucose_upper;
                             patient.bound.glucose_lower = req.body.glucose_lower;
                         } else {
-                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Upper bound should be larger then lower bound for glucose', input: req.body });
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for glucose', input: req.body });
                         }
                     } else {
-                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Need to add upper and lower bound for glucose', input: req.body });
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for glucose', input: req.body });
                     }
                 } else {
                     patient.required_data.glucose = false;
@@ -97,11 +104,11 @@ const addNewPatient = async (req, res) => {
                 console.log(err);
             }
         } else {
-            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Two password are not matched', input: req.body });
+            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: passwordConfirmError, input: req.body });
         }
     } else {
-        const error = 'Email already exists';
-        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: error, input: req.body });
+       
+        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: mailExistError, input: req.body });
     }
 }
 
