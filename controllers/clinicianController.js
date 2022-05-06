@@ -5,12 +5,11 @@ const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 
 const addNewPatient = async (req, res) => {
-    
     const patient = await Patient.findOne({ email: req.body.email.toLowerCase() });
     if (!patient) {
-        if(req.body.password == req.body.confirm_password){
+        if (req.body.password == req.body.confirm_password) {
             try {
-                
+
                 const patient = new Patient({
                     first_name: req.body.first_name,
                     last_name: req.body.last_name,
@@ -21,37 +20,72 @@ const addNewPatient = async (req, res) => {
                     height: req.body.height,
                     brief_bio: req.body.brief_bio,
                     engagement: 0,
-                    
+
                     clinician: '626392e9a4d69d527a31780f',
                     //register Date 需要增加
                 });
-                
-                if(req.body.weight_check=='on'){
+
+                if (req.body.weight_check == 'on') {
                     patient.required_data.weight = true;
-                    patient.bound.weight_upper=req.body.weight_upper;
-                    patient.bound.weight_lower=req.body.weight_lower;
-                } else{
+                    if (req.body.weight_upper != '' && req.body.weight_lower != '') {
+                        if (parseInt(req.body.weight_upper) >= parseInt(req.body.weight_lower)) {
+                            patient.bound.weight_upper = req.body.weight_upper;
+                            patient.bound.weight_lower = req.body.weight_lower;
+                        } else {
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Upper bound should be larger then lower bound for weight', input: req.body });
+                        }
+                    } else {
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Need to add upper and lower bound for weight', input: req.body });
+                    }
+                } else {
                     patient.required_data.weight = false;
                 }
-                if(req.body.exercise_check=='on'){
+
+                if (req.body.exercise_check == 'on') {
                     patient.required_data.exercise = true;
-                    patient.bound.exercise_upper=req.body.exercise_upper;
-                    patient.bound.exercise_lower=req.body.exercise_lower;
-                }else{
+                    if (req.body.exercise_upper != '' && req.body.exercise_lower != '') {
+                        if (parseInt(req.body.exercise_upper) >= parseInt(req.body.exercise_lower)) {
+                            patient.bound.exercise_upper = req.body.exercise_upper;
+                            patient.bound.exercise_lower = req.body.exercise_lower;
+                        } else {
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Upper bound should be larger then lower bound for exercise', input: req.body });
+                        }
+                    } else {
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Need to add upper and lower bound for exercise', input: req.body });
+                    }
+                } else {
                     patient.required_data.exercise = false;
                 }
-                if(req.body.insulin_check=='on'){
+
+                if (req.body.insulin_check == 'on') {
                     patient.required_data.insulin = true;
-                    patient.bound.insulin_upper=req.body.insulin_upper;
-                    patient.bound.insulin_lower=req.body.insulin_lower;
-                }else{
+                    if (req.body.insulin_upper != '' && req.body.insulin_lower != '') {
+                        if (parseInt(req.body.insulin_upper) >= parseInt(req.body.insulin_lower)) {
+                            patient.bound.insulin_upper = req.body.insulin_upper;
+                            patient.bound.insulin_lower = req.body.insulin_lower;
+                        } else {
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Upper bound should be larger then lower bound for insulin', input: req.body });
+                        }
+                    } else {
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Need to add upper and lower bound for insulin', input: req.body });
+                    }
+                } else {
                     patient.required_data.insulin = false;
                 }
-                if(req.body.glucose_check=='on'){
+
+                if (req.body.glucose_check == 'on') {
                     patient.required_data.glucose = true;
-                    patient.bound.glucose_upper=req.body.glucose_upper;
-                    patient.bound.glucose_lower=req.body.glucose_lower;
-                }else{
+                    if (req.body.glucose_upper != '' && req.body.glucose_lower != '') {
+                        if (parseInt(req.body.glucose_upper) >= parseInt(req.body.glucose_lower)) {
+                            patient.bound.glucose_upper = req.body.glucose_upper;
+                            patient.bound.glucose_lower = req.body.glucose_lower;
+                        } else {
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Upper bound should be larger then lower bound for glucose', input: req.body });
+                        }
+                    } else {
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Need to add upper and lower bound for glucose', input: req.body });
+                    }
+                } else {
                     patient.required_data.glucose = false;
                 }
 
@@ -62,12 +96,12 @@ const addNewPatient = async (req, res) => {
             } catch (err) {
                 console.log(err);
             }
-        } else{
-            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Two password are not matched' , input: req.body});
+        } else {
+            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Two password are not matched', input: req.body });
         }
     } else {
         const error = 'Email already exists';
-        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: error , input: req.body});
+        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: error, input: req.body });
     }
 }
 
@@ -215,7 +249,7 @@ const searchDashboard = async (req, res) => {
             renderDashboard(req, res);
         } else {
             const clinicianID = "626392e9a4d69d527a31780f";
-        
+
             const patients = (await Clinician.findById(clinicianID).populate({
                 path: 'patients',
                 populate: {
@@ -230,16 +264,16 @@ const searchDashboard = async (req, res) => {
                     }
                 }
             }).lean()).patients;
-            
+
             const patientList = []
 
             for (i in patients) {
                 const patient = patients[i].patient_id;
-                
-                if(patient.first_name == req.body.patientName || patient.last_name == req.body.patientName){
+
+                if (patient.first_name == req.body.patientName || patient.last_name == req.body.patientName) {
                     for (j in patient.records) {
                         const record = patient.records[j].record_id;
-                        
+
 
                         if (record.date == (new Date()).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" })) {
                             patientList.push({
@@ -249,7 +283,7 @@ const searchDashboard = async (req, res) => {
                                 today_record: record,
                             });
                         }
-                    } 
+                    }
                 }
             }
 
