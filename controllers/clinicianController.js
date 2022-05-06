@@ -4,31 +4,111 @@ const Clinician = require('../models/clinician.js');
 const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 
-const addPatient = async (req, res) => {
-    const patient = await Patient.findOne({ email: req.params.email })
+const addNewPatient = async (req, res) => {
+
+    const missBoundError = 'Need to add upper and lower bound';
+    const upperAndLowerError = 'Upper bound should be larger than or equal to lower bound'
+    const passwordConfirmError = 'Password and confirm password do not match';
+    const mailExistError = 'Email already exists';
+
+
+    const patient = await Patient.findOne({ email: req.body.email.toLowerCase() });
     if (!patient) {
-        try {
-            const patient = new Patient({
-                first_name: req.body.first_name,
-                last_name: req.body.last_name,
-                email: req.body.email,
-                password: req.body.password,
-                screen_name: req.body.screen_name,
-                yearofbirth: req.body.yearofbirth,
-                height: req.body.height,
-                brief_bio: req.body.brief_bio,
-                engagement: req.body.engagement,
-                photo: req.body.photo,
-                clinician: req.body.clinician
-            });
-            await patient.save();
-            console.log("Patient added");
-        } catch (err) {
-            console.log(err);
+        if (req.body.password == req.body.confirm_password) {
+            try {
+                const patient = new Patient({
+                    first_name: req.body.first_name,
+                    last_name: req.body.last_name,
+                    email: req.body.email,
+                    password: req.body.password,
+                    screen_name: req.body.first_name,
+                    yearofbirth: req.body.yearofbirth,
+                    height: req.body.height,
+                    brief_bio: req.body.brief_bio,
+                    engagement: 0,
+
+                    clinician: '626392e9a4d69d527a31780f',
+                    //register Date 需要增加
+                });
+                
+
+                if (req.body.weight_check == 'on') {
+                    patient.required_data.weight = true;
+                    if (req.body.weight_upper != '' && req.body.weight_lower != '') {
+                        if (parseInt(req.body.weight_upper) >= parseInt(req.body.weight_lower)) {
+                            patient.bound.weight_upper = req.body.weight_upper;
+                            patient.bound.weight_lower = req.body.weight_lower;
+                        } else {
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for weight', input: req.body });
+                        }
+                    } else {
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for weight', input: req.body });
+                    }
+                } else {
+                    patient.required_data.weight = false;
+                }
+
+                if (req.body.exercise_check == 'on') {
+                    patient.required_data.exercise = true;
+                    if (req.body.exercise_upper != '' && req.body.exercise_lower != '') {
+                        if (parseInt(req.body.exercise_upper) >= parseInt(req.body.exercise_lower)) {
+                            patient.bound.exercise_upper = req.body.exercise_upper;
+                            patient.bound.exercise_lower = req.body.exercise_lower;
+                        } else {
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for exercise', input: req.body });
+                        }
+                    } else {
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError+'for exercise', input: req.body });
+                    }
+                } else {
+                    patient.required_data.exercise = false;
+                }
+
+                if (req.body.insulin_check == 'on') {
+                    patient.required_data.insulin = true;
+                    if (req.body.insulin_upper != '' && req.body.insulin_lower != '') {
+                        if (parseInt(req.body.insulin_upper) >= parseInt(req.body.insulin_lower)) {
+                            patient.bound.insulin_upper = req.body.insulin_upper;
+                            patient.bound.insulin_lower = req.body.insulin_lower;
+                        } else {
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for insulin', input: req.body });
+                        }
+                    } else {
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for insulin', input: req.body });
+                    }
+                } else {
+                    patient.required_data.insulin = false;
+                }
+
+                if (req.body.glucose_check == 'on') {
+                    patient.required_data.glucose = true;
+                    if (req.body.glucose_upper != '' && req.body.glucose_lower != '') {
+                        if (parseInt(req.body.glucose_upper) >= parseInt(req.body.glucose_lower)) {
+                            patient.bound.glucose_upper = req.body.glucose_upper;
+                            patient.bound.glucose_lower = req.body.glucose_lower;
+                        } else {
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for glucose', input: req.body });
+                        }
+                    } else {
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for glucose', input: req.body });
+                    }
+                } else {
+                    patient.required_data.glucose = false;
+                }
+
+                await patient.save();
+                //医生要在这里添加一个patient
+                console.log("Patient added");
+                res.redirect('/clinician/dashboard');
+            } catch (err) {
+                console.log(err);
+            }
+        } else {
+            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: passwordConfirmError, input: req.body });
         }
     } else {
-        console.log("Patient already exists\n");
-        console.log("Patient id is : ", patient.id);
+       
+        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: mailExistError, input: req.body });
     }
 }
 
@@ -176,7 +256,7 @@ const searchDashboard = async (req, res) => {
             renderDashboard(req, res);
         } else {
             const clinicianID = "626392e9a4d69d527a31780f";
-        
+
             const patients = (await Clinician.findById(clinicianID).populate({
                 path: 'patients',
                 populate: {
@@ -191,16 +271,16 @@ const searchDashboard = async (req, res) => {
                     }
                 }
             }).lean()).patients;
-            
+
             const patientList = []
 
             for (i in patients) {
                 const patient = patients[i].patient_id;
-                
-                if(patient.first_name == req.body.patientName || patient.last_name == req.body.patientName){
+
+                if (patient.first_name == req.body.patientName || patient.last_name == req.body.patientName) {
                     for (j in patient.records) {
                         const record = patient.records[j].record_id;
-                        
+
 
                         if (record.date == (new Date()).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" })) {
                             patientList.push({
@@ -210,7 +290,7 @@ const searchDashboard = async (req, res) => {
                                 today_record: record,
                             });
                         }
-                    } 
+                    }
                 }
             }
 
@@ -255,7 +335,7 @@ const addRecords = async (req, res) => {
 module.exports = {
     renderDashboard,
     renderClinicianData,
-    addPatient,
+    addNewPatient,
     renderPatientData,
     searchDashboard,
     renderClinicianEditData,

@@ -117,7 +117,7 @@ const renderMoreData = async (req, res) => {
             }
         }).lean();
 
-        res.render('patient-moreData.hbs', { layout: 'patient.hbs', patient: patient, record: record });
+        res.render('patient-moreData.hbs', { layout: 'patient.hbs', patient: patient });
     } catch (err) {
         console.log(err)
     }

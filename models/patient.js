@@ -5,7 +5,7 @@ const schema = new mongoose.Schema({
     last_name: {type:String, required: true, trim: true},
     email: {type:String, required: true, unique: true},
     password: {type:String, required: true},
-    screen_name: {type:String, required: true, unique: true},
+    screen_name: {type:String, required: true},
     yearofbirth: {type:String, required: true},
     height: {type:Number, required: true},
     records: [{
@@ -23,14 +23,14 @@ const schema = new mongoose.Schema({
         insulin:{type:Boolean,required: true}
     },
     bound:{
-            glucose_upper:{type: Number, required: true},
-            glucose_lower:{type: Number, required: true},
-            weight_upper:{type: Number, required: true},
-            weight_lower:{type: Number, required: true},
-            exercise_upper:{type: Number, required: true},
-            exercise_lower:{type: Number, required: true},
-            insulin_upper:{type: Number, required: true},
-            insulin_lower:{type: Number, required: true}
+            glucose_upper:{type: Number, required: true, default: -1},
+            glucose_lower:{type: Number, required: true, default: -1},
+            weight_upper:{type: Number, required: true, default: -1},
+            weight_lower:{type: Number, required: true, default: -1},
+            exercise_upper:{type: Number, required: true, default: -1},
+            exercise_lower:{type: Number, required: true, default:-1},
+            insulin_upper:{type: Number, required: true, default: -1},
+            insulin_lower:{type: Number, required: true, default: -1}
     }
 },{versionKey: false})
 //Create collection patients in mongodb
