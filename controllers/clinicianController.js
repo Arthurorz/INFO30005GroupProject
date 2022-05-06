@@ -5,10 +5,12 @@ const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 
 const addNewPatient = async (req, res) => {
+    console.log("进来了")
     const patient = await Patient.findOne({ email: req.body.email })
     if (!patient) {
         if(req.body.password == req.body.confirm_password){
             try {
+                
                 const patient = new Patient({
                     first_name: req.body.first_name,
                     last_name: req.body.last_name,
@@ -54,6 +56,7 @@ const addNewPatient = async (req, res) => {
                 }
 
                 await patient.save();
+                //医生要在这里添加一个patient
                 console.log("Patient added");
                 res.redirect('/clinician/dashboard');
             } catch (err) {
