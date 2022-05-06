@@ -59,13 +59,15 @@ const addNewPatient = async (req, res) => {
             } catch (err) {
                 console.log(err);
             }
-        }else{
-            console.log('password not match with the confirmed password');//用其他方式提示
         }
+        // }else{
+        //     console.log('password not match with the confirmed password');//用其他方式提示
+        // }
     } else {
         console.log("Patient already exists\n");
         console.log("Patient id is : ", patient.id);
     }
+
 }
 
 //render about me hbs page   not yet done
