@@ -4,6 +4,9 @@ const clinicianController = require('../controllers/clinicianController.js')
 
 const clinicianRouter = express.Router()
 
+
+clinicianRouter.get('/login', (req, res) => res.render("normal-clinicianLogin"));
+clinicianRouter.get('/forgetpass', (req, res) => res.render("normal-forgetpass"));
 clinicianRouter.get('/dashboard',(req,res)=> clinicianController.renderDashboard(req,res))
 clinicianRouter.get('/individualData/:id', (req,res)=>clinicianController.renderPatientData(req,res))
 clinicianRouter.get('/editData/:id', (req,res)=>clinicianController.renderClinicianEditData(req,res))
