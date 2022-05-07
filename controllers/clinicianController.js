@@ -9,7 +9,8 @@ const editPatientData = async (req, res) => {
     const missBoundError = 'Need to add upper and lower bound';
     const upperAndLowerError = 'Upper bound should be larger than or equal to lower bound'
     try {
-        const patient = await Patient.findById(req.params.id).lean();
+        const patient = await Patient.findById(req.params.id);
+        const patientData = await Patient.findById(req.params.id).lean();
         console.log(patient);
         if (req.body.weight_check == 'on') {
             patient.required_data.weight = true;
@@ -18,10 +19,10 @@ const editPatientData = async (req, res) => {
                     patient.bound.weight_upper = req.body.weight_upper;
                     patient.bound.weight_lower = req.body.weight_lower;
                 } else {
-                    return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for weight', input: req.body, patientId: patient._id });
+                    return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for weight', input: req.body, patientId: patientData._id });
                 }
             } else {
-                return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for weight', input: req.body, patientId: patient._id });
+                return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for weight', input: req.body, patientId: patientData._id });
             }
         } else {
             patient.required_data.weight = false;
@@ -34,10 +35,10 @@ const editPatientData = async (req, res) => {
                     patient.bound.exercise_upper = req.body.exercise_upper;
                     patient.bound.exercise_lower = req.body.exercise_lower;
                 } else {
-                    return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for exercise', input: req.body, patientId: patient._id });
+                    return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for exercise', input: req.body, patientId: patientData._id });
                 }
             } else {
-                return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError+'for exercise', input: req.body, patientId: patient._id });
+                return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError+'for exercise', input: req.body, patientId: patientData._id });
             }
         } else {
             patient.required_data.exercise = false;
@@ -50,10 +51,10 @@ const editPatientData = async (req, res) => {
                     patient.bound.insulin_upper = req.body.insulin_upper;
                     patient.bound.insulin_lower = req.body.insulin_lower;
                 } else {
-                    return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for insulin', input: req.body, patientId: patient._id });
+                    return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for insulin', input: req.body, patientId: patientData._id });
                 }
             } else {
-                return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for insulin', input: req.body, patientId: patient._id });
+                return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for insulin', input: req.body, patientId: patientData._id });
             }
         } else {
             patient.required_data.insulin = false;
@@ -66,10 +67,10 @@ const editPatientData = async (req, res) => {
                     patient.bound.glucose_upper = req.body.glucose_upper;
                     patient.bound.glucose_lower = req.body.glucose_lower;
                 } else {
-                    return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for glucose', input: req.body, patientId: patient._id });
+                    return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for glucose', input: req.body, patientId: patientData._id });
                 }
             } else {
-                return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for glucose', input: req.body, patientId: patient._id });
+                return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for glucose', input: req.body, patientId: patientData._id });
             }
         } else {
             patient.required_data.glucose = false;
@@ -78,7 +79,7 @@ const editPatientData = async (req, res) => {
 
         await patient.save();
         
-        res.redirect('/clinician/individualData/' + patient._id);
+        res.redirect('/clinician/individualData/' + patientData._id);
     } catch (err) {
         console.log(err)
     }
@@ -219,7 +220,7 @@ const renderClinicianEditData = async (req, res) => {
     try {
         const patient = await Patient.findById(req.params.id).lean();
 
-        res.render('clinician-editData.hbs', { layout: 'clinician.hbs', patient: patient ,patientId : patient._id});
+        res.render('clinician-editData.hbs', { layout: 'clinician.hbs', patient: patient , patientId : patient._id});
     } catch (err) {
         console.log(err)
     }
