@@ -59,24 +59,13 @@ app.get('/data', (req, res) => {
     });
 });
 
-
-app.get('/add', (req, res) => {
-    res.render("patient-addData", {
+app.get('/aboutme', (req, res) => {
+    res.render("patient-aboutme", {
         layout: "patient.hbs",
     }); 
 }); 
 
-app.get('/editaboutme', (req, res) => {
-    res.render("patient-editaboutme", {
-        layout: "patient.hbs",
-    }); 
-}); 
 
-app.get('/test', (req, res) => {
-    res.render("test-dataDetail", {
-        layout: "patient.hbs",
-    }); 
-}); 
 // render page with clinician header for testing
 app.use('/clinician', clinicianRouter);
 
@@ -85,8 +74,8 @@ app.get('/editData', (req, res) => {
         layout: "clinician.hbs",
     }); 
 }); 
-app.get('/newPatient', (req, res) => {
-    res.render("clinician-newPatient", {
+app.get('/caboutme', (req, res) => {
+    res.render("clinician-aboutme", {
         layout: "clinician.hbs",
     }); 
 }); 
