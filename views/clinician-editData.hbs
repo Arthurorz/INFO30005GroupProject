@@ -1,52 +1,55 @@
 <h1>Edit The Data</h1>
-<div class="editData-body">
-    <form>
-        <div class="chooseRange">
-            <input class="chooseBox" type="checkbox" name="check">
-            <span class="category">Weight</span>
-            <div class="textLine">
-                From
-                <span class="rangeBox"><input class="textBox" type="number" name="" placeholder="70"></span>
-                To
-                <span class="rangeBox"><input class="textBox" type="number" name="" placeholder="100"> </span>
-                Kg
+<form action = "/clinician/editData/{{patientId}}" method="post">
+    <div class="editData-body">
+        <div>
+            <div class="chooseRange">
+                <input class="chooseBox" type="checkbox" name="weight_check">
+                <span class="category">Weight</span>
+                <div class="textLine">
+                    From
+                    <span class="rangeBox"><input class="textBox" type="number" step = "0.01" name="weight_lower" placeholder="70" value={{input.weight_lower}}></span>
+                    To
+                    <span class="rangeBox"><input class="textBox" type="number" step = "0.01" name="weight_upper" placeholder="100"value={{input.weight_upper}}></span>
+                    Kg
+                </div>
+            </div>
+            <div class="chooseRange">
+                <input class="chooseBox" type="checkbox" name="exercise_check">
+                <span class="category">Exercise</span>
+                <div class="textLine">
+                    From
+                    <span class="rangeBox"><input class="textBox" type="number" step = "1" name="exercise_lower" placeholder="1000" value={{input.exercise_lower}}></span>
+                    To
+                    <span class="rangeBox"><input class="textBox" type="number" step = "1" name="exercise_upper" placeholder="4000" value={{input.exercise_upper}}></span>
+                    steps
+                </div>
+            </div>
+            <div class="chooseRange">
+                <input class="chooseBox" type="checkbox" name="insulin_check">
+                <span class="category">Doses of Insulin Taken</span>
+                <div class="textLine">
+                    From
+                    <span class="rangeBox"><input class="textBox" type="number" step = "1" name="insulin_lower" placeholder="1" value={{input.insulin_lower}}></span>
+                    To
+                    <span class="rangeBox"><input class="textBox" type="number" step = "1" name="insulin_upper" placeholder="3" value={{input.insulin_upper}}></span>
+                    Doses
+                </div>
+            </div>
+            <div class="chooseRange">
+                <input class="chooseBox" type="checkbox" name="glucose_check">
+                <span class="category">Blood Glucose Level</span>
+                <div class="textLine">
+                    From
+                    <span class="rangeBox"><input class="textBox" type="number" step = "0.01" name="glucose_lower" placeholder="3.9" value={{input.glucose_lower}}></span>
+                    To
+                    <span class="rangeBox"><input class="textBox" type="number" step = "0.01" name="glucose_upper" placeholder="6.1" value={{input.glucose_upper}}></span>
+                    nmol/L
+                </div>
             </div>
         </div>
-        <div class="chooseRange">
-            <input class="chooseBox" type="checkbox" name="check">
-            <span class="category">Exercise</span>
-            <div class="textLine">
-                From
-                <span class="rangeBox"><input class="textBox" type="number" name="" placeholder="1000"></span>
-                To
-                <span class="rangeBox"><input class="textBox" type="number" name="" placeholder="4000"> </span>
-                steps
-            </div>
+        <div class="submit">
+            <button class="saveButton" onclick="window.location.href=''" type="submit">Save</button>
         </div>
-        <div class="chooseRange">
-            <input class="chooseBox" type="checkbox" name="check">
-            <span class="category">Doses of Insulin Taken</span>
-            <div class="textLine">
-                From
-                <span class="rangeBox"><input class="textBox" type="number" name="" placeholder="1"></span>
-                To
-                <span class="rangeBox"><input class="textBox" type="number" name="" placeholder="4"> </span>
-                Doses
-            </div>
-        </div>
-        <div class="chooseRange">
-            <input class="chooseBox" type="checkbox" name="check">
-            <span class="category">Blood Glucose Level</span>
-            <div class="textLine">
-                From
-                <span class="rangeBox"><input class="textBox" type="number" name="" placeholder="3.9"></span>
-                To
-                <span class="rangeBox"><input class="textBox" type="number" name="" placeholder="6.1"> </span>
-                nmol/L
-            </div>
-        </div>
-    </form>
-    <div class="submit">
-        <button class="saveButton" onclick="window.location.href=''" type="button">Save</button>
+        <p>{{error}}</p>
     </div>
-</div>
+</form>

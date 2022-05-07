@@ -4,6 +4,86 @@ const Clinician = require('../models/clinician.js');
 const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 
+const editPatientData = async (req, res) => {
+    
+    const missBoundError = 'Need to add upper and lower bound';
+    const upperAndLowerError = 'Upper bound should be larger than or equal to lower bound'
+    try {
+        const patient = await Patient.findById(req.params.id);
+        console.log(patient);
+        if (req.body.weight_check == 'on') {
+            patient.required_data.weight = true;
+            if (req.body.weight_upper != '' && req.body.weight_lower != '') {
+                if (parseInt(req.body.weight_upper) >= parseInt(req.body.weight_lower)) {
+                    patient.bound.weight_upper = req.body.weight_upper;
+                    patient.bound.weight_lower = req.body.weight_lower;
+                } else {
+                    return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for weight', input: req.body, patientId: patient._id });
+                }
+            } else {
+                return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for weight', input: req.body, patientId: patient._id });
+            }
+        } else {
+            patient.required_data.weight = false;
+        }
+
+        if (req.body.exercise_check == 'on') {
+            patient.required_data.exercise = true;
+            if (req.body.exercise_upper != '' && req.body.exercise_lower != '') {
+                if (parseInt(req.body.exercise_upper) >= parseInt(req.body.exercise_lower)) {
+                    patient.bound.exercise_upper = req.body.exercise_upper;
+                    patient.bound.exercise_lower = req.body.exercise_lower;
+                } else {
+                    return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for exercise', input: req.body, patientId: patient._id });
+                }
+            } else {
+                return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError+'for exercise', input: req.body, patientId: patient._id });
+            }
+        } else {
+            patient.required_data.exercise = false;
+        }
+
+        if (req.body.insulin_check == 'on') {
+            patient.required_data.insulin = true;
+            if (req.body.insulin_upper != '' && req.body.insulin_lower != '') {
+                if (parseInt(req.body.insulin_upper) >= parseInt(req.body.insulin_lower)) {
+                    patient.bound.insulin_upper = req.body.insulin_upper;
+                    patient.bound.insulin_lower = req.body.insulin_lower;
+                } else {
+                    return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for insulin', input: req.body, patientId: patient._id });
+                }
+            } else {
+                return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for insulin', input: req.body, patientId: patient._id });
+            }
+        } else {
+            patient.required_data.insulin = false;
+        }
+
+        if (req.body.glucose_check == 'on') {
+            patient.required_data.glucose = true;
+            if (req.body.glucose_upper != '' && req.body.glucose_lower != '') {
+                if (parseInt(req.body.glucose_upper) >= parseInt(req.body.glucose_lower)) {
+                    patient.bound.glucose_upper = req.body.glucose_upper;
+                    patient.bound.glucose_lower = req.body.glucose_lower;
+                } else {
+                    return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for glucose', input: req.body, patientId: patient._id });
+                }
+            } else {
+                return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for glucose', input: req.body, patientId: patient._id });
+            }
+        } else {
+            patient.required_data.glucose = false;
+        }
+
+
+        await patient.save();
+        
+        res.redirect('/clinician/individualData/' + patient._id);
+    } catch (err) {
+        console.log(err)
+    }
+}
+
 const addNewPatient = async (req, res) => {
 
     const missBoundError = 'Error: Need to add upper and lower bound';
@@ -137,9 +217,9 @@ const renderNewPatient = async (req, res) => {
 //render clinician edit data page
 const renderClinicianEditData = async (req, res) => {
     try {
-        const patient = await Patient.findOne({ _id: req.params.id });
+        const patient = await Patient.findById(req.params.id);
 
-        res.render('clinician-editData.hbs', { layout: 'clinician.hbs', patient: patient });
+        res.render('clinician-editData.hbs', { layout: 'clinician.hbs', patient: patient ,patientId : patient._id});
     } catch (err) {
         console.log(err)
     }
@@ -340,4 +420,5 @@ module.exports = {
     searchDashboard,
     renderClinicianEditData,
     renderNewPatient,
+    editPatientData,
 }
