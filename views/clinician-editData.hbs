@@ -3,7 +3,11 @@
     <div class="editData-body">
         <div>
             <div class="chooseRange">
+                {{#ifChecked patient.required_data.weight}}
+                <input class="chooseBox" type="checkbox" name="weight_check" checked="checked">
+                {{else}}
                 <input class="chooseBox" type="checkbox" name="weight_check">
+                {{/ifChecked}}
                 <span class="category">Weight</span>
                 <div class="textLine">
                     {{#ifChecked patient.required_data.weight}}
@@ -22,7 +26,11 @@
                 </div>
             </div>
             <div class="chooseRange">
+                {{#ifChecked patient.required_data.exercise}}
+                <input class="chooseBox" type="checkbox" name="exercise_check" checked="checked">
+                {{else}}
                 <input class="chooseBox" type="checkbox" name="exercise_check">
+                {{/ifChecked}}
                 <span class="category">Exercise</span>
                 <div class="textLine">
                     {{#ifChecked patient.required_data.exercise}}
@@ -41,7 +49,11 @@
                 </div>
             </div>
             <div class="chooseRange">
+                {{#ifChecked patient.required_data.insulin}}
+                <input class="chooseBox" type="checkbox" name="insulin_check" checked="checked">
+                {{else}}
                 <input class="chooseBox" type="checkbox" name="insulin_check">
+                {{/ifChecked}}
                 <span class="category">Doses of Insulin Taken</span>
                 <div class="textLine">
                     {{#ifChecked patient.required_data.insulin}}
@@ -60,7 +72,11 @@
                 </div>
             </div>
             <div class="chooseRange">
+                {{#ifChecked patient.required_data.glucose}}
+                <input class="chooseBox" type="checkbox" name="glucose_check" checked="checked">
+                {{else}}
                 <input class="chooseBox" type="checkbox" name="glucose_check">
+                {{/ifChecked}}
                 <span class="category">Blood Glucose Level</span>
                 <div class="textLine">
                     {{#ifChecked patient.required_data.glucose}}
