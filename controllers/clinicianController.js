@@ -9,7 +9,7 @@ const editPatientData = async (req, res) => {
     const missBoundError = 'Need to add upper and lower bound';
     const upperAndLowerError = 'Upper bound should be larger than or equal to lower bound'
     try {
-        const patient = await Patient.findById(req.params.id);
+        const patient = await Patient.findById(req.params.id).lean();
         console.log(patient);
         if (req.body.weight_check == 'on') {
             patient.required_data.weight = true;
@@ -217,7 +217,7 @@ const renderNewPatient = async (req, res) => {
 //render clinician edit data page
 const renderClinicianEditData = async (req, res) => {
     try {
-        const patient = await Patient.findById(req.params.id);
+        const patient = await Patient.findById(req.params.id).lean();
 
         res.render('clinician-editData.hbs', { layout: 'clinician.hbs', patient: patient ,patientId : patient._id});
     } catch (err) {

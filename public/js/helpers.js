@@ -90,6 +90,13 @@ const helpers = {
         } else {
             return options.inverse(this);
         }
+    },
+    ifChecked: function (value, options) {
+        if (value == true) {
+            return options.fn(this);
+        }else{
+            return options.inverse(this);
+        }
     }
 };
 
