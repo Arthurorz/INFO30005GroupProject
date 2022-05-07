@@ -1,7 +1,7 @@
 <div class="login-background"></div>
 <div class="login">
     {{!-- Page Header --}}
-    <h4>Login</h4>
+    <h4>Clinician Login</h4>
     {{!-- Login Box --}}
     <div class="loginContainer">
         <form action="normal-login" method="post">
@@ -9,16 +9,16 @@
             <input type="email" id="emails" name="email" placeholder="123@xxx.com">
             <p for="pass">Password:</p>
             <input type="password" id="pass" name="password" placeholder="at least 8 characters">
+            {{!-- <div class="ForgetPassword"> --}}
+                <a class="ForgetPassword" href='/normal/clinicianForgetpass'>Forget Password?</a>
+            {{!-- </div> --}}
+            <div class="mid-login">
+                <button class="middle-login" onclick="window.location.href=''" type="button">Login</button>
+            </div>
         </form>
     </div>
-    <div class="rememberMe">
-        <div>
-            <input class="checkbox" type="checkbox" name="rememberme" value="rememberme">
-            <span>Remember me</span>
-        </div>
-        <div>
-            <a class="ForgetPassword" onclick="window.location.href='/normal/forgetPassword'">Forget Password?</a>
-        </div>
-    </div>
-    <button class="middle-login" onclick="window.location.href=''" type="button">Login</button>
+
+</div>
+<div class="shiftRole">
+    <a href="/normal/patientLogin">I am not a Clinician, I am a Patient</a>
 </div>

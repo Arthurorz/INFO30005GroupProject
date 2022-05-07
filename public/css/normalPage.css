@@ -255,12 +255,15 @@ h4 {
 }
 
 .ForgetPassword {
+    float: right;
     text-decoration: none;
     color: black;
+    font-size: 0.75rem;
 }
 
-.rememberMe {
+/* .rememberMe {
     display: flex;
+    float: right;
     justify-content: space-between;
     padding: 0 3.39% 0 3.39%;
     font-size: 0.75rem;
@@ -268,7 +271,7 @@ h4 {
 
 .rememberMe .checkbox {
     width: 10px;
-}
+} */
 
 .middle-login {
     display: block;
@@ -280,6 +283,21 @@ h4 {
     border: none;
     font-size: 1rem;
     margin: 0.75rem auto;
+}
+
+.mid-login {
+    margin-top: 8%;
+    align-items: center;
+}
+
+.shiftRole{
+    padding-top: 3%;
+    text-decoration: underline;
+    text-align: center;
+}
+
+.shiftRole a{
+    color: black;
 }
 
 /* Forget Password Page */
@@ -596,15 +614,19 @@ button.sentcode {
         font-size: 2.375rem;
     }
 
-    .rememberMe {
+    .ForgetPassword {
         font-size: 1.25rem;
-        padding: 0 12% 0 13.16%;
+        /* padding: 0 12% 0 13.16%; */
     }
 
-    .rememberMe .checkbox {
+    .shiftRole{
+        font-size: 1.75rem;
+    }
+
+    /* .rememberMe .checkbox {
         width: 20px;
         height: 20px;
-    }
+    } */
 
     .loginContainer {
         padding: 0 13.16% 0 13.16%;
@@ -616,10 +638,14 @@ button.sentcode {
         font-size: 1.5rem;
     }
 
+    .mid-login {
+        margin-top: 10%
+    }
+
     .middle-login {
         display: block;
         height: 3.875rem;
-        width: 25.82%;
+        width: 30.82%;
         font-size: 2.215rem;
         margin: 2rem auto;
     }

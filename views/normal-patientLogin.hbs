@@ -1,0 +1,24 @@
+<div class="login-background"></div>
+<div class="login">
+    {{!-- Page Header --}}
+    <h4>Patient Login</h4>
+    {{!-- Login Box --}}
+    <div class="loginContainer">
+        <form action="normal-login" method="post">
+            <p for="email">Email Address:</p>
+            <input type="email" id="emails" name="email" placeholder="123@xxx.com">
+            <p for="pass">Password:</p>
+            <input type="password" id="pass" name="password" placeholder="at least 8 characters">
+            {{!-- <div class="ForgetPassword"> --}}
+                <a class="ForgetPassword" href='/normal/patientForgetpass'>Forget Password?</a>
+            {{!-- </div> --}}
+            <div class="mid-login">
+                <button class="middle-login" onclick="window.location.href=''" type="button">Login</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+<div class="shiftRole">
+    <a href="/normal/clinicianLogin">I am not a Patient, I am a Clinician</a>
+</div>
