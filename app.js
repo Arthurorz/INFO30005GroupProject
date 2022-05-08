@@ -106,8 +106,11 @@ app.get('/caboutme', (req, res) => {
         layout: "clinician.hbs",
     }); 
 }); 
-
-
+app.get('/comment', (req, res) => {
+    res.render("clinician-commentList", {
+        layout: "clinician.hbs",
+    }); 
+}); 
 // Tells the app to listen on port 3000 and logs that information to the console. 
 app.listen(process.env.PORT || 3000, () => {
     console.log('Diabetes app listening on port 3000!');

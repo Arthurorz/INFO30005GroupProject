@@ -792,3 +792,9 @@ li div{
     height: 16.4375em;
     width: 83.39%;
 }
+
+/* Comment List Page*/
+.commentLine{
+    width: 50.36%;
+    margin: 0 auto;
+}
