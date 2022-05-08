@@ -797,4 +797,48 @@ li div{
 .commentLine{
     width: 50.36%;
     margin: 0 auto;
+    border: 1px solid #707070;
+    display: flex;
+}
+
+.commentLine span{
+    font-size: 1.625rem;
+}
+
+.readComment{
+    width: 0.75rem;
+    padding: 0.25rem;
+    position: absolute;
+}
+
+.commentLeft{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+}
+
+.commentLeft img{
+    width: 4.625rem;
+}
+
+/* .commentRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+} */
+.commentRight{
+    width: 88%;
+    margin: 1.5625rem auto;
+}
+
+.commentRight div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.commentRight p{
+    margin-top: 0.75rem;
+    font-size: 1.25rem;
 }

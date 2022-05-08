@@ -220,6 +220,14 @@ iframe {
 }
 
 /* Login */
+.alertMessage{
+    display: flex;
+    justify-content: center;
+    color: red;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
 .login {
     margin: 200px 10.67% 0 10.67%;
     border-radius: 0.5rem;
