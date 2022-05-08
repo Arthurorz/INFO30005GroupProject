@@ -33,10 +33,10 @@
                 </div>
             </div>
         </div>
-        <form> <!--add post in future-->
+        <form action="/clinician/individualData/support_msg/{{patient._id}}" method="post">
             <div class="message">
-                <div class="support"><input type="text" id="text" name="text" placeholder="Support Message..."></div>
-                <button class="message-save" onclick="window.location.href=''" type="button">Save</button>
+                <div class="support"><input type="text" id="text" name="support_message" placeholder="{{patient.support_message}}"></div>
+                <button class="message-save" onclick="window.location.href=''" type="submit">Save</button>
             </div>
         </form>
     </div>
@@ -65,7 +65,7 @@
                 </select>
                 <select class="year" placeholder="Year">
                     <option name="" value="" style="display:none;">Year</option>
-                    <option name="2021" value="Jan">2021</option>
+                    <option name="2021" value="">2021</option>
                     <option name="2022" value="">2022</option>
                 </select>
             </div>
