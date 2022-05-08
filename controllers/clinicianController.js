@@ -239,13 +239,54 @@ const renderPatientData = async (req, res) => {
             path: 'clinician',
             options: { lean: true }
         }).lean();
-
-        res.render('clinician-individualData.hbs', { layout: 'clinician.hbs', patient: patient });
+        const records = patient.records;
+        const recordList = [];
+        for (i in records){
+            recordList.push(records[i]);
+        }
+        sortByDate(recordList);
+        res.render('clinician-individualData.hbs', { layout: 'clinician.hbs', patient: patient, records: recordList});
     } catch (err) {
         console.log(err)
     }
 }
 
+function sortByDate(recordList){
+    //insertion sort
+    for (var i = 1; i < recordList.length; i++) {
+        var temp = recordList[i];
+        for (j = i - 1; j >= 0; j--) {
+            if(compareByDate(temp,recordList[j])>0){
+                recordList[j+1]=recordList[j]
+            }
+            else{
+                break;
+            }
+        }
+        recordList[j+1] = temp;
+    }
+}
+
+function compareByDate(record1, record2){
+    month1 = parseInt(record1.record_id.date.substring(3,5));
+    month2 = parseInt(record2.record_id.date.substring(3,5));
+    day1 = parseInt(record1.record_id.date.substring(0,2));
+    day2 = parseInt(record2.record_id.date.substring(0,2));
+
+    if(month1<month2){
+        return -1;
+    }else if(month1 == month2){
+        if(day1<day2){
+            return -1;
+        }if(day1==day2){
+            return 0;
+        }else{
+            return 1;
+        }
+    }else{
+        return 1;
+    }
+}
 //render the clinician dashboard hbs page
 const renderDashboard = async (req, res) => {
     try {
