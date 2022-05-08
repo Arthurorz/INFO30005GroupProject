@@ -1,5 +1,7 @@
 // Import handlebars
 const exphbs = require('express-handlebars');
+const flash = require('express-flash')
+const session = require('express-session')
 
 // Import express
 const express = require('express');
@@ -28,6 +30,7 @@ app.engine(
         helpers: require("./public/js/helpers.js").helpers,
     })
 );
+
 // set Handlebars view engine
 app.set('view engine', 'hbs');
 
@@ -35,6 +38,7 @@ app.use(express.static('public'));
 app.use(express.static('public/static'));
 
 // Set up to handle POST requests
+app.use(flash());
 app.use(express.json()); // needed if POST data is in JSON format
 app.use(express.urlencoded({ extended: false })); // only needed for URL-encoded input
 
@@ -42,6 +46,29 @@ app.use(express.urlencoded({ extended: false })); // only needed for URL-encoded
 app.get('/', (req, res) => {
     res.send('Diabetes app listening on port 3000!');
 });
+
+// Track authenticated users through login sessions
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET || 'keyboard cat',
+        name: 'weballgood',
+        saveUninitialized: false,
+        resave: false,
+        cookie: {
+            sameSite: 'strict',
+            httpOnly: true,
+            secure: app.get('env') === 'production'
+        },
+    })
+)
+
+if (app.get('env') === 'production') {
+    app.set('trust proxy', 1); 
+}
+
+// Initialise Passport.js
+const passport = require('./passport')
+app.use(passport.authenticate('session'))
 
 // render page with normal header for testing
 app.use('/normal', normalRouter);
@@ -79,6 +106,7 @@ app.get('/caboutme', (req, res) => {
         layout: "clinician.hbs",
     }); 
 }); 
+
 
 // Tells the app to listen on port 3000 and logs that information to the console. 
 app.listen(process.env.PORT || 3000, () => {

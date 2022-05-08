@@ -6,3 +6,6 @@ mongoose.connect(process.env.MONGO_URL || "mongodb+srv://ZhikaiWu:wzk35258970@we
 })
     .then(() => console.log("Connected to mongodb"))
     .catch((err) => console.log(err, "Error connecting to mongodb"));
+
+require('./clinician')
+require('./patient')

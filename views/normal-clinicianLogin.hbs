@@ -2,16 +2,19 @@
 <div class="login">
     {{!-- Page Header --}}
     <h4>Clinician Login</h4>
+    {{#each flash}}
+    <p class="alert">{{this}}</p>
+    {{/each}}
     {{!-- Login Box --}}
     <div class="loginContainer">
-        <form action="normal-login" method="post">
+        <form action="/clinician/login" method="post">
             <p for="email">Email Address:</p>
             <input type="email" id="emails" name="email" placeholder="123@xxx.com">
             <p for="password">Password:</p>
             <input type="password" id="pass" name="password" placeholder="at least 8 characters">
             <a class="ForgetPassword" href='/clinician/forgetpass'>Forget Password?</a>
             <div class="mid-login">
-                <button class="middle-login" onclick="window.location.href=''" type="button">Login</button>
+                <button class="middle-login" type="submit">Login</button>
             </div>
         </form>
     </div>

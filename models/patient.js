@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs')
 
 const schema = new mongoose.Schema({
     first_name: {type:String, required: true, trim: true},
@@ -33,6 +34,33 @@ const schema = new mongoose.Schema({
             insulin_lower:{type: Number, required: true, default: -1}
     }
 },{versionKey: false})
+
+// Password comparison function
+schema.methods.verifyPassword = function (password, callback) {
+    bcrypt.compare(password, this.password, (err, valid) => {
+        callback(err, valid)
+    })
+}
+
+// Password salt factor
+const SALT_FACTOR = 10
+
+// Hash password before saving
+schema.pre('save', function save(next) {
+    const user = this
+    if (!user.isModified('password')) {
+        return next()
+    }
+    
+    bcrypt.hash(user.password, SALT_FACTOR, (err, hash) => {
+        if (err) {
+            return next(err)
+        }
+        user.password = hash
+        next()
+    })
+})
+
 //Create collection patients in mongodb
 const Patient = mongoose.model('Patient', schema);
 module.exports = Patient;
