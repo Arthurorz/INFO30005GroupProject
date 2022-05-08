@@ -287,6 +287,18 @@ function compareByDate(record1, record2){
         return 1;
     }
 }
+
+const saveSupportMsg = async (req, res) => {
+    try {
+        const patient = await Patient.findById(req.params.id);
+        patient.support_msg = req.body.support_msg;
+        await patient.save();
+        res.redirect('/clinician/individualData/' + req.params.id);
+    } catch (err) {
+        console.log(err)
+    }
+
+}
 //render the clinician dashboard hbs page
 const renderDashboard = async (req, res) => {
     try {
@@ -463,4 +475,5 @@ module.exports = {
     renderClinicianEditData,
     renderNewPatient,
     editPatientData,
+    saveSupportMsg,
 }

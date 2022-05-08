@@ -16,6 +16,7 @@ clinicianRouter.get('/newPatient', (req,res)=>clinicianController.renderNewPatie
 clinicianRouter.post('/search',(req,res)=> clinicianController.searchDashboard(req,res))
 clinicianRouter.post('/newPatient',(req,res)=> clinicianController.addNewPatient(req,res))
 clinicianRouter.post('/editData/:id',(req,res)=> clinicianController.editPatientData(req,res))
+clinicianRouter.post('/individualData/support_msg',(req,res)=> clinicianController.saveSupportMsg(req,res))
 
 // Authentication middleware
 const isAuthenticated = (req, res, next) => {
