@@ -81,11 +81,49 @@ const renderHomePage = async (req, res, next) => {
                 record: await Record.findOne({date: recent7date}).lean(),
             });
         }
+        sortByDate(recent7);
 
         //Render the homepage
         res.render("patient-homePage.hbs", { layout: 'patient.hbs', patient: patient, clinician: clinician,today: today,recent7: recent7});
     }catch (err) {
         return next(err);
+    }
+}
+
+function sortByDate(recordList){
+    //insertion sort
+    for (var i = 1; i < recordList.length; i++) {
+        var temp = recordList[i];
+        for (j = i - 1; j >= 0; j--) {
+            if(compareByDate(temp,recordList[j])>0){
+                recordList[j+1]=recordList[j]
+            }
+            else{
+                break;
+            }
+        }
+        recordList[j+1] = temp;
+    }
+}
+
+function compareByDate(record1, record2){
+    month1 = parseInt(record1.date.substring(3,5));
+    month2 = parseInt(record2.date.substring(3,5));
+    day1 = parseInt(record1.date.substring(0,2));
+    day2 = parseInt(record2.date.substring(0,2));
+
+    if(month1<month2){
+        return -1;
+    }else if(month1 == month2){
+        if(day1<day2){
+            return -1;
+        }if(day1==day2){
+            return 0;
+        }else{
+            return 1;
+        }
+    }else{
+        return 1;
     }
 }
 
