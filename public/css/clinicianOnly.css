@@ -798,6 +798,40 @@ li div{
 }
 
 /* Comment List Page*/
+.commentSearch{
+    width: 50.36%;
+    display: flex;
+    justify-content: end;
+    margin: 0 auto 1.5625rem auto;
+}
+
+.commentSearch form{
+    width: 24.41%;
+}
+
+.commentSearch input{
+    border: 1px solid;
+    width: 97%;
+    border-radius: 2.25rem;
+    height: 3rem;
+}
+
+.commentSearch input::placeholder{
+    padding: 12px;
+}
+
+.commentSearch img{
+    width: 1.6875rem;
+    position: absolute;
+    top: 31.5%;
+    right: 26%;
+}
+
+.commentSearch button{
+    display: contents;
+}
+
+
 .commentLine{
     width: 50.36%;
     margin: 0 auto;
@@ -835,6 +869,18 @@ li div{
 .commentRight{
     width: 88%;
     margin: 1.5625rem auto;
+}
+
+.commentLower{
+    background-color: #747373;
+    /* border: 1px solid #AAA9A9; */
+    padding: 0 5px;
+}
+
+.commentUpper{
+    background-color: #F29393;
+    /* border: 1px solid #AAA9A9; */
+    padding: 0 6px;
 }
 
 .commentRight div{
