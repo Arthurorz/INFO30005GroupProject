@@ -778,6 +778,10 @@ li div{
     font-size: 1.625em;
 }
 
+.aboutMe-right .saveButton{
+    margin-top: 8%;
+}
+
 .textBoarder{
     margin: auto;
     width: 100%;

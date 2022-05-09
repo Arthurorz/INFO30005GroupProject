@@ -671,7 +671,13 @@ input[type=checkbox]:checked~.edit-page {
     display: block;
 }
 
-.edit-button, .aboutme-delete{
+.aboutme-delete{
+    width: 1.5rem;
+    margin-right: 1.625rem;
+    float: right;
+}
+
+.edit-button{
     width: 1rem;
     float: right;
     margin-right: 2.125rem;
@@ -720,6 +726,10 @@ input[type=checkbox]:checked~.edit-page {
     font-size: 0.75rem;
     text-align: center;
     font-style: italic;
+}
+
+.edit-page .saveButton{
+    margin:0.875rem auto 5rem auto;
 }
 
 .detail-change{
@@ -1396,11 +1406,16 @@ input[type=checkbox]:checked~.edit-page {
 
     /* About Me Page */
 
-    .edit-button, .aboutme-delete{
+    .edit-button{
         width: 2.375rem;
         margin-right: 9%;
     }
 
+    .aboutme-delete{
+        width: 3.5rem;
+        margin-right: 8.8%;
+    }
+    
     .aboutme-body, .edit-body{
         display: flex;
         width: 100%;
