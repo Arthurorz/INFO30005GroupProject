@@ -4,6 +4,8 @@ const Clinician = require('../models/clinician.js');
 const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 
+
+
 const editPatientData = async (req, res) => {
     
     const missBoundError = 'Need to add upper and lower bound';
@@ -203,6 +205,156 @@ const renderClinicianData = async (req, res) => {
         res.send("error happened when rendering clinician data");
     }
 }
+//render comment list page 
+const renderCommentList = async (req, res) => {
+    try {
+        const clinicianID = "626392e9a4d69d527a31780f";//hardcode for D2
+        const patients = (await Clinician.findById(clinicianID).populate({
+            path: 'patients',
+            populate: {
+                path: 'patient_id',
+                populate: {
+                    path: 'records',
+                    options: { lean: true },
+                    populate: {
+                        path: 'record_id',
+                        options: { lean: true },
+                    }
+                }
+            }
+        }).lean()).patients;
+
+        const commentList = [];
+        for(i in patients){
+            const patient = patients[i].patient_id;
+            for(j in patient.records){
+                const record = patient.records[j].record_id;
+                if(record.data.weight.comment!=''){
+                    commentList.push({
+                        //patientAvatar:  *******,
+                        timeStamp: record.data.weight.date,
+                        comment:record.data.weight.comment,
+                        patientName: patient.first_name,
+                        upper_bound : patient.bound.weight_upper,
+                        lower_bound : patient.bound.weight_lower,
+                        value : record.data.weight.value,
+                        type: 'weight',
+                        unit : 'kg'
+                    });
+                }
+                if(record.data.glucose.comment!=''){
+                    commentList.push({
+                        //patientAvatar:  *******,
+                        timeStamp: record.data.glucose.date,
+                        comment:record.data.glucose.comment,
+                        patientName: patient.first_name,
+                        upper_bound : patient.bound.glucose_upper,
+                        lower_bound : patient.bound.glucose_lower,
+                        value : record.data.glucose.value,
+                        type: 'glucose',
+                        unit : 'nmol/L'
+                    });
+                }
+                if(record.data.exercise.comment!=''){
+                    commentList.push({
+                        //patientAvatar:  *******,
+                        timeStamp: record.data.exercise.date,
+                        comment:record.data.exercise.comment,
+                        patientName: patient.first_name,
+                        upper_bound : patient.bound.exercise_upper,
+                        lower_bound : patient.bound.exercise_lower,
+                        value : record.data.exercise.value,
+                        type: 'exercise',
+                        unit: 'steps'
+                    });
+                }
+                if (record.data.insulin.comment != '') {
+                    commentList.push({
+                        //patientAvatar:  *******,
+                        timeStamp: record.data.insulin.date,
+                        comment: record.data.insulin.comment,
+                        patientName: patient.first_name,
+                        upper_bound: patient.bound.insulin_upper,
+                        lower_bound: patient.bound.insulin_lower,
+                        value: record.data.insulin.value,
+                        type: 'insulin',
+                        unit: 'doses'
+                    });
+                }
+            }
+        }
+        sortByTimeStamp(commentList);
+        res.render('clinician-commentList.hbs', { layout: 'clinician.hbs', commentList: commentList });
+    } catch (err) {
+        res.status(400);
+        res.send("error happened when rendering commentList page");
+    }
+}
+
+function sortByTimeStamp(commentList){
+    //insertion sort
+    for (var i = 1; i < commentList.length; i++) {
+        var temp = commentList[i];
+        for (j = i - 1; j >= 0; j--) {
+            if(compareCommentByTimeStamp(temp,commentList[j])>0){
+                commentList[j+1]=commentList[j]
+            }
+            else{
+                break;
+            }
+        }
+        commentList[j+1] = temp;
+    }
+}
+
+function compareCommentByTimeStamp(comment1,comment2){
+    month1 = parseInt(comment1.timeStamp.substring(3,5));
+    month2 = parseInt(comment2.timeStamp.substring(3,5));
+    day1 = parseInt(comment1.timeStamp.substring(0,2));
+    day2 = parseInt(comment2.timeStamp.substring(0,2));
+    year1 = parseInt(comment1.timeStamp.substring(6,10));
+    year2 = parseInt(comment2.timeStamp.substring(6,10));
+    hour1 = parseInt(comment1.timeStamp.substring(12,14));
+    hour2 = parseInt(comment2.timeStamp.substring(12,14));
+    minute1 = parseInt(comment1.timeStamp.substring(15,17));
+    minute2 = parseInt(comment2.timeStamp.substring(15,17));
+    second1 = parseInt(comment1.timeStamp.substring(18,20));
+    second2 = parseInt(comment2.timeStamp.substring(18,20));
+
+    if (year1 < year2) {
+        return -1;
+    }
+    else if (year1 == year2) {
+        if (month1 < month2) {
+            return -1;
+        }
+        else if (month1 == month2) {
+            if (day1 < day2) {
+                return -1;
+            }
+            else if (day1 == day2) {
+                if (hour1 < hour2) {
+                    return -1;
+                }
+                else if (hour1 == hour2) {
+                    if (minute1 < minute2) {
+                        return -1;
+                    }
+                    else if (minute1 == minute2) {
+                        if (second1 < second2) {
+                            return -1;
+                        }
+                        else if (second1 == second2) {
+                            return 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return 1;
+}
+
 //render NewPatient hbs page
 const renderNewPatient = async (req, res) => {
     try {
@@ -476,4 +628,5 @@ module.exports = {
     renderNewPatient,
     editPatientData,
     saveSupportMsg,
+    renderCommentList,
 }
