@@ -3,6 +3,7 @@
 
     {{#each commentList}}
     <div class="commentLine">
+        <!--这里要加上如果lastTimeViewComment的判断来决定要不要红点-->
         <img class="readComment" src="/readComment.png" alt="">
         <div class="commentLeft">
             <img src="/Photo_Pat.png" alt="">
@@ -10,7 +11,17 @@
         </div>
         <div class="commentRight">
             <div>
-                <span>{{this.type}}: {{this.value}} {{this.unit}}</span>
+                <span style="color: 
+                {{#ifAboveRange this.value this.upper_bound}}
+                #FF3F3F
+                {{else}}
+                    {{#ifBelowRange this.value this.lower_bound}}
+                        #747373
+                    {{/ifBelowRange}}
+                {{/ifAboveRange}}
+                ;">
+                
+                {{this.type}}: {{this.value}} {{this.unit}}</span>
                 <span>Normal Range: {{this.lower_bound}}-{{this.upper_bound}}{{this.unit}}</span>
                 <span>{{this.timeStamp}}</span>
             </div>

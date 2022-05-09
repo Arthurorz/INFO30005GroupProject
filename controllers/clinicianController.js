@@ -424,20 +424,24 @@ function compareByDate(record1, record2){
     month2 = parseInt(record2.record_id.date.substring(3,5));
     day1 = parseInt(record1.record_id.date.substring(0,2));
     day2 = parseInt(record2.record_id.date.substring(0,2));
+    year1 = parseInt(record1.record_id.date.substring(6,10));
+    year2 = parseInt(record2.record_id.date.substring(6,10));
 
-    if(month1<month2){
+    if (year1 < year2) {
         return -1;
-    }else if(month1 == month2){
-        if(day1<day2){
-            return -1;
-        }if(day1==day2){
-            return 0;
-        }else{
-            return 1;
-        }
-    }else{
-        return 1;
     }
+    else if (year1 == year2) {
+        if(month1<month2){
+            return -1;
+        }else if(month1 == month2){
+            if(day1<day2){
+                return -1;
+            }if(day1==day2){
+                return 0;
+            }
+        }
+    }
+    return 1;
 }
 
 const saveSupportMsg = async (req, res) => {
