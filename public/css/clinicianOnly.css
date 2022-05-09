@@ -871,8 +871,12 @@ li div{
     margin: 1.5625rem auto;
 }
 
+.commentData{
+    padding: 0 5px;
+}
+
 .commentLower{
-    background-color: #747373;
+    background-color: #AAA9A9;
     /* border: 1px solid #AAA9A9; */
     padding: 0 5px;
 }
