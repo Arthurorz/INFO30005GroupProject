@@ -110,7 +110,7 @@ const addNewPatient = async (req, res) => {
                     brief_bio: req.body.brief_bio,
                     engagement: 0,
 
-                    clinician: '626392e9a4d69d527a31780f',
+                    clinician: '626392e9a4d69d527a31780f',// hardcode
                     //register Date 需要增加
                 });
                 
@@ -180,6 +180,11 @@ const addNewPatient = async (req, res) => {
                 }
 
                 await patient.save();
+                const clinician = await Clinician.findById("626392e9a4d69d527a31780f");
+                clinician.patients.push({
+                    patient_id: patient._id,
+                });
+                await clinician.save();
                 //医生要在这里添加一个patient
                 console.log("Patient added");
                 res.redirect('/clinician/dashboard');
@@ -326,8 +331,6 @@ function compareByTimeStamp(timeStamp1,timeStamp2){
     day2 = parseInt(timeStamp2.substring(0, 2));
     year1 = parseInt(timeStamp1.substring(6, 10));
     year2 = parseInt(timeStamp2.substring(6, 10));
-    rest1 = timeStamp1.substring(12, timeStamp1.length);
-    rest2 = timeStamp2.substring(12, timeStamp2.length);
     //if the hour is 1 digit number add a 0 before the string
     if (timeStamp1.length == 22) {
         timeStamp1 = "0"+ timeStamp1
@@ -496,8 +499,17 @@ const saveSupportMsg = async (req, res) => {
 //render the clinician dashboard hbs page
 const renderDashboard = async (req, res) => {
     try {
-        initialRecord("6263f5d7ef996dcc6dbf10af");
         const clinicianID = "626392e9a4d69d527a31780f";//hardcode for D2
+        const allPatient = (await Clinician.findById(clinicianID).populate({
+            path: 'patients',
+            options: { lean: true }
+        }).lean()).patients;
+        for (i in allPatient) {
+            patient = allPatient[i];
+            initialRecord(patient.patient_id.toString());
+        }
+        
+        
         //get clinician's patients and populate their information
         const patients = (await Clinician.findById(clinicianID).populate({
             path: 'patients',
@@ -545,6 +557,7 @@ const renderDashboard = async (req, res) => {
 async function initialRecord(patient_id) {
     try {
         const patient = await Patient.findById(patient_id);
+        console.log(patient);
         const record = await Record.findOne({ patientId: patient._id, date: (new Date()).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }) });
 
         if (record == null) {

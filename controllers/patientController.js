@@ -68,8 +68,8 @@ const renderHomePage = async (req, res, next) => {
         const patient = await Patient.findOne({ _id: id }).lean();
         const clinician = await Clinician.findById(patient.clinician).lean();
         const date = new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"});
-        const today = await Record.findOne({date: date}).lean();
-       
+        const today = await Record.findOne({date: date, patientId : id}).lean();
+        console.log(today);
        
         //Get recent 7 days records, if there is no record for that day, insert null.
         const recent7 = [];
