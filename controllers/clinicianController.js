@@ -212,7 +212,6 @@ const renderCommentList = async (req, res) => {
         const clinician = await Clinician.findById(clinicianID);
         const lastTime = clinician.lastTimeViewCommentList;
         clinician.lastTimeViewCommentList = new Date().toLocaleString("en-AU",{"timeZone":"Australia/Melbourne"});
-        console.log(lastTime);
         await clinician.save();
         const patients = (await Clinician.findById(clinicianID).populate({
             path: 'patients',
@@ -321,44 +320,45 @@ function sortByTimeStamp(commentList){
 }
 
 function compareByTimeStamp(timeStamp1,timeStamp2){
-    month1 = parseInt(timeStamp1.substring(3,5));
-    month2 = parseInt(timeStamp2.substring(3,5));
-    day1 = parseInt(timeStamp1.substring(0,2));
-    day2 = parseInt(timeStamp2.substring(0,2));
-    year1 = parseInt(timeStamp1.substring(6,10));
-    year2 = parseInt(timeStamp2.substring(6,10));
-    if (timeStamp1.length==23){
-        hour1 = parseInt(timeStamp1.substring(12,14));
-        hour2 = parseInt(timeStamp2.substring(12,14));
-        minute1 = parseInt(timeStamp1.substring(15,17));
-        minute2 = parseInt(timeStamp2.substring(15,17));
-        second1 = parseInt(timeStamp1.substring(18,20));
-        second2 = parseInt(timeStamp2.substring(18,20));
-        unit1 = timeStamp1.substring(21,23);
-        unit2 = timeStamp2.substring(21,23);
-    }else if (timeStamp1.length==22){
-        hour1 = parseInt(timeStamp1.substring(11,13));
-        hour2 = parseInt(timeStamp2.substring(11,13));
-        minute1 = parseInt(timeStamp1.substring(14,16));
-        minute2 = parseInt(timeStamp2.substring(14,16));
-        second1 = parseInt(timeStamp1.substring(17,19));
-        second2 = parseInt(timeStamp2.substring(17,19));
-        unit1 = timeStamp1.substring(20,22);
-        unit2 = timeStamp2.substring(20,22);
+    month1 = parseInt(timeStamp1.substring(3, 5));
+    month2 = parseInt(timeStamp2.substring(3, 5));
+    day1 = parseInt(timeStamp1.substring(0, 2));
+    day2 = parseInt(timeStamp2.substring(0, 2));
+    year1 = parseInt(timeStamp1.substring(6, 10));
+    year2 = parseInt(timeStamp2.substring(6, 10));
+    rest1 = timeStamp1.substring(12, timeStamp1.length);
+    rest2 = timeStamp2.substring(12, timeStamp2.length);
+    //if the hour is 1 digit number add a 0 before the string
+    if (timeStamp1.length == 22) {
+        timeStamp1 = "0"+ timeStamp1
     }
-    
+    hour1 = parseInt(timeStamp1.substring(12, 14));
+    minute1 = parseInt(timeStamp1.substring(15, 17));
+    second1 = parseInt(timeStamp1.substring(18, 20));
+    unit1 = timeStamp1.substring(21, 23);
+    //if the hour is 1 digit number add a 0 before the string
+    if (timeStamp2.length == 22) {
+        timeStamp2 = "0"+ timeStamp2
+    }
+    hour2 = parseInt(timeStamp2.substring(12, 14));
+    minute2 = parseInt(timeStamp2.substring(15, 17));
+    second2 = parseInt(timeStamp2.substring(18, 20));
+    unit2 = timeStamp2.substring(21, 23);
 
-    if(unit1=="pm"){
-        hour1 = hour1+12;
+    //transform the time to 24 hour format
+    if (unit1 == "pm") {
+        hour1 = hour1 + 12;
     }
-    if(unit2=="pm"){
-        hour2 = hour2+12;
+    if (unit2 == "pm") {
+        hour2 = hour2 + 12;
     }
-    if (timeStamp1==null){
+    //check if the timeStamp1 is not initialized
+    if (timeStamp1 == null) {
         return -1;
-    }else if(timeStamp2==null){
+    } else if (timeStamp2 == null) {
         return 1;
     }
+    //compare the timeStamp
     if (year1 < year2) {
         return -1;
     }
