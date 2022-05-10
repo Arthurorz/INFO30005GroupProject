@@ -209,6 +209,11 @@ const renderClinicianData = async (req, res) => {
 const renderCommentList = async (req, res) => {
     try {
         const clinicianID = "626392e9a4d69d527a31780f";//hardcode for D2
+        const clinician = await Clinician.findById(clinicianID);
+        const lastTime = clinician.lastTimeViewCommentList;
+        clinician.lastTimeViewCommentList = new Date().toLocaleString("en-AU",{"timeZone":"Australia/Melbourne"});
+        console.log(lastTime);
+        await clinician.save();
         const patients = (await Clinician.findById(clinicianID).populate({
             path: 'patients',
             populate: {
@@ -230,6 +235,7 @@ const renderCommentList = async (req, res) => {
             for(j in patient.records){
                 const record = patient.records[j].record_id;
                 if(record.data.weight.comment!=''){
+                    
                     commentList.push({
                         //patientAvatar:  *******,
                         timeStamp: record.data.weight.date,
@@ -284,7 +290,15 @@ const renderCommentList = async (req, res) => {
             }
         }
         sortByTimeStamp(commentList);
-        res.render('clinician-commentList.hbs', { layout: 'clinician.hbs', commentList: commentList });
+        for (i in commentList){
+            if(compareByTimeStamp(commentList[i].timeStamp,lastTime)<0){
+                commentList[i].new = false;
+            }else{
+                commentList[i].new = true;
+            }
+        }
+        console.log(commentList);
+        res.render('clinician-commentList.hbs', { layout: 'clinician.hbs', commentList: commentList});
     } catch (err) {
         res.status(400);
         res.send("error happened when rendering commentList page");
@@ -296,7 +310,7 @@ function sortByTimeStamp(commentList){
     for (var i = 1; i < commentList.length; i++) {
         var temp = commentList[i];
         for (j = i - 1; j >= 0; j--) {
-            if(compareCommentByTimeStamp(temp,commentList[j])>0){
+            if(compareByTimeStamp(temp.timeStamp,commentList[j].timeStamp)>0){
                 commentList[j+1]=commentList[j]
             }
             else{
@@ -307,20 +321,34 @@ function sortByTimeStamp(commentList){
     }
 }
 
-function compareCommentByTimeStamp(comment1,comment2){
-    month1 = parseInt(comment1.timeStamp.substring(3,5));
-    month2 = parseInt(comment2.timeStamp.substring(3,5));
-    day1 = parseInt(comment1.timeStamp.substring(0,2));
-    day2 = parseInt(comment2.timeStamp.substring(0,2));
-    year1 = parseInt(comment1.timeStamp.substring(6,10));
-    year2 = parseInt(comment2.timeStamp.substring(6,10));
-    hour1 = parseInt(comment1.timeStamp.substring(12,14));
-    hour2 = parseInt(comment2.timeStamp.substring(12,14));
-    minute1 = parseInt(comment1.timeStamp.substring(15,17));
-    minute2 = parseInt(comment2.timeStamp.substring(15,17));
-    second1 = parseInt(comment1.timeStamp.substring(18,20));
-    second2 = parseInt(comment2.timeStamp.substring(18,20));
+function compareByTimeStamp(timeStamp1,timeStamp2){
+    month1 = parseInt(timeStamp1.substring(3,5));
+    month2 = parseInt(timeStamp2.substring(3,5));
+    day1 = parseInt(timeStamp1.substring(0,2));
+    day2 = parseInt(timeStamp2.substring(0,2));
+    year1 = parseInt(timeStamp1.substring(6,10));
+    year2 = parseInt(timeStamp2.substring(6,10));
+    hour1 = parseInt(timeStamp1.substring(12,14));
+    hour2 = parseInt(timeStamp2.substring(12,14));
+    minute1 = parseInt(timeStamp1.substring(15,17));
+    minute2 = parseInt(timeStamp2.substring(15,17));
+    second1 = parseInt(timeStamp1.substring(18,20));
+    second2 = parseInt(timeStamp2.substring(18,20));
+    unit1 = parseInt(timeStamp1.substring(21,23));
+    unit2 = parseInt(timeStamp2.substring(21,23));
+    
 
+    if(unit1=="pm"){
+        hour1 = hour1+12;
+    }
+    if(unit2=="pm"){
+        hour2 = hour2+12;
+    }
+    if (timeStamp1==null){
+        return -1;
+    }else if(timeStamp2==null){
+        return 1;
+    }
     if (year1 < year2) {
         return -1;
     }

@@ -6,7 +6,7 @@ const schema = new mongoose.Schema({
     last_name: {type:String, required: true, trim: true},
     email: {type:String, required: true, unique: true},
     password: {type:String, required: true},
-    screen_name: {type:String, required: true},
+    screen_name: {type:String, required: true, unique: true},
     yearofbirth: {type:String, required: true},
     height: {type:Number, required: true},
     records: [{
@@ -32,7 +32,10 @@ const schema = new mongoose.Schema({
             exercise_lower:{type: Number, required: true, default:-1},
             insulin_upper:{type: Number, required: true, default: -1},
             insulin_lower:{type: Number, required: true, default: -1}
-    }
+    },
+    note:[{
+        note_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Note'}
+    }]
 },{versionKey: false})
 
 // Password comparison function

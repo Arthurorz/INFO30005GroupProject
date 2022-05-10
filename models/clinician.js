@@ -2,17 +2,18 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs')
 
 const schema = new mongoose.Schema({
-    first_name: {type:String, required: true, trim: true},
-    last_name: {type:String, required: true, trim: true},
-    email: {type:String, required: true, unique: true},
-    password: {type:String, required: true},
-    yearofbirth: {type:String, required: true},
+    first_name: { type: String, required: true, trim: true },
+    last_name: { type: String, required: true, trim: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    yearofbirth: { type: String, required: true },
     patients: [{
-        patient_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Patient'}
+        patient_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Patient' }
     }],
-    brief_bio: {type:String},
-    photo:{stype:String}
-},{versionKey: false})
+    brief_bio: { type: String },
+    photo: { stype: String },
+    lastTimeViewCommentList: { type: String, default: null },
+}, { versionKey: false })
 
 // Password comparison function
 schema.methods.verifyPassword = function (password, callback) {
@@ -30,7 +31,7 @@ schema.pre('save', function save(next) {
     if (!user.isModified('password')) {
         return next()
     }
-    
+
     bcrypt.hash(user.password, SALT_FACTOR, (err, hash) => {
         if (err) {
             return next(err)
