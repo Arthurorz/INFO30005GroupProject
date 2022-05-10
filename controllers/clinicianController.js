@@ -291,13 +291,12 @@ const renderCommentList = async (req, res) => {
         }
         sortByTimeStamp(commentList);
         for (i in commentList){
-            if(compareByTimeStamp(commentList[i].timeStamp,lastTime)<0){
+            if(compareByTimeStamp(commentList[i].timeStamp,lastTime)<=0){
                 commentList[i].new = false;
             }else{
                 commentList[i].new = true;
             }
         }
-        console.log(commentList);
         res.render('clinician-commentList.hbs', { layout: 'clinician.hbs', commentList: commentList});
     } catch (err) {
         res.status(400);
@@ -328,14 +327,25 @@ function compareByTimeStamp(timeStamp1,timeStamp2){
     day2 = parseInt(timeStamp2.substring(0,2));
     year1 = parseInt(timeStamp1.substring(6,10));
     year2 = parseInt(timeStamp2.substring(6,10));
-    hour1 = parseInt(timeStamp1.substring(12,14));
-    hour2 = parseInt(timeStamp2.substring(12,14));
-    minute1 = parseInt(timeStamp1.substring(15,17));
-    minute2 = parseInt(timeStamp2.substring(15,17));
-    second1 = parseInt(timeStamp1.substring(18,20));
-    second2 = parseInt(timeStamp2.substring(18,20));
-    unit1 = parseInt(timeStamp1.substring(21,23));
-    unit2 = parseInt(timeStamp2.substring(21,23));
+    if (timeStamp1.length==23){
+        hour1 = parseInt(timeStamp1.substring(12,14));
+        hour2 = parseInt(timeStamp2.substring(12,14));
+        minute1 = parseInt(timeStamp1.substring(15,17));
+        minute2 = parseInt(timeStamp2.substring(15,17));
+        second1 = parseInt(timeStamp1.substring(18,20));
+        second2 = parseInt(timeStamp2.substring(18,20));
+        unit1 = timeStamp1.substring(21,23);
+        unit2 = timeStamp2.substring(21,23);
+    }else if (timeStamp1.length==22){
+        hour1 = parseInt(timeStamp1.substring(11,13));
+        hour2 = parseInt(timeStamp2.substring(11,13));
+        minute1 = parseInt(timeStamp1.substring(14,16));
+        minute2 = parseInt(timeStamp2.substring(14,16));
+        second1 = parseInt(timeStamp1.substring(17,19));
+        second2 = parseInt(timeStamp2.substring(17,19));
+        unit1 = timeStamp1.substring(20,22);
+        unit2 = timeStamp2.substring(20,22);
+    }
     
 
     if(unit1=="pm"){

@@ -14,6 +14,7 @@ require('./models/db');
 Patient = require('./models/patient');
 Record = require('./models/record');
 Clinician = require('./models/clinician');
+Note = require('./models/note')
 
 //Routers
 const patientRouter = require('./routes/patientRouter.js');

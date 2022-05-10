@@ -8,5 +8,5 @@ const schema = new mongoose.Schema({
 },{versionKey: false})
 
 // Create collection records in mongodb
-const Record = mongoose.model('Note', schema);
+const Note = mongoose.model('Note', schema);
 module.exports = Note;

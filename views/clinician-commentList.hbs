@@ -9,7 +9,6 @@
 <div>
     {{#each commentList}}
     <div class="commentLine">
-        <!--这里要加上如果lastTimeViewComment的判断来决定要不要红点-->
         {{#ifChecked this.new}}
         <img class="readComment" src="/readComment.png" alt="">
         {{/ifChecked}}
