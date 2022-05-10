@@ -454,7 +454,7 @@ h6{
 
 ul{
     width: 96%;
-    height: 8rem;
+    height: 21.5rem;
     padding: 1.625rem 0 0 1.125rem;
     display: table;
     table-layout: fixed;
@@ -523,6 +523,13 @@ li div{
     margin: 0 7.6875rem 4rem 0;
     width: 13.25rem;
     height: 5.188rem;
+}
+
+.previous-note button{
+    float: right;
+    width: 12.5rem;
+    height: 3.875rem;
+    margin: 1.75rem 1.125rem 2.938rem 0;
 }
 
 /* Edit Data Page */
