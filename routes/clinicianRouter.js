@@ -13,6 +13,7 @@ clinicianRouter.get('/individualData/:id', (req,res)=>clinicianController.render
 clinicianRouter.get('/editData/:id', (req,res)=>clinicianController.renderClinicianEditData(req,res))
 clinicianRouter.get('/newPatient', (req,res)=>clinicianController.renderNewPatient(req,res))
 clinicianRouter.get('/commentList', (req,res)=>clinicianController.renderCommentList(req,res))
+clinicianRouter.get('/aboutMe', (req, res) => clinicianController.renderClinicianData(req,res))
 
 
 clinicianRouter.post('/search',(req,res)=> clinicianController.searchDashboard(req,res))

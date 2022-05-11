@@ -208,7 +208,7 @@ const addNewPatient = async (req, res) => {
 const renderClinicianData = async (req, res) => {
     try {
         const clinician = await Clinician.findById(req.params.id).lean();
-        res.render('', { layout: 'clinician.hbs', clinicianData: clinician });
+        res.render('clinician-aboutme.hbs', { layout: 'clinician.hbs', clinicianData: clinician });
     } catch (err) {
         res.status(400);
         res.send("error happened when rendering clinician data");
@@ -248,7 +248,8 @@ const renderCommentList = async (req, res) => {
                         //patientAvatar:  *******,
                         timeStamp: record.data.weight.date,
                         comment:record.data.weight.comment,
-                        patientName: patient.first_name,
+                        patient_id : patient._id,
+                        patientName: patient.first_name + " " + patient.last_name,
                         upper_bound : patient.bound.weight_upper,
                         lower_bound : patient.bound.weight_lower,
                         value : record.data.weight.value,
@@ -261,7 +262,8 @@ const renderCommentList = async (req, res) => {
                         //patientAvatar:  *******,
                         timeStamp: record.data.glucose.date,
                         comment:record.data.glucose.comment,
-                        patientName: patient.first_name,
+                        patient_id : patient._id,
+                        patientName: patient.first_name + " " + patient.last_name,
                         upper_bound : patient.bound.glucose_upper,
                         lower_bound : patient.bound.glucose_lower,
                         value : record.data.glucose.value,
@@ -274,7 +276,8 @@ const renderCommentList = async (req, res) => {
                         //patientAvatar:  *******,
                         timeStamp: record.data.exercise.date,
                         comment:record.data.exercise.comment,
-                        patientName: patient.first_name,
+                        patient_id : patient._id,
+                        patientName: patient.first_name + " " + patient.last_name,
                         upper_bound : patient.bound.exercise_upper,
                         lower_bound : patient.bound.exercise_lower,
                         value : record.data.exercise.value,
@@ -287,7 +290,8 @@ const renderCommentList = async (req, res) => {
                         //patientAvatar:  *******,
                         timeStamp: record.data.insulin.date,
                         comment: record.data.insulin.comment,
-                        patientName: patient.first_name,
+                        patient_id : patient._id,
+                        patientName: patient.first_name + " " + patient.last_name,
                         upper_bound: patient.bound.insulin_upper,
                         lower_bound: patient.bound.insulin_lower,
                         value: record.data.insulin.value,
@@ -618,12 +622,16 @@ const searchDashboard = async (req, res) => {
                 }
             }).lean()).patients;
 
+
+            var inputName = req.body.patientName.toLowerCase();
+            inputName = inputName[0].toUpperCase() + inputName.substring(1, inputName.length);
+            console.log(inputName);
             const patientList = []
 
             for (i in patients) {
                 const patient = patients[i].patient_id;
 
-                if (patient.first_name == req.body.patientName || patient.last_name == req.body.patientName) {
+                if (patient.first_name == inputName || patient.last_name == inputName) {
                     for (j in patient.records) {
                         const record = patient.records[j].record_id;
 

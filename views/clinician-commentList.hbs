@@ -14,7 +14,7 @@
         {{/ifChecked}}
         <div class="commentLeft">
             <img src="/Photo_Pat.png" alt="">
-            <span>{{this.patientName}}</span>
+            <span><a href = '/clinician/individualData/{{this.patient_id}}'>{{this.patientName}}</a></span>
         </div>
 
         <div class="commentRight">
@@ -39,7 +39,7 @@
                     {{/ifBelowRange}}
                 {{/ifAboveRange}}
                     {{!-- {{this.type}}: {{this.value}} {{this.unit}}</span> --}}
-                <span>Normal Range: {{this.lower_bound}}-{{this.upper_bound}}{{this.unit}}</span>
+                <span>Normal Range: {{this.lower_bound}}-{{this.upper_bound}} {{this.unit}}</span>
                 <span>{{this.timeStamp}}</span>
             </div>
             <p>{{this.comment}}</p>
