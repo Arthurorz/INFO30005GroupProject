@@ -51,6 +51,10 @@ main {
     width: 76px;
 }
 
+.smallScreen { 
+    display: inline;
+}
+
 .patient-mobile-aboutMe {
     width: 29px;
 }
@@ -81,7 +85,7 @@ li {
     text-align: center;
     padding: 10px 0;
     font-size: 18px;
-    margin-top: 344px;
+    margin-top: 385px;
 }
 
 input[type=checkbox]:checked~.menu {
@@ -815,7 +819,7 @@ input[type=checkbox]:checked~.edit-page {
 
     /* Menu List iPad*/
     .menu {
-        margin-top: 370px;
+        margin-top: 415px;
     }
 
     /* Patient Homepage iPad */
@@ -968,6 +972,10 @@ input[type=checkbox]:checked~.edit-page {
     .patient-logo {
         height: 7.4375rem;
         width: 11.6875rem;
+    }
+
+    .smallScreen { 
+        display: none;
     }
 
     .patient-web-navBar a {

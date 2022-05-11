@@ -9,9 +9,15 @@
             <li><a href="">ABOUT WEBSITE</a></li>
             <li><a href="">ABOUT DIABETES</a></li>
             <li><a href="">ABOUT ME</a></li>
+            <form action="/normal/logout" method="get">
+                <li class="smallScreen"><button>LOG OUT</button></li>
+            </form>
         </ul>
     </div>
     <div><img class="patient-logo" src="/logo.png" alt="logo"></div>
     <div><img class="patient-mobile-aboutMe" src="/account.png" alt="about-me"></div>
-    <div><button class="patient-web-logOut" onclick="window.location.href=''" type="button">Log Out</button></div>
+    {{!-- <div><button class="patient-web-logOut" onclick="window.location.href=''" type="button">Log Out</button></div> --}}
+     <div><form action="/normal/logout" method="get">
+        <button class="patient-web-logOut">Log Out</button>
+    </form></div>
 </header>

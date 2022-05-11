@@ -1,3 +1,4 @@
+const req = require('express/lib/request')
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 
@@ -6,11 +7,11 @@ const Patient = require('./models/patient')
 
 // Updated serialize/deserialize functions
 passport.serializeUser((user, done) => {
-    done(undefined, user._id)
+    done(undefined, {_id: user._id, screen_name: user.screen_name})
 })
 
 passport.deserializeUser((userId, done) => {
-    if (userId.clinician === "") {
+    if (userId.screen_name === undefined) {
         Clinician.findById(userId, { password: 0 }, (err, user) => {
             if (err) {
                 return done(err, undefined)
@@ -32,7 +33,7 @@ new LocalStrategy({
     passwordField: 'password'
     },
     function(email, password, done) {
-        Clinician.findOne({ email }, {}, {}, (err, user) => {
+        Clinician.findOne({ 'email': email.toLowerCase() }, {}, {}, (err, user) => {
             if (err) {
                 return done(undefined, false, {
                     message: 'Unknown error has occurred'
@@ -70,7 +71,7 @@ passport.use("patient-login",
     passwordField: 'password'
     },
     function(email, password, done) {
-        Patient.findOne({ email }, {}, {}, (err, user) => {
+        Patient.findOne({ 'email': email.toLowerCase() }, {}, {}, (err, user) => {
             if (err) {
                 return done(undefined, false, {
                     message: 'Unknown error has occurred'
