@@ -55,6 +55,7 @@ app.use(
         name: 'weballgood',
         saveUninitialized: false,
         resave: false,
+        proxy: process.env.NODE_ENV === 'production', // to work on Heroku
         cookie: {
             sameSite: 'strict',
             httpOnly: true,

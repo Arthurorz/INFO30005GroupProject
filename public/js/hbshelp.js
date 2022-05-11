@@ -14,14 +14,20 @@ function clicktest(){
     var confirmPassword = document.getElementById("confirmPassword").value;
     var msg = document.getElementById("msg");
     var sub = document.getElementById("saveButton");
-    if (password == confirmPassword && password != "") {
-        msg.innerHTML = "password match";
-        msg.style.color = 'green';
-        sub.disabled = "";
-    } else {
-        msg.innerHTML = "* password not match";
+    if (password.length < 8) {
+        msg.innerHTML = "* must be at least 8 characters long";
         msg.style.color = 'red';
         sub.disabled = 'true';
+    } else {
+        if (password == confirmPassword && password != "") {
+            msg.innerHTML = "password match";
+            msg.style.color = 'green';
+            sub.disabled = "";
+        } else {
+            msg.innerHTML = "* password not match";
+            msg.style.color = 'red';
+            sub.disabled = 'true';
+        }
     }
 }
 
