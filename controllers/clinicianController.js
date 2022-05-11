@@ -94,6 +94,11 @@ const addNewPatient = async (req, res) => {
     const passwordConfirmError = 'Error: Password and confirm password do not match';
     const mailExistError = 'Error: Email already exists';
 
+    if (req.body.password.length<8){
+        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Password must be at least 8 characters long', input: req.body });
+    }
+
+    
 
     const patient = await Patient.findOne({ email: req.body.email.toLowerCase() });
     if (!patient) {
@@ -122,10 +127,10 @@ const addNewPatient = async (req, res) => {
                             patient.bound.weight_upper = req.body.weight_upper;
                             patient.bound.weight_lower = req.body.weight_lower;
                         } else {
-                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for weight', input: req.body });
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + ' for weight', input: req.body });
                         }
                     } else {
-                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for weight', input: req.body });
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError + ' for weight', input: req.body });
                     }
                 } else {
                     patient.required_data.weight = false;
@@ -138,10 +143,10 @@ const addNewPatient = async (req, res) => {
                             patient.bound.exercise_upper = req.body.exercise_upper;
                             patient.bound.exercise_lower = req.body.exercise_lower;
                         } else {
-                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for exercise', input: req.body });
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + ' for exercise', input: req.body });
                         }
                     } else {
-                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError+'for exercise', input: req.body });
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError+' for exercise', input: req.body });
                     }
                 } else {
                     patient.required_data.exercise = false;
@@ -154,10 +159,10 @@ const addNewPatient = async (req, res) => {
                             patient.bound.insulin_upper = req.body.insulin_upper;
                             patient.bound.insulin_lower = req.body.insulin_lower;
                         } else {
-                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for insulin', input: req.body });
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + ' for insulin', input: req.body });
                         }
                     } else {
-                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for insulin', input: req.body });
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError + ' for insulin', input: req.body });
                     }
                 } else {
                     patient.required_data.insulin = false;
@@ -170,22 +175,21 @@ const addNewPatient = async (req, res) => {
                             patient.bound.glucose_upper = req.body.glucose_upper;
                             patient.bound.glucose_lower = req.body.glucose_lower;
                         } else {
-                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for glucose', input: req.body });
+                            return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + ' for glucose', input: req.body });
                         }
                     } else {
-                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for glucose', input: req.body });
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError + ' for glucose', input: req.body });
                     }
                 } else {
                     patient.required_data.glucose = false;
                 }
 
                 await patient.save();
-                const clinician = await Clinician.findById("626392e9a4d69d527a31780f");
+                const clinician = await Clinician.findById("626392e9a4d69d527a31780f");//hardcode
                 clinician.patients.push({
                     patient_id: patient._id,
                 });
                 await clinician.save();
-                //医生要在这里添加一个patient
                 console.log("Patient added");
                 res.redirect('/clinician/dashboard');
             } catch (err) {
@@ -596,7 +600,7 @@ const searchDashboard = async (req, res) => {
         if (req.body.patientName == '') {
             renderDashboard(req, res);
         } else {
-            const clinicianID = "626392e9a4d69d527a31780f";
+            const clinicianID = "626392e9a4d69d527a31780f";//hardcode
 
             const patients = (await Clinician.findById(clinicianID).populate({
                 path: 'patients',
