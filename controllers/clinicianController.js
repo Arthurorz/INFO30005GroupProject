@@ -561,7 +561,7 @@ const renderDashboard = async (req, res) => {
 async function initialRecord(patient_id) {
     try {
         const patient = await Patient.findById(patient_id);
-        console.log(patient);
+        
         const record = await Record.findOne({ patientId: patient._id, date: (new Date()).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }) });
 
         if (record == null) {

@@ -69,7 +69,7 @@ const renderHomePage = async (req, res, next) => {
         const clinician = await Clinician.findById(patient.clinician).lean();
         const date = new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"});
         const today = await Record.findOne({date: date, patientId : id}).lean();
-        console.log(today);
+        
        
         //Get recent 7 days records, if there is no record for that day, insert null.
         const recent7 = [];
@@ -78,11 +78,10 @@ const renderHomePage = async (req, res, next) => {
             recent7.push({
                 // only record day and month
                 date: recent7date.substring(0,5),
-                record: await Record.findOne({date: recent7date}).lean(),
+                record: await Record.findOne({date: recent7date, patientId : id}).lean(),
             });
         }
         sortByDate(recent7);
-
         //Render the homepage
         res.render("patient-homePage.hbs", { layout: 'patient.hbs', patient: patient, clinician: clinician,today: today,recent7: recent7});
     }catch (err) {
