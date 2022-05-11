@@ -5,7 +5,122 @@ const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 
 
+const searchComment = async (req, res) => {
+    try {
+        if (req.body.patientName == '') {
+            renderCommentList(req, res);
+        } else {
+            const clinicianID = "626392e9a4d69d527a31780f";//hardcode for D2
+            const clinician = await Clinician.findById(clinicianID);
+            const lastTime = clinician.lastTimeViewCommentList;
+            clinician.lastTimeViewCommentList = new Date().toLocaleString("en-AU",{"timeZone":"Australia/Melbourne"});
+            await clinician.save();
+            const patients = (await Clinician.findById(clinicianID).populate({
+                path: 'patients',
+                populate: {
+                    path: 'patient_id',
+                    populate: {
+                        path: 'records',
+                        options: { lean: true },
+                        populate: {
+                            path: 'record_id',
+                            options: { lean: true },
+                        }
+                    }
+                }
+            }).lean()).patients;
 
+            var inputName = req.body.patientName.toLowerCase();
+            inputName = inputName[0].toUpperCase() + inputName.substring(1, inputName.length);
+    
+            const commentList = [];
+            for(i in patients){
+                const patient = patients[i].patient_id;
+                if (patient.first_name == inputName || patient.last_name == inputName) {
+                    for(j in patient.records){
+                        const record = patient.records[j].record_id;
+                        if(record.data.weight.comment!=''){
+                            
+                            commentList.push({
+                                //patientAvatar:  *******,
+                                timeStamp: record.data.weight.date,
+                                comment:record.data.weight.comment,
+                                patient_id : patient._id,
+                                patientName: patient.first_name + " " + patient.last_name,
+                                upper_bound : patient.bound.weight_upper,
+                                lower_bound : patient.bound.weight_lower,
+                                value : record.data.weight.value,
+                                type: 'weight',
+                                unit : 'kg'
+                            });
+                        }
+                        if(record.data.glucose.comment!=''){
+                            commentList.push({
+                                //patientAvatar:  *******,
+                                timeStamp: record.data.glucose.date,
+                                comment:record.data.glucose.comment,
+                                patient_id : patient._id,
+                                patientName: patient.first_name + " " + patient.last_name,
+                                upper_bound : patient.bound.glucose_upper,
+                                lower_bound : patient.bound.glucose_lower,
+                                value : record.data.glucose.value,
+                                type: 'glucose',
+                                unit : 'nmol/L'
+                            });
+                        }
+                        if(record.data.exercise.comment!=''){
+                            commentList.push({
+                                //patientAvatar:  *******,
+                                timeStamp: record.data.exercise.date,
+                                comment:record.data.exercise.comment,
+                                patient_id : patient._id,
+                                patientName: patient.first_name + " " + patient.last_name,
+                                upper_bound : patient.bound.exercise_upper,
+                                lower_bound : patient.bound.exercise_lower,
+                                value : record.data.exercise.value,
+                                type: 'exercise',
+                                unit: 'steps'
+                            });
+                        }
+                        if (record.data.insulin.comment != '') {
+                            commentList.push({
+                                //patientAvatar:  *******,
+                                timeStamp: record.data.insulin.date,
+                                comment: record.data.insulin.comment,
+                                patient_id : patient._id,
+                                patientName: patient.first_name + " " + patient.last_name,
+                                upper_bound: patient.bound.insulin_upper,
+                                lower_bound: patient.bound.insulin_lower,
+                                value: record.data.insulin.value,
+                                type: 'insulin',
+                                unit: 'doses'
+                            });
+                        }
+                    }
+                }
+            }
+            sortByTimeStamp(commentList);
+            for (i in commentList){
+                if(compareByTimeStamp(commentList[i].timeStamp,lastTime)<=0){
+                    commentList[i].new = false;
+                }else{
+                    commentList[i].new = true;
+                }
+            }
+            var msg = "";
+            if (commentList.length == 0) {
+                msg = "No comment found";
+            }
+            res.render('clinician-commentList.hbs', { layout: 'clinician.hbs', commentList: commentList, msg : msg });
+        }
+
+
+    } catch (err) {
+        console.log(err);
+    }
+
+
+}
 const editPatientData = async (req, res) => {
     
     const missBoundError = 'Need to add upper and lower bound';
@@ -13,7 +128,6 @@ const editPatientData = async (req, res) => {
     try {
         const patient = await Patient.findById(req.params.id);
         const patientData = await Patient.findById(req.params.id).lean();
-        console.log(patient);
         if (req.body.weight_check == 'on') {
             patient.required_data.weight = true;
             if (req.body.weight_upper != '' && req.body.weight_lower != '') {
@@ -625,7 +739,6 @@ const searchDashboard = async (req, res) => {
 
             var inputName = req.body.patientName.toLowerCase();
             inputName = inputName[0].toUpperCase() + inputName.substring(1, inputName.length);
-            console.log(inputName);
             const patientList = []
 
             for (i in patients) {
@@ -648,8 +761,12 @@ const searchDashboard = async (req, res) => {
                     }
                 }
             }
+            var msg = "";
+            if (patientList.length == 0) {
+                msg = "No patient found";
+            }
 
-            res.render('clinician-dashboard.hbs', { layout: 'clinician.hbs', patientList: patientList });
+            res.render('clinician-dashboard.hbs', { layout: 'clinician.hbs', patientList: patientList , msg : msg});
 
         }
     } catch (err) {
@@ -689,13 +806,14 @@ const addRecords = async (req, res) => {
 
 module.exports = {
     renderDashboard,
+    searchDashboard,
     renderClinicianData,
     addNewPatient,
     renderPatientData,
-    searchDashboard,
     renderClinicianEditData,
     renderNewPatient,
     editPatientData,
     saveSupportMsg,
     renderCommentList,
+    searchComment,
 }

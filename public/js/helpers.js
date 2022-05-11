@@ -97,7 +97,15 @@ const helpers = {
         }else{
             return options.inverse(this);
         }
-    }
+    },
+    ifMSG: function (value, options) {
+        if (value != "") {
+            return options.fn(this);
+        }
+        else {
+            return options.inverse(this);
+        }
+    },
 };
 
 module.exports.helpers = helpers;

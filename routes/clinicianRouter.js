@@ -16,7 +16,8 @@ clinicianRouter.get('/commentList', (req,res)=>clinicianController.renderComment
 clinicianRouter.get('/aboutMe', (req, res) => clinicianController.renderClinicianData(req,res))
 
 
-clinicianRouter.post('/search',(req,res)=> clinicianController.searchDashboard(req,res))
+clinicianRouter.post('/dashboard/search',(req,res)=> clinicianController.searchDashboard(req,res))
+clinicianRouter.post('/comment/search',(req,res)=> clinicianController.searchComment(req,res))
 clinicianRouter.post('/newPatient',(req,res)=> clinicianController.addNewPatient(req,res))
 clinicianRouter.post('/editData/:id',(req,res)=> clinicianController.editPatientData(req,res))
 clinicianRouter.post('/individualData/support_msg',(req,res)=> clinicianController.saveSupportMsg(req,res))
