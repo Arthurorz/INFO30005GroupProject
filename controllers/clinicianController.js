@@ -543,6 +543,7 @@ const renderDashboard = async (req, res) => {
                     patientList.push({
                         patient_id: patient._id,
                         first_name: patient.first_name,
+                        last_name: patient.last_name,
                         bound: patient.bound,
                         today_record: record,
                     });
@@ -631,6 +632,7 @@ const searchDashboard = async (req, res) => {
                             patientList.push({
                                 patient_id: patient._id,
                                 first_name: patient.first_name,
+                                last_name: patient.last_name,
                                 bound: patient.bound,
                                 today_record: record,
                             });
