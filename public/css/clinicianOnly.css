@@ -840,6 +840,16 @@ li div{
     display: contents;
 }
 
+.notFound{
+    display: table;
+    margin: 0 auto;
+    font-size: 2.375rem;
+    color: red;
+    text-decoration: underline;
+    font-style: italic;
+    border: 1px solid;
+    padding: 20px;
+}
 
 .commentLine{
     width: 50.36%;
