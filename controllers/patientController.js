@@ -83,7 +83,7 @@ const renderHomePage = async (req, res, next) => {
         }
         sortByDate(recent7);
         //Render the homepage
-        res.render("new-homePage.hbs", { layout: 'patient.hbs', patient: patient, clinician: clinician,today: today,recent7: recent7});
+        res.render("patient-homePage.hbs", { layout: 'patient.hbs', patient: patient, clinician: clinician,today: today,recent7: recent7});
     }catch (err) {
         return next(err);
     }
