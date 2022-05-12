@@ -6,76 +6,76 @@
 <p class="homeSubtitle">My Plans</p>
 <div class="homeTop">
     {{!-- render todat's blood glucose --}}
-    {{#ifNotRequired today.data.glucose.status}}
+    {{#ifNotEmpty today.data.glucose.value}}
+    <div class = "addbutton">
+        <img class="recorded" src="/recordedBlood.png" alt="Blood Glucose">
+        <p>Blood Glucose: <br>{{today.data.glucose.value}}&nbsp;nmol/L</p>
+        <p class="time">{{today.data.glucose.date}}</p>
+    </div>  
     {{else}}
-    {{#ifNotRecorded today.data.glucose.status}}
+    {{#ifTrue patient.required_data.glucose}}
     <div class="addbutton">
         <a href='/patient/addData/glucose'>
         <img class="add" src="/addbutton.png" alt="Blood Glucose"></a>
         <span>Blood Glucose<img class="iconpng" src="/blood_glucose.png" alt="bloodpng"></span>
     </div>
     {{else}}
-    <div class = "addbutton">
-        <img class="recorded" src="/recordedBlood.png" alt="Blood Glucose">
-        <p>Blood Glucose: <br>{{today.data.glucose.value}}&nbsp;nmol/L</p>
-        <p class="time">{{today.data.glucose.date}}</p>
-    </div>
-    {{/ifNotRecorded}}
-    {{/ifNotRequired}}
+    {{/ifTrue}}
+    {{/ifNotEmpty}}
 
     {{!-- Render today's weight--}}
-    {{#ifNotRequired today.data.weight.status}}
+    {{#ifNotEmpty today.data.weight.value}}
+     <div class = "addbutton">
+        <img class="recorded" src="/recordedWeight.png" alt="Weight">
+        <p>Weight: <br>{{today.data.weight.value}}&nbsp;Kg</p>
+        <p class="time">{{today.data.weight.date}}</p>
+    </div>  
     {{else}}
-    {{#ifNotRecorded today.data.weight.status}}
-    <div class = "addbutton">
+    {{#ifTrue patient.required_data.weight}}
+     <div class = "addbutton">
         <a href='/patient/addData/weight/{{patient._id}}'>
         <img class="add" src="/addbutton.png" alt="Weight"></a>
         <span>Weight&nbsp;<img class="iconpng" src="/weightscale.png" alt="weightpng"></span>
     </div>
     {{else}}
-    <div class = "addbutton">
-        <img class="recorded" src="/recordedWeight.png" alt="Weight">
-        <p>Weight: <br>{{today.data.weight.value}}&nbsp;Kg</p>
-        <p class="time">{{today.data.weight.date}}</p>
-    </div>  
-    {{/ifNotRecorded}}
-    {{/ifNotRequired}}
+    {{/ifTrue}}
+    {{/ifNotEmpty}}
 
     {{!-- Render today's exercise--}}
-    {{#ifNotRequired today.data.exercise.status}}
+    {{#ifNotEmpty today.data.exercise.value}}
+     <div class = "addbutton">
+        <img class="recorded" src="/recordedRunning.png" alt="Exercise">
+        <p>Exercise: <br>{{today.data.exercise.value}}&nbsp;Steps</p>
+        <p class="time">{{today.data.exercise.date}}</p>
+    </div>
     {{else}}
-    {{#ifNotRecorded today.data.exercise.status}}
+    {{#ifTrue patient.required_data.exercise}}
     <div class = "addbutton">
         <a href='/patient/addData/exercise'>
         <img class="add" src="/addbutton.png" alt="Exercise"></a>
         <span>Exercise&nbsp;<img class="iconpng" src="/recordedRunning.png" alt="exercisepng"></span>
     </div>
     {{else}}
-    <div class = "addbutton">
-        <img class="recorded" src="/recordedRunning.png" alt="Exercise">
-        <p>Exercise: <br>{{today.data.exercise.value}}&nbsp;Steps</p>
-        <p class="time">{{today.data.exercise.date}}</p>
+    {{/ifTrue}}
+    {{/ifNotEmpty}}
+
+     {{!-- Render today's insulin--}}
+    {{#ifNotEmpty today.data.insulin.value}}
+    <div class="addbutton" >
+         <img class="recorded" src="/recordedDoses.png" alt="Weight">
+         <p>Dose of Insulin Taken: <br>{{today.data.insulin.value}}&nbsp;Doses</p>
+         <p class="time">{{today.data.insulin.date}}</p>
     </div>
-    {{/ifNotRecorded}}
-    {{/ifNotRequired}}
-    
-    {{!-- Render today's insulin--}}
-    {{#ifNotRequired today.data.insulin.status}}
     {{else}}
-    {{#ifNotRecorded today.data.insulin.status}}
+    {{#ifTrue patient.required_data.insulin}}
     <div class = "addbutton">
         <a href='/patient/addData/insulin'>
         <img class="add" src="/addbutton.png" alt="Insulin"></a>
         <span>Insulin&nbsp;<img class="iconpng" src="/doses.png" alt="insulpng"></span>
     </div>
     {{else}}
-    <div class="addbutton" >
-         <img class="recorded" src="/recordedDoses.png" alt="Weight">
-         <p>Dose of Insulin Taken: <br>{{today.data.insulin.value}}&nbsp;Doses</p>
-         <p class="time">{{today.data.insulin.date}}</p>
-    </div>
-    {{/ifNotRecorded}}
-    {{/ifNotRequired}}
+    {{/ifTrue}}
+    {{/ifNotEmpty}}
 </div>
 {{!--Render the table for recent 7 days record.--}}
 <div class="tableTop">

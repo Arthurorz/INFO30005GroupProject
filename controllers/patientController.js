@@ -6,7 +6,7 @@ const Clinician = require('../models/clinician.js');
 //Update the record of patient according to the type and id
 const updateRecord = async(req,res,next) =>{
     try{
-        const patient_id = '6263f5d7ef996dcc6dbf10af';
+        const patient_id = req.user._id;
         const type = req.params.type;
         
         //find the record of today
@@ -63,7 +63,7 @@ async function initialRecord (patient_id){
 const renderHomePage = async (req, res, next) => {
     try {
         //get all informatiion that need in the homepage
-        const id = "6263f5d7ef996dcc6dbf10af";
+        const id = req.user._id;
         initialRecord(id);
         const patient = await Patient.findOne({ _id: id }).lean();
         const clinician = await Clinician.findById(patient.clinician).lean();
@@ -83,7 +83,7 @@ const renderHomePage = async (req, res, next) => {
         }
         sortByDate(recent7);
         //Render the homepage
-        res.render("patient-homePage.hbs", { layout: 'patient.hbs', patient: patient, clinician: clinician,today: today,recent7: recent7});
+        res.render("new-homePage.hbs", { layout: 'patient.hbs', patient: patient, clinician: clinician,today: today,recent7: recent7});
     }catch (err) {
         return next(err);
     }
@@ -130,7 +130,7 @@ function compareByDate(record1, record2){
 const renderAddPage = async (req, res, next) => {
     try{
         //find the patient and the record of the day
-        const id = "6263f5d7ef996dcc6dbf10af";
+        const id = req.user._id;
         const patient = await Patient.findOne({ _id: id }).lean();
         const type = req.params.type;
         const record = await Record.findOne({patientId: id, date: new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})}).lean();
@@ -145,7 +145,7 @@ const renderAddPage = async (req, res, next) => {
 //render more data hbs page
 const renderMoreData = async (req, res) => {
     try {
-        const id = "6263f5d7ef996dcc6dbf10af";
+        const id = req.user._id;
         const patient = await Patient.findOne({ _id: id }).populate({
             path: 'records',
             populate: {
