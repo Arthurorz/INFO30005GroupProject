@@ -37,6 +37,8 @@ patientRouter.get('/homepage/:id', isAuthenticated, patientController.renderHome
 patientRouter.get('/addData/:type/:id', isAuthenticated, patientController.renderAddPage)
 patientRouter.post('/addData/:type/:id', isAuthenticated, patientController.updateRecord)
 patientRouter.get('/moredata/:id', isAuthenticated, patientController.renderMoreData)
+patientRouter.get('/aboutDiabetes', isAuthenticated, (req, res) => res.render("normal-aboutDia", { layout: 'patient.hbs', screen_name: req.user.screen_name }));
+patientRouter.get('/aboutThisWeb', isAuthenticated, (req, res) => res.render("normal-aboutWeb", { layout: 'patient.hbs', screen_name: req.user.screen_name }));
 
 
 module.exports = patientRouter
