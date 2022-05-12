@@ -915,3 +915,29 @@ li div{
     margin-top: 0.75rem;
     font-size: 1.25rem;
 }
+
+/* Previous Note */
+.noteLine{
+    width: 50.36%;
+    margin: 0 auto;
+    border: 1px solid #707070;
+    padding: 1rem;
+}
+
+.notelineTop{
+    display: flex;
+    justify-content: space-between;
+}
+
+.notelineTop span:first-child{
+    font-size: 1.625rem;
+    font-weight: bold;
+}
+
+.notelineTop span:last-child{
+    font-size: 1.25rem;
+}
+
+.notelineBottom{
+    padding-top: 1.25rem;
+}

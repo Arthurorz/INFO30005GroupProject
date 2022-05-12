@@ -103,8 +103,8 @@ app.get('/dashboard', (req, res) => {
         layout: "clinician.hbs",
     }); 
 }); 
-app.get('/caboutme', (req, res) => {
-    res.render("clinician-aboutme", {
+app.get('/previous', (req, res) => {
+    res.render("clinician-previousNote", {
         layout: "clinician.hbs",
     }); 
 }); 
