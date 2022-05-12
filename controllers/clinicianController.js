@@ -5,6 +5,7 @@ const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 const Note = require('../models/note.js');
 
+//
 const selectMonth = async (req, res) => {
     try {
 
@@ -160,9 +161,11 @@ const editPatientData = async (req, res) => {
     const upperAndLowerError = 'Upper bound should be larger than or equal to lower bound'
     try {
         const patient = await Patient.findById(req.params.id);
+        const todayRecord =  await Record.findOne({patientId: patient._id, date: new Date().toLocaleString("en-AU",{"timeZone":"Australia/Melbourne"})});
         const patientData = await Patient.findById(req.params.id).lean();
         if (req.body.weight_check == 'on') {
             patient.required_data.weight = true;
+            
             if (req.body.weight_upper != '' && req.body.weight_lower != '') {
                 if (parseInt(req.body.weight_upper) >= parseInt(req.body.weight_lower)) {
                     patient.bound.weight_upper = req.body.weight_upper;
@@ -174,6 +177,7 @@ const editPatientData = async (req, res) => {
                 return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for weight', input: req.body, patientId: patientData._id });
             }
         } else {
+            todayRecord.data.weight.status ="Not required";
             patient.required_data.weight = false;
         }
 
@@ -190,6 +194,7 @@ const editPatientData = async (req, res) => {
                 return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError+'for exercise', input: req.body, patientId: patientData._id });
             }
         } else {
+            todayRecord.data.exercise.status ="Not required";
             patient.required_data.exercise = false;
         }
 
@@ -206,6 +211,7 @@ const editPatientData = async (req, res) => {
                 return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for insulin', input: req.body, patientId: patientData._id });
             }
         } else {
+            todayRecord.data.insulin.status ="Not required";
             patient.required_data.insulin = false;
         }
 
@@ -222,6 +228,7 @@ const editPatientData = async (req, res) => {
                 return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for glucose', input: req.body, patientId: patientData._id });
             }
         } else {
+            todayRecord.data.glucose.status ="Not required";
             patient.required_data.glucose = false;
         }
 
