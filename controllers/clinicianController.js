@@ -361,8 +361,8 @@ const addNewPatient = async (req, res) => {//===================================
 //render about me hbs page   not yet done
 const renderClinicianData = async (req, res) => {
     try {
-        const clinician = await Clinician.findById(req.params.id).lean();
-        res.render('clinician-aboutme.hbs', { layout: 'clinician.hbs', clinicianData: clinician });
+        const clinician = await Clinician.findById("626392e9a4d69d527a31780f").lean();//hardcode
+        res.render('clinician-aboutme.hbs', { layout: 'clinician.hbs', clinician: clinician });
     } catch (err) {
         res.status(400);
         res.send("error happened when rendering clinician data");

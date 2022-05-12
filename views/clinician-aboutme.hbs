@@ -3,14 +3,14 @@
     <!-- 这里要加自拍或者图片,以及信息要可以变动-->
     <div class = aboutMe-left>
         <img class = "self-picture" src = "/Photo_Pat.png" alt="self photo">
-        <div class = "userName">Name: Doctor ***</div>
-        <div class = "birth">Year of birth: 1968</div>
+        <div class = "userName">Name: Doctor {{clinician.last_name}}</div>
+        <div class = "birth">Year of birth: {{clinician.yearofbirth}}</div>
     </div>
     <div class = "aboutMe-right">
         <h2 class = "header">Here's a little about me</h2>
         <div class = "textBoarder">
             <div class = "self-intro">
-                <p contenteditable="true">I have been working on diabetes for twenty years. I have 50 patients now. In my spare time, I love doing exercise. So Glad to see you here, hope we will have the healthy life.</p>
+                <p contenteditable="true">{{clinician.brief_bio}}</p>
             </div>
         </div>
         <button class="saveButton" name="popBox" onclick="popBox()" type="button">Save</button>
