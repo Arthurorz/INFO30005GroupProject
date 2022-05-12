@@ -115,6 +115,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+
     ifNotEmpty: function (value, options) {
         if (value != 0 || value != "") {
             return options.fn(this);
@@ -125,6 +126,15 @@ const helpers = {
     },
     ifTrue: function(value, options) {
         if (value == true) {
+            return options.fn(this);
+        }
+        else {
+            return options.inverse(this);
+        }
+    },
+    // check if the record has date(have typed in data)
+    ifHasDate: function (value, options) {
+        if (value != null) {
             return options.fn(this);
         }
         else {

@@ -48,26 +48,30 @@
                 <span><img src="/unrecorded.png">Data was not recorded</span>
             </div>
             <div class="top-right">
-                <select class="mm" placeholder="MM" onselect="searchMonth()"><!--这么写-->
-                    <option name="" value="" style="display:none;">Month</option>
-                    <option name="January" value="Jan">January</option>
-                    <option name="February" value="Feb">February</option>
-                    <option name="March" value="Mar">March</option>
-                    <option name="April" value="Apr">April</option>
-                    <option name="May" value="May">May</option>
-                    <option name="June" value="Jun">June</option>
-                    <option name="July" value="Jul">July</option>
-                    <option name="August" value="Aug">August</option>
-                    <option name="September" value="Sep">September</option>
-                    <option name="October" value="Oct">October</option>
-                    <option name="November" value="Nov">November</option>
-                    <option name="December" value="Dec">December</option>
-                </select>
-                <select class="year" placeholder="Year" onselect="searchYear()">
-                    <option name="" value="" style="display:none;">Year</option>
-                    <option name="2021" value="">2021</option>
-                    <option name="2022" value="">2022</option>
-                </select>
+                <form action="/clinician/individualData/searchMonth" method="post" id="monthForm">
+                    <select class="mm" placeholder="MM" onchange="submitMonth()">
+                        <option name="" value="all" style="display:none;">Month</option>
+                        <option name="January" value="Jan">January</option>
+                        <option name="February" value="Feb">February</option>
+                        <option name="March" value="Mar">March</option>
+                        <option name="April" value="Apr">April</option>
+                        <option name="May" value="May">May</option>
+                        <option name="June" value="Jun">June</option>
+                        <option name="July" value="Jul">July</option>
+                        <option name="August" value="Aug">August</option>
+                        <option name="September" value="Sep">September</option>
+                        <option name="October" value="Oct">October</option>
+                        <option name="November" value="Nov">November</option>
+                        <option name="December" value="Dec">December</option>
+                    </select>
+                </form>
+                <form action="/clinician/individualData/searchYear" method="post" id="yearForm">
+                    <select class="year" placeholder="Year" onselect="submitYear()">
+                        <option name="" value="all" style="display:none;">Year</option>
+                        <option name="2021" value="2021">2021</option>
+                        <option name="2022" value="2022">2022</option>
+                    </select>
+                </form>
             </div>
         </div>
         <div class="individual-table">
@@ -83,7 +87,7 @@
                     <tr>
                         <td>{{this.record_id.date}}</td>
                         <!--weight-->
-                        {{#ifRecorded this.record_id.data.weight.status}}
+                        {{#ifHasDate this.record_id.data.weight.date}}
                             <!--draw different color if data out of range-->
                             <td style = "background-color:
                                 {{#ifAboveRange this.record_id.data.weight.value ../patient.bound.weight_upper}}
@@ -101,10 +105,10 @@
                             {{else}}
                                 <td><div class="ind_slope"></div></td>
                             {{/ifNotRecorded}}
-                        {{/ifRecorded}}
+                        {{/ifHasDate}}
 
                         <!--exercise-->
-                        {{#ifRecorded this.record_id.data.exercise.status}}
+                        {{#ifHasDate this.record_id.data.exercise.date}}
                         <!--draw different color if data out of range-->
                             <td style = "background-color:
                                 {{#ifAboveRange this.record_id.data.exercise.value ../patient.bound.exercise_upper}}
@@ -122,10 +126,10 @@
                             {{else}}
                                 <td><div class="ind_slope"></div></td>
                             {{/ifNotRecorded}}
-                        {{/ifRecorded}}
+                        {{/ifHasDate}}
 
                         <!--insulin-->
-                        {{#ifRecorded this.record_id.data.insulin.status}}
+                       {{#ifHasDate this.record_id.data.insulin.date}}
                         <!--draw different color if data out of range-->
                             <td style = "background-color:
                                 {{#ifAboveRange this.record_id.data.insulin.value ../patient.bound.insulin_upper}}
@@ -143,10 +147,10 @@
                             {{else}}
                                 <td><div class="large_slope"></div></td>
                             {{/ifNotRecorded}}
-                        {{/ifRecorded}}
+                        {{/ifHasDate}}
 
                         <!--glucose-->
-                        {{#ifRecorded this.record_id.data.glucose.status}}
+                        {{#ifHasDate this.record_id.data.glucose.date}}
                         <!--draw different color if data out of range-->
                             <td style = "background-color:
                                 {{#ifAboveRange this.record_id.data.glucose.value ../patient.bound.glucose_upper}}
@@ -164,7 +168,7 @@
                             {{else}}
                                 <td><div class="large_slope"></div></td>
                             {{/ifNotRecorded}}
-                        {{/ifRecorded}}
+                        {{/ifHasDate}}
                     </tr>
                 {{/each}}
                
@@ -183,26 +187,7 @@
                     <div class="time">{{this.timeStamp}}</div>
                 </li>
                 {{/each}}
-                <li>
-                    <div class="detail"></div>
-                    <div class="time"></div>
-                </li>
-                <li>
-                    <div class="detail"></div>
-                    <div class="time"></div>
-                </li>
-                <li>
-                    <div class="detail"></div>
-                    <div class="time"></div>
-                </li>
-                <li>
-                    <div class="detail"></div>
-                    <div class="time"></div>
-                </li>
-                <li>
-                    <div class="detail"></div>
-                    <div class="time"></div>
-                </li>
+                
             </ul>
             <button class="note-save" onclick="window.location.href=''" type="button">More Detail</button>
     </div>
