@@ -48,7 +48,7 @@
                 <span><img src="/unrecorded.png">Data was not recorded</span>
             </div>
             <div class="top-right">
-                <select class="mm" placeholder="MM">
+                <select class="mm" placeholder="MM" onselect="searchMonth()"><!--这么写-->
                     <option name="" value="" style="display:none;">Month</option>
                     <option name="January" value="Jan">January</option>
                     <option name="February" value="Feb">February</option>
@@ -63,7 +63,7 @@
                     <option name="November" value="Nov">November</option>
                     <option name="December" value="Dec">December</option>
                 </select>
-                <select class="year" placeholder="Year">
+                <select class="year" placeholder="Year" onselect="searchYear()">
                     <option name="" value="" style="display:none;">Year</option>
                     <option name="2021" value="">2021</option>
                     <option name="2022" value="">2022</option>

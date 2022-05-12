@@ -8,11 +8,13 @@
     </div>
     <div class = "aboutMe-right">
         <h2 class = "header">Here's a little about me</h2>
-        <div class = "textBoarder">
-            <div class = "self-intro">
-                <p contenteditable="true">{{clinician.brief_bio}}</p>
+        <form action="/clinician/aboutMe" method="post">
+            <div class = "textBoarder">
+                <div class = "self-intro">
+                    <p contenteditable="true">{{clinician.brief_bio}}</p>
+                </div>
             </div>
-        </div>
-        <button class="saveButton" name="popBox" onclick="popBox()" type="button">Save</button>
+            <button class="saveButton" name="popBox" onclick="popBox()" type="submit">Save</button>
+            </form>
     </div>
 </div>
