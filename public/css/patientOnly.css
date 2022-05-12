@@ -80,6 +80,11 @@ li {
     transform: rotate(45deg);
 }
 
+.large_slope {
+    border-bottom: 1px solid #CFCFCF;
+    transform: rotate(24deg);
+}
+
 .menu {
     display: none;
     position: absolute;
@@ -925,6 +930,11 @@ input[type=checkbox]:checked~.edit-page {
         transform: rotate(15deg);
     }
 
+    .large_slope {
+        border-bottom: 1px solid #CFCFCF;
+        transform: rotate(12deg);
+    }
+
     .individual-table th{
         font-size: 0.8rem;
     }
@@ -1384,6 +1394,11 @@ input[type=checkbox]:checked~.edit-page {
 
     .data-table .ind_slope{
         transform: rotate(18deg);
+    }
+
+    .large_slope {
+        border-bottom: 1px solid #CFCFCF;
+        transform: rotate(12deg);
     }
 
     .topright{
