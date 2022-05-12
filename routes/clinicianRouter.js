@@ -24,6 +24,8 @@ clinicianRouter.post('/newPatient',(req,res)=> clinicianController.addNewPatient
 clinicianRouter.post('/editData/:id',(req,res)=> clinicianController.editPatientData(req,res))
 clinicianRouter.post('/individualData/support_msg',(req,res)=> clinicianController.saveSupportMsg(req,res))
 
+
+
 //if validator needed
 // clinicianRouter.post('/newPatient', 
 // body('name', 'cannot be empty').not().isEmpty().escape(), 
@@ -59,19 +61,7 @@ clinicianRouter.post('/login',
     })
 )
 
-clinicianRouter.get('/forgetpass', (req, res) => res.render("normal-forgetpass"));
-clinicianRouter.get('/dashboard', isAuthenticated, (req,res)=> clinicianController.renderDashboard(req,res))
-clinicianRouter.get('/individualData/:id', isAuthenticated, (req,res)=>clinicianController.renderPatientData(req,res))
-clinicianRouter.get('/editData/:id', isAuthenticated, (req,res)=>clinicianController.renderClinicianEditData(req,res))
-clinicianRouter.get('/newPatient', isAuthenticated, (req,res)=>clinicianController.renderNewPatient(req,res))
-clinicianRouter.get('/commentList', isAuthenticated, (req,res)=>clinicianController.renderCommentList(req,res))
-clinicianRouter.get('/aboutMe', (req, res) => clinicianController.renderClinicianData(req,res))
 
-clinicianRouter.post('/dashboard/search',(req,res)=> clinicianController.searchDashboard(req,res))
-clinicianRouter.post('/comment/search',(req,res)=> clinicianController.searchComment(req,res))
-clinicianRouter.post('/newPatient', isAuthenticated, (req,res)=> clinicianController.addNewPatient(req,res))
-clinicianRouter.post('/editData/:id', isAuthenticated, (req,res)=> clinicianController.editPatientData(req,res))
-clinicianRouter.post('/individualData/support_msg', isAuthenticated, (req,res)=> clinicianController.saveSupportMsg(req,res))
 
 
 module.exports = clinicianRouter
