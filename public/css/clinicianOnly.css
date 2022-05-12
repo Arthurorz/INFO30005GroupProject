@@ -453,19 +453,25 @@ h6{
 }
 
 ul{
-    width: 96%;
+    width: 100%;
     height: 21.5rem;
-    padding: 1.625rem 0 0 1.125rem;
+    padding-top: 1.625rem;
     display: table;
     table-layout: fixed;
+    padding-left: 0;
 }
 
 li{
     list-style: none;
     display: table-row;
-    height: 1.813rem;
-    padding-bottom: 1.375rem;
+    /* height: 1.813rem; */
+    /* padding-bottom: 1.375rem; */
     font-size: 1.625rem;
+    border-bottom: 1px solid black;
+}
+
+li:hover{
+    background-color: #BBD9F6;
 }
 
 li div{
@@ -473,7 +479,12 @@ li div{
 }
 
 .detail{
-    width: 24.188rem;
+    width: 25.5rem;
+    padding-left: 1.123rem;
+}
+
+.time{
+    font-size: 1.25rem;
 }
 
 .previous-note, h6, .subject, .today-note {

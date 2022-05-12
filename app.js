@@ -98,8 +98,8 @@ app.get('/aboutme', (req, res) => {
 // render page with clinician header for testing
 app.use('/clinician', clinicianRouter);
 
-app.get('/dashboard', (req, res) => {
-    res.render("clinician-dashboard", {
+app.get('/individual', (req, res) => {
+    res.render("clinician-individualData", {
         layout: "clinician.hbs",
     }); 
 }); 

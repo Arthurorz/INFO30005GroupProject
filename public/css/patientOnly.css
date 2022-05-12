@@ -67,7 +67,7 @@ li {
     list-style: none;
 }
 
-.nav-links a {
+.nav-links a, .menu button {
     color: #FFFFFF;
 }
 
@@ -86,6 +86,12 @@ li {
     padding: 10px 0;
     font-size: 18px;
     margin-top: 385px;
+}
+
+.menu button{
+    border: none;
+    background-color: #668CB8;
+    font-size: 18px;
 }
 
 input[type=checkbox]:checked~.menu {
