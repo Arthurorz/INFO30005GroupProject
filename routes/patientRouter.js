@@ -27,16 +27,16 @@ patientRouter.get('/login', unAuthenticated, (req, res) => {
 // Handle login
 patientRouter.post('/login',
     passport.authenticate('patient-login', {
-        successRedirect: '/patient/homepage/:id', failureRedirect: '/patient/login', failureFlash: true
+        successRedirect: '/patient/homepage', failureRedirect: '/patient/login', failureFlash: true
     })
 )
 
 // patientRouter.get('/login', (req, res) => res.render("normal-patientLogin"));
 patientRouter.get('/forgetpass', unAuthenticated, (req, res) => res.render("normal-forgetpass"));
-patientRouter.get('/homepage/:id', isAuthenticated, patientController.renderHomePage)
-patientRouter.get('/addData/:type/:id', isAuthenticated, patientController.renderAddPage)
-patientRouter.post('/addData/:type/:id', isAuthenticated, patientController.updateRecord)
-patientRouter.get('/moredata/:id', isAuthenticated, patientController.renderMoreData)
+patientRouter.get('/homepage', isAuthenticated, patientController.renderHomePage)
+patientRouter.get('/addData/:type', isAuthenticated, patientController.renderAddPage)
+patientRouter.post('/addData/:type', isAuthenticated, patientController.updateRecord)
+patientRouter.get('/moredata', isAuthenticated, patientController.renderMoreData)
 patientRouter.get('/aboutDiabetes', isAuthenticated, (req, res) => res.render("normal-aboutDia", { layout: 'patient.hbs', screen_name: req.user.screen_name }));
 patientRouter.get('/aboutThisWeb', isAuthenticated, (req, res) => res.render("normal-aboutWeb", { layout: 'patient.hbs', screen_name: req.user.screen_name }));
 

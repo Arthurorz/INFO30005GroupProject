@@ -10,7 +10,7 @@
     {{else}}
     {{#ifNotRecorded today.data.glucose.status}}
     <div class="addbutton">
-        <a href='/patient/addData/glucose/{{patient._id}}'>
+        <a href='/patient/addData/glucose'>
         <img class="add" src="/addbutton.png" alt="Blood Glucose"></a>
         <span>Blood Glucose<img class="iconpng" src="/blood_glucose.png" alt="bloodpng"></span>
     </div>
@@ -46,7 +46,7 @@
     {{else}}
     {{#ifNotRecorded today.data.exercise.status}}
     <div class = "addbutton">
-        <a href='/patient/addData/exercise/{{patient._id}}'>
+        <a href='/patient/addData/exercise'>
         <img class="add" src="/addbutton.png" alt="Exercise"></a>
         <span>Exercise&nbsp;<img class="iconpng" src="/recordedRunning.png" alt="exercisepng"></span>
     </div>
@@ -64,7 +64,7 @@
     {{else}}
     {{#ifNotRecorded today.data.insulin.status}}
     <div class = "addbutton">
-        <a href='/patient/addData/insulin/{{patient._id}}'>
+        <a href='/patient/addData/insulin'>
         <img class="add" src="/addbutton.png" alt="Insulin"></a>
         <span>Insulin&nbsp;<img class="iconpng" src="/doses.png" alt="insulpng"></span>
     </div>
@@ -201,5 +201,5 @@
     </table>
 </div>
 <div class="homepage-footer">
-    <p><a href="">View More Data&nbsp;</a>></p>
+    <p><a href="/patient/moredata">View More Data&nbsp;</a>></p>
 </div>
