@@ -19,21 +19,21 @@ const selectMonth = async (req, res) => {
 }
 const addNote = async (req, res) => {
     try {
-        
+
         const SavePatient = await Patient.findById(req.params.id);
         const newNote = new Note({
             patientId: SavePatient._id,
             subject: req.body.subject,
             content: req.body.content,
-            timeStamp: new Date().toLocaleString("en-AU",{"timeZone":"Australia/Melbourne"})
+            timeStamp: new Date().toLocaleString("en-AU", { "timeZone": "Australia/Melbourne" })
         });
         await newNote.save();
 
-        SavePatient.note.push({note_id : newNote._id});
+        SavePatient.note.push({ note_id: newNote._id });
         await SavePatient.save();
 
-        res.redirect('/clinician/individualData/'+req.params.id);
-        
+        res.redirect('/clinician/individualData/' + req.params.id);
+
 
     } catch (err) {
         console.log(err);
@@ -47,7 +47,7 @@ const searchComment = async (req, res) => {
             const clinicianID = "626392e9a4d69d527a31780f";//hardcode for D2
             const clinician = await Clinician.findById(clinicianID);
             const lastTime = clinician.lastTimeViewCommentList;
-            clinician.lastTimeViewCommentList = new Date().toLocaleString("en-AU",{"timeZone":"Australia/Melbourne"});
+            clinician.lastTimeViewCommentList = new Date().toLocaleString("en-AU", { "timeZone": "Australia/Melbourne" });
             await clinician.save();
             const patients = (await Clinician.findById(clinicianID).populate({
                 path: 'patients',
@@ -66,52 +66,52 @@ const searchComment = async (req, res) => {
 
             var inputName = req.body.patientName.toLowerCase();
             inputName = inputName[0].toUpperCase() + inputName.substring(1, inputName.length);
-    
+
             const commentList = [];
-            for(i in patients){
+            for (i in patients) {
                 const patient = patients[i].patient_id;
                 if (patient.first_name == inputName || patient.last_name == inputName) {
-                    for(j in patient.records){
+                    for (j in patient.records) {
                         const record = patient.records[j].record_id;
-                        if(record.data.weight.comment!=''){
-                            
+                        if (record.data.weight.comment != '') {
+
                             commentList.push({
                                 //patientAvatar:  *******,
                                 timeStamp: record.data.weight.date,
-                                comment:record.data.weight.comment,
-                                patient_id : patient._id,
+                                comment: record.data.weight.comment,
+                                patient_id: patient._id,
                                 patientName: patient.first_name + " " + patient.last_name,
-                                upper_bound : patient.bound.weight_upper,
-                                lower_bound : patient.bound.weight_lower,
-                                value : record.data.weight.value,
+                                upper_bound: patient.bound.weight_upper,
+                                lower_bound: patient.bound.weight_lower,
+                                value: record.data.weight.value,
                                 type: 'weight',
-                                unit : 'kg'
+                                unit: 'kg'
                             });
                         }
-                        if(record.data.glucose.comment!=''){
+                        if (record.data.glucose.comment != '') {
                             commentList.push({
                                 //patientAvatar:  *******,
                                 timeStamp: record.data.glucose.date,
-                                comment:record.data.glucose.comment,
-                                patient_id : patient._id,
+                                comment: record.data.glucose.comment,
+                                patient_id: patient._id,
                                 patientName: patient.first_name + " " + patient.last_name,
-                                upper_bound : patient.bound.glucose_upper,
-                                lower_bound : patient.bound.glucose_lower,
-                                value : record.data.glucose.value,
+                                upper_bound: patient.bound.glucose_upper,
+                                lower_bound: patient.bound.glucose_lower,
+                                value: record.data.glucose.value,
                                 type: 'glucose',
-                                unit : 'nmol/L'
+                                unit: 'nmol/L'
                             });
                         }
-                        if(record.data.exercise.comment!=''){
+                        if (record.data.exercise.comment != '') {
                             commentList.push({
                                 //patientAvatar:  *******,
                                 timeStamp: record.data.exercise.date,
-                                comment:record.data.exercise.comment,
-                                patient_id : patient._id,
+                                comment: record.data.exercise.comment,
+                                patient_id: patient._id,
                                 patientName: patient.first_name + " " + patient.last_name,
-                                upper_bound : patient.bound.exercise_upper,
-                                lower_bound : patient.bound.exercise_lower,
-                                value : record.data.exercise.value,
+                                upper_bound: patient.bound.exercise_upper,
+                                lower_bound: patient.bound.exercise_lower,
+                                value: record.data.exercise.value,
                                 type: 'exercise',
                                 unit: 'steps'
                             });
@@ -121,7 +121,7 @@ const searchComment = async (req, res) => {
                                 //patientAvatar:  *******,
                                 timeStamp: record.data.insulin.date,
                                 comment: record.data.insulin.comment,
-                                patient_id : patient._id,
+                                patient_id: patient._id,
                                 patientName: patient.first_name + " " + patient.last_name,
                                 upper_bound: patient.bound.insulin_upper,
                                 lower_bound: patient.bound.insulin_lower,
@@ -134,10 +134,10 @@ const searchComment = async (req, res) => {
                 }
             }
             sortByTimeStamp(commentList);
-            for (i in commentList){
-                if(compareByTimeStamp(commentList[i].timeStamp,lastTime)<=0){
+            for (i in commentList) {
+                if (compareByTimeStamp(commentList[i].timeStamp, lastTime) <= 0) {
                     commentList[i].new = false;
-                }else{
+                } else {
                     commentList[i].new = true;
                 }
             }
@@ -145,7 +145,7 @@ const searchComment = async (req, res) => {
             if (commentList.length == 0) {
                 msg = "No comment found";
             }
-            res.render('clinician-commentList.hbs', { layout: 'clinician.hbs', commentList: commentList, msg : msg });
+            res.render('clinician-commentList.hbs', { layout: 'clinician.hbs', commentList: commentList, msg: msg });
         }
 
 
@@ -156,16 +156,16 @@ const searchComment = async (req, res) => {
 
 }
 const editPatientData = async (req, res) => {
-    
+
     const missBoundError = 'Need to add upper and lower bound';
     const upperAndLowerError = 'Upper bound should be larger than or equal to lower bound'
     try {
         const patient = await Patient.findById(req.params.id);
-        const todayRecord =  await Record.findOne({patientId: patient._id, date: new Date().toLocaleString("en-AU",{"timeZone":"Australia/Melbourne"})});
+        const todayRecord = await Record.findOne({ patientId: patient._id, date: new Date().toLocaleString("en-AU", { "timeZone": "Australia/Melbourne" }) });
         const patientData = await Patient.findById(req.params.id).lean();
         if (req.body.weight_check == 'on') {
             patient.required_data.weight = true;
-            
+
             if (req.body.weight_upper != '' && req.body.weight_lower != '') {
                 if (parseInt(req.body.weight_upper) >= parseInt(req.body.weight_lower)) {
                     patient.bound.weight_upper = req.body.weight_upper;
@@ -177,7 +177,7 @@ const editPatientData = async (req, res) => {
                 return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for weight', input: req.body, patientId: patientData._id });
             }
         } else {
-            todayRecord.data.weight.status ="Not required";
+            todayRecord.data.weight.status = "Not required";
             patient.required_data.weight = false;
         }
 
@@ -191,10 +191,10 @@ const editPatientData = async (req, res) => {
                     return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + 'for exercise', input: req.body, patientId: patientData._id });
                 }
             } else {
-                return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError+'for exercise', input: req.body, patientId: patientData._id });
+                return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for exercise', input: req.body, patientId: patientData._id });
             }
         } else {
-            todayRecord.data.exercise.status ="Not required";
+            todayRecord.data.exercise.status = "Not required";
             patient.required_data.exercise = false;
         }
 
@@ -211,7 +211,7 @@ const editPatientData = async (req, res) => {
                 return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for insulin', input: req.body, patientId: patientData._id });
             }
         } else {
-            todayRecord.data.insulin.status ="Not required";
+            todayRecord.data.insulin.status = "Not required";
             patient.required_data.insulin = false;
         }
 
@@ -228,13 +228,13 @@ const editPatientData = async (req, res) => {
                 return res.render('clinician-editData.hbs', { layout: 'clinician.hbs', error: missBoundError + 'for glucose', input: req.body, patientId: patientData._id });
             }
         } else {
-            todayRecord.data.glucose.status ="Not required";
+            todayRecord.data.glucose.status = "Not required";
             patient.required_data.glucose = false;
         }
 
 
         await patient.save();
-        
+
         res.redirect('/clinician/individualData/' + patientData._id);
     } catch (err) {
         console.log(err)
@@ -248,11 +248,11 @@ const addNewPatient = async (req, res) => {//===================================
     const passwordConfirmError = 'Error: Password and confirm password do not match';
     const mailExistError = 'Error: Email already exists';
 
-    if (req.body.password.length<8){
+    if (req.body.password.length < 8) {
         return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Password must be at least 8 characters long', input: req.body });
     }
 
-    
+
 
     const patient = await Patient.findOne({ email: req.body.email.toLowerCase() });
     if (!patient) {
@@ -272,7 +272,7 @@ const addNewPatient = async (req, res) => {//===================================
                     clinician: '626392e9a4d69d527a31780f',// hardcode
                     //register Date 需要增加
                 });
-                
+
 
                 if (req.body.weight_check == 'on') {
                     patient.required_data.weight = true;
@@ -300,7 +300,7 @@ const addNewPatient = async (req, res) => {//===================================
                             return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: upperAndLowerError + ' for exercise', input: req.body });
                         }
                     } else {
-                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError+' for exercise', input: req.body });
+                        return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: missBoundError + ' for exercise', input: req.body });
                     }
                 } else {
                     patient.required_data.exercise = false;
@@ -353,7 +353,7 @@ const addNewPatient = async (req, res) => {//===================================
             return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: passwordConfirmError, input: req.body });
         }
     } else {
-       
+
         return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: mailExistError, input: req.body });
     }
 }
@@ -374,7 +374,7 @@ const renderCommentList = async (req, res) => {
         const clinicianID = "626392e9a4d69d527a31780f";//hardcode for D2
         const clinician = await Clinician.findById(clinicianID);
         const lastTime = clinician.lastTimeViewCommentList;
-        clinician.lastTimeViewCommentList = new Date().toLocaleString("en-AU",{"timeZone":"Australia/Melbourne"});
+        clinician.lastTimeViewCommentList = new Date().toLocaleString("en-AU", { "timeZone": "Australia/Melbourne" });
         await clinician.save();
         const patients = (await Clinician.findById(clinicianID).populate({
             path: 'patients',
@@ -392,49 +392,49 @@ const renderCommentList = async (req, res) => {
         }).lean()).patients;
 
         const commentList = [];
-        for(i in patients){
+        for (i in patients) {
             const patient = patients[i].patient_id;
-            for(j in patient.records){
+            for (j in patient.records) {
                 const record = patient.records[j].record_id;
-                if(record.data.weight.comment!=''){
-                    
+                if (record.data.weight.comment != '') {
+
                     commentList.push({
                         //patientAvatar:  *******,
                         timeStamp: record.data.weight.date,
-                        comment:record.data.weight.comment,
-                        patient_id : patient._id,
+                        comment: record.data.weight.comment,
+                        patient_id: patient._id,
                         patientName: patient.first_name + " " + patient.last_name,
-                        upper_bound : patient.bound.weight_upper,
-                        lower_bound : patient.bound.weight_lower,
-                        value : record.data.weight.value,
+                        upper_bound: patient.bound.weight_upper,
+                        lower_bound: patient.bound.weight_lower,
+                        value: record.data.weight.value,
                         type: 'weight',
-                        unit : 'kg'
+                        unit: 'kg'
                     });
                 }
-                if(record.data.glucose.comment!=''){
+                if (record.data.glucose.comment != '') {
                     commentList.push({
                         //patientAvatar:  *******,
                         timeStamp: record.data.glucose.date,
-                        comment:record.data.glucose.comment,
-                        patient_id : patient._id,
+                        comment: record.data.glucose.comment,
+                        patient_id: patient._id,
                         patientName: patient.first_name + " " + patient.last_name,
-                        upper_bound : patient.bound.glucose_upper,
-                        lower_bound : patient.bound.glucose_lower,
-                        value : record.data.glucose.value,
+                        upper_bound: patient.bound.glucose_upper,
+                        lower_bound: patient.bound.glucose_lower,
+                        value: record.data.glucose.value,
                         type: 'glucose',
-                        unit : 'nmol/L'
+                        unit: 'nmol/L'
                     });
                 }
-                if(record.data.exercise.comment!=''){
+                if (record.data.exercise.comment != '') {
                     commentList.push({
                         //patientAvatar:  *******,
                         timeStamp: record.data.exercise.date,
-                        comment:record.data.exercise.comment,
-                        patient_id : patient._id,
+                        comment: record.data.exercise.comment,
+                        patient_id: patient._id,
                         patientName: patient.first_name + " " + patient.last_name,
-                        upper_bound : patient.bound.exercise_upper,
-                        lower_bound : patient.bound.exercise_lower,
-                        value : record.data.exercise.value,
+                        upper_bound: patient.bound.exercise_upper,
+                        lower_bound: patient.bound.exercise_lower,
+                        value: record.data.exercise.value,
                         type: 'exercise',
                         unit: 'steps'
                     });
@@ -444,7 +444,7 @@ const renderCommentList = async (req, res) => {
                         //patientAvatar:  *******,
                         timeStamp: record.data.insulin.date,
                         comment: record.data.insulin.comment,
-                        patient_id : patient._id,
+                        patient_id: patient._id,
                         patientName: patient.first_name + " " + patient.last_name,
                         upper_bound: patient.bound.insulin_upper,
                         lower_bound: patient.bound.insulin_lower,
@@ -456,38 +456,38 @@ const renderCommentList = async (req, res) => {
             }
         }
         sortByTimeStamp(commentList);
-        for (i in commentList){
-            if(compareByTimeStamp(commentList[i].timeStamp,lastTime)<=0){
+        for (i in commentList) {
+            if (compareByTimeStamp(commentList[i].timeStamp, lastTime) <= 0) {
                 commentList[i].new = false;
-            }else{
+            } else {
                 commentList[i].new = true;
             }
         }
-        res.render('clinician-commentList.hbs', { layout: 'clinician.hbs', commentList: commentList});
+        res.render('clinician-commentList.hbs', { layout: 'clinician.hbs', commentList: commentList });
     } catch (err) {
         res.status(400);
         res.send("error happened when rendering commentList page");
     }
 }
 
-function sortByTimeStamp(List){
+function sortByTimeStamp(List) {
 
     //insertion sort
     for (var i = 1; i < List.length; i++) {
         var temp = List[i];
         for (j = i - 1; j >= 0; j--) {
-            if(compareByTimeStamp(temp.timeStamp,List[j].timeStamp)>0){
-                List[j+1]=List[j]
+            if (compareByTimeStamp(temp.timeStamp, List[j].timeStamp) > 0) {
+                List[j + 1] = List[j]
             }
-            else{
+            else {
                 break;
             }
         }
-       List[j+1] = temp;
+        List[j + 1] = temp;
     }
 }
 
-function compareByTimeStamp(timeStamp1,timeStamp2){
+function compareByTimeStamp(timeStamp1, timeStamp2) {
     month1 = parseInt(timeStamp1.substring(3, 5));
     month2 = parseInt(timeStamp2.substring(3, 5));
     day1 = parseInt(timeStamp1.substring(0, 2));
@@ -496,7 +496,7 @@ function compareByTimeStamp(timeStamp1,timeStamp2){
     year2 = parseInt(timeStamp2.substring(6, 10));
     //if the hour is 1 digit number add a 0 before the string
     if (timeStamp1.length == 22) {
-        timeStamp1 = "0"+ timeStamp1
+        timeStamp1 = "0" + timeStamp1
     }
     hour1 = parseInt(timeStamp1.substring(12, 14));
     minute1 = parseInt(timeStamp1.substring(15, 17));
@@ -504,7 +504,7 @@ function compareByTimeStamp(timeStamp1,timeStamp2){
     unit1 = timeStamp1.substring(21, 23);
     //if the hour is 1 digit number add a 0 before the string
     if (timeStamp2.length == 22) {
-        timeStamp2 = "0"+ timeStamp2
+        timeStamp2 = "0" + timeStamp2
     }
     hour2 = parseInt(timeStamp2.substring(12, 14));
     minute2 = parseInt(timeStamp2.substring(15, 17));
@@ -576,7 +576,7 @@ const renderClinicianEditData = async (req, res) => {
     try {
         const patient = await Patient.findById(req.params.id).lean();
 
-        res.render('clinician-editData.hbs', { layout: 'clinician.hbs', patient: patient , patientId : patient._id});
+        res.render('clinician-editData.hbs', { layout: 'clinician.hbs', patient: patient, patientId: patient._id });
     } catch (err) {
         console.log(err)
     }
@@ -597,69 +597,69 @@ const renderPatientData = async (req, res) => {
         }).populate({
             path: 'note',
             options: { lean: true },
-            populate:{
+            populate: {
                 path: 'note_id',
                 options: { lean: true }
             }
         }).lean();
         const records = patient.records;
         const recordList = [];
-        for (i in records){
+        for (i in records) {
             recordList.push(records[i]);
         }
         sortByDate(recordList);
 
         const notes = patient.note;
         const noteList = [];
-        for (i in notes){
+        for (i in notes) {
             noteList.push({
                 timeStamp: notes[i].note_id.timeStamp,
                 subject: notes[i].note_id.subject,
                 content: notes[i].note_id.content,
             });
         }
-    
+
         sortByTimeStamp(noteList);
-        res.render('clinician-individualData.hbs', { layout: 'clinician.hbs', patient: patient, records: recordList, notes: noteList});
+        res.render('clinician-individualData.hbs', { layout: 'clinician.hbs', patient: patient, records: recordList, notes: noteList });
     } catch (err) {
         console.log(err)
     }
 }
 
-function sortByDate(recordList){
+function sortByDate(recordList) {
     //insertion sort
     for (var i = 1; i < recordList.length; i++) {
         var temp = recordList[i];
         for (j = i - 1; j >= 0; j--) {
-            if(compareByDate(temp,recordList[j])>0){
-                recordList[j+1]=recordList[j]
+            if (compareByDate(temp, recordList[j]) > 0) {
+                recordList[j + 1] = recordList[j]
             }
-            else{
+            else {
                 break;
             }
         }
-        recordList[j+1] = temp;
+        recordList[j + 1] = temp;
     }
 }
 
-function compareByDate(record1, record2){
-    month1 = parseInt(record1.record_id.date.substring(3,5));
-    month2 = parseInt(record2.record_id.date.substring(3,5));
-    day1 = parseInt(record1.record_id.date.substring(0,2));
-    day2 = parseInt(record2.record_id.date.substring(0,2));
-    year1 = parseInt(record1.record_id.date.substring(6,10));
-    year2 = parseInt(record2.record_id.date.substring(6,10));
+function compareByDate(record1, record2) {
+    month1 = parseInt(record1.record_id.date.substring(3, 5));
+    month2 = parseInt(record2.record_id.date.substring(3, 5));
+    day1 = parseInt(record1.record_id.date.substring(0, 2));
+    day2 = parseInt(record2.record_id.date.substring(0, 2));
+    year1 = parseInt(record1.record_id.date.substring(6, 10));
+    year2 = parseInt(record2.record_id.date.substring(6, 10));
 
     if (year1 < year2) {
         return -1;
     }
     else if (year1 == year2) {
-        if(month1<month2){
+        if (month1 < month2) {
             return -1;
-        }else if(month1 == month2){
-            if(day1<day2){
+        } else if (month1 == month2) {
+            if (day1 < day2) {
                 return -1;
-            }if(day1==day2){
+            } if (day1 == day2) {
                 return 0;
             }
         }
@@ -690,8 +690,8 @@ const renderDashboard = async (req, res) => {
             patient = allPatient[i];
             initialRecord(patient.patient_id.toString());
         }
-        
-        
+
+
         //get clinician's patients and populate their information
         const patients = (await Clinician.findById(clinicianID).populate({
             path: 'patients',
@@ -740,7 +740,7 @@ const renderDashboard = async (req, res) => {
 async function initialRecord(patient_id) {
     try {
         const patient = await Patient.findById(patient_id);
-        
+
         const record = await Record.findOne({ patientId: patient._id, date: (new Date()).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }) });
 
         if (record == null) {
@@ -796,7 +796,6 @@ const searchDashboard = async (req, res) => {
                 }
             }).lean()).patients;
 
-
             var inputName = req.body.patientName.toLowerCase();
             inputName = inputName[0].toUpperCase() + inputName.substring(1, inputName.length);
             const patientList = []
@@ -826,8 +825,7 @@ const searchDashboard = async (req, res) => {
                 msg = "No patient found";
             }
 
-            res.render('clinician-dashboard.hbs', { layout: 'clinician.hbs', patientList: patientList , msg : msg});
-
+            res.render('clinician-dashboard.hbs', { layout: 'clinician.hbs', patientList: patientList, msg: msg });
         }
     } catch (err) {
         console.log(err)
