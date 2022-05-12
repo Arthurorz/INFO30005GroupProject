@@ -2,7 +2,10 @@
 function isAddDataNull() {
     var addData = document.getElementById("addData").value;
 
-    if (addData != "") {
+    if (addData < 0) {
+        alert("Please enter valid data");
+        return false;
+    } else if (addData != "") {
         alert("You have successfully saved the data");
     }
 

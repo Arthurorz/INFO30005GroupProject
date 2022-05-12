@@ -1,6 +1,6 @@
 {{#ifglucose type}}
 <h1>Blood Glucose Level</h1>
-<form action="/patient/addData/{{type}}/{{patient._id}}" method="post">
+<form action="/patient/addData/{{type}}" method="post">
     <div class ="dataInput">
         <input type="number" required="required" step="0.01" id="addData" name="addData" placeholder="0.00"><span>nmol/L</span>
         <textarea type="text" id="addComment" name="addComment" placeholder="Please Leave Your Comment"></textarea>
@@ -8,7 +8,7 @@
 {{/ifglucose}}    
 {{#ifweight type}}
 <h1>Weight</h1>
-<form action="/patient/addData/{{type}}/{{patient._id}}" method="post">
+<form action="/patient/addData/{{type}}" method="post">
     <div class ="dataInput">
         <input type="number" required="required" step="0.01" id="addData" name="addData" placeholder="0.00"><span>kg</span>
         <textarea type="text" id="addComment" name="addComment" placeholder="Please Leave Your Comment"></textarea>
@@ -16,7 +16,7 @@
 {{/ifweight}}  
 {{#ifexercise type}}
 <h1>Exercise</h1>
-<form action="/patient/addData/{{type}}/{{patient._id}}" method="post">
+<form action="/patient/addData/{{type}}" method="post">
     <div class ="dataInput">
         <input type="number" required="required" id="addData" name="addData" placeholder="0"><span>Step count</span>
         <textarea type="text" id="addComment" name="addComment" placeholder="Please Leave Your Comment"></textarea>
@@ -24,13 +24,13 @@
 {{/ifexercise}}        
 {{#ifinsulin type}}
 <h1>Doses of Insulin Taken Today</h1>
-<form action="/patient/addData/{{type}}/{{patient._id}}" method="post">
+<form action="/patient/addData/{{type}}" method="post">
     <div class ="dataInput">
         <input type="number"required="required" id="addData" name="addData" placeholder="0"><span>doses</span>
         <textarea type="text" id="addComment" name="addComment" placeholder="Please Leave Your Comment"></textarea>
     </div>
 {{/ifinsulin}} 
-    <button class="saveButton" name="popBox" type="submit" onclick="isAddDataNull()">Save</button>
+    <button class="saveButton" name="popBox" type="submit" onclick="return isAddDataNull()">Save</button>
 </form>
 <script src="/js/hbshelp.js"></script>
 
