@@ -34,12 +34,6 @@ function clicktest(){
     }
 }
 
-// Check if emial format is correct
-// function IsEmail(str) {
-//     var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
-//     return  reg.test(str);
-// }
-
 // Check if all fields are filled and correct
 function isNewPatientNull(error) {
     var familyName = document.getElementById("familyName").value;
