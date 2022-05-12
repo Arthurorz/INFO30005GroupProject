@@ -2,10 +2,28 @@ const express = require("express");
 const normalRouter = express.Router();
 constnoemalController = require("../controllers/normalController.js");
 
-normalRouter.get('/landingPage', (req, res) => res.render("normal-landingPage"));
-normalRouter.get('/aboutDiabetes', (req, res) => res.render("normal-aboutDia"));
-normalRouter.get('/aboutThisWeb', (req, res) => res.render("normal-aboutWeb"));
-normalRouter.get('/logout', (req, res) => {
+const isAuthenticated = (req, res, next) => {
+    if (!req.isAuthenticated()) {
+        return res.redirect('/normal/landingPage');
+    }
+    return next();
+}
+
+const unAuthenticated = (req, res, next)=> {
+    if (req.isAuthenticated()){
+        if (req.user.screen_name === undefined){
+            return res.redirect('/clinician/dashboard');
+        } else {
+            return res.redirect('/patient/homepage/:id');
+        }
+    }
+    return next();
+}
+
+normalRouter.get('/landingPage', unAuthenticated, (req, res) => res.render("normal-landingPage"));
+normalRouter.get('/aboutDiabetes', unAuthenticated, (req, res) => res.render("normal-aboutDia"));
+normalRouter.get('/aboutThisWeb', unAuthenticated, (req, res) => res.render("normal-aboutWeb"));
+normalRouter.get('/logout', isAuthenticated, (req, res) => {
     req.logout()
     res.redirect("/normal/landingPage")
 });

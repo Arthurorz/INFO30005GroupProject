@@ -6,14 +6,14 @@ const patientController = require('../controllers/patientController.js')
 
 // Authentication middleware
 const isAuthenticated = (req, res, next) => {
-    if (!req.isAuthenticated()) {
+    if (!req.isAuthenticated() || req.user.screen_name === undefined) {
         return res.redirect('/patient/login')
     }
     return next();
 }
 
 const unAuthenticated = (req, res, next)=> {
-    if (req.isAuthenticated()){
+    if (req.isAuthenticated() && req.user.screen_name !== undefined){
         return res.redirect('homepage/:id');
     }
     return next();
