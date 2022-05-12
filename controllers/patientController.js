@@ -18,7 +18,7 @@ const updateRecord = async(req,res,next) =>{
         record.data[type].date =new Date().toLocaleString("en-AU",{"timeZone":"Australia/Melbourne"});
         //save the record to the database
         await record.save();
-        res.redirect('/patient/homepage/'+patient_id);
+        res.redirect('/patient/homepage');
     }catch(err){
         return next(err);
     }
