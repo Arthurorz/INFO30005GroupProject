@@ -241,7 +241,7 @@ const editPatientData = async (req, res) => {
     }
 }
 
-const addNewPatient = async (req, res) => {//===============================================要改
+const addNewPatient = async (req, res) => {
 
     const missBoundError = 'Error: Need to add upper and lower bound';
     const upperAndLowerError = 'Error: Upper bound should be larger than or equal to lower bound'
@@ -261,7 +261,7 @@ const addNewPatient = async (req, res) => {//===================================
                 const patient = new Patient({
                     first_name: req.body.first_name,
                     last_name: req.body.last_name,
-                    email: req.body.email,
+                    email: req.body.email.toLowerCase(),
                     password: req.body.password,
                     screen_name: req.body.first_name,
                     yearofbirth: req.body.yearofbirth,
