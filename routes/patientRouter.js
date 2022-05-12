@@ -7,7 +7,7 @@ const patientController = require('../controllers/patientController.js')
 // Authentication middleware
 const isAuthenticated = (req, res, next) => {
     if (!req.isAuthenticated()) {
-        return res.redirect('login')
+        return res.redirect('/patient/login')
     }
     return next();
 }
