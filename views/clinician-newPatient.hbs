@@ -8,13 +8,13 @@
     <div class="newPatient-body">
         <div class="infoList">
             <div class="infoAdd">
-                <span class="infoName">Family Name: </span>
+                <span class="infoName">First Name: </span>
                 <span class="inputBox"><input class="textBox" id="familyName" required="required" type="text"
                         name="last_name" placeholder="xxx" value={{input.last_name}}></span>
                         
             </div>
             <div class="infoAdd">
-                <span class="infoName">Given Name:</span>
+                <span class="infoName">Last Name:</span>
                 <span class="inputBox"><input class="textBox" id="givenName" required="required" type="text"
                         name="first_name" placeholder="xxx" value={{input.first_name}}></span>
             </div>
@@ -49,14 +49,14 @@
                 <span class="inputBox"><input class="textBox" type="text" name="brief_bio"
                         placeholder="enter the characters" value={{input.brief_bio}}></span>
             </div>
-            <div class="sendCode">
+            {{!-- <div class="sendCode">
                 <button class="codeButton" onclick="window.location.href=''" type="button">Send Authentication
                     Code</button>
             </div>
             <div class="enterCode">
                 <span class="codeBox"><input class="textBox" id="code" required="required" type="text" name="auth_code"
                         placeholder="Enter the code"></span>
-            </div>
+            </div> --}}
         </div>
 
         <div class="chooseList">

@@ -108,8 +108,13 @@ app.get('/previous', (req, res) => {
         layout: "clinician.hbs",
     }); 
 }); 
-app.get('/comment', (req, res) => {
-    res.render("clinician-commentList", {
+app.get('/new', (req, res) => {
+    res.render("clinician-newPatient", {
+        layout: "clinician.hbs",
+    }); 
+}); 
+app.get('/caboutme', (req, res) => {
+    res.render("clinician-aboutme", {
         layout: "clinician.hbs",
     }); 
 }); 

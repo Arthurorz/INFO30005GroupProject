@@ -667,7 +667,7 @@ li div{
     width: 36.5%;
     height: 52.1%;
     /* padding-left: 10.6%; */
-    margin: 3.1875rem auto auto 10.6%;
+    margin: 0 auto auto 10.6%;
 }
 
 .infoAdd {
@@ -718,12 +718,12 @@ li div{
     padding-right: 0.65%;
 }
 
-.sendCode {
+/* .sendCode {
     padding-top: 8%;
     padding-left: 12%;
-}
+} */
 
-.codeButton {
+/* .codeButton {
     color: #FFFFFF;
     background-color: #668CB8;
     border-radius: 8px;
@@ -736,7 +736,7 @@ li div{
 .enterCode {
     padding-top: 4.2%;
     padding-left: 12%;
-}
+} */
 
 .codeBox .textBox {
     width: 315px;
@@ -744,9 +744,9 @@ li div{
     text-align: center;
 }
 
-.codeBox ::-webkit-input-placeholder {
+/* .codeBox ::-webkit-input-placeholder {
     text-align: center;
-}
+} */
 
 /* .submit{
     padding-top: 2%;
@@ -792,28 +792,38 @@ li div{
     margin-bottom: 0.375rem;
 }
 
-.aboutMe-right p{
+.aboutMe-right textarea{
     font-size: 1.625em;
+    margin: auto;
+    width: 83.1%;
+    border: 1px solid #EDEDED;
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    border-radius: 1.25rem;
+    height: 9.2rem;
+    padding: 3.563rem 2.813rem;
+    
+    
 }
 
 .aboutMe-right .saveButton{
     margin-top: 8%;
 }
 
-.textBoarder{
+/* .self-intro{
     margin: auto;
     width: 100%;
     border: 1px solid #EDEDED;
     box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
     border-radius: 1.25rem;
-}
+    height: 16.438rem;
+} */
 
-.self-intro {
+/* .self-intro {
     margin: auto;
     margin-top: 3.5625em;
     height: 16.4375em;
     width: 83.39%;
-}
+} */
 
 /* Comment List Page*/
 .commentSearch{
