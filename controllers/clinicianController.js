@@ -3,8 +3,41 @@ const res = require('express/lib/response');
 const Clinician = require('../models/clinician.js');
 const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
+const Note = require('../models/note.js');
+
+const selectMonth = async (req, res) => {
+    try {
 
 
+
+
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+const addNote = async (req, res) => {
+    try {
+        
+        const SavePatient = await Patient.findById(req.params.id);
+        const newNote = new Note({
+            patientId: SavePatient._id,
+            subject: req.body.subject,
+            content: req.body.content,
+            timeStamp: new Date().toLocaleString("en-AU",{"timeZone":"Australia/Melbourne"})
+        });
+        await newNote.save();
+
+        SavePatient.note.push({note_id : newNote._id});
+        await SavePatient.save();
+
+        res.redirect('/clinician/individualData/'+req.params.id);
+        
+
+    } catch (err) {
+        console.log(err);
+    }
+}
 const searchComment = async (req, res) => {
     try {
         if (req.body.patientName == '') {
@@ -201,7 +234,7 @@ const editPatientData = async (req, res) => {
     }
 }
 
-const addNewPatient = async (req, res) => {
+const addNewPatient = async (req, res) => {//===============================================要改
 
     const missBoundError = 'Error: Need to add upper and lower bound';
     const upperAndLowerError = 'Error: Upper bound should be larger than or equal to lower bound'
@@ -430,19 +463,20 @@ const renderCommentList = async (req, res) => {
     }
 }
 
-function sortByTimeStamp(commentList){
+function sortByTimeStamp(List){
+
     //insertion sort
-    for (var i = 1; i < commentList.length; i++) {
-        var temp = commentList[i];
+    for (var i = 1; i < List.length; i++) {
+        var temp = List[i];
         for (j = i - 1; j >= 0; j--) {
-            if(compareByTimeStamp(temp.timeStamp,commentList[j].timeStamp)>0){
-                commentList[j+1]=commentList[j]
+            if(compareByTimeStamp(temp.timeStamp,List[j].timeStamp)>0){
+                List[j+1]=List[j]
             }
             else{
                 break;
             }
         }
-        commentList[j+1] = temp;
+       List[j+1] = temp;
     }
 }
 
@@ -553,6 +587,13 @@ const renderPatientData = async (req, res) => {
         }).populate({
             path: 'clinician',
             options: { lean: true }
+        }).populate({
+            path: 'note',
+            options: { lean: true },
+            populate:{
+                path: 'note_id',
+                options: { lean: true }
+            }
         }).lean();
         const records = patient.records;
         const recordList = [];
@@ -560,7 +601,19 @@ const renderPatientData = async (req, res) => {
             recordList.push(records[i]);
         }
         sortByDate(recordList);
-        res.render('clinician-individualData.hbs', { layout: 'clinician.hbs', patient: patient, records: recordList});
+
+        const notes = patient.note;
+        const noteList = [];
+        for (i in notes){
+            noteList.push({
+                timeStamp: notes[i].note_id.timeStamp,
+                subject: notes[i].note_id.subject,
+                content: notes[i].note_id.content,
+            });
+        }
+    
+        sortByTimeStamp(noteList);
+        res.render('clinician-individualData.hbs', { layout: 'clinician.hbs', patient: patient, records: recordList, notes: noteList});
     } catch (err) {
         console.log(err)
     }
@@ -816,4 +869,6 @@ module.exports = {
     saveSupportMsg,
     renderCommentList,
     searchComment,
+    addNote,
+    selectMonth,
 }

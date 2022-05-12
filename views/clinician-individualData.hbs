@@ -172,46 +172,49 @@
         </div>
     </div>
 </div>
+<form action="/clinician/individualData/{{patient._id}}/addNote" method="post">
 <div class="note">
     <div class="previous-note">
-        <h6>Previous Notes</h6>
-        <ul>
-            <li>
-                <div class="detail"></div>
-                <div class="time"></div>
-            </li>
-            <li>
-                <div class="detail"></div>
-                <div class="time"></div>
-            </li>
-            <li>
-                <div class="detail"></div>
-                <div class="time"></div>
-            </li>
-            <li>
-                <div class="detail"></div>
-                <div class="time"></div>
-            </li>
-            <li>
-                <div class="detail"></div>
-                <div class="time"></div>
-            </li>
-            <li>
-                <div class="detail"></div>
-                <div class="time"></div>
-            </li>
-        </ul>
-        <button class="note-save" onclick="window.location.href=''" type="button">More Detail</button>
+            <h6>Previous Notes</h6>
+            <ul>
+                {{#each notes}}
+                <li>
+                    <div class="detail">{{this.subject}}</div>
+                    <div class="time">{{this.timeStamp}}</div>
+                </li>
+                {{/each}}
+                <li>
+                    <div class="detail"></div>
+                    <div class="time"></div>
+                </li>
+                <li>
+                    <div class="detail"></div>
+                    <div class="time"></div>
+                </li>
+                <li>
+                    <div class="detail"></div>
+                    <div class="time"></div>
+                </li>
+                <li>
+                    <div class="detail"></div>
+                    <div class="time"></div>
+                </li>
+                <li>
+                    <div class="detail"></div>
+                    <div class="time"></div>
+                </li>
+            </ul>
+            <button class="note-save" onclick="window.location.href=''" type="button">More Detail</button>
     </div>
     <div class="add-note">
         <div class="subject">
-            <input type="text" id="text" name="text" placeholder="Subject">
+            <input type="text" id="text" name="subject" placeholder="Subject">
             <!--<img src="./30005image/delete.png" alt="delete">-->
         </div>
         <div class="today-note">
-            <input class="today-add" type="text" id="text" name="text" placeholder="Add a note...">
+            <input class="today-add" type="text" id="text" name="content" placeholder="Add a note...">
         </div>
-        
     </div>
 </div>
-<button class="note-save" onclick="window.location.href=''" type="button">Save</button>
+<button class="note-save" onclick="window.location.href=''" type="submit">Save</button>
+</form>
