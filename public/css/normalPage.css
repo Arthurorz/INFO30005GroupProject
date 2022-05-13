@@ -22,6 +22,24 @@ p {
     font-size: 0.875rem;
 }
 
+.error{
+    width: 50%;
+    height: 40px;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+    position: absolute;
+    top: 280px;
+    left: 25%;
+}
+
+.errormsg {
+    color: red;
+    line-height: 40px;
+    text-align: center;
+    font-style: italic;
+    text-decoration: underline;
+}
+
 /* Normal Header */
 .normal-header {
     height: 55px;
@@ -737,6 +755,7 @@ button.change-sentcode {
         height: 3.063rem;
         padding-left: 1rem;
         border-radius: 0.625rem;
+        font-size: 1.5rem;
     }
 
     .forget-container label {
@@ -746,7 +765,7 @@ button.change-sentcode {
     .forget-container input::placeholder,
     .sendcode ::placeholder,
     button.sentcode {
-        font-size: 1.25rem;
+        font-size: 1.5rem;
     }
 
     /* .sendcode {
