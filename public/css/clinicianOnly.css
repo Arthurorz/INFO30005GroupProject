@@ -327,7 +327,7 @@ h5{
     border-color: #707070;
 }
 
-.message-save, .note-save{
+.message-save, .note-save, .more-detail{
     border: none;
     background-color: #668CB8;
     color: white;
@@ -528,6 +528,12 @@ li div{
     /* padding-left: 1rem;
     padding-bottom: 4rem; */
     font-size: 1.625rem;
+}
+
+.more-detail{
+    width: 12.5rem;
+    height: 3.875rem;
+    margin-left: 29rem;
 }
 
 .note-save{
