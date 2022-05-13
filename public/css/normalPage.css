@@ -328,7 +328,7 @@ button.sentcode {
     outline: none;
 }
 
-.forget-container input ::placeholder,
+/* .forget-container input ::placeholder, */
 /* .sendcode ::placeholder {
     color: #CFCFCF;
     font-size: 0.75rem;

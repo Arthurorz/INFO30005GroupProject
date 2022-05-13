@@ -404,7 +404,7 @@ textarea {
 
 .changepass-container input{
     width: 100%;
-    margin: 0.313rem auto 0.625rem auto;
+    margin: 0.313rem auto 1rem auto;
 }
 
 /* .change-sendcode, button.change-sentcode,.change-sendcode input{
@@ -432,6 +432,7 @@ button.change-sentcode,.change-sendcode input, .change-login, .changepass-contai
     height: 1.75rem;
     border-radius: 0.5rem;
     font-size: 1rem;
+    padding-left: 0.5rem;
 }
 
 button.change-sentcode {
@@ -446,9 +447,9 @@ button.change-sentcode {
 
 .change-login{
     display: block;
-    height: 1.813rem;
+    height: 2rem;
     width: 19%;
-    margin: 2rem auto;
+    margin: 1rem auto;
 }
 
 /* Data Page */
@@ -893,6 +894,13 @@ input[type=checkbox]:checked~.edit-page {
     /* .change-sendcode input{
         width: 97.5%;
     } */
+    .changepass-container{
+        width: 43.6%;
+    }
+
+    .change-login{
+        width: 12%;
+    }
 
 
     /* Motivation iPad */
@@ -961,10 +969,6 @@ input[type=checkbox]:checked~.edit-page {
     .user-bio input{
         font-size: 0.8rem;
     }
-
-    
-
-
 }
 
 @media screen and (min-width: 1400px) {
@@ -1252,6 +1256,10 @@ input[type=checkbox]:checked~.edit-page {
         width: 23.33%;
         font-size: 1.625rem;
     }
+
+    .changepass-container input{
+        margin: 0.313rem auto 2rem auto;
+    }
     
     /* .change-sendcode{
         width: 15.52%;
@@ -1260,10 +1268,13 @@ input[type=checkbox]:checked~.edit-page {
     button.change-sentcode,.change-sendcode input, .change-login, .changepass-container input{
         height: 3.063rem;
         font-size: 1.625rem;
+        padding-left: 1rem;
     }
 
     .change-login{
         width: 8.17%;
+        height: 3.875rem;
+        font-size: 2.215rem;
     }
 
 
