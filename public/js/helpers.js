@@ -140,6 +140,15 @@ const helpers = {
         else {
             return options.inverse(this);
         }
+    },
+    ifSearched: function (value, options) {
+        if (value != "all" && value != undefined) {
+            
+            return options.fn(this);
+        }
+        else {
+            return options.inverse(this);
+        }
     }
 };
 

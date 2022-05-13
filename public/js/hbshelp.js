@@ -54,3 +54,8 @@ function isNewPatientNull(error) {
         }
     }
 }
+
+function submitDateForm(){
+    var form = document.getElementById("dateForm");
+    form.submit();
+}

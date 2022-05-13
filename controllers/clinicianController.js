@@ -5,16 +5,123 @@ const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 const Note = require('../models/note.js');
 
-//
-const selectMonth = async (req, res) => {
-    try {
-
-
-
-
-
-    } catch (err) {
+const saveClinicianBio = async (req, res) => {
+    try{
+        const clinician = await Clinician.findById("626392e9a4d69d527a31780f");//hardcode
+        clinician.brief_bio = req.body.brief_bio;
+        await clinician.save();
+        res.redirect('/clinician/aboutme');
+    } catch(err){
         console.log(err);
+    }
+}
+
+
+//
+const searchDate = async (req, res) => {
+    try {
+        if (req.body.month==="all" && req.body.year==="all"){
+           return res.redirect('/clinician/individualData/' + req.params.id);
+        }
+
+        const patient = await Patient.findOne({ _id: req.params.id }).populate({
+            path: 'records',
+            populate: {
+                path: 'record_id',
+                options: { lean: true }
+            }
+        }).populate({
+            path: 'clinician',
+            options: { lean: true }
+        }).populate({
+            path: 'note',
+            options: { lean: true },
+            populate: {
+                path: 'note_id',
+                options: { lean: true }
+            }
+        }).lean();
+
+        const records = patient.records;
+        const recordList = [];
+        if(req.body.month!="all" && req.body.year==="all"){
+            for (i in records) {
+                if (records[i].record_id.date.substring(3,5)===req.body.month){
+                    recordList.push(records[i]);
+                }
+            }
+        }else if(req.body.month==="all" && req.body.year!="all"){
+            for (i in records) {
+                if (records[i].record_id.date.substring(6,10)===req.body.year){
+                    recordList.push(records[i]);
+                }
+            }
+        }else{
+            for (i in records) {
+                if (records[i].record_id.date.substring(3,5)===req.body.month && records[i].record_id.date.substring(6,10)===req.body.year){
+                    recordList.push(records[i]);
+                }
+            }
+        }
+        var month='';
+        switch (req.body.month) {
+            case "01":
+                month = "January";
+                break;
+            case "02":
+                month = "February";
+                break;
+            case "03":
+                month = "March";
+                break;
+            case "04":
+                month = "April";
+                break;
+            case "05":
+                month = "May";
+                break;
+            case "06":
+                month = "June";
+                break;
+            case "07":
+                month = "July";
+                break;
+            case "08":
+                month = "August";
+                break;
+            case "09":
+                month = "September";
+                break;
+            case "10":
+                month = "October";
+                break;
+            case "11":
+                month = "November";
+                break;
+            case "12":
+                month = "December";
+                break;
+            default:
+                month = "Month";
+                break;
+        }
+
+        sortByDate(recordList);
+
+        const notes = patient.note;
+        const noteList = [];
+        for (i in notes) {
+            noteList.push({
+                timeStamp: notes[i].note_id.timeStamp,
+                subject: notes[i].note_id.subject,
+                content: notes[i].note_id.content,
+            });
+        }
+
+        sortByTimeStamp(noteList);
+        res.render('clinician-individualData.hbs', { layout: 'clinician.hbs', patient: patient, records: recordList, notes: noteList, input:req.body, month: month});
+    } catch (err) {
+        console.log(err)
     }
 }
 const addNote = async (req, res) => {
@@ -875,5 +982,6 @@ module.exports = {
     renderCommentList,
     searchComment,
     addNote,
-    selectMonth,
+    searchDate,
+    saveClinicianBio,
 }

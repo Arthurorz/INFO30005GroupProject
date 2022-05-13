@@ -48,6 +48,8 @@ clinicianRouter.post('/comment/search', isAuthenticated, (req,res)=> clinicianCo
 clinicianRouter.post('/newPatient', isAuthenticated, (req,res)=> clinicianController.addNewPatient(req,res))
 clinicianRouter.post('/editData/:id', isAuthenticated, (req,res)=> clinicianController.editPatientData(req,res))
 clinicianRouter.post('/individualData/support_msg', isAuthenticated, (req,res)=> clinicianController.saveSupportMsg(req,res))
+clinicianRouter.post('/aboutMe', isAuthenticated, (req, res) => clinicianController.saveClinicianBio(req,res))
+clinicianRouter.post('/individualData/searchDate/:id', isAuthenticated, (req,res)=> clinicianController.searchDate(req,res))
 
 //if validator needed
 // clinicianRouter.post('/newPatient', 
