@@ -9,13 +9,21 @@
     </div>
     <div class = "aboutMe-right">
         <h2 class = "header">Here's a little about me</h2>
+        <form action="/clinician/aboutMe" method="post">
+            <div class = "textBoarder">
+                <div class = "self-intro">
+                    <textarea type="text" id="text" name="brief_bio" placeholder="{{clinician.brief_bio}}"></textarea>
+                </div>
+            </div>
+            <button class="saveButton" name="popBox" onclick="popBox()" type="submit">Save</button>
+            </form>
+
         {{!-- \ <div class = "textBoarder"> --}}
             {{!-- <div class = "self-intro"> --}}
-        <textarea type="text" id="text" name="text" placeholder="{{clinician.brief_bio}}"></textarea>
-
+                
                 {{!-- <input class="today-add" type="text" id="text" name="content" placeholder="I have been working on diabetes for twenty years. I have 50 patients now. In my spare time, I love doing exercise. So Glad to see you here, hope we will have the healthy life."> --}}
             {{!-- </div>
         </div> --}}
-        <button class="saveButton" name="popBox" onclick="popBox()" type="button">Save</button>
+        
     </div>
 </div>
