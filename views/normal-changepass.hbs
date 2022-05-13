@@ -1,0 +1,21 @@
+<h1>Change Password</h1>
+{{error}}
+<form action="changepass" method="post">
+    <div class="changepass-container">
+        <label for="pass">Old Password:</label>
+        <input type="password" id="oldPassword" name="oldPassword" required placeholder="at least 8 characters">
+        <label for="pass">New Password:</label>
+        <input type="password" id="password" name="password" required onblur="clicktest()" placeholder="at least 8 characters">
+        <label for="pass">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirm_password" required onblur="clicktest()" placeholder="confirm the password">
+        <span id="msg"></span>
+    </div>
+        {{!-- Submit --}}
+    {{!-- <div class="change-sendcode">
+        <button class="change-sentcode">Send Authentication Code</button>
+        <input type="text" id="text" name="text" placeholder="enter the code">
+    </div> --}}
+    <button class="change-login" onclick="isChangePass()" type="submit">Save</button>
+</form>
+
+<script src="/js/hbshelp.js"></script>

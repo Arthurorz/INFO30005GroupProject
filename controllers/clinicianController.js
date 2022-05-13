@@ -4,6 +4,7 @@ const Clinician = require('../models/clinician.js');
 const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 const Note = require('../models/note.js');
+const bcrypt = require('bcryptjs')
 
 const saveClinicianBio = async (req, res) => {
     try{
@@ -969,6 +970,29 @@ const addRecords = async (req, res) => {
     await patient.save();
 }
 
+const changePassword = async (req, res) => {
+    try {
+        // const clinician = await Clinician.findById(req.session.clinician._id);
+        const clinicianID = "627e12d4f6ca7edcce9cd997";//hardcode
+        const clinician = await Clinician.findById(clinicianID);
+
+        if (bcrypt.compareSync(req.body.oldPassword, clinician.password)) {
+            if (bcrypt.compareSync(req.body.password, clinician.password)) {
+            res.render('normal-changepass.hbs', { layout: 'clinician.hbs', error: "New password cannot be the same as the old password" });
+            } else {
+                clinician.password = req.body.password;
+                await clinician.save();
+                res.redirect('/normal/logout');
+            } 
+        }
+        else {
+            res.render('normal-changepass.hbs', { layout: 'patient.hbs', error: "Old passwords do not match" });
+        }
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 module.exports = {
     renderDashboard,
     searchDashboard,
@@ -984,4 +1008,5 @@ module.exports = {
     addNote,
     searchDate,
     saveClinicianBio,
+    changePassword,
 }

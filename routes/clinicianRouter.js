@@ -41,6 +41,7 @@ clinicianRouter.get('/editData/:id', isAuthenticated, (req,res)=>clinicianContro
 clinicianRouter.get('/newPatient', isAuthenticated, (req,res)=>clinicianController.renderNewPatient(req,res))
 clinicianRouter.get('/commentList', isAuthenticated, (req,res)=>clinicianController.renderCommentList(req,res))
 clinicianRouter.get('/aboutMe', isAuthenticated, (req, res) => clinicianController.renderClinicianData(req,res))
+clinicianRouter.get('/changepass', isAuthenticated, (req, res) => res.render("normal-changepass", { layout: 'clinician.hbs' }));
 
 clinicianRouter.post('/individualData/:id/addNote', isAuthenticated, (req,res)=>clinicianController.addNote(req,res))
 clinicianRouter.post('/dashboard/search', isAuthenticated, (req,res)=> clinicianController.searchDashboard(req,res))
@@ -50,6 +51,8 @@ clinicianRouter.post('/editData/:id', isAuthenticated, (req,res)=> clinicianCont
 clinicianRouter.post('/individualData/support_msg', isAuthenticated, (req,res)=> clinicianController.saveSupportMsg(req,res))
 clinicianRouter.post('/aboutMe', isAuthenticated, (req, res) => clinicianController.saveClinicianBio(req,res))
 clinicianRouter.post('/individualData/searchDate/:id', isAuthenticated, (req,res)=> clinicianController.searchDate(req,res))
+clinicianRouter.post('/changepass', isAuthenticated, (req,res)=> clinicianController.changePassword(req,res))
+
 
 //if validator needed
 // clinicianRouter.post('/newPatient', 

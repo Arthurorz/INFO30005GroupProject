@@ -103,5 +103,12 @@ passport.use("patient-login",
     })
 )
 
+Clinician.find({}, (err, users) => {
+    if (users.length > 2) return;
+    Clinician.create({ first_name: 'test1', last_name: 'test1', email: 'test1@qq.com', password:'allgoodtest1', yearofbirth:'1990' }, (err) => {
+        if (err) { console.log(err); return; }
+        console.log('Dummy user inserted')
+    })
+})
 
 module.exports = passport

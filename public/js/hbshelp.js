@@ -43,19 +43,24 @@ function isNewPatientNull(error) {
     var confirmPassword = document.getElementById("confirmPassword").value;
     var height = document.getElementById("height").value;
     var birth = document.getElementById("birth").value;
-    var code = document.getElementById("code").value;
-    var error;
 
-    if (error =='') {
-        if (familyName != "" && givenName != "" && email != "" && password != "" && confirmPassword != "" && height != "" && birth != "" && code != "" ) {
-            if (password == confirmPassword) {
-                alert("You have successfully saved the data");
-            }
-        }
+    if (familyName != "" && givenName != "" && email != "" && password != "" && confirmPassword != "" && height != "" && birth != "") {
+            alert("You have successfully submitted");
     }
 }
+
 
 function submitDateForm(){
     var form = document.getElementById("dateForm");
     form.submit();
 }
+
+function isChangePass(error) { 
+    var oldPassword = document.getElementById("oldPassword").value;
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
+    if (oldPassword != '' && password != '' && confirmPassword != '') {
+        alert("You have successfully submitted");
+    } 
+}
+
