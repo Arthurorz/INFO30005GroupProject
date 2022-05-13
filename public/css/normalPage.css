@@ -327,9 +327,28 @@ h4 {
 }
 
 /* Forget Password Page */
+
+.forget-error{
+    width: 50%;
+    height: 40px;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+    position: absolute;
+    top: 225px;
+    left: 25%;
+}
+
+.forget-errormsg {
+    color: red;
+    line-height: 40px;
+    text-align: center;
+    font-style: italic;
+    text-decoration: underline;
+}
+
 .forget-container {
     width: 93.22%;
-    margin: 0 auto;
+    margin: 1rem auto;
 }
 
 .forget-container label,
@@ -746,7 +765,13 @@ button.change-sentcode {
     }
 
     /* Forget Password Page Web*/
+
+    .forget-error{
+        top: 360px;
+    }
+
     .forget-container {
+        margin-top: 3rem;
         width: 73.68%;
     }
 
