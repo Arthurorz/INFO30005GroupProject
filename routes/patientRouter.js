@@ -33,12 +33,12 @@ patientRouter.post('/login',
 
 // patientRouter.get('/login', (req, res) => res.render("normal-patientLogin"));
 patientRouter.get('/forgetpass', unAuthenticated, (req, res) => res.render("normal-forgetpass"));
-patientRouter.get('/homepage', isAuthenticated, patientController.renderHomePage)
-patientRouter.get('/addData/:type', isAuthenticated, patientController.renderAddPage)
-patientRouter.post('/addData/:type', isAuthenticated, patientController.updateRecord)
-patientRouter.get('/moredata', isAuthenticated, patientController.renderMoreData)
+patientRouter.get('/homepage', isAuthenticated, patientController.renderHomePage);
+patientRouter.get('/addData/:type', isAuthenticated, patientController.renderAddPage);
+patientRouter.post('/addData/:type', isAuthenticated, patientController.updateRecord);
+patientRouter.get('/moredata', isAuthenticated, patientController.renderMoreData);
 patientRouter.get('/aboutDiabetes', isAuthenticated, (req, res) => res.render("normal-aboutDia", { layout: 'patient.hbs', screen_name: req.user.screen_name }));
 patientRouter.get('/aboutThisWeb', isAuthenticated, (req, res) => res.render("normal-aboutWeb", { layout: 'patient.hbs', screen_name: req.user.screen_name }));
-
+patientRouter.get('/detaildata/:day/:month/:year', isAuthenticated, patientController.renderdetail);
 
 module.exports = patientRouter

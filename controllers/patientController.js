@@ -1,6 +1,7 @@
 const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 const Clinician = require('../models/clinician.js');
+const { ConnectionPoolClosedEvent } = require('mongodb');
 
 
 //Update the record of patient according to the type and id
@@ -160,10 +161,25 @@ const renderMoreData = async (req, res) => {
     }
 }
 
+const renderdetail = async (req, res) => {
+    try{
+        const id = req.user._id;
+        const day = req.params.day;
+        const month = req.params.month
+        const year = req.params.year
+        const date = day+"/"+month+"/"+year;
+        const record = await Record.findOne({patientId: id, date: date}).lean();
+        res.render('patient-dataDetail.hbs', { layout: 'patient.hbs', record: record });
+    }catch(err){
+        console.log(err);
+    }
+}
+
 
 module.exports={
     renderAddPage,
     updateRecord,
     renderHomePage,
     renderMoreData,
+    renderdetail
 }
