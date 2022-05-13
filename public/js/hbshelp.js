@@ -1,9 +1,13 @@
 // Check if have value in input box
 function isAddDataNull() {
     var addData = document.getElementById("addData").value;
+    var addComment = document.getElementById("addComment").value.length;
 
     if (addData < 0) {
         alert("Please enter valid data");
+        return false;
+    } else if (addComment > 20) {
+        alert("No more than 20 words");
         return false;
     } else if (addData != "") {
         alert("You have successfully saved the data");
