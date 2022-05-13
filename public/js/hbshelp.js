@@ -6,8 +6,8 @@ function isAddDataNull() {
     if (addData < 0) {
         alert("Please enter valid data");
         return false;
-    } else if (addComment > 20) {
-        alert("No more than 20 words");
+    } else if (addComment > 140) {
+        alert("No more than 140 letters");
         return false;
     } else if (addData != "") {
         alert("You have successfully saved the data");
