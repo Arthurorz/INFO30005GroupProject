@@ -993,6 +993,16 @@ const changePassword = async (req, res) => {
     }
 }
 
+const forgetPassword = async (req, res) => {
+    try {
+        const user = await Clinician.findOne({ email: req.body.email.toLowerCase() });
+        
+
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 module.exports = {
     renderDashboard,
     searchDashboard,

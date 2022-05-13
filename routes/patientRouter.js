@@ -32,7 +32,7 @@ patientRouter.post('/login',
 )
 
 // patientRouter.get('/login', (req, res) => res.render("normal-patientLogin"));
-patientRouter.get('/forgetpass', unAuthenticated, (req, res) => res.render("normal-forgetpass"));
+patientRouter.get('/forgetpass', unAuthenticated, (req, res) => res.render("normal-patientfForgepass"));
 patientRouter.get('/homepage', isAuthenticated, patientController.renderHomePage);
 patientRouter.get('/addData/:type', isAuthenticated, patientController.renderAddPage);
 patientRouter.post('/addData/:type', isAuthenticated, patientController.updateRecord);

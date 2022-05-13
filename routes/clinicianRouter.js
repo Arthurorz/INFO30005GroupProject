@@ -34,7 +34,7 @@ clinicianRouter.post('/login',
 )
 
 // clinicianRouter.get('/login', (req, res) => res.render("normal-clinicianLogin"));
-clinicianRouter.get('/forgetpass', unAuthenticated, (req, res) => res.render("normal-forgetpass"));
+clinicianRouter.get('/forgetpass', unAuthenticated, (req, res) => res.render("normal-clinicianForgetpass"));
 clinicianRouter.get('/dashboard', isAuthenticated, (req,res)=> clinicianController.renderDashboard(req,res))
 clinicianRouter.get('/individualData/:id', isAuthenticated, (req,res)=>clinicianController.renderPatientData(req,res))
 clinicianRouter.get('/editData/:id', isAuthenticated, (req,res)=>clinicianController.renderClinicianEditData(req,res))
