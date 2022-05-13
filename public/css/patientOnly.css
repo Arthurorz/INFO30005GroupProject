@@ -80,6 +80,11 @@ li {
     transform: rotate(45deg);
 }
 
+.large_slope {
+    border-bottom: 1px solid #CFCFCF;
+    transform: rotate(24deg);
+}
+
 .menu {
     display: none;
     position: absolute;
@@ -402,14 +407,14 @@ textarea {
     margin: 0.313rem auto 0.625rem auto;
 }
 
-.change-sendcode, button.change-sentcode,.change-sendcode input{
+/* .change-sendcode, button.change-sentcode,.change-sendcode input{
     text-align: center;
 }
 
 .change-sendcode{
     width: 48%;
     margin: 0.313rem auto 1.125rem auto;
-}
+} */
 
 button.change-sentcode, .change-login {
     background-color: #668CB8;
@@ -433,17 +438,17 @@ button.change-sentcode {
     width: 100%;
 }
 
-.change-sendcode input {
+/* .change-sendcode input {
     width: 95.5%;
     margin: 0.625rem 0 0 0;
     height: 1.375rem;
-} 
+}  */
 
 .change-login{
     display: block;
     height: 1.813rem;
     width: 19%;
-    margin: auto;
+    margin: 2rem auto;
 }
 
 /* Data Page */
@@ -885,9 +890,9 @@ input[type=checkbox]:checked~.edit-page {
     }
 
     /* Change Password Page */
-    .change-sendcode input{
+    /* .change-sendcode input{
         width: 97.5%;
-    }
+    } */
 
 
     /* Motivation iPad */
@@ -923,6 +928,11 @@ input[type=checkbox]:checked~.edit-page {
 
     .data-table .ind_slope{
         transform: rotate(15deg);
+    }
+
+    .large_slope {
+        border-bottom: 1px solid #CFCFCF;
+        transform: rotate(12deg);
     }
 
     .individual-table th{
@@ -1243,9 +1253,9 @@ input[type=checkbox]:checked~.edit-page {
         font-size: 1.625rem;
     }
     
-    .change-sendcode{
+    /* .change-sendcode{
         width: 15.52%;
-    }
+    } */
 
     button.change-sentcode,.change-sendcode input, .change-login, .changepass-container input{
         height: 3.063rem;
@@ -1384,6 +1394,11 @@ input[type=checkbox]:checked~.edit-page {
 
     .data-table .ind_slope{
         transform: rotate(18deg);
+    }
+
+    .large_slope {
+        border-bottom: 1px solid #CFCFCF;
+        transform: rotate(12deg);
     }
 
     .topright{
