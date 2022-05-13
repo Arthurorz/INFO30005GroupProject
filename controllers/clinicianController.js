@@ -986,7 +986,7 @@ const changePassword = async (req, res) => {
             } 
         }
         else {
-            res.render('normal-changepass.hbs', { layout: 'patient.hbs', error: "Old passwords do not match" });
+            res.render('normal-changepass.hbs', { layout: 'clinician.hbs', error: "Old passwords do not match" });
         }
     } catch (err) {
         console.log(err);

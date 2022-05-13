@@ -40,5 +40,7 @@ patientRouter.get('/moredata', isAuthenticated, patientController.renderMoreData
 patientRouter.get('/aboutDiabetes', isAuthenticated, (req, res) => res.render("normal-aboutDia", { layout: 'patient.hbs', screen_name: req.user.screen_name }));
 patientRouter.get('/aboutThisWeb', isAuthenticated, (req, res) => res.render("normal-aboutWeb", { layout: 'patient.hbs', screen_name: req.user.screen_name }));
 patientRouter.get('/detaildata/:day/:month/:year', isAuthenticated, patientController.renderdetail);
+patientRouter.get('/changepass', isAuthenticated, (req, res) => res.render("normal-changepass", { layout: 'patient.hbs' }));
+patientRouter.post('/changepass', isAuthenticated, (req,res)=> patientController.changePassword(req,res))
 
 module.exports = patientRouter

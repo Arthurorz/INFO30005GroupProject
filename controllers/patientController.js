@@ -2,6 +2,7 @@ const Patient = require('../models/patient.js');
 const Record = require('../models/record.js');
 const Clinician = require('../models/clinician.js');
 const { ConnectionPoolClosedEvent } = require('mongodb');
+const bcrypt = require('bcryptjs')
 
 
 //Update the record of patient according to the type and id
@@ -175,11 +176,34 @@ const renderdetail = async (req, res) => {
     }
 }
 
+const changePassword = async (req, res) => {
+    try {
+        const patientID = "62767c9f9991607a9b62c5d7";//hardcode
+        const patient = await Patient.findById(patientID);
+
+        if (bcrypt.compareSync(req.body.oldPassword, patient.password)) {
+            if (bcrypt.compareSync(req.body.password, patient.password)) {
+            res.render('normal-changepass.hbs', { layout: 'patient.hbs', error: "New password cannot be the same as the old password" });
+            } else {
+                patient.password = req.body.password;
+                await patient.save();
+                res.redirect('/normal/logout');
+            } 
+        }
+        else {
+            res.render('normal-changepass.hbs', { layout: 'patient.hbs', error: "Old passwords do not match" });
+        }
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 
 module.exports={
     renderAddPage,
     updateRecord,
     renderHomePage,
     renderMoreData,
-    renderdetail
+    renderdetail,
+    changePassword,
 }
