@@ -995,8 +995,14 @@ const changePassword = async (req, res) => {
 
 const forgetPassword = async (req, res) => {
     try {
-        const user = await Clinician.findOne({ email: req.body.email.toLowerCase() });
-        
+        const clinician = await Clinician.findOne({ email: req.body.email.toLowerCase() });
+        if (!clinician) {
+            res.render('normal-clinicianForgetpass.hbs', { error: 'Incorrect email address' });
+        } else {
+            clinician.password = req.body.password;
+            await clinician.save();
+            res.redirect('/clinician/login');
+        }
 
     } catch (err) {
         console.log(err);
@@ -1019,4 +1025,5 @@ module.exports = {
     searchDate,
     saveClinicianBio,
     changePassword,
+    forgetPassword,
 }

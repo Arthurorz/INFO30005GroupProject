@@ -41,7 +41,7 @@ new LocalStrategy({
             }
             if (!user) {
                 return done(undefined, false, {
-                    message: 'Incorrect username or password',
+                    message: 'Incorrect email address or password',
                 })
             }
 
@@ -54,7 +54,7 @@ new LocalStrategy({
                 }
                 if (!valid) {
                     return done(undefined, false, {
-                        message: 'Incorrect username or password',
+                        message: 'Incorrect email address or password',
                     })
                 }
             
@@ -79,7 +79,7 @@ passport.use("patient-login",
             }
             if (!user) {
                 return done(undefined, false, {
-                    message: 'Incorrect username or password',
+                    message: 'Incorrect email address or password',
                 })
             }
 
@@ -92,7 +92,7 @@ passport.use("patient-login",
                 }
                 if (!valid) {
                     return done(undefined, false, {
-                        message: 'Incorrect username or password',
+                        message: 'Incorrect email address or password',
                     })
                 }
             
