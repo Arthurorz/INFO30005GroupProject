@@ -521,11 +521,12 @@ li div{
 }
 
 .today-add{
-    width: 98%;
+    width: 97%;
     border: none;
-    height: 5rem;
-    padding-left: 1rem;
-    padding-bottom: 4rem;
+    height: 29.5rem;
+    padding: 1rem;
+    /* padding-left: 1rem;
+    padding-bottom: 4rem; */
     font-size: 1.625rem;
 }
 
@@ -573,6 +574,7 @@ li div{
 
 .chooseRange{
     padding-bottom: 3.625rem;
+    width: 110%;
 }
 
 .chooseBox {
