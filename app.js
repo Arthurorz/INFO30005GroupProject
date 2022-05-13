@@ -79,6 +79,13 @@ app.get('/changepass', (req, res) => {
         layout: "normal.hbs"
     });
 });
+app.use('/normal', normalRouter);
+app.get('/forget', (req, res) => {
+    res.render("normal-forgetPass", {
+        layout: "normal.hbs"
+    });
+});
+
 // render page with patient header for testing
 app.use('/patient', patientRouter);
 app.get('/change', (req, res) => {
