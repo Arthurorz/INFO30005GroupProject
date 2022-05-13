@@ -396,61 +396,6 @@ textarea {
     font-size: 1rem;
 }
 
-/* Forget Password Page */
-.changepass-container{
-    width: 73.33%;
-    margin: auto;
-}
-
-.changepass-container input{
-    width: 100%;
-    margin: 0.313rem auto 1rem auto;
-}
-
-/* .change-sendcode, button.change-sentcode,.change-sendcode input{
-    text-align: center;
-}
-
-.change-sendcode{
-    width: 48%;
-    margin: 0.313rem auto 1.125rem auto;
-} */
-
-button.change-sentcode, .change-login {
-    background-color: #668CB8;
-    border: none;
-    color: white;
-}
-
-.change-container input ::placeholder, .change-sendcode ::placeholder {
-    color: #CFCFCF;
-    font-size: 0.75rem;
-    font-style: italic;
-}
-
-button.change-sentcode,.change-sendcode input, .change-login, .changepass-container input{
-    height: 1.75rem;
-    border-radius: 0.5rem;
-    font-size: 1rem;
-    padding-left: 0.5rem;
-}
-
-button.change-sentcode {
-    width: 100%;
-}
-
-/* .change-sendcode input {
-    width: 95.5%;
-    margin: 0.625rem 0 0 0;
-    height: 1.375rem;
-}  */
-
-.change-login{
-    display: block;
-    height: 2rem;
-    width: 19%;
-    margin: 1rem auto;
-}
 
 /* Data Page */
 
@@ -890,18 +835,6 @@ input[type=checkbox]:checked~.edit-page {
         width: 61.33%;
     }
 
-    /* Change Password Page */
-    /* .change-sendcode input{
-        width: 97.5%;
-    } */
-    .changepass-container{
-        width: 43.6%;
-    }
-
-    .change-login{
-        width: 12%;
-    }
-
 
     /* Motivation iPad */
     .badgeInfo {
@@ -1250,33 +1183,6 @@ input[type=checkbox]:checked~.edit-page {
     .dataNumber span {
         font-size: 2rem;
     }
-
-    /* Change Password Page */
-    .changepass-container{
-        width: 23.33%;
-        font-size: 1.625rem;
-    }
-
-    .changepass-container input{
-        margin: 0.313rem auto 2rem auto;
-    }
-    
-    /* .change-sendcode{
-        width: 15.52%;
-    } */
-
-    button.change-sentcode,.change-sendcode input, .change-login, .changepass-container input{
-        height: 3.063rem;
-        font-size: 1.625rem;
-        padding-left: 1rem;
-    }
-
-    .change-login{
-        width: 8.17%;
-        height: 3.875rem;
-        font-size: 2.215rem;
-    }
-
 
     /* Motivation Web */
     .motiContainer{
