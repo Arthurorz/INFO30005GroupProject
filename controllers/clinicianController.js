@@ -681,7 +681,7 @@ const saveSupportMsg = async (req, res) => {
 //render the clinician dashboard hbs page
 const renderDashboard = async (req, res) => {
     try {
-        console.log(req.user._id)//这个用来读当前医生 但是还在测试阶段 所以不remove hardcode
+        console.log("当前的医生id是" + req.user._id.toString())//这个用来读当前医生 但是还在测试阶段 所以不remove hardcode
         const clinicianID = "626392e9a4d69d527a31780f";//hardcode for D2
         const allPatient = (await Clinician.findById(clinicianID).populate({
             path: 'patients',

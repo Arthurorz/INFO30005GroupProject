@@ -11,24 +11,40 @@
                     <div class="blood-glucose">
                         <img src="/blood_glucose_background.png" alt="blood-glucose-level">
                         <h4>Blood Glucose Level</h4>
+                        {{#ifTrue patient.required_data.glucose}}
                         <h5>{{patient.bound.glucose_lower}}-{{patient.bound.glucose_upper}} nmol/L</h5>
+                        {{else}}
+                        <h5>Not Required</h5>
+                        {{/ifTrue}}
                     </div>
                     <div class="weight">
                         <img src="/weight.png" alt="weight">
                         <h4>Weight</h4>
+                        {{#ifTrue patient.required_data.weight}}
                         <h5>{{patient.bound.weight_lower}}-{{patient.bound.weight_upper}} Kg</h5>
+                        {{else}}
+                        <h5>Not Required</h5>
+                        {{/ifTrue}}
                     </div>
                 </div>
                 <div class="bottom-two">
                     <div class="exercise">
                         <img src="/exercise.png" alt="exercise">
                         <h4>Exercise</h4>
+                        {{#ifTrue patient.required_data.exercise}}
                         <h5>{{patient.bound.exercise_lower}}-{{patient.bound.exercise_upper}} Steps</h5>
+                        {{else}}
+                        <h5>Not Required</h5>
+                        {{/ifTrue}}
                     </div>
                     <div class="insulin">
                         <img src="/doses_background.png" alt="doses-of-insulin-taken">
                         <h4>Doses of Insulin Taken</h4>
+                        {{#ifTrue patient.required_data.insulin}}
                         <h5>{{patient.bound.insulin_lower}}-{{patient.bound.insulin_upper}} Doses</h5>
+                        {{else}}
+                        <h5>Not Required</h5>
+                        {{/ifTrue}}
                     </div>
                 </div>
             </div>
