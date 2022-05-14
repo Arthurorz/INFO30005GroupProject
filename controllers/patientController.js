@@ -107,11 +107,49 @@ function sortByDate(recordList){
     }
 }
 
+function sortByDate2(recordList){
+    //insertion sort
+    for (var i = 1; i < recordList.length; i++) {
+        var temp = recordList[i];
+        for (j = i - 1; j >= 0; j--) {
+            if(compareByDate2(temp,recordList[j])>0){
+                recordList[j+1]=recordList[j]
+            }
+            else{
+                break;
+            }
+        }
+        recordList[j+1] = temp;
+    }
+}
+
+
 function compareByDate(record1, record2){
     month1 = parseInt(record1.date.substring(3,5));
     month2 = parseInt(record2.date.substring(3,5));
     day1 = parseInt(record1.date.substring(0,2));
     day2 = parseInt(record2.date.substring(0,2));
+
+    if(month1<month2){
+        return -1;
+    }else if(month1 == month2){
+        if(day1<day2){
+            return -1;
+        }if(day1==day2){
+            return 0;
+        }else{
+            return 1;
+        }
+    }else{
+        return 1;
+    }
+}
+
+function compareByDate2(record1, record2){
+    month1 = parseInt(record1.record_id.date.substring(3,5));
+    month2 = parseInt(record2.record_id.date.substring(3,5));
+    day1 = parseInt(record1.record_id.date.substring(0,2));
+    day2 = parseInt(record2.record_id.date.substring(0,2));
 
     if(month1<month2){
         return -1;
@@ -155,10 +193,16 @@ const renderMoreData = async (req, res) => {
                 options: { lean: true }
             }
         }).lean();
-
-        res.render('patient-moreData.hbs', { layout: 'patient.hbs', patient: patient });
+        const records = patient.records;
+        const recordList = [];
+        for(i in records){
+            recordList.push(records[i]);
+        }
+        sortByDate2(recordList);
+        console.log(recordList)
+        res.render('patient-moreData.hbs', { layout: 'patient.hbs', record: recordList });
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 }
 
@@ -175,6 +219,18 @@ const renderdetail = async (req, res) => {
         console.log(err);
     }
 }
+
+// const renderAboutMe = async (req, res) => {
+//     try {
+//         const id = req.user._id;
+//         const patient = await Patient.findOne({ _id: id }).lean();
+//         const clinician = await Clinician.findById(patient.clinician).lean();
+//         res.render('newAboutMe.hbs', { layout: 'patient.hbs', patient: patient, clinician: clinician });
+//     }catch(err){
+//         console.log(err);
+//         return next(err);
+//     }
+// }
 
 const changePassword = async (req, res) => {
     try {
