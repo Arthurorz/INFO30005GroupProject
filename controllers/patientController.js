@@ -254,6 +254,21 @@ const changePassword = async (req, res) => {
     }
 }
 
+const forgetPassword = async (req, res) => {
+    try {
+        const patient = await Patient.findOne({ email: req.body.email.toLowerCase() });
+        if (!patient) {
+            res.render('normal-patientForgetpass.hbs', { error: 'Incorrect email address' });
+        } else {
+            patient.password = req.body.password;
+            await patient.save();
+            res.redirect('/patient/login');
+        }
+
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 module.exports={
     renderAddPage,
@@ -262,4 +277,5 @@ module.exports={
     renderMoreData,
     renderdetail,
     changePassword,
+    forgetPassword,
 }

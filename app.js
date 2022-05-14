@@ -75,10 +75,17 @@ app.use(passport.authenticate('session'))
 // render page with normal header for testing
 app.use('/normal', normalRouter);
 app.get('/changepass', (req, res) => {
-    res.render("normal-changepass", {
+    res.render("normal-clinicianLogin", {
         layout: "normal.hbs"
     });
 });
+app.use('/normal', normalRouter);
+app.get('/forget', (req, res) => {
+    res.render("normal-patientForgetpass", {
+        layout: "normal.hbs"
+    });
+});
+
 // render page with patient header for testing
 app.use('/patient', patientRouter);
 app.get('/change', (req, res) => {

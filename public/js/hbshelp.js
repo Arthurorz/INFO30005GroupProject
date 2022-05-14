@@ -1,9 +1,13 @@
 // Check if have value in input box
 function isAddDataNull() {
     var addData = document.getElementById("addData").value;
+    var addComment = document.getElementById("addComment").value.length;
 
     if (addData < 0) {
         alert("Please enter valid data");
+        return false;
+    } else if (addComment > 140) {
+        alert("No more than 140 letters");
         return false;
     } else if (addData != "") {
         alert("You have successfully saved the data");
@@ -35,7 +39,7 @@ function clicktest(){
 }
 
 // Check if all fields are filled and correct
-function isNewPatientNull(error) {
+function isNewPatientNull() {
     var familyName = document.getElementById("familyName").value;
     var givenName = document.getElementById("givenName").value;
     var email = document.getElementById("email").value;
@@ -55,11 +59,20 @@ function submitDateForm(){
     form.submit();
 }
 
-function isChangePass(error) { 
+function isChangePass() { 
     var oldPassword = document.getElementById("oldPassword").value;
     var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("confirmPassword").value;
     if (oldPassword != '' && password != '' && confirmPassword != '') {
+        alert("You have successfully submitted");
+    } 
+}
+
+function isForgetPass() { 
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirmPassword").value;
+    if (email != '' && password != '' && confirmPassword != '') {
         alert("You have successfully submitted");
     } 
 }

@@ -14,7 +14,7 @@ const unAuthenticated = (req, res, next)=> {
         if (req.user.screen_name === undefined){
             return res.redirect('/clinician/dashboard');
         } else {
-            return res.redirect('/patient/homepage/:id');
+            return res.redirect('/patient/homepage');
         }
     }
     return next();

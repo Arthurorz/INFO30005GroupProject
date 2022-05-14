@@ -16,7 +16,7 @@ const isAuthenticated = (req, res, next) => {
 
 const unAuthenticated = (req, res, next)=> {
     if (req.isAuthenticated() && req.user.screen_name !== undefined){
-        return res.redirect('homepage/:id');
+        return res.redirect('homepage');
     }
     return next();
 }
@@ -34,7 +34,8 @@ patientRouter.post('/login',
 )
 
 // patientRouter.get('/login', (req, res) => res.render("normal-patientLogin"));
-patientRouter.get('/forgetpass', unAuthenticated, (req, res) => res.render("normal-forgetpass"));
+patientRouter.get('/forgetpass', unAuthenticated, (req, res) => res.render("normal-patientForgetpass"));
+patientRouter.post('/forgetpass', unAuthenticated, (req,res)=> patientController.forgetPassword(req,res))
 patientRouter.get('/homepage', isAuthenticated, patientController.renderHomePage);
 patientRouter.get('/addData/:type', isAuthenticated, patientController.renderAddPage);
 patientRouter.post('/addData/:type', isAuthenticated, patientController.updateRecord);
