@@ -3,6 +3,8 @@ const express = require('express')
 
 const patientRouter = express.Router()
 const patientController = require('../controllers/patientController.js')
+//add express validator
+const { body, validationResult, check } = require('express-validator')
 
 // Authentication middleware
 const isAuthenticated = (req, res, next) => {
@@ -42,5 +44,6 @@ patientRouter.get('/aboutThisWeb', isAuthenticated, (req, res) => res.render("no
 patientRouter.get('/detaildata/:day/:month/:year', isAuthenticated, patientController.renderdetail);
 patientRouter.get('/changepass', isAuthenticated, (req, res) => res.render("normal-changepass", { layout: 'patient.hbs' }));
 patientRouter.post('/changepass', isAuthenticated, (req,res)=> patientController.changePassword(req,res))
+// patientRouter.get('/aboutMe', isAuthenticated, patientController.renderAboutMe);
 
 module.exports = patientRouter

@@ -38,7 +38,7 @@
             <th>Doses of Insulin Taken<br>(Doses)</th>
             <th>Blood Glucose Level<br>(nmol/L)</th>
         </tr>
-        {{#each patient.records}}
+        {{#each record}}
             <tr>
                 <td><a href="/patient/detaildata/{{this.record_id.date}}">{{this.record_id.date}}</a></td>
                 <!--weight-->
