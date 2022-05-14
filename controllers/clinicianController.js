@@ -6,6 +6,27 @@ const Record = require('../models/record.js');
 const Note = require('../models/note.js');
 const bcrypt = require('bcryptjs')
 
+
+const renderPrevNotes = async (req, res) => {
+    const id = req.params.id;
+    const notes = await Note.find({ patient: id });
+
+    const noteList = [];
+    for (i in notes) {
+        noteList.push({
+            timeStamp: notes[i].timeStamp,
+            subject: notes[i].subject,
+            content: notes[i].content,
+        });
+    }
+
+    sortByTimeStamp(noteList);
+    console.log(noteList);
+
+    res.render('clinician-previousNote.hbs', { layout: 'clinician.hbs', notes: noteList });
+}
+
+
 const saveClinicianBio = async (req, res) => {
     try{
         const clinician = await Clinician.findById("626392e9a4d69d527a31780f");//hardcode
@@ -18,7 +39,6 @@ const saveClinicianBio = async (req, res) => {
 }
 
 
-//
 const searchDate = async (req, res) => {
     try {
         if (req.body.month==="all" && req.body.year==="all"){
@@ -778,7 +798,6 @@ function compareByDate(record1, record2) {
 
 const saveSupportMsg = async (req, res) => {
     try {
-        console.log(req.body.support_msg);
         const patient = await Patient.findById(req.params.id);
         patient.support_message = req.body.support_message;
         await patient.save();
@@ -1028,4 +1047,5 @@ module.exports = {
     saveClinicianBio,
     changePassword,
     forgetPassword,
+    renderPrevNotes,
 }

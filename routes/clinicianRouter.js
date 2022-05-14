@@ -42,6 +42,7 @@ clinicianRouter.get('/newPatient', isAuthenticated, (req,res)=>clinicianControll
 clinicianRouter.get('/commentList', isAuthenticated, (req,res)=>clinicianController.renderCommentList(req,res))
 clinicianRouter.get('/aboutMe', isAuthenticated, (req, res) => clinicianController.renderClinicianData(req,res))
 clinicianRouter.get('/changepass', isAuthenticated, (req, res) => res.render("normal-changepass", { layout: 'clinician.hbs' }));
+clinicianRouter.get('/individual/:id/prevNotes', isAuthenticated, (req,res)=>clinicianController.renderPrevNotes(req,res))
 
 clinicianRouter.post('/forgetpass', unAuthenticated, (req,res)=> clinicianController.forgetPassword(req,res))
 clinicianRouter.post('/individualData/:id/addNote', isAuthenticated, (req,res)=>clinicianController.addNote(req,res))
