@@ -218,17 +218,17 @@ const renderdetail = async (req, res) => {
     }
 }
 
-// const renderAboutMe = async (req, res) => {
-//     try {
-//         const id = req.user._id;
-//         const patient = await Patient.findOne({ _id: id }).lean();
-//         const clinician = await Clinician.findById(patient.clinician).lean();
-//         res.render('newAboutMe.hbs', { layout: 'patient.hbs', patient: patient, clinician: clinician });
-//     }catch(err){
-//         console.log(err);
-//         return next(err);
-//     }
-// }
+const renderAboutMe = async (req, res) => {
+    try {
+        const id = req.user._id;
+        const patient = await Patient.findOne({ _id: id }).lean();
+        const clinician = await Clinician.findById(patient.clinician).lean();
+        res.render('patient-aboutme.hbs', { layout: 'patient.hbs', patient: patient, clinician: clinician });
+    }catch(err){
+        console.log(err);
+        return next(err);
+    }
+}
 
 const changePassword = async (req, res) => {
     try {
@@ -298,27 +298,58 @@ async function calEngagement(patientId){
 }
 
 const renderLeaderBoard = async(req, res) => {
-    const patients = await Patient.find({}).lean();
-    const thisPatient = await Patient.findById(req.user._id).lean();
-    for(patient of patients){
-        await calEngagement(patient._id);
-    }
-    var index = 0;
-    const sorted = patients.sort((a, b) => {return (b.engagement - a.engagement)});
-    for(patient of sorted){
-        if(patient._id.toString() == req.user._id.toString()){
-            break;
+    try{
+        const patients = await Patient.find({}).lean();
+        const thisPatient = await Patient.findById(req.user._id).lean();
+        for(patient of patients){
+            await calEngagement(patient._id);
         }
-        index += 1;
+        var index = 0;
+        const sorted = patients.sort((a, b) => {return (b.engagement - a.engagement)});
+        for(patient of sorted){
+            if(patient._id.toString() == req.user._id.toString()){
+                break;
+            }
+            index += 1;
+        }
+        const rank = index + 1;
+        const first = sorted[0]
+        const second = sorted[1]
+        const third = sorted[2]
+        const fourth = sorted[3]
+        const fifth = sorted[4]
+        res.render("patient-motivation.hbs", { layout: 'patient.hbs', patients: patients, thisPatient: thisPatient, rank: rank, first: first, second: second, third: third, fourth: fourth, fifth: fifth });
+    }catch(err){
+        console.log(err);
     }
-    const rank = index + 1;
-    const first = sorted[0]
-    const second = sorted[1]
-    const third = sorted[2]
-    const fourth = sorted[3]
-    const fifth = sorted[4]
-    res.render("patient-motivation.hbs", { layout: 'patient.hbs', patients: patients, thisPatient: thisPatient, rank: rank, first: first, second: second, third: third, fourth: fourth, fifth: fifth });
 }
+
+const updateAboutMe = async (req, res) => {
+    try {
+        const patient_id = req.user._id;
+        const patient = await Patient.findById(patient_id);
+        if(req.body.name != ""){
+            patient.name = req.body.name;
+        }
+        if(req.body.height != ""){
+            patient.height = req.body.height;
+        }
+        if(req.body.year != ""){
+            patient.yearofbirth = req.body.year;
+        }
+        if(req.body.emails != ""){
+            patient.email = req.body.emails;
+        }
+        if(req.body.text != ""){
+            patient.brief_bio = req.body.text;
+        }
+        await patient.save();
+        res.redirect('/patient/aboutme');
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 
 module.exports={
     renderAddPage,
@@ -328,5 +359,7 @@ module.exports={
     renderdetail,
     changePassword,
     forgetPassword,
-    renderLeaderBoard
+    renderLeaderBoard,
+    renderAboutMe,
+    updateAboutMe
 }

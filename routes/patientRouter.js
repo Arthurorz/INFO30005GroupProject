@@ -45,7 +45,8 @@ patientRouter.get('/aboutThisWeb', isAuthenticated, (req, res) => res.render("no
 patientRouter.get('/detaildata/:day/:month/:year', isAuthenticated, patientController.renderdetail);
 patientRouter.get('/changepass', isAuthenticated, (req, res) => res.render("normal-changepass", { layout: 'patient.hbs' }));
 patientRouter.post('/changepass', isAuthenticated, (req,res)=> patientController.changePassword(req,res))
-// patientRouter.get('/aboutMe', isAuthenticated, patientController.renderAboutMe);
+patientRouter.get('/aboutme', isAuthenticated, patientController.renderAboutMe);
+patientRouter.post('/aboutme', isAuthenticated, patientController.updateAboutMe);
 patientRouter.get('/motivation', isAuthenticated, patientController.renderLeaderBoard);
 
 module.exports = patientRouter
