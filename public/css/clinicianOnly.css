@@ -306,18 +306,21 @@ h5{
 }
 
 .support{
-    width: 100%;
+    width: 91%;
     height: 9.19rem;
     border: 1px solid #707070;
     margin: 2.125rem 0 0.8125rem 0;
     border-radius:1.625rem ;
+    font-size: 1.625rem;
+    padding: 1rem;
 }
 
-.support input{
+/* .support input{
     margin: 0.9375rem 0 0 1.125rem;
     border: none;
     height: 20%;
     width: 90%;
+    font-size: 1.625rem;
 }
 
 .support input::placeholder{
@@ -325,7 +328,7 @@ h5{
     font-size: 1.625rem;
     font-style: italic;
     border-color: #707070;
-}
+} */
 
 .message-save, .note-save, .more-detail{
     border: none;
@@ -375,7 +378,11 @@ h5{
 .top-right{
     width: 18.8125rem;
     height: 3.0625rem; 
-    margin-top: 4.875rem;
+    margin-top: 5.8rem;
+}
+
+.top-right form{
+    height: 100%;
 }
 
 select{
@@ -452,7 +459,36 @@ h6{
     border-radius: 1.563rem 0 0 0;
 }
 
-ul{
+.pre-note{
+    padding-top: 1.625rem;
+    height: 30rem;
+}
+
+.pre-note ul{
+    width: 100%;
+    height: 30rem;
+    /* display: table; */
+    table-layout: fixed;
+    overflow: hidden;
+    overflow-y: scroll;
+    padding-left: 0;
+}
+
+.pre-note li{
+    list-style-type: none;
+    font-size: 1.625rem;
+}
+
+li:hover{
+    background-color: #BBD9F6;
+}
+
+li div{
+    display: table-cell;
+}
+
+
+/* ul{
     width: 100%;
     height: 21.5rem;
     padding-top: 1.625rem;
@@ -466,7 +502,7 @@ li{
     display: table-row;
     /* height: 1.813rem; */
     /* padding-bottom: 1.375rem; */
-    font-size: 1.625rem;
+    /* font-size: 1.625rem;
     border-bottom: 1px solid black;
 }
 
@@ -476,10 +512,10 @@ li:hover{
 
 li div{
     display: table-cell;
-}
+}  */
 
 .detail{
-    width: 25.5rem;
+    width: 25rem;
     padding-left: 1.123rem;
 }
 
