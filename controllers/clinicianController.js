@@ -378,6 +378,7 @@ const addNewPatient = async (req, res) => {
                     engagement: 0,
 
                     clinician: '626392e9a4d69d527a31780f',// hardcode
+                    register_date : new date.toLocaleDateString(),
                     //register Date 需要增加
                 });
 

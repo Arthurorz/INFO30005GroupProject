@@ -35,7 +35,8 @@ const schema = new mongoose.Schema({
     },
     note:[{
         note_id: {type: mongoose.Schema.Types.ObjectId, ref: 'Note'}
-    }]
+    }],
+    register_date:{type:String, required: true } 
 },{versionKey: false})
 
 // Password comparison function
