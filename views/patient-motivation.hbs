@@ -1,11 +1,15 @@
 <h1>Motivation</h1>
 <div class="motiContainer">
     <div class="selfRank">
-        <p class="rank">Your Rank:&nbsp;5</p>
-        <img class="motiPhoto" src="/Photo_Pat.png" alt="Sam">
-        <p>Sam</p>
-        <p>Participation:&nbsp;87%</p>
+        <p class="rank">Your Rank:&nbsp;{{rank}}</p>
+        <img class="motiPhoto" src="/Photo_Pat.png" alt="{{thisPatient.screen_name}}">
+        <p>{{thisPatient.screen_name}}</p>
+        <p>Participation:&nbsp;{{thisPatient.engagement}}%</p>
+        {{#ifreach80 thisPatient.engagement}}
         <img class="badge" src="/badge.png" alt="badge">
+        {{else}}
+        <img class="badge" src="/grey_badge.png" alt="badge">
+        {{/ifreach80}}
         <button class="badgeAlert" name="badgeInfo"
             onClick="alert('You will get the badge on the left side if your overall engagement rate since you started using the app is more than 80%.')"><img
                 class="badgeInfo" src="/badge_info.png" alt=""></button>
@@ -28,33 +32,32 @@
             <div class="boardLine">
                 <span class="boardRank">1</span>
                 <img class="boardPic" src="/Photo_Pat.png" alt="">
-                <span class="boardName">Simon</span>
-                <span>99%</span>
+                <span class="boardName">{{first.screen_name}}</span>
+                <span>{{first.engagement}}%</span>
             </div>
             <div class="boardLine">
-                <span class="boardRank">1</span>
+                <span class="boardRank">2</span>
                 <img class="boardPic" src="/Photo_Pat.png" alt="">
-                <span class="boardName">Simon</span>
-                <span>99%</span>
+                <span class="boardName">{{second.screen_name}}</span>
+                <span>{{second.engagement}}%</span>
             </div>
             <div class="boardLine">
-                <span class="boardRank">1</span>
+                <span class="boardRank">3</span>
                 <img class="boardPic" src="/Photo_Pat.png" alt="">
-                <span class="boardName">Simon</span>
-                <span>99%</span>
+                <span class="boardName">{{third.screen_name}}</span>
+                <span>{{third.engagement}}%</span>
             </div>
             <div class="boardLine">
-                <span class="boardRank">1</span>
+                <span class="boardRank">4</span>
                 <img class="boardPic" src="/Photo_Pat.png" alt="">
-                <span class="boardName">Simon</span>
-                <span>99%</span>
+                <span class="boardName">{{fourth.screen_name}}</span>
+                <span>{{fourth.engagement}}%</span>
             </div>
             <div class="boardLine">
-                <span class="boardRank">1</span>
+                <span class="boardRank">5</span>
                 <img class="boardPic" src="/Photo_Pat.png" alt="">
-                <span class="boardName">Simon</span>
-                <span>99%</span>
+                <span class="boardName">{{fifth.screen_name}}</span>
+                <span>{{fifth.engagement}}%</span>
             </div>
-        </div>
     </div>
 </div>

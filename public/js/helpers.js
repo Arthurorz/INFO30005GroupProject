@@ -149,7 +149,15 @@ const helpers = {
         else {
             return options.inverse(this);
         }
-    }
+    },
+    ifreach80: function (value, options) {
+        if (value >= 80) {
+            return options.fn(this);
+        }
+        else {
+            return options.inverse(this);
+        }
+    },
 };
 
 module.exports.helpers = helpers;

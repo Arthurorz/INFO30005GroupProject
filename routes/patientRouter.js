@@ -46,5 +46,6 @@ patientRouter.get('/detaildata/:day/:month/:year', isAuthenticated, patientContr
 patientRouter.get('/changepass', isAuthenticated, (req, res) => res.render("normal-changepass", { layout: 'patient.hbs' }));
 patientRouter.post('/changepass', isAuthenticated, (req,res)=> patientController.changePassword(req,res))
 // patientRouter.get('/aboutMe', isAuthenticated, patientController.renderAboutMe);
+patientRouter.get('/motivation', isAuthenticated, patientController.renderLeaderBoard);
 
 module.exports = patientRouter

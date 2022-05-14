@@ -32,7 +32,6 @@ async function initialRecord (patient_id){
         //get the patient and the record of that day.
         const patient = await Patient.findOne({ _id: patient_id });
         const record = await Record.findOne({patientId: patient._id, date: new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})});
-        
         //If no record was find, create a new record.
         if(record == null){
             const newRecord = new Record({
@@ -199,7 +198,6 @@ const renderMoreData = async (req, res) => {
             recordList.push(records[i]);
         }
         sortByDate2(recordList);
-        console.log(recordList)
         res.render('patient-moreData.hbs', { layout: 'patient.hbs', record: recordList });
     } catch (err) {
         console.log(err);
@@ -270,6 +268,58 @@ const forgetPassword = async (req, res) => {
     }
 }
 
+function checkRecorded(record){
+    var flag = false
+    for(i in record.data){
+        if(record.data[i].status == "recorded"){
+            flag = true;
+            break;
+        }
+    }
+    return flag;
+}
+
+async function calEngagement(patientId){
+    const records = (await Record.find({patientId: patientId}).lean()).filter((record) => checkRecorded(record));
+    const patient = await Patient.findById(patientId);
+    const startDate = patient.register_date;
+    var flag = true;
+    var interval = 0;
+    while(flag){
+        temp = new Date(new Date().getTime() - (interval * 24 * 60 * 60 * 1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"});
+        if( temp == startDate){
+            flag = false
+        }
+        interval += 1
+    }
+    interval += 1;
+    patient.engagement = Math.round((records.length / interval).toFixed(2) * 100);
+    await patient.save();
+}
+
+const renderLeaderBoard = async(req, res) => {
+    const patients = await Patient.find({}).lean();
+    const thisPatient = await Patient.findById(req.user._id).lean();
+    for(patient of patients){
+        await calEngagement(patient._id);
+    }
+    var index = 0;
+    const sorted = patients.sort((a, b) => {return (b.engagement - a.engagement)});
+    for(patient of sorted){
+        if(patient._id.toString() == req.user._id.toString()){
+            break;
+        }
+        index += 1;
+    }
+    const rank = index + 1;
+    const first = sorted[0]
+    const second = sorted[1]
+    const third = sorted[2]
+    const fourth = sorted[3]
+    const fifth = sorted[4]
+    res.render("patient-motivation.hbs", { layout: 'patient.hbs', patients: patients, thisPatient: thisPatient, rank: rank, first: first, second: second, third: third, fourth: fourth, fifth: fifth });
+}
+
 module.exports={
     renderAddPage,
     updateRecord,
@@ -278,4 +328,5 @@ module.exports={
     renderdetail,
     changePassword,
     forgetPassword,
+    renderLeaderBoard
 }
