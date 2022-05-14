@@ -778,8 +778,9 @@ function compareByDate(record1, record2) {
 
 const saveSupportMsg = async (req, res) => {
     try {
+        console.log(req.body.support_msg);
         const patient = await Patient.findById(req.params.id);
-        patient.support_msg = req.body.support_msg;
+        patient.support_message = req.body.support_message;
         await patient.save();
         res.redirect('/clinician/individualData/' + req.params.id);
     } catch (err) {
