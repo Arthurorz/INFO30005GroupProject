@@ -265,7 +265,7 @@ const renderAboutMe = async (req, res) => {
 
 const changePassword = async (req, res) => {
     try {
-        const patientID = "62767c9f9991607a9b62c5d7";//hardcode
+        const patientID = req.user._id;
         const patient = await Patient.findById(patientID);
 
         if (bcrypt.compareSync(req.body.oldPassword, patient.password)) {
