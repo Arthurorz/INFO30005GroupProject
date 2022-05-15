@@ -17,6 +17,8 @@ const isAuthenticated = (req, res, next) => {
 const unAuthenticated = (req, res, next)=> {
     if (req.isAuthenticated() && req.user.screen_name !== undefined){
         return res.redirect('homepage');
+    } else if (req.isAuthenticated() && req.user.screen_name === undefined){
+        return res.redirect('/clinician/dashboard');
     }
     return next();
 }
