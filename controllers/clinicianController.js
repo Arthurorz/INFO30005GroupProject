@@ -818,7 +818,7 @@ const renderDashboard = async (req, res) => {
         }).lean()).patients;
         for (i in allPatient) {
             patient = allPatient[i];
-            initialRecord(patient.patient_id.toString());
+            await initialRecord(patient.patient_id.toString());
         }
 
 
