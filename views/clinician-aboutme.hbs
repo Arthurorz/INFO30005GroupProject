@@ -2,7 +2,11 @@
 <div class = aboutMe-body>
     <!-- 这里要加自拍或者图片,以及信息要可以变动-->
     <div class = aboutMe-left>
-        <img class = "self-picture" src = "/Photo_Pat.png" alt="self photo">
+        {{#ifPhoto clinician.photo}}
+        <img class = "self-picture" src = "/photo_{{clinician._id}}.png" alt="self photo">
+        {{else}}
+        <img class = "self-picture" src = "/photo_newuser.png" alt="self photo">
+        {{/ifPhoto}}
         <div class = "userName">Name: Doctor {{clinician.last_name}}</div>
         <div class = "birth">Year of birth: {{clinician.yearofbirth}}</div>
         <div class="change"><a href="/clinician/changepass">Change Password</a></div>
