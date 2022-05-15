@@ -12,6 +12,62 @@ main {
 }
 
 /* Patient Header */
+
+/* *{
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+} */
+
+.checkbox{
+    opacity: 0;
+    position: absolute;
+}
+
+.label{
+    background-color: red;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    height: 26px;
+    width: 50px;
+}
+
+#ball{
+    background-color: #fff;
+    border-radius: 50%;
+    /* position: absolute; */
+    top:2px;
+    left: 2px;
+    width: 22px;
+    height: 22px;
+    transform: translateX(0px);
+	transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball {
+	transform: translateX(24px);
+}
+
+.fa-moon{
+    color: #f1c40f;
+    width: 20px;
+}
+
+.fa-sun{
+    color: #f39c12;
+    width: 20px;
+}
+
 .patient-header {
     height: 55px;
     width: 100%;
@@ -441,6 +497,10 @@ textarea {
     /* display: flex; */
 }
 
+.topright form{
+    height: 100%;
+}
+
 select{
     background-color: #668CB8;
     border: 1px solid #707070;
@@ -678,6 +738,7 @@ input[type=checkbox]:checked~.edit-page {
 
 .user-bio{
     height: 9.125rem;
+    margin-top: 1.5rem;
 }
 
 .user-bio label{
@@ -753,6 +814,7 @@ input[type=checkbox]:checked~.edit-page {
     border: 1px solid #EDEDED;
     border-radius: 0.5rem;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.24);
+    padding: 0.5rem;
 }
 
 .bio-detail li{
@@ -903,9 +965,14 @@ input[type=checkbox]:checked~.edit-page {
         width: 23%;
     }
 
-    .user-info input{
+    .user-info input, .user-info li{
         height: 80%;
         font-size: 0.8rem;
+    }
+
+    .user-info li{
+        float: right;
+        width: 50.71%;
     }
 
     .user-bio input{
@@ -1311,7 +1378,7 @@ input[type=checkbox]:checked~.edit-page {
     }
 
     .data-top .tableTop{
-        font-size: 1.25rem;
+        font-size: 1.35rem;
     }
 
     .data-top .tableTop img{
@@ -1387,9 +1454,10 @@ input[type=checkbox]:checked~.edit-page {
     }
 
     .sam-detail{
-        height: 22.45%;
-        padding-left: 26.45%;
+        height: 30%;
+        padding-left: 20.45%;
         font-size: 1.625rem;
+        padding-top: 0.5rem;
     }
 
     .edit-detail{
@@ -1443,6 +1511,7 @@ input[type=checkbox]:checked~.edit-page {
 
     .user-bio textarea{
         font-size: 1.625rem;
+        height: 10.5rem;
     }
 
     .edit-page button{
