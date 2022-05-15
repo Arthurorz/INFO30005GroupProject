@@ -776,7 +776,7 @@ input[type=checkbox]:checked~.edit-page {
     width: 40%;
 }
 
-.user-info input{
+.user-info input, .user-info .short{
     float: right;
     width: 50.71%;
 }
@@ -1476,9 +1476,14 @@ input[type=checkbox]:checked~.edit-page {
         margin-bottom: 1rem;
     }
 
-    .user-info input{
+    .user-info input, .user-info li{
         height: 1.8rem;
         font-size: 1.625rem;
+    }
+
+    .user-info li{
+        float: right;
+        width: 50.71%;
     }
 
     ::placeholder{
@@ -1509,10 +1514,7 @@ input[type=checkbox]:checked~.edit-page {
         width: 24.63%;
     }
 
-    .user-bio{
-        padding-top: 4rem;
-        padding-left: 1rem;
-    }
+    
 
     .user-bio textarea{
         font-size: 1.625rem;
