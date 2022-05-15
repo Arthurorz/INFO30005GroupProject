@@ -48,7 +48,7 @@ function isNewPatientNull() {
     var height = document.getElementById("height").value;
     var birth = document.getElementById("birth").value;
 
-    if (familyName != "" && givenName != "" && email != "" && password != "" && confirmPassword != "" && height != "" && birth != "") {
+    if (familyName != "" && givenName != "" && email != "" && password != "" && confirmPassword != "" && height != "" && birth != "" && birth >= 1922 && birth <= 2022) {
             alert("You have successfully submitted");
     }
 }
