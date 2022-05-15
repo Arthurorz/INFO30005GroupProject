@@ -29,7 +29,7 @@ const renderPrevNotes = async (req, res) => {
 
 const saveClinicianBio = async (req, res) => {
     try{
-        const clinician = await Clinician.findById("626392e9a4d69d527a31780f");//hardcode
+        const clinician = await Clinician.findById(req.user._id.toString());
         clinician.brief_bio = req.body.brief_bio;
         await clinician.save();
         res.redirect('/clinician/aboutme');
@@ -172,7 +172,7 @@ const searchComment = async (req, res) => {
         if (req.body.patientName == '') {
             renderCommentList(req, res);
         } else {
-            const clinicianID = "626392e9a4d69d527a31780f";//hardcode for D2
+            const clinicianID = req.user._id.toString();
             const clinician = await Clinician.findById(clinicianID);
             const lastTime = clinician.lastTimeViewCommentList;
             clinician.lastTimeViewCommentList = new Date().toLocaleString("en-AU", { "timeZone": "Australia/Melbourne" });
@@ -379,7 +379,7 @@ const addNewPatient = async (req, res) => {
     if (req.body.password.length < 8) {
         return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Password must be at least 8 characters long', input: req.body });
     }
-
+    const clinicianID = req.user._id.toString();
 
 
     const patient = await Patient.findOne({ email: req.body.email.toLowerCase() });
@@ -397,9 +397,9 @@ const addNewPatient = async (req, res) => {
                     brief_bio: req.body.brief_bio,
                     engagement: 0,
 
-                    clinician: '626392e9a4d69d527a31780f',// hardcode
+                    clinician: clinicianID,
                     register_date : new date.toLocaleDateString(),
-                    //register Date 需要增加
+                    
                 });
 
 
@@ -468,7 +468,7 @@ const addNewPatient = async (req, res) => {
                 }
 
                 await patient.save();
-                const clinician = await Clinician.findById("626392e9a4d69d527a31780f");//hardcode
+                const clinician = await Clinician.findById(clinicianID);
                 clinician.patients.push({
                     patient_id: patient._id,
                 });
@@ -490,7 +490,8 @@ const addNewPatient = async (req, res) => {
 //render about me hbs page   not yet done
 const renderClinicianData = async (req, res) => {
     try {
-        const clinician = await Clinician.findById("626392e9a4d69d527a31780f").lean();//hardcode
+        const clinicianID = req.user._id.toString();
+        const clinician = await Clinician.findById(clinicianID).lean();
         res.render('clinician-aboutme.hbs', { layout: 'clinician.hbs', clinician: clinician });
     } catch (err) {
         res.status(400);
@@ -500,7 +501,7 @@ const renderClinicianData = async (req, res) => {
 //render comment list page 
 const renderCommentList = async (req, res) => {
     try {
-        const clinicianID = "626392e9a4d69d527a31780f";//hardcode for D2
+        const clinicianID = req.user._id.toString();
         const clinician = await Clinician.findById(clinicianID);
         const lastTime = clinician.lastTimeViewCommentList;
         clinician.lastTimeViewCommentList = new Date().toLocaleString("en-AU", { "timeZone": "Australia/Melbourne" });
@@ -691,7 +692,7 @@ function compareByTimeStamp(timeStamp1, timeStamp2) {
 //render NewPatient hbs page
 const renderNewPatient = async (req, res) => {
     try {
-        clinicianID = "626392e9a4d69d527a31780f";//hardcode 
+        clinicianID = req.user._id.toString();
         const clinician = await Clinician.findById(clinicianID).lean();
 
         res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', clinician: clinician });
@@ -811,7 +812,7 @@ const saveSupportMsg = async (req, res) => {
 const renderDashboard = async (req, res) => {
     try {
         console.log("当前的医生id是" + req.user._id.toString())//这个用来读当前医生 但是还在测试阶段 所以不remove hardcode
-        const clinicianID = "626392e9a4d69d527a31780f";//hardcode for D2
+        const clinicianID = req.user._id.toString();
         const allPatient = (await Clinician.findById(clinicianID).populate({
             path: 'patients',
             options: { lean: true }
@@ -892,6 +893,41 @@ async function initialRecord(patient_id) {
             await newRecord.save();
             patient.records.push({ record_id: newRecord._id });
             await patient.save();
+
+
+            //Create records for unlogged days
+            var flag = true;
+            var i = 1
+            while(flag){
+                const previous = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})
+                const check = await Record.findOne({patientId: patient_id, date: previous});
+                if(check == null){
+                    const uncreated = new Record({
+                        patientId: patient_id,
+                        date: previous
+                    })
+                    if(!patient.required_data.glucose){
+                        uncreated.data.glucose.status = "Not required";
+                    }
+                    if(!patient.required_data.weight){
+                        uncreated.data.weight.status = "Not required";
+                    }
+                    if(!patient.required_data.exercise){
+                        uncreated.data.exercise.status = "Not required";
+                    }
+                    if(!patient.required_data.insulin){
+                        uncreated.data.insulin.status = "Not required";
+                    }
+                    await uncreated.save();
+                    patient.records.push({record_id: uncreated._id});
+                    await patient.save();
+                    i = i + 1;
+                }else{
+                    flag = false;
+                }
+            }
+
+
         } else {
             console.log("record already exists");
         }
@@ -908,7 +944,7 @@ const searchDashboard = async (req, res) => {
         if (req.body.patientName == '') {
             renderDashboard(req, res);
         } else {
-            const clinicianID = "626392e9a4d69d527a31780f";//hardcode
+            const clinicianID = req.user._id.toString();
 
             const patients = (await Clinician.findById(clinicianID).populate({
                 path: 'patients',
@@ -993,8 +1029,8 @@ const addRecords = async (req, res) => {
 
 const changePassword = async (req, res) => {
     try {
-        // const clinician = await Clinician.findById(req.session.clinician._id);
-        const clinicianID = "627e12d4f6ca7edcce9cd997";//hardcode
+        
+        const clinicianID = req.user._id.toString();
         const clinician = await Clinician.findById(clinicianID);
 
         if (bcrypt.compareSync(req.body.oldPassword, clinician.password)) {
