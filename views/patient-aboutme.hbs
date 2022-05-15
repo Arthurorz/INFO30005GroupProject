@@ -22,6 +22,10 @@
                         <input type="text" id="name" name="clinician-name" placeholder="Doctor White">
                     </div> --}}
                     <div class="user-info">
+                        <label for="text">Full Name:</label>
+                        <li>{{patient.first_name}} {{patient.last_name}}</li>
+                    </div>
+                    <div class="user-info">
                         <label for="text">Screen Name:</label>
                         <input type="text" id="name" name="name" placeholder="{{patient.screen_name}}">
                     </div>
@@ -33,6 +37,10 @@
                         <label for="number">Year of birth:</label>
                         {{!-- <input type="number" id="year" name="year" min="1922" max="2022" placeholder="{{patient.yearofbirth}}"> --}}
                         <li>{{patient.yearofbirth}}</li>
+                    </div>
+                    <div class="user-info">
+                        <label for="text">Clinician:</label>
+                         <li>Doctor {{clinician.first_name}}</li>
                     </div>
                     <div class="user-info">
                         <label for="email">Email Address:</label>
@@ -53,10 +61,10 @@
     <div class="sam-detail">
         <img class="userphoto" src="/Photo_Pat.png" alt="">
         <ul class="about-detail">
+            <li>Full Name: {{patient.first_name}} {{patient.last_name}}</li>
             <li>Screen Name: {{patient.screen_name}}</li>
-            <li>Year of birth: {{patient.yearofbirth}}</li>
             <li>Height: {{patient.height}}m</li>
-            <li>Name: {{patient.first_name}} {{patient.last_name}}</li>
+            <li>Year of birth: {{patient.yearofbirth}}</li>
             <li>Clinician: Doctor {{clinician.first_name}}</li>
             <li>Email Address: {{patient.email}}</li>
             <li><a href="/patient/changepass">Change Password</a></li>
