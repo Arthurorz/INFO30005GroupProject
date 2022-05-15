@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
         patient_id: { type: mongoose.Schema.Types.ObjectId, ref: 'Patient' }
     }],
     brief_bio: { type: String },
-    photo: { stype: String },
+    photo: { stype: Boolean},
     lastTimeViewCommentList: { type: String, default: null },
 }, { versionKey: false })
 
