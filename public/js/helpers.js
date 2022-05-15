@@ -159,7 +159,7 @@ const helpers = {
         }
     },
     ifPhoto: function (value, options) {
-        if (value != true) {
+        if (value == true) {
             return options.fn(this);
         }
         else {
