@@ -11,7 +11,7 @@
                 <span class="infoName">First Name: </span>
                 <span class="inputBox"><input class="textBox" id="familyName" required="required" type="text"
                         name="first_name" placeholder="xxx" value={{input.last_name}}></span>
-                        
+
             </div>
             <div class="infoAdd">
                 <span class="infoName">Last Name:</span>
@@ -21,7 +21,8 @@
             <div class="infoAdd">
                 <span class="infoName">Email Address:</span>
                 <span class="inputBox"><input class="textBox" id="email" required="required" type="email" name="email"
-                        pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="must be a valid email address" placeholder="123@xxx.com" value={{input.email}}></span>
+                        pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="must be a valid email address"
+                        placeholder="123@xxx.com" value={{input.email}}></span>
             </div>
             <div class="infoAdd">
                 <span class="infoName">Password:</span>
@@ -46,8 +47,9 @@
             </div>
             <div class="infoAdd">
                 <span class="infoName">A brief Text Bio:</span>
-                <span class="inputBox"><input class="textBox" type="text" name="brief_bio"
-                        placeholder="enter the characters" value={{input.brief_bio}}></span>
+                <span class="inputBox">
+                    <textarea id="briefBio" class="textBox" type="text" name="brief_bio" placeholder="enter the characters"
+                        value={{input.brief_bio}}></textarea>
             </div>
             {{!-- <div class="sendCode">
                 <button class="codeButton" onclick="window.location.href=''" type="button">Send Authentication

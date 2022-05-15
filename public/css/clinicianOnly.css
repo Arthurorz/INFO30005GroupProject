@@ -721,6 +721,13 @@ li div{
     width: 242px;
     height: 29px;
     border-radius: 10px;
+    border: 1px solid;
+}
+
+#briefBio{
+    width: 242px;
+    border-radius: 10px;
+    height: 100px;
 }
 
 /* .chooseRange {
