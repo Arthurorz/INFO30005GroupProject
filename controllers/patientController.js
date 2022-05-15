@@ -53,6 +53,39 @@ async function initialRecord (patient_id){
             await newRecord.save();  
             patient.records.push({record_id: newRecord._id});
             await patient.save();
+
+            //Create records for unlogged days
+            var flag = true;
+            var i = 1
+            while(flag){
+                const previous = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})
+                const check = await Record.findOne({patientId: patient_id, date: previous});
+                if(check == null){
+                    const uncreated = new Record({
+                        patientId: patient_id,
+                        date: previous
+                    })
+                    if(!patient.required_data.glucose){
+                        uncreated.data.glucose.status = "Not required";
+                    }
+                    if(!patient.required_data.weight){
+                        uncreated.data.weight.status = "Not required";
+                    }
+                    if(!patient.required_data.exercise){
+                        uncreated.data.exercise.status = "Not required";
+                    }
+                    if(!patient.required_data.insulin){
+                        uncreated.data.insulin.status = "Not required";
+                    }
+                    await uncreated.save();
+                    patient.records.push({record_id: uncreated._id});
+                    await patient.save();
+                    i = i + 1;
+                }else{
+                    flag = false;
+                }
+            }
+
         }else{
         }
     }catch(err){
@@ -65,7 +98,7 @@ const renderHomePage = async (req, res, next) => {
     try {
         //get all informatiion that need in the homepage
         const id = req.user._id;
-        initialRecord(id);
+        await initialRecord(id);
         const patient = await Patient.findOne({ _id: id }).lean();
         const clinician = await Clinician.findById(patient.clinician).lean();
         const date = new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"});
