@@ -380,6 +380,90 @@ const updateAboutMe = async (req, res) => {
     }
 }
 
+const searchDate = async(req, res) => {
+    try{
+        if(req.body.month=="all" && req.body.year=="all"){
+            return res.redirect('/patient/moreData');
+        }
+
+        const id = req.user._id;
+        const patient = await Patient.findOne({_id: id}).populate({
+            path: 'records',
+            populate: {
+                path: 'record_id',
+                options: { lean: true }
+            }
+        }).lean();
+        const records = patient.records;
+        const recordList = [];
+        if(req.body.month!="all" && req.body.year==="all"){
+            for (i in records) {
+                if (records[i].record_id.date.substring(3,5)===req.body.month){
+                    recordList.push(records[i]);
+                }
+            }
+        }else if(req.body.month==="all" && req.body.year!="all"){
+            for (i in records) {
+                if (records[i].record_id.date.substring(6,10)===req.body.year){
+                    recordList.push(records[i]);
+                }
+            }
+        }else{
+            for (i in records) {
+                if (records[i].record_id.date.substring(3,5)===req.body.month && records[i].record_id.date.substring(6,10)===req.body.year){
+                    recordList.push(records[i]);
+                }
+            }
+        }
+        var month='';
+        switch (req.body.month) {
+            case "01":
+                month = "January";
+                break;
+            case "02":
+                month = "February";
+                break;
+            case "03":
+                month = "March";
+                break;
+            case "04":
+                month = "April";
+                break;
+            case "05":
+                month = "May";
+                break;
+            case "06":
+                month = "June";
+                break;
+            case "07":
+                month = "July";
+                break;
+            case "08":
+                month = "August";
+                break;
+            case "09":
+                month = "September";
+                break;
+            case "10":
+                month = "October";
+                break;
+            case "11":
+                month = "November";
+                break;
+            case "12":
+                month = "December";
+                break;
+            default:
+                month = "Month";
+                break;
+        }
+        sortByDate2(recordList);
+        res.render('patient-moreData.hbs', { layout: 'patient.hbs', record: recordList, month: month, year: req.body.year, input: req.body });
+    }catch(err){
+        console.log(err);
+    }
+}
+
 
 module.exports={
     renderAddPage,
@@ -392,4 +476,5 @@ module.exports={
     renderLeaderBoard,
     renderAboutMe,
     updateAboutMe,
+    searchDate
 }

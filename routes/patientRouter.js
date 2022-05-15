@@ -40,6 +40,7 @@ patientRouter.get('/homepage', isAuthenticated, patientController.renderHomePage
 patientRouter.get('/addData/:type', isAuthenticated, patientController.renderAddPage);
 patientRouter.post('/addData/:type', isAuthenticated, patientController.updateRecord);
 patientRouter.get('/moredata', isAuthenticated, patientController.renderMoreData);
+patientRouter.post('/moredata', isAuthenticated, patientController.searchDate);
 patientRouter.get('/aboutDiabetes', isAuthenticated, (req, res) => res.render("normal-aboutDia", { layout: 'patient.hbs', screen_name: req.user.screen_name }));
 patientRouter.get('/aboutThisWeb', isAuthenticated, (req, res) => res.render("normal-aboutWeb", { layout: 'patient.hbs', screen_name: req.user.screen_name }));
 patientRouter.get('/detaildata/:day/:month/:year', isAuthenticated, patientController.renderdetail);

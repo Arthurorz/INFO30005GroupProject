@@ -6,26 +6,34 @@
         <span><img src="/unrecorded.png">Data was not recorded</span>
     </div>
     <div class="topright">
-        <select class="mm" placeholder="MM">
-            <option name="" value="" style="display:none;">Month</option>
-            <option name="January" value="Jan">January</option>
-            <option name="February" value="Feb">February</option>
-            <option name="March" value="Mar">March</option>
-            <option name="April" value="Apr">April</option>
-            <option name="May" value="May">May</option>
-            <option name="June" value="Jun">June</option>
-            <option name="July" value="Jul">July</option>
-            <option name="August" value="Aug">August</option>
-            <option name="September" value="Sep">September</option>
-            <option name="October" value="Oct">October</option>
-            <option name="November" value="Nov">November</option>
-            <option name="December" value="Dec">December</option>
+        <form action="/patient/moredata" method="post" id="dateForm">
+        <select class="mm" placeholder="MM" name="month" onchange="submitDateForm()">
+            {{#ifSearched input.month}}
+            <option value={{input.month}}>{{month}}</option>
+            {{/ifSearched}}
+            <option name="" value="all">Month</option>
+            <option name="January" value="01">January</option>
+            <option name="February" value="02">February</option>
+            <option name="March" value="03">March</option>
+            <option name="April" value="04">April</option>
+            <option name="May" value="05">May</option>
+            <option name="June" value="06">June</option>
+            <option name="July" value="07">July</option>
+            <option name="August" value="08">August</option>
+            <option name="September" value="09">September</option>
+            <option name="October" value="10">October</option>
+            <option name="November" value="11">November</option>
+            <option name="December" value="12">December</option>
         </select>
-        <select class="year" placeholder="Year">
-            <option name="" value="" style="display:none;">Year</option>
-            <option name="2021" value="Jan">2021</option>
-            <option name="2022" value="">2022</option>
+        <select class="year" placeholder="Year" name="year" onchange="submitDateForm()">
+            {{#ifSearched input.year}}
+            <option value={{input.year}}>{{input.year}}</option>
+            {{/ifSearched}}
+            <option name="" value="all">Year</option>
+            <option name="2021" value="2021">2021</option>
+            <option name="2022" value="2022">2022</option>
         </select>
+        </form>
     </div>
     
 </div>
@@ -129,3 +137,4 @@
         
     </table>
 </div>
+<script src="/js/hbshelp.js"></script>
