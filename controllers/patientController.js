@@ -367,9 +367,6 @@ const updateAboutMe = async (req, res) => {
         if(req.body.height != ""){
             patient.height = req.body.height;
         }
-        if(req.body.year != ""){
-            patient.yearofbirth = req.body.year;
-        }
         if(req.body.text != ""){
             patient.brief_bio = req.body.text;
         }
