@@ -1509,9 +1509,15 @@ input[type=checkbox]:checked~.edit-page {
         width: 24.63%;
     }
 
+    .user-bio{
+        padding-top: 4rem;
+        padding-left: 1rem;
+    }
+
     .user-bio textarea{
         font-size: 1.625rem;
         height: 10.5rem;
+        margin-top: 0.5rem;
     }
 
     .edit-page button{
