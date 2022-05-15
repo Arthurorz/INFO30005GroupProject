@@ -370,9 +370,6 @@ const updateAboutMe = async (req, res) => {
         if(req.body.year != ""){
             patient.yearofbirth = req.body.year;
         }
-        if(req.body.emails != ""){
-            patient.email = req.body.emails;
-        }
         if(req.body.text != ""){
             patient.brief_bio = req.body.text;
         }
@@ -394,5 +391,5 @@ module.exports={
     forgetPassword,
     renderLeaderBoard,
     renderAboutMe,
-    updateAboutMe
+    updateAboutMe,
 }
