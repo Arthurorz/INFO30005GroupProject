@@ -331,6 +331,9 @@ h4 {
 }
 
 /* Forget Password Page */
+#msg{
+    font-size: 0.875rem;
+}
 
 .forget-error{
     width: 50%;
@@ -769,6 +772,9 @@ button.change-sentcode {
     }
 
     /* Forget Password Page Web*/
+    #msg{
+        font-size: 1.625rem;
+    }
 
     .forget-error{
         top: 360px;
