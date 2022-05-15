@@ -620,9 +620,16 @@ table, th, td{
     color: #668CB8;
 }
 
-.boardName{
-    margin: auto 7.6875rem auto 0.6875rem;
+.lineRight{
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    padding-left: 1rem;
 }
+
+/* .boardName{
+    margin: auto 7.6875rem auto 0.6875rem;
+} */
 
 /* About Me Page */
 
@@ -856,9 +863,9 @@ input[type=checkbox]:checked~.edit-page {
         padding: 1.5rem;
     }
 
-    .boardName {
+    /* .boardName {
         margin: auto 20.6875rem auto 0.6875rem;
-    }
+    } */
     /* more data page */
 
     .data-top .tableTop{
@@ -1352,9 +1359,9 @@ input[type=checkbox]:checked~.edit-page {
         /* color: #668CB8; */
     }
     
-    .boardName{
+    /* .boardName{
         margin: auto 13.6875rem auto 0.6875rem;
-    }
+    } */
 
     .year{
         margin-left: 0.5rem;
