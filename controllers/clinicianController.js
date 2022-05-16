@@ -736,10 +736,12 @@ const renderPatientData = async (req, res) => {
         const records = patient.records;
         const recordList = [];
         for (i in records) {
+            console.log(records[i]);
             recordList.push(records[i]);
         }
         sortByDate(recordList);
-
+        
+        
         const notes = patient.note;
         const noteList = [];
         for (i in notes) {
@@ -749,7 +751,7 @@ const renderPatientData = async (req, res) => {
                 content: notes[i].note_id.content,
             });
         }
-
+        
         sortByTimeStamp(noteList);
         res.render('clinician-individualData.hbs', { layout: 'clinician.hbs', patient: patient, records: recordList, notes: noteList });
     } catch (err) {
