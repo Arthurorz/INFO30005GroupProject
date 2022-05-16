@@ -13,22 +13,11 @@ main {
 
 /* Patient Header */
 
-/* *{
-    box-sizing: border-box;
-}
-
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-} */
 
 .mood{
     position: absolute;
-    right: 63.8%;
-    bottom: 16.5%;
+    right: 41%;
+    bottom: 39.5%;
 }
 
 body.dark, .edit-page.dark {
@@ -50,8 +39,8 @@ body.dark, .edit-page.dark {
 	justify-content: space-between;
 	padding: 5px;
 	position: relative;
-	height: 26px;
-	width: 90px;
+	height: 15px;
+	width: 60px;
 	transform: scale(1.5);
 }
 
@@ -61,18 +50,18 @@ body.dark, .edit-page.dark {
 	position: absolute;
 	/* top: 2px; */
 	left: 1px;
-	height: 35px;
-	width: 35px;
+	height: 23px;
+	width: 23px;
 	transform: translateX(0px);
 	transition: transform 0.2s linear;
 }
 
 .checkbox:checked + .mood-change .ball {
-	transform: translateX(63px);
+	transform: translateX(45px);
 }
 
 .moon, .sun{
-    height: 30px;
+    height: 18px;
 }
 
 .patient-header {
@@ -348,8 +337,7 @@ h1 {
     top: 16.5%;
 }
 
-.dataInput input,
-textarea {
+.dataInput input{
     border-radius: 0.625rem;
     border: 1px solid #EDEDED;
     box-shadow: 3px 3px #EDEDED;
@@ -824,7 +812,7 @@ input[type=checkbox]:checked~.aboutme-text {
 }
 
 .text-bio{
-    margin-top: 1.188rem;
+    margin-top: 3.188rem;
 }
 
 .bio-detail{
@@ -979,6 +967,11 @@ input[type=checkbox]:checked~.aboutme-text {
     }
 
     /* About Me Page */
+
+    .mood{
+        right: 47%;
+        bottom: 14.5%;
+    }
 
     .edit-body img, .userphoto{
         width: 23%;
@@ -1455,6 +1448,31 @@ input[type=checkbox]:checked~.aboutme-text {
 
     /* About Me Page */
 
+
+    
+    .mood{
+        right: 63.8%;
+        bottom: 16.5%;
+    }
+
+    .mood-change {
+        height: 26px;
+        width: 90px;
+    }
+
+    .mood-change .ball {
+        height: 35px;
+        width: 35px;
+    }
+
+    .checkbox:checked + .mood-change .ball {
+        transform: translateX(63px);
+    }
+
+    .moon, .sun{
+        height: 30px;
+    }
+    
     .edit-button{
         width: 2.375rem;
         margin-right: 9%;
