@@ -301,7 +301,7 @@ td img {
 
 .homepage-footer a {
     text-decoration: underline;
-    color: black;
+    /* color: black; */
 }
 
 
@@ -522,7 +522,7 @@ select a:hover{
 
 .data-table a{
     text-decoration: underline;
-    color: black;
+    /* color: black; */
 }
 
 table, th, td{
