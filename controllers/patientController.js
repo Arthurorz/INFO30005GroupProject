@@ -231,7 +231,7 @@ const renderMoreData = async (req, res) => {
             recordList.push(records[i]);
         }
         sortByDate2(recordList);
-        res.render('patient-moreData.hbs', { layout: 'patient.hbs', record: recordList });
+        res.render('patient-moreData.hbs', { layout: 'patient.hbs', record: recordList, patient: patient });
     } catch (err) {
         console.log(err);
     }
@@ -240,12 +240,13 @@ const renderMoreData = async (req, res) => {
 const renderdetail = async (req, res) => {
     try{
         const id = req.user._id;
+        const patient = await Patient.findOne({ _id: id }).lean();
         const day = req.params.day;
         const month = req.params.month
         const year = req.params.year
         const date = day+"/"+month+"/"+year;
         const record = await Record.findOne({patientId: id, date: date}).lean();
-        res.render('patient-dataDetail.hbs', { layout: 'patient.hbs', record: record });
+        res.render('patient-dataDetail.hbs', { layout: 'patient.hbs', record: record, patient: patient });
     }catch(err){
         console.log(err);
     }
@@ -377,6 +378,23 @@ const updateAboutMe = async (req, res) => {
     }
 }
 
+const updateMode = async (req, res) => {
+    try {
+        const patient_id = req.user._id;
+        const patient = await Patient.findById(patient_id);
+        if (req.body.check == 'on') {
+            patient.darkmode = true;
+        } else {
+            patient.darkmode = false;
+        }
+        // patient.darkmode = true;
+        await patient.save();
+        res.redirect('/patient/aboutme');
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 const searchDate = async(req, res) => {
     try{
         if(req.body.month=="all" && req.body.year=="all"){
@@ -461,6 +479,26 @@ const searchDate = async(req, res) => {
     }
 }
 
+const renderAboutDia = async (req, res) => {
+    try {
+        const id = req.user._id;
+        const patient = await Patient.findOne({ _id: id }).lean();
+        res.render("normal-aboutDia", { layout: 'patient.hbs', patient: patient});
+    }catch(err){
+        console.log(err);
+    }
+}
+
+const renderAboutWeb = async (req, res) => {
+    try {
+        const id = req.user._id;
+        const patient = await Patient.findOne({ _id: id }).lean();
+        res.render("normal-aboutWeb", { layout: 'patient.hbs', patient: patient});
+    }catch(err){
+        console.log(err);
+    }
+}
+
 
 module.exports={
     renderAddPage,
@@ -473,5 +511,8 @@ module.exports={
     renderLeaderBoard,
     renderAboutMe,
     updateAboutMe,
-    searchDate
+    searchDate,
+    updateMode,
+    renderAboutDia,
+    renderAboutWeb,
 }

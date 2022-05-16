@@ -43,13 +43,16 @@ patientRouter.get('/addData/:type', isAuthenticated, patientController.renderAdd
 patientRouter.post('/addData/:type', isAuthenticated, patientController.updateRecord);
 patientRouter.get('/moredata', isAuthenticated, patientController.renderMoreData);
 patientRouter.post('/moredata', isAuthenticated, patientController.searchDate);
-patientRouter.get('/aboutDiabetes', isAuthenticated, (req, res) => res.render("normal-aboutDia", { layout: 'patient.hbs', screen_name: req.user.screen_name }));
-patientRouter.get('/aboutThisWeb', isAuthenticated, (req, res) => res.render("normal-aboutWeb", { layout: 'patient.hbs', screen_name: req.user.screen_name }));
+patientRouter.get('/aboutDiabetes', isAuthenticated, patientController.renderAboutDia)
+patientRouter.get('/aboutThisWeb', isAuthenticated, patientController.renderAboutWeb)
+// patientRouter.get('/aboutDiabetes', isAuthenticated, (req, res) => res.render("normal-aboutDia", { layout: 'patient.hbs', screen_name: req.user.screen_name , darkmode: req.user.darkmode}));
+// patientRouter.get('/aboutThisWeb', isAuthenticated, (req, res) => res.render("normal-aboutWeb", { layout: 'patient.hbs', screen_name: req.user.screen_name , darkmode: req.user.darkmode}));
 patientRouter.get('/detaildata/:day/:month/:year', isAuthenticated, patientController.renderdetail);
 patientRouter.get('/changepass', isAuthenticated, (req, res) => res.render("normal-changepass", { layout: 'patient.hbs' }));
 patientRouter.post('/changepass', isAuthenticated, (req,res)=> patientController.changePassword(req,res))
 patientRouter.get('/aboutme', isAuthenticated, patientController.renderAboutMe);
 patientRouter.post('/aboutme', isAuthenticated, patientController.updateAboutMe);
+patientRouter.post('/aboutme/mode', isAuthenticated, patientController.updateMode);
 patientRouter.get('/motivation', isAuthenticated, patientController.renderLeaderBoard);
 
 module.exports = patientRouter

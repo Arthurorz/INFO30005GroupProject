@@ -77,3 +77,30 @@ function isForgetPass() {
     } 
 }
 
+function setDarkmode (darkmode) {
+    if (darkmode == true) {
+        var checkbox = document.getElementById('chk');
+        checkbox.checked = true;
+        document.body.classList.toggle('dark');
+    }
+    const chk = document.getElementById('chk');
+
+    chk.addEventListener('change', () => {
+        document.body.classList.toggle('dark');
+        var form = document.getElementById("modeForm");
+        form.submit();
+    });
+
+}
+
+function submitMode(){
+    var mode = document.getElementById("mode");
+    mode.submit();
+}
+
+function isDarkmode (darkmode) {
+    if (darkmode==true) {
+        document.body.classList.toggle('dark');
+    }
+}
+

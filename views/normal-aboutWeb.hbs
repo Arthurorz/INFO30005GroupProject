@@ -46,8 +46,13 @@
 </div>
 
 {{!-- Page Footer --}}
-{{#ifNotLogin screen_name}}
+{{#ifNotLogin patient.screen_name}}
 <div class="aboutWeb-footer">
     <h3>If you want to access more features, please <a href="/patient/login">Login.</a></span></h3>
 </div>
 {{/ifNotLogin}}
+
+<script src="/js/hbshelp.js"></script>
+<script>
+    isDarkmode({{patient.darkmode}})
+</script>
