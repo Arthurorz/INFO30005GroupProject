@@ -964,13 +964,12 @@ const searchDashboard = async (req, res) => {
             }).lean()).patients;
 
             var inputName = req.body.patientName.toLowerCase();
-            inputName = inputName[0].toUpperCase() + inputName.substring(1, inputName.length);
             const patientList = []
 
             for (i in patients) {
                 const patient = patients[i].patient_id;
 
-                if (patient.first_name.indexOf(inputName) != -1 || patient.last_name.indexOf(inputName)!= -1) {
+                if (patient.first_name.toLowerCase().indexOf(inputName) != -1 || patient.last_name.toLowerCase().indexOf(inputName)!= -1) {
                     for (j in patient.records) {
                         const record = patient.records[j].record_id;
 
