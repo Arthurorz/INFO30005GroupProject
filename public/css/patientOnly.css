@@ -1110,7 +1110,7 @@ input[type=checkbox]:checked~.aboutme-text {
     }
 
     .iconpng {
-        width: 1.875rem;
+        height: 1.875rem;
     }
 
     .homeMiddle {
