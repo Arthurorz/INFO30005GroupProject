@@ -334,11 +334,11 @@ async function calEngagement(patientId){
 const renderLeaderBoard = async(req, res) => {
     try{
         const pre_patients = await Patient.find({}).lean();
-        const thisPatient = await Patient.findById(req.user._id).lean();
         for(patient of pre_patients){
             await calEngagement(patient._id);
         }
         const patients = await Patient.find({}).lean();
+        const thisPatient = await Patient.findById(req.user._id).lean();
         var index = 0;
         const sorted = patients.sort((a, b) => {return (b.engagement - a.engagement)});
         for(patient of sorted){
@@ -474,7 +474,7 @@ const searchDate = async(req, res) => {
                 break;
         }
         sortByDate2(recordList);
-        res.render('patient-moreData.hbs', { layout: 'patient.hbs', record: recordList, month: month, year: req.body.year, input: req.body });
+        res.render('patient-moreData.hbs', { layout: 'patient.hbs', record: recordList, patient: patient, month: month, year: req.body.year, input: req.body });
     }catch(err){
         console.log(err);
     }
