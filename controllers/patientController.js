@@ -326,7 +326,6 @@ async function calEngagement(patientId){
         }
         interval += 1
     }
-    interval += 1;
     patient.engagement = Math.round((records.length / interval).toFixed(2) * 100);
     await patient.save();
 }
