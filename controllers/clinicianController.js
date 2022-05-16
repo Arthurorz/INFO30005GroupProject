@@ -970,7 +970,7 @@ const searchDashboard = async (req, res) => {
             for (i in patients) {
                 const patient = patients[i].patient_id;
 
-                if (patient.first_name == inputName || patient.last_name == inputName) {
+                if (patient.first_name.indexOf(inputName) != -1 || patient.last_name.indexOf(inputName)!= -1) {
                     for (j in patient.records) {
                         const record = patient.records[j].record_id;
 
