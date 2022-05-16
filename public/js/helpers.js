@@ -158,6 +158,14 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    ifPhoto: function (value, options) {
+        if (value == true) {
+            return options.fn(this);
+        }
+        else {
+            return options.inverse(this);
+        }
+    },
 };
 
 module.exports.helpers = helpers;

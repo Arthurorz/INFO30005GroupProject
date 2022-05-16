@@ -93,8 +93,8 @@ app.get('/change', (req, res) => {
         layout: "patient.hbs"
     });
 });
-app.get('/data', (req, res) => {
-    res.render("patient-moreData", {
+app.get('/aboutme', (req, res) => {
+    res.render("patient-aboutme", {
         layout: "patient.hbs"
     });
 });
@@ -129,6 +129,12 @@ app.get('/caboutme', (req, res) => {
         layout: "clinician.hbs",
     }); 
 }); 
+
+
+app.all('*', (req, res) => {  // 'default' route to catch user errors
+	res.status(404).render('normal-error', {errorCode: '404', message: 'That route is invalid.'})
+})
+
 // Tells the app to listen on port 3000 and logs that information to the console. 
 app.listen(process.env.PORT || 3000, () => {
     console.log('Diabetes app listening on port 3000!');
