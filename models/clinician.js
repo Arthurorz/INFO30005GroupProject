@@ -13,6 +13,7 @@ const schema = new mongoose.Schema({
     brief_bio: { type: String },
     photo: { stype: Boolean},
     lastTimeViewCommentList: { type: String, default: null },
+    darkmode:{type: Boolean, required: true, default:false }
 }, { versionKey: false })
 
 // Password comparison function

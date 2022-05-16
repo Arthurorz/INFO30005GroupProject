@@ -396,6 +396,7 @@ const addNewPatient = async (req, res) => {
                     height: req.body.height,
                     brief_bio: req.body.brief_bio,
                     engagement: 0,
+                    photo: false,
 
                     clinician: clinicianID,
                     register_date : new date.toLocaleDateString(),
