@@ -93,8 +93,8 @@ app.get('/change', (req, res) => {
         layout: "patient.hbs"
     });
 });
-app.get('/data', (req, res) => {
-    res.render("patient-moreData", {
+app.get('/aboutme', (req, res) => {
+    res.render("patient-aboutme", {
         layout: "patient.hbs"
     });
 });
