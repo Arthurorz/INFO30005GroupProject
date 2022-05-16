@@ -815,6 +815,10 @@ input[type=checkbox]:checked~.aboutme-text {
     margin-top: 3.188rem;
 }
 
+.user-bio{
+    margin-top: 5rem;
+}
+
 .bio-detail{
     margin-top: 0.625rem;
     height: 7.375rem;
@@ -1451,7 +1455,7 @@ input[type=checkbox]:checked~.aboutme-text {
 
     
     .mood{
-        right: 63.8%;
+        right: 61%;
         bottom: 16.5%;
     }
 
@@ -1472,7 +1476,7 @@ input[type=checkbox]:checked~.aboutme-text {
     .moon, .sun{
         height: 30px;
     }
-    
+
     .edit-button{
         width: 2.375rem;
         margin-right: 9%;
@@ -1495,12 +1499,13 @@ input[type=checkbox]:checked~.aboutme-text {
         padding-left: 20.45%;
         font-size: 1.625rem;
         padding-top: 0.5rem;
+        width: 32%;
     }
 
     .edit-detail{
         height: 30%;
         padding-left: 21.45%;
-        width: 24.375%;
+        width: 30%;
         font-size: 1.625rem;
     }
 
