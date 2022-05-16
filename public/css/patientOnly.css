@@ -1456,7 +1456,7 @@ input[type=checkbox]:checked~.aboutme-text {
     
     .mood{
         right: 61%;
-        bottom: 16.5%;
+        bottom: 11.5%;
     }
 
     .mood-change {
@@ -1566,6 +1566,10 @@ input[type=checkbox]:checked~.aboutme-text {
 
     .edit-page button{
         width: 9.48%;
+    }
+
+    .edit-page .saveButton{
+        margin: 7rem auto 5rem auto;
     }
 
 }
