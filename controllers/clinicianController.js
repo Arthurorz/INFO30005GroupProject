@@ -21,7 +21,6 @@ const renderPrevNotes = async (req, res) => {
     }
 
     sortByTimeStamp(noteList);
-    console.log(noteList);
 
     res.render('clinician-previousNote.hbs', { layout: 'clinician.hbs', notes: noteList });
 }
@@ -142,7 +141,7 @@ const searchDate = async (req, res) => {
         sortByTimeStamp(noteList);
         res.render('clinician-individualData.hbs', { layout: 'clinician.hbs', patient: patient, records: recordList, notes: noteList, input:req.body, month: month});
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 }
 const addNote = async (req, res) => {
@@ -365,7 +364,7 @@ const editPatientData = async (req, res) => {
 
         res.redirect('/clinician/individualData/' + patientData._id);
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 }
 
@@ -698,7 +697,7 @@ const renderNewPatient = async (req, res) => {
 
         res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', clinician: clinician });
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 }
 
@@ -709,7 +708,7 @@ const renderClinicianEditData = async (req, res) => {
 
         res.render('clinician-editData.hbs', { layout: 'clinician.hbs', patient: patient, patientId: patient._id });
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 }
 
@@ -736,7 +735,6 @@ const renderPatientData = async (req, res) => {
         const records = patient.records;
         const recordList = [];
         for (i in records) {
-            console.log(records[i]);
             recordList.push(records[i]);
         }
         sortByDate(recordList);
@@ -755,7 +753,7 @@ const renderPatientData = async (req, res) => {
         sortByTimeStamp(noteList);
         res.render('clinician-individualData.hbs', { layout: 'clinician.hbs', patient: patient, records: recordList, notes: noteList });
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 }
 
@@ -807,7 +805,7 @@ const saveSupportMsg = async (req, res) => {
         await patient.save();
         res.redirect('/clinician/individualData/' + req.params.id);
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 
 }
@@ -864,7 +862,7 @@ const renderDashboard = async (req, res) => {
         res.render('clinician-dashboard.hbs', { layout: 'clinician.hbs', patientList: patientList });
 
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 }
 
@@ -962,7 +960,7 @@ const searchDashboard = async (req, res) => {
                     }
                 }
             }).lean()).patients;
-
+            
             var inputName = req.body.patientName.toLowerCase();
             const patientList = []
 
@@ -994,7 +992,7 @@ const searchDashboard = async (req, res) => {
             res.render('clinician-dashboard.hbs', { layout: 'clinician.hbs', patientList: patientList, msg: msg });
         }
     } catch (err) {
-        console.log(err)
+        console.log(err);
     }
 }
 
