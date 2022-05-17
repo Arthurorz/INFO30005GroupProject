@@ -204,6 +204,7 @@ function compareDate(date1, date2){
     }
 
 }
+
 function compareByDate(record1, record2){
     month1 = parseInt(record1.date.substring(3,5));
     month2 = parseInt(record2.date.substring(3,5));

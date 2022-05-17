@@ -899,7 +899,7 @@ async function initialRecord(patient_id) {
             var i = 1
             while(flag){
                 const previous = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})
-                if (compareByDate(previous, register_date)< 0){
+                if (compareDate(previous, register_date)< 0){
                     break;
                 }
                 const check = await Record.findOne({patientId: patient_id, date: previous});
@@ -1050,7 +1050,27 @@ const changePassword = async (req, res) => {
         console.log(err);
     }
 }
+function compareDate(date1, date2){
+    month1 = parseInt(date1.substring(3,5));
+    month2 = parseInt(date2.substring(3,5));
+    day1 = parseInt(date1.substring(0,2));
+    day2 = parseInt(date2.substring(0,2));
 
+    if(month1<month2){
+        return -1;
+    }else if(month1 == month2){
+        if(day1<day2){
+            return -1;
+        }if(day1==day2){
+            return 0;
+        }else{
+            return 1;
+        }
+    }else{
+        return 1;
+    }
+
+}
 const forgetPassword = async (req, res) => {
     try {
         const clinician = await Clinician.findOne({ email: req.body.email.toLowerCase() });
