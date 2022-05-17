@@ -16,7 +16,11 @@
         <label for="checkbox-toggle" class="aboutme-edit"><img class="edit-button" src="/edit.png" alt="edit"></label>
         <div class="aboutme-body">
             <div class="sam-detail">
-                <img class="userphoto" src="/Photo_Pat.png" alt="">
+                {{#ifPhoto patient.photo}}
+                <img class = "userphoto" src = "/photo_{{patient._id}}.png" alt="self photo">
+                {{else}}
+                <img class = "userphoto" src = "/photo_newuser.png" alt="self photo">
+                {{/ifPhoto}}
                 <ul class="about-detail">
                     <li>Full Name: {{patient.first_name}} {{patient.last_name}}</li>
                     <li>Screen Name: {{patient.screen_name}}</li>
