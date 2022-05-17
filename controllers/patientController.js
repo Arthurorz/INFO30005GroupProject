@@ -116,8 +116,28 @@ const renderHomePage = async (req, res, next) => {
             });
         }
         sortByDate(recent7);
+
+        const dataList = [];
+        const dateList = [];
+        const glucoseData = [];
+        const weightData = [];
+        const exerciseData = [];
+        const insulinData = [];
+
+        for(i in recent7){
+            glucoseData.push(recent7[i].record.data.glucose.value);
+            weightData.push(recent7[i].record.data.weight.value);
+            exerciseData.push(recent7[i].record.data.exercise.value);
+            insulinData.push(recent7[i].record.data.insulin.value);
+            dateList.push(recent7[i].date);
+        }
+        dataList.push(glucoseData);
+        dataList.push(weightData);
+        dataList.push(exerciseData);
+        dataList.push(insulinData);
         //Render the homepage
-        res.render("patient-homePage.hbs", { layout: 'patient.hbs', patient: patient, clinician: clinician,today: today,recent7: recent7});
+        res.render("patient-homePage.hbs", { layout: 'patient.hbs', patient: patient, clinician: clinician,today: today,
+                                                recent7: recent7, dataList: JSON.stringify(dataList), dateList:JSON.stringify(dateList)});
     }catch (err) {
         return next(err);
     }
