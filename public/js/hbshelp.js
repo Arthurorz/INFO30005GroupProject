@@ -104,6 +104,10 @@ function isDarkmode (darkmode) {
     }
 }
 
+function tryalert() {
+    alert("Testing....");
+}
+
 Highcharts.chart('container', {
 
     title: {
