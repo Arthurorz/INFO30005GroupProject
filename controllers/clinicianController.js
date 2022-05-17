@@ -399,7 +399,6 @@ const addNewPatient = async (req, res) => {
 
                     clinician: clinicianID,
                     register_date : (new Date).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }),
-                    
                 });
 
 
@@ -870,7 +869,7 @@ const renderDashboard = async (req, res) => {
 async function initialRecord(patient_id) {
     try {
         const patient = await Patient.findById(patient_id);
-        
+        register_date = patient.register_date;
         const record = await Record.findOne({ patientId: patient._id, date: (new Date()).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }) });
 
         if (record == null) {
@@ -900,6 +899,9 @@ async function initialRecord(patient_id) {
             var i = 1
             while(flag){
                 const previous = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})
+                if (compareByDate(previous, register_date)<= 0){
+                    break;
+                }
                 const check = await Record.findOne({patientId: patient_id, date: previous});
                 if(check == null){
                     const uncreated = new Record({
