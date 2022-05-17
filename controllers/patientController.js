@@ -32,6 +32,7 @@ async function initialRecord (patient_id){
         //get the patient and the record of that day.
         const patient = await Patient.findOne({ _id: patient_id });
         const record = await Record.findOne({patientId: patient._id, date: new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})});
+        const register_date = patient.register_date;
         //If no record was find, create a new record.
         if(record == null){
             const newRecord = new Record({
@@ -59,7 +60,7 @@ async function initialRecord (patient_id){
             var i = 1
             while(flag){
                 const previous = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})
-                if (compareByDate(previous,patient.register_date)<= 0){
+                if (compareByDate(previous, register_date)<= 0){
                     break;
                 }
                 const check = await Record.findOne({patientId: patient_id, date: previous});
