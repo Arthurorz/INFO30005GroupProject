@@ -2,7 +2,12 @@
 <div class="motiContainer">
     <div class="selfRank">
         <p class="rank">Your Rank:&nbsp;{{rank}}</p>
-        <img class="motiPhoto" src="/Photo_Pat.png" alt="{{thisPatient.screen_name}}">
+        {{!-- <img class="motiPhoto" src="/Photo_Pat.png" alt="{{thisPatient.screen_name}}"> --}}
+        {{#ifPhoto thisPatient.photo}}
+        <img class = "motiPhoto" src = "/photo_{{thisPatient._id}}.png" alt="self photo">
+        {{else}}
+        <img class = "motiPhoto" src = "/photo_newuser.png" alt="self photo">
+        {{/ifPhoto}}
         <p>{{thisPatient.screen_name}}</p>
         <p>Participation:&nbsp;{{thisPatient.engagement}}%</p>
         {{#ifreach80 thisPatient.engagement}}
@@ -17,12 +22,27 @@
     <div class="leaderboard">
         <div class="firstLine">
             <img class="crown" src="/crown.png" alt="">
-            <img class="numberOne" src="/Photo_Pat.png" alt="">
+            {{!-- <img class="numberOne" src="/Photo_Pat.png" alt=""> --}}
+            {{#ifPhoto first.photo}}
+            <img class = "numberOne" src = "/photo_{{first._id}}.png" alt="self photo">
+            {{else}}
+            <img class = "numberOne" src = "/photo_newuser.png" alt="self photo">
+            {{/ifPhoto}}
             <span class="ranking">1</span>
         </div>
         <div class="secondLine">
-            <img class="lineTwo_pic" src="/Photo_Pat.png" alt="">
-            <img class="lineTwo_pic" src="/Photo_Pat.png" alt="">
+            {{!-- <img class="lineTwo_pic" src="/Photo_Pat.png" alt=""> --}}
+            {{#ifPhoto second.photo}}
+            <img class = "lineTwo_pic" src = "/photo_{{second._id}}.png" alt="self photo">
+            {{else}}
+            <img class = "lineTwo_pic" src = "/photo_newuser.png" alt="self photo">
+            {{/ifPhoto}}
+            {{!-- <img class="lineTwo_pic" src="/Photo_Pat.png" alt=""> --}}
+            {{#ifPhoto third.photo}}
+            <img class = "lineTwo_pic" src = "/photo_{{third._id}}.png" alt="self photo">
+            {{else}}
+            <img class = "lineTwo_pic" src = "/photo_newuser.png" alt="self photo">
+            {{/ifPhoto}}
         </div>
         <div class="thirdLine">
             <span class="ranking">2</span>
@@ -31,7 +51,12 @@
         <div class="board">
             <div class="boardLine">
                 <span class="boardRank">1</span>
-                <img class="boardPic" src="/Photo_Pat.png" alt="">
+                {{!-- <img class="boardPic" src="/Photo_Pat.png" alt=""> --}}
+                {{#ifPhoto first.photo}}
+                <img class = "boardPic" src = "/photo_{{first._id}}.png" alt="self photo">
+                {{else}}
+                <img class = "boardPic" src = "/photo_newuser.png" alt="self photo">
+                {{/ifPhoto}}
                 <div class="lineRight">
                     <span>{{first.screen_name}}</span>
                     <span>{{first.engagement}}%</span>
@@ -39,7 +64,11 @@
             </div>
             <div class="boardLine">
                 <span class="boardRank">2</span>
-                <img class="boardPic" src="/Photo_Pat.png" alt="">
+                {{#ifPhoto second.photo}}
+                <img class = "boardPic" src = "/photo_{{second._id}}.png" alt="self photo">
+                {{else}}
+                <img class = "boardPic" src = "/photo_newuser.png" alt="self photo">
+                {{/ifPhoto}}
                 <div class="lineRight">
                     <span>{{second.screen_name}}</span>
                     <span>{{second.engagement}}%</span>
@@ -47,7 +76,11 @@
             </div>
             <div class="boardLine">
                 <span class="boardRank">3</span>
-                <img class="boardPic" src="/Photo_Pat.png" alt="">
+                {{#ifPhoto third.photo}}
+                <img class = "boardPic" src = "/photo_{{third._id}}.png" alt="self photo">
+                {{else}}
+                <img class = "boardPic" src = "/photo_newuser.png" alt="self photo">
+                {{/ifPhoto}}
                 <div class="lineRight">
                     <span>{{third.screen_name}}</span>
                     <span>{{third.engagement}}%</span>
@@ -55,7 +88,11 @@
             </div>
             <div class="boardLine">
                 <span class="boardRank">4</span>
-                <img class="boardPic" src="/Photo_Pat.png" alt="">
+                {{#ifPhoto fourth.photo}}
+                <img class = "boardPic" src = "/photo_{{fourth._id}}.png" alt="self photo">
+                {{else}}
+                <img class = "boardPic" src = "/photo_newuser.png" alt="self photo">
+                {{/ifPhoto}}
                 <div class="lineRight">
                     <span>{{fourth.screen_name}}</span>
                     <span>{{fourth.engagement}}%</span>
@@ -63,7 +100,11 @@
             </div>
             <div class="boardLine">
                 <span class="boardRank">5</span>
-                <img class="boardPic" src="/Photo_Pat.png" alt="">
+                {{#ifPhoto fifth.photo}}
+                <img class = "boardPic" src = "/photo_{{fifth._id}}.png" alt="self photo">
+                {{else}}
+                <img class = "boardPic" src = "/photo_newuser.png" alt="self photo">
+                {{/ifPhoto}}
                 <div class="lineRight">
                     <span>{{fifth.screen_name}}</span>
                     <span>{{fifth.engagement}}%</span>
