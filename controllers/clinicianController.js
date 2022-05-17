@@ -398,7 +398,7 @@ const addNewPatient = async (req, res) => {
                     photo: false,
 
                     clinician: clinicianID,
-                    register_date : new date.toLocaleDateString(),
+                    register_date : (new Date).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }),
                     
                 });
 
