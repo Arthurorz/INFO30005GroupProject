@@ -60,7 +60,7 @@ async function initialRecord (patient_id){
             var i = 1
             while(flag){
                 const previous = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})
-                if (compareByDate(previous, register_date)<= 0){
+                if (compareDate(previous, register_date)<= 0){
                     break;
                 }
                 const check = await Record.findOne({patientId: patient_id, date: previous});
@@ -112,11 +112,15 @@ const renderHomePage = async (req, res, next) => {
         //Get recent 7 days records, if there is no record for that day, insert null.
         const recent7 = [];
         for(let i=0;i<7;i++){
-            const recent7date = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"});       
+            const recent7date = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"});
+            const newRecord = await Record.findOne({date: recent7date, patientId : id}).lean();
+            if (newRecord == null){
+                break;
+            }
             recent7.push({
                 // only record day and month
                 date: recent7date.substring(0,5),
-                record: await Record.findOne({date: recent7date, patientId : id}).lean(),
+                record: newRecord,
             });
         }
         sortByDate(recent7);
@@ -179,7 +183,27 @@ function sortByDate2(recordList){
     }
 }
 
+function compareDate(date1, date2){
+    month1 = parseInt(date1.substring(3,5));
+    month2 = parseInt(date2.substring(3,5));
+    day1 = parseInt(date1.substring(0,2));
+    day2 = parseInt(date2.substring(0,2));
 
+    if(month1<month2){
+        return -1;
+    }else if(month1 == month2){
+        if(day1<day2){
+            return -1;
+        }if(day1==day2){
+            return 0;
+        }else{
+            return 1;
+        }
+    }else{
+        return 1;
+    }
+
+}
 function compareByDate(record1, record2){
     month1 = parseInt(record1.date.substring(3,5));
     month2 = parseInt(record2.date.substring(3,5));
