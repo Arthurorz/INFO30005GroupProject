@@ -3,7 +3,11 @@
     <div class="individual-left">
         <div class="personal-info">
             <a href="../editData/{{patient._id}}"><img class="edit" src="/edit.png" alt="edit"></a>
-            <img class="portrait" src="/Photo_Pat.png" alt="sam">
+            {{#ifPhoto patient.photo}}
+            <img class = "portrait" src = "/photo_{{patient._id}}.png" alt="self photo">
+            {{else}}
+            <img class = "portrait" src = "/photo_newuser.png" alt="self photo">
+            {{/ifPhoto}}
             <h2>Name: {{patient.first_name}} {{patient.last_name}}</h2>
             <h2>Clinician: {{patient.clinician.first_name}}</h2>
             <div class="requirement">
