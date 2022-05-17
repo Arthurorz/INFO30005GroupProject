@@ -104,11 +104,6 @@ function isDarkmode (darkmode) {
     }
 }
 
-function tryalert() {
-    alert("Testing....");
-}
-
-
 function showChart(dataList,dateList){
     Highcharts.chart('glucose_container', {
         chart: {
@@ -144,7 +139,7 @@ function showChart(dataList,dateList){
           type: 'line'
         },
         title: {
-          text: 'weight in last 7 days'
+          text: 'Weight in last 7 days'
         },
         xAxis: {
           categories: dateList
