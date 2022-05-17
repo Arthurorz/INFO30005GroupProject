@@ -108,22 +108,35 @@ function tryalert() {
     alert("Testing....");
 }
 
+function showChart(recent7){
+    alert("进来了");
+    var glucoseData = [];
+    var weigthData = [];
+    var exerciseData = [];
+    var insulinData = [];
+    for (i in recent7){
+        glucoseData.push(recent7[i].record.record_id.glucose.value);
+        weigthData.push(recent7[i].record.record_id.weight.value);
+        insulinData.push(recent7[i].record.record_id.insulin.value);
+        exerciseData.push(recent7[i].record.record_id.exercise.value);
+    }
+    
 Highcharts.chart('container', {
 
     title: {
-      text: 'Recent Record statistics'
+      text: 'Recent 7 dayss Record statistics'
     },
   
   
     yAxis: {
       title: {
-        text: 'level'
+        text: 'number'
       }
     },
   
     xAxis: {
       accessibility: {
-        rangeDescription: 'Range: 2010 to 2017'
+        rangeDescription: 'Range: last 7 days'
       }
     },
   
@@ -138,7 +151,7 @@ Highcharts.chart('container', {
         label: {
           connectorAllowed: false
         },
-        pointStart: 2010
+        pointStart: recent7[6].date
       }
     },
   
@@ -175,3 +188,4 @@ Highcharts.chart('container', {
     }
   
   });
+}
