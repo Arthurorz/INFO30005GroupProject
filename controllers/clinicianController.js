@@ -899,7 +899,7 @@ async function initialRecord(patient_id) {
             var i = 1
             while(flag){
                 const previous = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})
-                if (compareByDate(previous, register_date)<= 0){
+                if (compareByDate(previous, register_date)< 0){
                     break;
                 }
                 const check = await Record.findOne({patientId: patient_id, date: previous});
@@ -999,18 +999,17 @@ const searchDashboard = async (req, res) => {
 }
 
 //test function used for adding records
-const addRecords = async (req, res) => {
+async function addRecords(req, res){
     const patient = await Patient.findById("6263f5d7ef996dcc6dbf10af");
     const newRecord = new Record({
         patientId: "6263f5d7ef996dcc6dbf10af",
-        date: "27/04/2022",
         data: {
             glucose: {
                 status: "unrecorded",
                 value: 0,
             },
             weight: {
-                status: "Not required",
+                status: "unrecorded",
                 value: 0,
             },
             exercise: {
@@ -1022,6 +1021,7 @@ const addRecords = async (req, res) => {
                 value: 0,
             },
         },
+        date: "06/05/2022"
     });
     await newRecord.save();
     patient.records.push({ record_id: newRecord._id });

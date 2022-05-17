@@ -60,7 +60,7 @@ async function initialRecord (patient_id){
             var i = 1
             while(flag){
                 const previous = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})
-                if (compareDate(previous, register_date)<= 0){
+                if (compareDate(previous, register_date)< 0){
                     break;
                 }
                 const check = await Record.findOne({patientId: patient_id, date: previous});
