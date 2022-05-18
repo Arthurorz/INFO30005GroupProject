@@ -1,33 +1,24 @@
 <h1>About Me</h1>
-<div class = aboutMe-body>
-    <!-- 这里要加自拍或者图片,以及信息要可以变动-->
-    <div class = aboutMe-left>
+<div class=aboutMe-body>
+    <div class=aboutMe-left>
         {{#ifPhoto clinician.photo}}
-        <img class = "self-picture" src = "/photo_{{clinician._id}}.png" alt="self photo">
+        <img class="self-picture" src="/photo_{{clinician._id}}.png" alt="self photo">
         {{else}}
-        <img class = "self-picture" src = "/photo_newuser.png" alt="self photo">
+        <img class="self-picture" src="/photo_newuser.png" alt="self photo">
         {{/ifPhoto}}
-        <div class = "userName">Name: Doctor {{clinician.last_name}}</div>
-        <div class = "birth">Year of birth: {{clinician.yearofbirth}}</div>
+        <div class="userName">Name: Doctor {{clinician.last_name}}</div>
+        <div class="birth">Year of birth: {{clinician.yearofbirth}}</div>
         <div class="change"><a href="/clinician/changepass">Change Password</a></div>
     </div>
-    <div class = "aboutMe-right">
-        <h2 class = "header">Here's a little about me</h2>
+    <div class="aboutMe-right">
+        <h2 class="header">Here's a little about me</h2>
         <form action="/clinician/aboutMe" method="post">
-            <div class = "textBoarder">
-                <div class = "self-intro">
+            <div class="textBoarder">
+                <div class="self-intro">
                     <textarea type="text" id="text" name="brief_bio" placeholder="{{clinician.brief_bio}}"></textarea>
                 </div>
             </div>
             <button class="saveButton" name="popBox" onclick="popBox()" type="submit">Save</button>
-            </form>
-
-        {{!-- \ <div class = "textBoarder"> --}}
-            {{!-- <div class = "self-intro"> --}}
-                
-                {{!-- <input class="today-add" type="text" id="text" name="content" placeholder="I have been working on diabetes for twenty years. I have 50 patients now. In my spare time, I love doing exercise. So Glad to see you here, hope we will have the healthy life."> --}}
-            {{!-- </div>
-        </div> --}}
-        
+        </form>
     </div>
 </div>

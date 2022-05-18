@@ -27,12 +27,12 @@ const renderPrevNotes = async (req, res) => {
 
 
 const saveClinicianBio = async (req, res) => {
-    try{
+    try {
         const clinician = await Clinician.findById(req.user._id.toString());
         clinician.brief_bio = req.body.brief_bio;
         await clinician.save();
         res.redirect('/clinician/aboutme');
-    } catch(err){
+    } catch (err) {
         console.log(err);
     }
 }
@@ -40,8 +40,8 @@ const saveClinicianBio = async (req, res) => {
 
 const searchDate = async (req, res) => {
     try {
-        if (req.body.month==="all" && req.body.year==="all"){
-           return res.redirect('/clinician/individualData/' + req.params.id);
+        if (req.body.month === "all" && req.body.year === "all") {
+            return res.redirect('/clinician/individualData/' + req.params.id);
         }
 
         const patient = await Patient.findOne({ _id: req.params.id }).populate({
@@ -64,26 +64,26 @@ const searchDate = async (req, res) => {
 
         const records = patient.records;
         const recordList = [];
-        if(req.body.month!="all" && req.body.year==="all"){
+        if (req.body.month != "all" && req.body.year === "all") {
             for (i in records) {
-                if (records[i].record_id.date.substring(3,5)===req.body.month){
+                if (records[i].record_id.date.substring(3, 5) === req.body.month) {
                     recordList.push(records[i]);
                 }
             }
-        }else if(req.body.month==="all" && req.body.year!="all"){
+        } else if (req.body.month === "all" && req.body.year != "all") {
             for (i in records) {
-                if (records[i].record_id.date.substring(6,10)===req.body.year){
+                if (records[i].record_id.date.substring(6, 10) === req.body.year) {
                     recordList.push(records[i]);
                 }
             }
-        }else{
+        } else {
             for (i in records) {
-                if (records[i].record_id.date.substring(3,5)===req.body.month && records[i].record_id.date.substring(6,10)===req.body.year){
+                if (records[i].record_id.date.substring(3, 5) === req.body.month && records[i].record_id.date.substring(6, 10) === req.body.year) {
                     recordList.push(records[i]);
                 }
             }
         }
-        var month='';
+        var month = '';
         switch (req.body.month) {
             case "01":
                 month = "January";
@@ -139,7 +139,7 @@ const searchDate = async (req, res) => {
         }
 
         sortByTimeStamp(noteList);
-        res.render('clinician-individualData.hbs', { layout: 'clinician.hbs', patient: patient, records: recordList, notes: noteList, input:req.body, month: month});
+        res.render('clinician-individualData.hbs', { layout: 'clinician.hbs', patient: patient, records: recordList, notes: noteList, input: req.body, month: month });
     } catch (err) {
         console.log(err);
     }
@@ -398,7 +398,7 @@ const addNewPatient = async (req, res) => {
                     photo: false,
 
                     clinician: clinicianID,
-                    register_date : (new Date).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }),
+                    register_date: (new Date).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }),
                 });
 
 
@@ -741,8 +741,8 @@ const renderPatientData = async (req, res) => {
             recordList.push(records[i]);
         }
         sortByDate(recordList);
-        
-        
+
+
         const notes = patient.note;
         const noteList = [];
         for (i in notes) {
@@ -752,7 +752,7 @@ const renderPatientData = async (req, res) => {
                 content: notes[i].note_id.content,
             });
         }
-        
+
         sortByTimeStamp(noteList);
         res.render('clinician-individualData.hbs', { layout: 'clinician.hbs', patient: patient, records: recordList, notes: noteList });
     } catch (err) {
@@ -901,34 +901,34 @@ async function initialRecord(patient_id) {
             //Create records for unlogged days
             var flag = true;
             var i = 1
-            while(flag){
-                const previous = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})
-                if (compareDate(previous, register_date)< 0){
+            while (flag) {
+                const previous = new Date(new Date().getTime() - (i * 24 * 60 * 60 * 1000)).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" })
+                if (compareDate(previous, register_date) < 0) {
                     break;
                 }
-                const check = await Record.findOne({patientId: patient_id, date: previous});
-                if(check == null){
+                const check = await Record.findOne({ patientId: patient_id, date: previous });
+                if (check == null) {
                     const uncreated = new Record({
                         patientId: patient_id,
                         date: previous
                     })
-                    if(!patient.required_data.glucose){
+                    if (!patient.required_data.glucose) {
                         uncreated.data.glucose.status = "Not required";
                     }
-                    if(!patient.required_data.weight){
+                    if (!patient.required_data.weight) {
                         uncreated.data.weight.status = "Not required";
                     }
-                    if(!patient.required_data.exercise){
+                    if (!patient.required_data.exercise) {
                         uncreated.data.exercise.status = "Not required";
                     }
-                    if(!patient.required_data.insulin){
+                    if (!patient.required_data.insulin) {
                         uncreated.data.insulin.status = "Not required";
                     }
                     await uncreated.save();
-                    patient.records.push({record_id: uncreated._id});
+                    patient.records.push({ record_id: uncreated._id });
                     await patient.save();
                     i = i + 1;
-                }else{
+                } else {
                     flag = false;
                 }
             }
@@ -966,14 +966,14 @@ const searchDashboard = async (req, res) => {
                     }
                 }
             }).lean()).patients;
-            
+
             var inputName = req.body.patientName.toLowerCase();
             const patientList = []
 
             for (i in patients) {
                 const patient = patients[i].patient_id;
 
-                if (patient.first_name.toLowerCase().indexOf(inputName) != -1 || patient.last_name.toLowerCase().indexOf(inputName)!= -1) {
+                if (patient.first_name.toLowerCase().indexOf(inputName) != -1 || patient.last_name.toLowerCase().indexOf(inputName) != -1) {
                     for (j in patient.records) {
                         const record = patient.records[j].record_id;
 
@@ -1003,7 +1003,7 @@ const searchDashboard = async (req, res) => {
 }
 
 //test function used for adding records
-async function addRecords(req, res){
+async function addRecords(req, res) {
     const patient = await Patient.findById("6263f5d7ef996dcc6dbf10af");
     const newRecord = new Record({
         patientId: "6263f5d7ef996dcc6dbf10af",
@@ -1034,18 +1034,18 @@ async function addRecords(req, res){
 
 const changePassword = async (req, res) => {
     try {
-        
+
         const clinicianID = req.user._id.toString();
         const clinician = await Clinician.findById(clinicianID);
 
         if (bcrypt.compareSync(req.body.oldPassword, clinician.password)) {
             if (bcrypt.compareSync(req.body.password, clinician.password)) {
-            res.render('normal-changepass.hbs', { layout: 'clinician.hbs', error: "New password cannot be the same as the old password" });
+                res.render('normal-changepass.hbs', { layout: 'clinician.hbs', error: "New password cannot be the same as the old password" });
             } else {
                 clinician.password = req.body.password;
                 await clinician.save();
                 res.redirect('/normal/logout');
-            } 
+            }
         }
         else {
             res.render('normal-changepass.hbs', { layout: 'clinician.hbs', error: "Old passwords do not match" });
@@ -1054,23 +1054,23 @@ const changePassword = async (req, res) => {
         console.log(err);
     }
 }
-function compareDate(date1, date2){
-    month1 = parseInt(date1.substring(3,5));
-    month2 = parseInt(date2.substring(3,5));
-    day1 = parseInt(date1.substring(0,2));
-    day2 = parseInt(date2.substring(0,2));
+function compareDate(date1, date2) {
+    month1 = parseInt(date1.substring(3, 5));
+    month2 = parseInt(date2.substring(3, 5));
+    day1 = parseInt(date1.substring(0, 2));
+    day2 = parseInt(date2.substring(0, 2));
 
-    if(month1<month2){
+    if (month1 < month2) {
         return -1;
-    }else if(month1 == month2){
-        if(day1<day2){
+    } else if (month1 == month2) {
+        if (day1 < day2) {
             return -1;
-        }if(day1==day2){
+        } if (day1 == day2) {
             return 0;
-        }else{
+        } else {
             return 1;
         }
-    }else{
+    } else {
         return 1;
     }
 

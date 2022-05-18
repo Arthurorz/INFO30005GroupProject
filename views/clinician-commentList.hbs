@@ -10,48 +10,38 @@
     {{#ifMSG msg}}
     <div class="notFound">{{msg}}</div>
     {{/ifMSG}}
-        {{#each commentList}}
-        <div class="commentLine">
-            {{#ifChecked this.new}}
-            <img class="readComment" src="/readComment.png" alt="">
-            {{/ifChecked}}
-            <div class="commentLeft">
-                {{#ifPhoto this.photo}}
-                <img src = "/photo_{{this.patient_id}}.png" alt="self photo">
-                {{else}}
-                <img src = "/photo_newuser.png" alt="self photo">
-                {{/ifPhoto}}
-                <span class="patientName"><a href='/clinician/individualData/{{this.patient_id}}'>{{this.patientName}}</a></span>
-            </div>
 
-            <div class="commentRight">
-                <div>
-                    {{!-- <span class="commentData" style="color: 
-                {{#ifAboveRange this.value this.upper_bound}}
-                #FF3F3F
-                {{else}}
-                    {{#ifBelowRange this.value this.lower_bound}}
-                        #747373
-                    {{/ifBelowRange}}
-                {{/ifAboveRange}}
-                ;"> --}}
-
-                        {{#ifAboveRange this.value this.upper_bound}}
-                        <span class="commentUpper">{{this.type}}: {{this.value}} {{this.unit}}</span>
-                        {{else}}
-                        {{#ifBelowRange this.value this.lower_bound}}
-                        <span class="commentLower">{{this.type}}: {{this.value}} {{this.unit}}</span>
-                        {{else}}
-                        <span class="commentData">{{this.type}}: {{this.value}} {{this.unit}}</span>
-                        {{/ifBelowRange}}
-                        {{/ifAboveRange}}
-                        {{!-- {{this.type}}: {{this.value}} {{this.unit}}</span> --}}
-                    <span>Normal Range: {{this.lower_bound}}-{{this.upper_bound}} {{this.unit}}</span>
-                    <span>{{this.timeStamp}}</span>
-                </div>
-                <p>{{this.comment}}</p>
-            </div>
+    {{#each commentList}}
+    <div class="commentLine">
+        {{#ifChecked this.new}}
+        <img class="readComment" src="/readComment.png" alt="">
+        {{/ifChecked}}
+        <div class="commentLeft">
+            {{#ifPhoto this.photo}}
+            <img src="/photo_{{this.patient_id}}.png" alt="self photo">
+            {{else}}
+            <img src="/photo_newuser.png" alt="self photo">
+            {{/ifPhoto}}
+            <span><a href='/clinician/individualData/{{this.patient_id}}'>{{this.patientName}}</a></span>
         </div>
-        {{/each}}
+
+        <div class="commentRight">
+            <div>
+                {{#ifAboveRange this.value this.upper_bound}}
+                <span class="commentUpper">{{this.type}}: {{this.value}} {{this.unit}}</span>
+                {{else}}
+                {{#ifBelowRange this.value this.lower_bound}}
+                <span class="commentLower">{{this.type}}: {{this.value}} {{this.unit}}</span>
+                {{else}}
+                <span class="commentData">{{this.type}}: {{this.value}} {{this.unit}}</span>
+                {{/ifBelowRange}}
+                {{/ifAboveRange}}
+                {{!-- {{this.type}}: {{this.value}} {{this.unit}}</span> --}}
+                <span>Normal Range: {{this.lower_bound}}-{{this.upper_bound}} {{this.unit}}</span>
+                <span>{{this.timeStamp}}</span>
+            </div>
+            <p>{{this.comment}}</p>
+        </div>
     </div>
+    {{/each}}
 </div>

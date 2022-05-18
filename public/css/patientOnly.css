@@ -14,53 +14,55 @@ main {
 /* Patient Header */
 
 
-.mood{
+.mood {
     position: absolute;
     right: 41%;
     bottom: 39.5%;
 }
 
-body.dark, .edit-page.dark {
-	background: #292C35;
+body.dark,
+.edit-page.dark {
+    background: #292C35;
     color: white;
 }
 
 .checkbox {
-	opacity: 0;
-	position: absolute;
+    opacity: 0;
+    position: absolute;
 }
 
 .mood-change {
-	background-color: #668CB8;
-	border-radius: 50px;
-	cursor: pointer;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	padding: 5px;
-	position: relative;
-	height: 15px;
-	width: 60px;
-	transform: scale(1.5);
+    background-color: #668CB8;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    height: 15px;
+    width: 60px;
+    transform: scale(1.5);
 }
 
 .mood-change .ball {
-	background-color: #fff;
-	border-radius: 50%;
-	position: absolute;
-	/* top: 2px; */
-	left: 1px;
-	height: 23px;
-	width: 23px;
-	transform: translateX(0px);
-	transition: transform 0.2s linear;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    /* top: 2px; */
+    left: 1px;
+    height: 23px;
+    width: 23px;
+    transform: translateX(0px);
+    transition: transform 0.2s linear;
 }
 
-.checkbox:checked + .mood-change .ball {
-	transform: translateX(45px);
+.checkbox:checked+.mood-change .ball {
+    transform: translateX(45px);
 }
 
-.moon, .sun{
+.moon,
+.sun {
     height: 18px;
 }
 
@@ -103,11 +105,11 @@ body.dark, .edit-page.dark {
     width: 76px;
 }
 
-.smallScreen { 
+.smallScreen {
     display: inline;
 }
 
-.bigScreen { 
+.bigScreen {
     display: none;
 }
 
@@ -123,7 +125,8 @@ li {
     list-style: none;
 }
 
-.nav-links a, .menu button {
+.nav-links a,
+.menu button {
     color: #FFFFFF;
 }
 
@@ -149,7 +152,7 @@ li {
     margin-top: 344px;
 }
 
-.menu button{
+.menu button {
     border: none;
     background-color: #668CB8;
     font-size: 18px;
@@ -232,6 +235,10 @@ input[type=checkbox] {
 
 .recorded {
     width: 4rem;
+}
+
+.recorded-exercise {
+    height: 4rem;
 }
 
 .time {
@@ -337,7 +344,7 @@ h1 {
     top: 16.5%;
 }
 
-.dataInput input{
+.dataInput input {
     border-radius: 0.625rem;
     border: 1px solid #EDEDED;
     box-shadow: 3px 3px #EDEDED;
@@ -416,12 +423,12 @@ h1 {
 } */
 
 /* Daily Detail Data Page */
-.dataDatail{
+.dataDatail {
     width: 81.33%;
     margin: 0 auto 3.125rem auto;
 }
 
-.dataBox{
+.dataBox {
     border: 1px solid #EDEDED;
     box-shadow: 3px 3px #EDEDED;
     border-radius: 0.625rem;
@@ -433,33 +440,33 @@ h1 {
     padding: 0 1rem;
 }
 
-.dataDatail p{
+.dataDatail p {
     margin: 0 auto 3px auto;
 }
 
-.dataType{
+.dataType {
     font-weight: bold;
 }
 
-.dataNumber{
+.dataNumber {
     font-size: 2.75rem;
 }
 
-.dataNumber span{
+.dataNumber span {
     font-size: 1rem;
 }
 
 
 /* Data Page */
 
-.data-top{
+.data-top {
     /* display: flex; */
     width: 80%;
     margin: auto;
 }
 
-.data-top .tableTop{
-    margin: 0 ;
+.data-top .tableTop {
+    margin: 0;
     font-size: 0.625rem;
     /* width: 36.54%; */
     float: left;
@@ -473,30 +480,30 @@ h1 {
     float: right;
 } */
 
-.data-top .tableTop img{
+.data-top .tableTop img {
     width: 1.063rem;
     margin-right: 0.438rem;
 }
 
-.data-top .tableTop span{
+.data-top .tableTop span {
     padding: 0.188rem;
     padding-left: 0;
 }
 
-.topright{
+.topright {
     /* width: 8rem; */
-    height: 1.75rem; 
+    height: 1.75rem;
     float: right;
     margin-top: 2.35rem;
     /* margin: 2.375rem 0 0 1.2rem; */
     /* display: flex; */
 }
 
-.topright form{
+.topright form {
     height: 100%;
 }
 
-select{
+select {
     background-color: #668CB8;
     border: 1px solid #707070;
     color: white;
@@ -505,74 +512,77 @@ select{
     height: 100%;
 }
 
-select a:hover{
-    width:3.5rem;
+select a:hover {
+    width: 3.5rem;
 }
 
-.individual-table{
+.individual-table {
     width: 80%;
     margin: auto;
     font-size: 0.625rem;
     font-style: none;
 }
 
-.data-table{
+.data-table {
     width: 100%;
 }
 
-.data-table a{
+.data-table a {
     text-decoration: underline;
     /* color: black; */
 }
 
-table, th, td{
+table,
+th,
+td {
     border: 1px solid #CFCFCF;
     border-collapse: collapse;
     text-align: center;
 }
 
-.individual-table tr{
+.individual-table tr {
     height: 2.25rem;
 }
 
-.individual-table td{
+.individual-table td {
     height: 1.75rem;
 }
 
-.individual-table th{
+.individual-table th {
     background-color: #BBD9F6;
     height: 2.25rem;
     font-size: 0.625rem;
     font-weight: normal;
 }
 
-.individual-table .leftone{
+.individual-table .leftone {
     width: 10.45%;
     background-color: white;
     padding: 0;
 }
 
-.data-table .slope{
+.data-table .slope {
     /* transform: rotate(50deg); */
     display: none;
 }
 
-.data-table .ind_slope{
+.data-table .ind_slope {
     transform: rotate(35deg);
 }
 
-.table-weight, .table-exercise{
+.table-weight,
+.table-exercise {
     width: 15%;
 }
 
 
 /* Motivation Page */
-.motiContainer{
+.motiContainer {
     display: flex;
     flex-direction: column;
 }
 
-.selfRank{
+.selfRank {
     border: 1px solid #CFCFCF;
     box-shadow: 3px 3px #EDEDED;
     border-radius: 0.5rem;
@@ -583,56 +593,56 @@ table, th, td{
     align-items: center;
 }
 
-.rank{
+.rank {
     font-weight: bold;
     padding: 0.3125rem;
 }
 
-.motiPhoto{
+.motiPhoto {
     width: 3.9375rem;
 }
 
-.badge{
+.badge {
     width: 3.75rem;
     padding: 0.75rem;
 }
 
-.badgeInfo{
+.badgeInfo {
     position: absolute;
     width: 0.75rem;
     top: 32%;
     left: 58%;
 }
 
-.badgeAlert{
+.badgeAlert {
     display: contents;
 }
 
-.leaderboard{
+.leaderboard {
     margin-top: 1.25rem;
 }
 
-.ranking{
+.ranking {
     font-size: 1.375rem;
     color: #668CB8;
     margin-top: -6px;
 }
 
-.firstLine{
+.firstLine {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.crown{
+.crown {
     width: 1.75rem;
 }
 
-.numberOne{
+.numberOne {
     width: 3.9375rem;
 }
 
-.secondLine{
+.secondLine {
     display: flex;
     width: 54.93%;
     margin: 0 auto;
@@ -640,23 +650,23 @@ table, th, td{
     margin-top: -12px;
 }
 
-.lineTwo_pic{
+.lineTwo_pic {
     width: 3.0625rem;
 }
 
-.thirdLine{
+.thirdLine {
     width: 44.27%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
 }
 
-.board{
+.board {
     width: 73.33%;
     margin: 1.25rem auto;
 }
 
-.boardLine{
+.boardLine {
     display: flex;
     align-items: center;
     border: 1px solid #CFCFCF;
@@ -665,17 +675,17 @@ table, th, td{
     margin-bottom: -1px;
 }
 
-.boardPic{
+.boardPic {
     width: 2.125rem;
 }
 
-.boardRank{
+.boardRank {
     padding: 0.5rem;
     font-size: 1.25rem;
     color: #668CB8;
 }
 
-.lineRight{
+.lineRight {
     display: flex;
     justify-content: space-between;
     width: 60%;
@@ -688,7 +698,7 @@ table, th, td{
 
 /* About Me Page */
 
-.edit-page{
+.edit-page {
     display: none;
     width: 100%;
     /* height: 70%; */
@@ -696,7 +706,7 @@ table, th, td{
     position: absolute;
 }
 
-.edit-page{
+.edit-page {
     display: none;
     width: 100%;
     /* height: 70%; */
@@ -712,114 +722,117 @@ input[type=checkbox]:checked~.aboutme-text {
     display: none;
 }
 
-.aboutme-delete{
+.aboutme-delete {
     width: 1.5rem;
     margin-right: 1.625rem;
     float: right;
 }
 
-.edit-button{
+.edit-button {
     width: 1rem;
     float: right;
     margin-right: 2.125rem;
 }
 
-.aboutme-body, .edit-body{
+.aboutme-body,
+.edit-body {
     width: 74.66%;
     margin: 0 auto;
 }
 
-.user-info{
+.user-info {
     height: 1.438rem;
     margin-bottom: 0.375rem;
 }
 
-.edit-body input, .user-bio textarea{
+.edit-body input,
+.user-bio textarea {
     border: 1px solid #707070;
     border-radius: 0.625rem;
 }
 
-.edit-body ::placeholder{
+.edit-body ::placeholder {
     padding-left: 0.2rem;
 }
 
-.user-bio{
+.user-bio {
     height: 9.125rem;
     margin-top: 1.5rem;
 }
 
-.user-bio label{
+.user-bio label {
     margin-bottom: 0.375rem;
 }
 
-.user-bio textarea{
+.user-bio textarea {
     width: 98%;
     height: 7.375rem;
     padding: 0.5rem 0 0 0.5rem;
     font-size: 1rem;
 }
 
-.user-bio ::placeholder{
+.user-bio ::placeholder {
     width: 80%;
     height: 80%;
 }
 
-.edit-body p{
+.edit-body p {
     font-size: 0.75rem;
     text-align: center;
     font-style: italic;
 }
 
-.edit-page .saveButton{
-    margin:0.875rem auto 5rem auto;
+.edit-page .saveButton {
+    margin: 0.875rem auto 5rem auto;
 }
 
-.detail-change{
+.detail-change {
     margin-top: 0.75rem;
 }
 
-.detail-change label{
+.detail-change label {
     float: left;
     width: 40%;
 }
 
-.user-info input, .user-info .short{
+.user-info input,
+.user-info .short {
     float: right;
     width: 50.71%;
 }
 
-.about-detail{
+.about-detail {
     text-align: center;
 }
 
-.userphoto{
+.userphoto {
     width: 43%;
     margin: 0 auto;
     display: block;
 }
 
-.about-detail{
+.about-detail {
     padding: 0;
 }
 
-.about-detail li{
+.about-detail li {
     padding-bottom: 0.625rem;
 }
 
-.about-detail li a{
+.about-detail li a {
     text-decoration: underline;
     color: inherit;
 }
 
-.text-bio{
+.text-bio {
     margin-top: 3.188rem;
 }
 
-.user-bio{
+.user-bio {
     margin-top: 5rem;
 }
 
-.bio-detail{
+.bio-detail {
     margin-top: 0.625rem;
     height: 7.375rem;
     border: 1px solid #EDEDED;
@@ -828,12 +841,12 @@ input[type=checkbox]:checked~.aboutme-text {
     padding: 0.5rem;
 }
 
-.bio-detail li{
-    list-style-type:disc;
+.bio-detail li {
+    list-style-type: disc;
     padding: 0.375rem 0 0 0.4rem;
 }
 
-.edit-page button{
+.edit-page button {
     width: 18.93%;
     margin: 0.875rem auto;
 }
@@ -913,7 +926,7 @@ input[type=checkbox]:checked~.aboutme-text {
     } */
 
     /* Daily Detail Data Page iPad */
-    .dataDatail{
+    .dataDatail {
         width: 61.33%;
     }
 
@@ -928,11 +941,11 @@ input[type=checkbox]:checked~.aboutme-text {
         margin-top: 2.25rem;
     }
 
-    .thirdLine{
+    .thirdLine {
         width: 50.27%;
     }
 
-    .boardRank{
+    .boardRank {
         padding: 1.5rem;
     }
 
@@ -941,15 +954,15 @@ input[type=checkbox]:checked~.aboutme-text {
     } */
     /* more data page */
 
-    .data-top .tableTop{
+    .data-top .tableTop {
         font-size: 0.8rem;
     }
-    
-    .data-table .slope{
+
+    .data-table .slope {
         transform: rotate(30deg);
     }
 
-    .data-table .ind_slope{
+    .data-table .ind_slope {
         transform: rotate(15deg);
     }
 
@@ -958,45 +971,49 @@ input[type=checkbox]:checked~.aboutme-text {
         transform: rotate(12deg);
     }
 
-    .individual-table th{
+    .individual-table th {
         font-size: 0.8rem;
     }
 
-    .individual-table td{
+    .individual-table td {
         font-size: 0.8rem;
     }
 
-    .table-weight, .table-exercise{
+    .table-weight,
+    .table-exercise {
         width: 18%;
     }
 
     /* About Me Page */
 
-    .mood{
+    .mood {
         right: 47%;
         bottom: 14.5%;
     }
 
-    .edit-body img, .userphoto{
+    .edit-body img,
+    .userphoto {
         width: 23%;
     }
 
-    .user-info input, .user-info li{
+    .user-info input,
+    .user-info li {
         height: 80%;
         font-size: 0.8rem;
     }
 
-    .user-info li{
+    .user-info li {
         float: right;
         width: 50.71%;
     }
 
-    .user-bio input{
+    .user-bio input {
         font-size: 0.8rem;
     }
 }
 
 @media screen and (min-width: 1400px) {
+
     /* Patient Header Web */
     .patient-mobile-aboutMe {
         display: none;
@@ -1023,11 +1040,11 @@ input[type=checkbox]:checked~.aboutme-text {
         width: 11.6875rem;
     }
 
-    .smallScreen { 
+    .smallScreen {
         display: none;
     }
 
-    .bigScreen { 
+    .bigScreen {
         display: inline;
     }
 
@@ -1122,6 +1139,11 @@ input[type=checkbox]:checked~.aboutme-text {
     .recorded {
         width: 9rem;
     }
+
+    .recorded-exercise {
+        height: 9rem;
+    }
+
 
     .addbutton p {
         font-size: 1.625rem;
@@ -1254,7 +1276,7 @@ input[type=checkbox]:checked~.aboutme-text {
         margin: 0 auto;
     }
 
-    .dataBox{
+    .dataBox {
         padding: 0.625rem;
     }
 
@@ -1277,14 +1299,14 @@ input[type=checkbox]:checked~.aboutme-text {
     }
 
     /* Motivation Web */
-    .motiContainer{
+    .motiContainer {
         flex-direction: row;
         justify-content: space-between;
         width: 61.77%;
         margin: 0 auto;
     }
-    
-    .selfRank{
+
+    .selfRank {
         /* border: 1px solid #CFCFCF;
         box-shadow: 3px 3px #EDEDED;
         border-radius: 0.5rem; */
@@ -1296,82 +1318,82 @@ input[type=checkbox]:checked~.aboutme-text {
         flex-direction: column;
         align-items: center; */
     }
-    
-    .rank{
+
+    .rank {
         /* font-weight: bold; */
         padding: 0.75rem;
     }
-    
-    .motiPhoto{
+
+    .motiPhoto {
         width: 7.375rem;
     }
-    
-    .badge{
+
+    .badge {
         width: 8.875rem;
         padding: 1.5rem;
     }
-    
-    .badgeInfo{
+
+    .badgeInfo {
         /* position: absolute; */
         width: 1.75rem;
         top: 64%;
         left: 31.5%;
     }
-    
+
     /* .badgeAlert{
         display: contents;
     } */
-    
-    .leaderboard{
+
+    .leaderboard {
         margin-top: 0;
         width: 41.48%;
     }
-    
-    .ranking{
+
+    .ranking {
         font-size: 1.625rem;
         /* color: #668CB8; */
         /* margin-top: -6px; */
     }
-    
+
     /* .firstLine{
         display: flex;
         flex-direction: column;
         align-items: center;
     } */
-    
-    .crown{
+
+    .crown {
         width: 3.125rem;
     }
-    
-    .numberOne{
+
+    .numberOne {
         width: 7.0625rem;
     }
-    
-    .secondLine{
+
+    .secondLine {
         /* display: flex; */
         width: 74.8%;
         /* margin: 0 auto;
         justify-content: space-between;
         margin-top: -12px; */
     }
-    
-    .lineTwo_pic{
+
+    .lineTwo_pic {
         width: 5.4375rem;
     }
-    
-    .thirdLine{
+
+    .thirdLine {
         width: 59.96%;
         /* margin: 0 auto;
         display: flex;
         justify-content: space-between; */
     }
-    
-    .board{
+
+    .board {
         width: 100%;
         /* margin: 1.25rem auto; */
     }
-    
-    .boardLine{
+
+    .boardLine {
         /* display: flex;
         align-items: center;
         border: 1px solid #CFCFCF;
@@ -1379,29 +1401,30 @@ input[type=checkbox]:checked~.aboutme-text {
         height: 4.75rem;
         /* margin-bottom: -1px; */
     }
-    
-    .boardPic{
+
+    .boardPic {
         width: 3.75rem;
     }
-    
-    .board span{
+
+    .board span {
         font-size: 1.25rem;
     }
 
     /* more data page */
-    .data-top, .individual-table{
+    .data-top,
+    .individual-table {
         width: 56.09%;
     }
 
-    .data-top .tableTop{
+    .data-top .tableTop {
         font-size: 1.35rem;
     }
 
-    .data-top .tableTop img{
+    .data-top .tableTop img {
         width: 2.563rem;
     }
 
-    .data-table .ind_slope{
+    .data-table .ind_slope {
         transform: rotate(18deg);
     }
 
@@ -1410,51 +1433,52 @@ input[type=checkbox]:checked~.aboutme-text {
         transform: rotate(12deg);
     }
 
-    .topright{
+    .topright {
         margin-top: 5rem;
         height: 3.063rem;
     }
 
-    .topright select{
+    .topright select {
         width: 8.875rem;
         font-size: 1.625rem;
     }
 
-    .individual-table th{
+    .individual-table th {
         font-size: 1.625rem;
     }
 
-    .individual-table tr{
+    .individual-table tr {
         height: 4.375rem;
     }
 
-    .data-table .slope{
+    .data-table .slope {
         transform: rotate(30deg);
     }
 
-    .table-weight, .table-exercise{
+    .table-weight,
+    .table-exercise {
         width: 18%;
     }
 
-    .boardRank{
+    .boardRank {
         padding: 2rem;
         /* font-size: 1.25rem; */
         /* color: #668CB8; */
     }
-    
+
     /* .boardName{
         margin: auto 13.6875rem auto 0.6875rem;
     } */
 
-    .year{
+    .year {
         margin-left: 0.5rem;
     }
 
     /* About Me Page */
 
 
-    
-    .mood{
+
+    .mood {
         right: 61%;
         bottom: 11.5%;
     }
@@ -1469,32 +1493,34 @@ input[type=checkbox]:checked~.aboutme-text {
         width: 35px;
     }
 
-    .checkbox:checked + .mood-change .ball {
+    .checkbox:checked+.mood-change .ball {
         transform: translateX(63px);
     }
 
-    .moon, .sun{
+    .moon,
+    .sun {
         height: 30px;
     }
 
-    .edit-button{
+    .edit-button {
         width: 2.375rem;
         margin-right: 9%;
     }
 
-    .aboutme-delete{
+    .aboutme-delete {
         width: 3.5rem;
         margin-right: 8.8%;
     }
-    
-    .aboutme-body, .edit-body{
+
+    .aboutme-body,
+    .edit-body {
         display: flex;
         width: 100%;
         margin: 0;
         justify-content: space-between;
     }
 
-    .sam-detail{
+    .sam-detail {
         height: 30%;
         padding-left: 20.45%;
         font-size: 1.625rem;
@@ -1502,37 +1528,39 @@ input[type=checkbox]:checked~.aboutme-text {
         width: 32%;
     }
 
-    .edit-detail{
+    .edit-detail {
         height: 30%;
         padding-left: 21.45%;
         width: 30%;
         font-size: 1.625rem;
     }
 
-    .edit-detail p{
+    .edit-detail p {
         font-size: 1.375rem;
     }
 
-    .user-info{
+    .user-info {
         height: 1.813rem;
         margin-bottom: 1rem;
     }
 
-    .user-info input, .user-info li{
+    .user-info input,
+    .user-info li {
         height: 1.8rem;
         font-size: 1.625rem;
     }
 
-    .user-info li{
+    .user-info li {
         float: right;
         width: 50.71%;
     }
 
-    ::placeholder{
+    ::placeholder {
         font-size: 1.3rem;
     }
-    
-    .userphoto, .edit-body img{
+
+    .userphoto,
+    .edit-body img {
         width: 12rem;
     }
 
@@ -1541,34 +1569,36 @@ input[type=checkbox]:checked~.aboutme-text {
         width: 24.63%;
     } */
 
-    .text-bio h2, .bio-detail{
+    .text-bio h2,
+    .bio-detail {
         font-size: 1.625rem;
     }
 
-    .bio-detail{
+    .bio-detail {
         height: 10.5rem;
     }
 
-    .user-bio, .text-bio{
+    .user-bio,
+    .text-bio {
         font-size: 1.625rem;
         height: 18.89%;
         margin: auto;
         width: 24.63%;
     }
 
-    
 
-    .user-bio textarea{
+
+    .user-bio textarea {
         font-size: 1.625rem;
         height: 10.5rem;
         margin-top: 0.5rem;
     }
 
-    .edit-page button{
+    .edit-page button {
         width: 9.48%;
     }
 
-    .edit-page .saveButton{
+    .edit-page .saveButton {
         margin: 7rem auto 5rem auto;
     }
 
@@ -1576,43 +1606,43 @@ input[type=checkbox]:checked~.aboutme-text {
 
 .highcharts-figure,
 .highcharts-data-table table {
-  min-width: 360px;
-  max-width: 800px;
-  margin: 3em auto;
+    min-width: 360px;
+    max-width: 800px;
+    margin: 1em auto;
 }
 
 .highcharts-data-table table {
-  font-family: Verdana, sans-serif;
-  border-collapse: collapse;
-  border: 1px solid #ebebeb;
-  margin: 10px auto;
-  text-align: center;
-  width: 100%;
-  max-width: 500px;
+    font-family: Verdana, sans-serif;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    margin: 10px auto;
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
 }
 
 .highcharts-data-table caption {
-  padding: 1em 0;
-  font-size: 1.2em;
-  color: #555;
+    padding: 1em 0;
+    font-size: 1.2em;
+    color: #555;
 }
 
 .highcharts-data-table th {
-  font-weight: 600;
-  padding: 0.5em;
+    font-weight: 600;
+    padding: 0.5em;
 }
 
 .highcharts-data-table td,
 .highcharts-data-table th,
 .highcharts-data-table caption {
-  padding: 0.5em;
+    padding: 0.5em;
 }
 
 .highcharts-data-table thead tr,
 .highcharts-data-table tr:nth-child(even) {
-  background: #f8f8f8;
+    background: #f8f8f8;
 }
 
 .highcharts-data-table tr:hover {
-  background: #f1f7ff;
+    background: #f1f7ff;
 }
