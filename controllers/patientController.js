@@ -282,7 +282,7 @@ const renderMoreData = async (req, res) => {
             recordList.push(records[i]);
         }
         sortByDate2(recordList);
-        res.render('patient-moreData.hbs', { layout: 'patient.hbs', record: recordList, patient: patient });
+        res.render('patient-moredata.hbs', { layout: 'patient.hbs', record: recordList, patient: patient });
     } catch (err) {
         console.log(err);
     }
@@ -524,7 +524,7 @@ const searchDate = async (req, res) => {
                 break;
         }
         sortByDate2(recordList);
-        res.render('patient-moreData.hbs', { layout: 'patient.hbs', record: recordList, patient: patient, month: month, year: req.body.year, input: req.body });
+        res.render('patient-moredata.hbs', { layout: 'patient.hbs', record: recordList, patient: patient, month: month, year: req.body.year, input: req.body });
     } catch (err) {
         console.log(err);
     }
