@@ -6,93 +6,93 @@ const bcrypt = require('bcryptjs')
 
 
 //Update the record of patient according to the type and id
-const updateRecord = async(req,res,next) =>{
-    try{
+const updateRecord = async (req, res, next) => {
+    try {
         const patient_id = req.user._id;
         const type = req.params.type;
-        
+
         //find the record of today
-        const record = await Record.findOne({patientId: patient_id, date: new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})});
+        const record = await Record.findOne({ patientId: patient_id, date: new Date().toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }) });
         //update the record according to the form the user submit
         record.data[type].status = "recorded";
         record.data[type].value = req.body.addData;
         record.data[type].comment = req.body.addComment;
-        record.data[type].date =new Date().toLocaleString("en-AU",{"timeZone":"Australia/Melbourne"});
+        record.data[type].date = new Date().toLocaleString("en-AU", { "timeZone": "Australia/Melbourne" });
         //save the record to the database
         await record.save();
         res.redirect('/patient/homepage');
-    }catch(err){
+    } catch (err) {
         return next(err);
     }
 };
 
 //If there is no record for today, create a new record.
-async function initialRecord (patient_id){
-    try{
+async function initialRecord(patient_id) {
+    try {
         //get the patient and the record of that day.
         const patient = await Patient.findOne({ _id: patient_id });
-        const record = await Record.findOne({patientId: patient._id, date: new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})});
+        const record = await Record.findOne({ patientId: patient._id, date: new Date().toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }) });
         const register_date = patient.register_date;
         //If no record was find, create a new record.
-        if(record == null){
+        if (record == null) {
             const newRecord = new Record({
                 patientId: patient_id,
-                date: new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"}),
+                date: new Date().toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }),
             })
-            if(!patient.required_data.glucose){
+            if (!patient.required_data.glucose) {
                 newRecord.data.glucose.status = "Not required";
             }
-            if(!patient.required_data.weight){
+            if (!patient.required_data.weight) {
                 newRecord.data.weight.status = "Not required";
             }
-            if(!patient.required_data.exercise){
+            if (!patient.required_data.exercise) {
                 newRecord.data.exercise.status = "Not required";
             }
-            if(!patient.required_data.insulin){
+            if (!patient.required_data.insulin) {
                 newRecord.data.insulin.status = "Not required";
             }
-            await newRecord.save();  
-            patient.records.push({record_id: newRecord._id});
+            await newRecord.save();
+            patient.records.push({ record_id: newRecord._id });
             await patient.save();
 
             //Create records for unlogged days
             var flag = true;
             var i = 1
-            while(flag){
-                const previous = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})
-                if (compareDate(previous, register_date)< 0){
+            while (flag) {
+                const previous = new Date(new Date().getTime() - (i * 24 * 60 * 60 * 1000)).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" })
+                if (compareDate(previous, register_date) < 0) {
                     break;
                 }
-                const check = await Record.findOne({patientId: patient_id, date: previous});
-                if(check == null){
+                const check = await Record.findOne({ patientId: patient_id, date: previous });
+                if (check == null) {
                     const uncreated = new Record({
                         patientId: patient_id,
                         date: previous
                     })
-                    if(!patient.required_data.glucose){
+                    if (!patient.required_data.glucose) {
                         uncreated.data.glucose.status = "Not required";
                     }
-                    if(!patient.required_data.weight){
+                    if (!patient.required_data.weight) {
                         uncreated.data.weight.status = "Not required";
                     }
-                    if(!patient.required_data.exercise){
+                    if (!patient.required_data.exercise) {
                         uncreated.data.exercise.status = "Not required";
                     }
-                    if(!patient.required_data.insulin){
+                    if (!patient.required_data.insulin) {
                         uncreated.data.insulin.status = "Not required";
                     }
                     await uncreated.save();
-                    patient.records.push({record_id: uncreated._id});
+                    patient.records.push({ record_id: uncreated._id });
                     await patient.save();
                     i = i + 1;
-                }else{
+                } else {
                     flag = false;
                 }
             }
 
-        }else{
+        } else {
         }
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
 };
@@ -105,21 +105,21 @@ const renderHomePage = async (req, res, next) => {
         await initialRecord(id);
         const patient = await Patient.findOne({ _id: id }).lean();
         const clinician = await Clinician.findById(patient.clinician).lean();
-        const date = new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"});
-        const today = await Record.findOne({date: date, patientId : id}).lean();
-        
-       
+        const date = new Date().toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" });
+        const today = await Record.findOne({ date: date, patientId: id }).lean();
+
+
         //Get recent 7 days records, if there is no record for that day, insert null.
         const recent7 = [];
-        for(let i=0;i<7;i++){
-            const recent7date = new Date(new Date().getTime() - (i*24*60*60*1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"});
-            const newRecord = await Record.findOne({date: recent7date, patientId : id}).lean();
-            if (newRecord == null){
+        for (let i = 0; i < 7; i++) {
+            const recent7date = new Date(new Date().getTime() - (i * 24 * 60 * 60 * 1000)).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" });
+            const newRecord = await Record.findOne({ date: recent7date, patientId: id }).lean();
+            if (newRecord == null) {
                 break;
             }
             recent7.push({
                 // only record day and month
-                date: recent7date.substring(0,5),
+                date: recent7date.substring(0, 5),
                 record: newRecord,
             });
         }
@@ -132,7 +132,7 @@ const renderHomePage = async (req, res, next) => {
         const exerciseData = [];
         const insulinData = [];
 
-        for(i in recent7){
+        for (i in recent7) {
             glucoseData.push(recent7[i].record.data.glucose.value);
             weightData.push(recent7[i].record.data.weight.value);
             exerciseData.push(recent7[i].record.data.exercise.value);
@@ -144,122 +144,124 @@ const renderHomePage = async (req, res, next) => {
         dataList.push(exerciseData);
         dataList.push(insulinData);
         //Render the homepage
-        res.render("patient-homePage.hbs", { layout: 'patient.hbs', patient: patient, clinician: clinician,today: today,
-                                                recent7: recent7, dataList: JSON.stringify(dataList), dateList:JSON.stringify(dateList)});
-    }catch (err) {
+        res.render("patient-homePage.hbs", {
+            layout: 'patient.hbs', patient: patient, clinician: clinician, today: today,
+            recent7: recent7, dataList: JSON.stringify(dataList), dateList: JSON.stringify(dateList)
+        });
+    } catch (err) {
         return next(err);
     }
 }
 
-function sortByDate(recordList){
+function sortByDate(recordList) {
     //insertion sort
     for (var i = 1; i < recordList.length; i++) {
         var temp = recordList[i];
         for (j = i - 1; j >= 0; j--) {
-            if(compareByDate(temp,recordList[j])>0){
-                recordList[j+1]=recordList[j]
+            if (compareByDate(temp, recordList[j]) > 0) {
+                recordList[j + 1] = recordList[j]
             }
-            else{
+            else {
                 break;
             }
         }
-        recordList[j+1] = temp;
+        recordList[j + 1] = temp;
     }
 }
 
-function sortByDate2(recordList){
+function sortByDate2(recordList) {
     //insertion sort
     for (var i = 1; i < recordList.length; i++) {
         var temp = recordList[i];
         for (j = i - 1; j >= 0; j--) {
-            if(compareByDate2(temp,recordList[j])>0){
-                recordList[j+1]=recordList[j]
+            if (compareByDate2(temp, recordList[j]) > 0) {
+                recordList[j + 1] = recordList[j]
             }
-            else{
+            else {
                 break;
             }
         }
-        recordList[j+1] = temp;
+        recordList[j + 1] = temp;
     }
 }
 
-function compareDate(date1, date2){
-    month1 = parseInt(date1.substring(3,5));
-    month2 = parseInt(date2.substring(3,5));
-    day1 = parseInt(date1.substring(0,2));
-    day2 = parseInt(date2.substring(0,2));
+function compareDate(date1, date2) {
+    month1 = parseInt(date1.substring(3, 5));
+    month2 = parseInt(date2.substring(3, 5));
+    day1 = parseInt(date1.substring(0, 2));
+    day2 = parseInt(date2.substring(0, 2));
 
-    if(month1<month2){
+    if (month1 < month2) {
         return -1;
-    }else if(month1 == month2){
-        if(day1<day2){
+    } else if (month1 == month2) {
+        if (day1 < day2) {
             return -1;
-        }if(day1==day2){
+        } if (day1 == day2) {
             return 0;
-        }else{
+        } else {
             return 1;
         }
-    }else{
+    } else {
         return 1;
     }
 
 }
 
-function compareByDate(record1, record2){
-    month1 = parseInt(record1.date.substring(3,5));
-    month2 = parseInt(record2.date.substring(3,5));
-    day1 = parseInt(record1.date.substring(0,2));
-    day2 = parseInt(record2.date.substring(0,2));
+function compareByDate(record1, record2) {
+    month1 = parseInt(record1.date.substring(3, 5));
+    month2 = parseInt(record2.date.substring(3, 5));
+    day1 = parseInt(record1.date.substring(0, 2));
+    day2 = parseInt(record2.date.substring(0, 2));
 
-    if(month1<month2){
+    if (month1 < month2) {
         return -1;
-    }else if(month1 == month2){
-        if(day1<day2){
+    } else if (month1 == month2) {
+        if (day1 < day2) {
             return -1;
-        }if(day1==day2){
+        } if (day1 == day2) {
             return 0;
-        }else{
+        } else {
             return 1;
         }
-    }else{
+    } else {
         return 1;
     }
 }
 
-function compareByDate2(record1, record2){
-    month1 = parseInt(record1.record_id.date.substring(3,5));
-    month2 = parseInt(record2.record_id.date.substring(3,5));
-    day1 = parseInt(record1.record_id.date.substring(0,2));
-    day2 = parseInt(record2.record_id.date.substring(0,2));
+function compareByDate2(record1, record2) {
+    month1 = parseInt(record1.record_id.date.substring(3, 5));
+    month2 = parseInt(record2.record_id.date.substring(3, 5));
+    day1 = parseInt(record1.record_id.date.substring(0, 2));
+    day2 = parseInt(record2.record_id.date.substring(0, 2));
 
-    if(month1<month2){
+    if (month1 < month2) {
         return -1;
-    }else if(month1 == month2){
-        if(day1<day2){
+    } else if (month1 == month2) {
+        if (day1 < day2) {
             return -1;
-        }if(day1==day2){
+        } if (day1 == day2) {
             return 0;
-        }else{
+        } else {
             return 1;
         }
-    }else{
+    } else {
         return 1;
     }
 }
 
 //Render the page of the patient to add data
 const renderAddPage = async (req, res, next) => {
-    try{
+    try {
         //find the patient and the record of the day
         const id = req.user._id;
         const patient = await Patient.findOne({ _id: id }).lean();
         const type = req.params.type;
-        const record = await Record.findOne({patientId: id, date: new Date().toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"})}).lean();
-        
+        const record = await Record.findOne({ patientId: id, date: new Date().toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" }) }).lean();
+
         //render the page for patient to record its data
-        res.render("patient-addData.hbs", { layout: 'patient.hbs', type: type, record: record , patient: patient});
-    }catch(err){
-         return next(err);
+        res.render("patient-addData.hbs", { layout: 'patient.hbs', type: type, record: record, patient: patient });
+    } catch (err) {
+        return next(err);
     }
 }
 
@@ -276,7 +278,7 @@ const renderMoreData = async (req, res) => {
         }).lean();
         const records = patient.records;
         const recordList = [];
-        for(i in records){
+        for (i in records) {
             recordList.push(records[i]);
         }
         sortByDate2(recordList);
@@ -287,16 +289,16 @@ const renderMoreData = async (req, res) => {
 }
 
 const renderdetail = async (req, res) => {
-    try{
+    try {
         const id = req.user._id;
         const patient = await Patient.findOne({ _id: id }).lean();
         const day = req.params.day;
         const month = req.params.month
         const year = req.params.year
-        const date = day+"/"+month+"/"+year;
-        const record = await Record.findOne({patientId: id, date: date}).lean();
+        const date = day + "/" + month + "/" + year;
+        const record = await Record.findOne({ patientId: id, date: date }).lean();
         res.render('patient-dataDetail.hbs', { layout: 'patient.hbs', record: record, patient: patient });
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
 }
@@ -307,7 +309,7 @@ const renderAboutMe = async (req, res) => {
         const patient = await Patient.findOne({ _id: id }).lean();
         const clinician = await Clinician.findById(patient.clinician).lean();
         res.render('patient-aboutme.hbs', { layout: 'patient.hbs', patient: patient, clinician: clinician });
-    }catch(err){
+    } catch (err) {
         console.log(err);
         return next(err);
     }
@@ -320,12 +322,12 @@ const changePassword = async (req, res) => {
 
         if (bcrypt.compareSync(req.body.oldPassword, patient.password)) {
             if (bcrypt.compareSync(req.body.password, patient.password)) {
-            res.render('normal-changepass.hbs', { layout: 'patient.hbs', error: "New password cannot be the same as the old password" });
+                res.render('normal-changepass.hbs', { layout: 'patient.hbs', error: "New password cannot be the same as the old password" });
             } else {
                 patient.password = req.body.password;
                 await patient.save();
                 res.redirect('/normal/logout');
-            } 
+            }
         }
         else {
             res.render('normal-changepass.hbs', { layout: 'patient.hbs', error: "Old passwords do not match" });
@@ -351,10 +353,10 @@ const forgetPassword = async (req, res) => {
     }
 }
 
-function checkRecorded(record){
+function checkRecorded(record) {
     var flag = false
-    for(i in record.data){
-        if(record.data[i].status == "recorded"){
+    for (i in record.data) {
+        if (record.data[i].status == "recorded") {
             flag = true;
             break;
         }
@@ -362,15 +364,15 @@ function checkRecorded(record){
     return flag;
 }
 
-async function calEngagement(patientId){
-    const records = (await Record.find({patientId: patientId}).lean()).filter((record) => checkRecorded(record));
+async function calEngagement(patientId) {
+    const records = (await Record.find({ patientId: patientId }).lean()).filter((record) => checkRecorded(record));
     const patient = await Patient.findById(patientId);
     const startDate = patient.register_date;
     var flag = true;
     var interval = 0;
-    while(flag){
-        temp = new Date(new Date().getTime() - (interval * 24 * 60 * 60 * 1000)).toLocaleDateString("en-AU",{"timeZone":"Australia/Melbourne"});
-        if( temp == startDate){
+    while (flag) {
+        temp = new Date(new Date().getTime() - (interval * 24 * 60 * 60 * 1000)).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" });
+        if (temp == startDate) {
             flag = false
         }
         interval += 1
@@ -379,18 +381,18 @@ async function calEngagement(patientId){
     await patient.save();
 }
 
-const renderLeaderBoard = async(req, res) => {
-    try{
+const renderLeaderBoard = async (req, res) => {
+    try {
         const pre_patients = await Patient.find({}).lean();
-        for(patient of pre_patients){
+        for (patient of pre_patients) {
             await calEngagement(patient._id);
         }
         const patients = await Patient.find({}).lean();
         const thisPatient = await Patient.findById(req.user._id).lean();
         var index = 0;
-        const sorted = patients.sort((a, b) => {return (b.engagement - a.engagement)});
-        for(patient of sorted){
-            if(patient._id.toString() == req.user._id.toString()){
+        const sorted = patients.sort((a, b) => { return (b.engagement - a.engagement) });
+        for (patient of sorted) {
+            if (patient._id.toString() == req.user._id.toString()) {
                 break;
             }
             index += 1;
@@ -402,7 +404,7 @@ const renderLeaderBoard = async(req, res) => {
         const fourth = sorted[3]
         const fifth = sorted[4]
         res.render("patient-motivation.hbs", { layout: 'patient.hbs', patients: patients, thisPatient: thisPatient, rank: rank, first: first, second: second, third: third, fourth: fourth, fifth: fifth });
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
 }
@@ -411,13 +413,13 @@ const updateAboutMe = async (req, res) => {
     try {
         const patient_id = req.user._id;
         const patient = await Patient.findById(patient_id);
-        if(req.body.name != ""){
+        if (req.body.name != "") {
             patient.name = req.body.name;
         }
-        if(req.body.height != ""){
+        if (req.body.height != "") {
             patient.height = req.body.height;
         }
-        if(req.body.text != ""){
+        if (req.body.text != "") {
             patient.brief_bio = req.body.text;
         }
         await patient.save();
@@ -444,14 +446,14 @@ const updateMode = async (req, res) => {
     }
 }
 
-const searchDate = async(req, res) => {
-    try{
-        if(req.body.month=="all" && req.body.year=="all"){
+const searchDate = async (req, res) => {
+    try {
+        if (req.body.month == "all" && req.body.year == "all") {
             return res.redirect('/patient/moreData');
         }
 
         const id = req.user._id;
-        const patient = await Patient.findOne({_id: id}).populate({
+        const patient = await Patient.findOne({ _id: id }).populate({
             path: 'records',
             populate: {
                 path: 'record_id',
@@ -460,26 +462,26 @@ const searchDate = async(req, res) => {
         }).lean();
         const records = patient.records;
         const recordList = [];
-        if(req.body.month!="all" && req.body.year==="all"){
+        if (req.body.month != "all" && req.body.year === "all") {
             for (i in records) {
-                if (records[i].record_id.date.substring(3,5)===req.body.month){
+                if (records[i].record_id.date.substring(3, 5) === req.body.month) {
                     recordList.push(records[i]);
                 }
             }
-        }else if(req.body.month==="all" && req.body.year!="all"){
+        } else if (req.body.month === "all" && req.body.year != "all") {
             for (i in records) {
-                if (records[i].record_id.date.substring(6,10)===req.body.year){
+                if (records[i].record_id.date.substring(6, 10) === req.body.year) {
                     recordList.push(records[i]);
                 }
             }
-        }else{
+        } else {
             for (i in records) {
-                if (records[i].record_id.date.substring(3,5)===req.body.month && records[i].record_id.date.substring(6,10)===req.body.year){
+                if (records[i].record_id.date.substring(3, 5) === req.body.month && records[i].record_id.date.substring(6, 10) === req.body.year) {
                     recordList.push(records[i]);
                 }
             }
         }
-        var month='';
+        var month = '';
         switch (req.body.month) {
             case "01":
                 month = "January";
@@ -523,7 +525,7 @@ const searchDate = async(req, res) => {
         }
         sortByDate2(recordList);
         res.render('patient-moreData.hbs', { layout: 'patient.hbs', record: recordList, patient: patient, month: month, year: req.body.year, input: req.body });
-    }catch(err){
+    } catch (err) {
         console.log(err);
     }
 }
@@ -532,8 +534,8 @@ const renderAboutDia = async (req, res) => {
     try {
         const id = req.user._id;
         const patient = await Patient.findOne({ _id: id }).lean();
-        res.render("normal-aboutDia", { layout: 'patient.hbs', patient: patient});
-    }catch(err){
+        res.render("normal-aboutDia", { layout: 'patient.hbs', patient: patient });
+    } catch (err) {
         console.log(err);
     }
 }
@@ -542,14 +544,14 @@ const renderAboutWeb = async (req, res) => {
     try {
         const id = req.user._id;
         const patient = await Patient.findOne({ _id: id }).lean();
-        res.render("normal-aboutWeb", { layout: 'patient.hbs', patient: patient});
-    }catch(err){
+        res.render("normal-aboutWeb", { layout: 'patient.hbs', patient: patient });
+    } catch (err) {
         console.log(err);
     }
 }
 
 
-module.exports={
+module.exports = {
     renderAddPage,
     updateRecord,
     renderHomePage,

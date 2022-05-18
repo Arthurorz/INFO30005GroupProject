@@ -14,10 +14,10 @@ const isAuthenticated = (req, res, next) => {
     return next();
 }
 
-const unAuthenticated = (req, res, next)=> {
-    if (req.isAuthenticated() && req.user.screen_name !== undefined){
+const unAuthenticated = (req, res, next) => {
+    if (req.isAuthenticated() && req.user.screen_name !== undefined) {
         return res.redirect('homepage');
-    } else if (req.isAuthenticated() && req.user.screen_name === undefined){
+    } else if (req.isAuthenticated() && req.user.screen_name === undefined) {
         return res.redirect('/clinician/dashboard');
     }
     return next();
@@ -37,7 +37,7 @@ patientRouter.post('/login',
 
 // patientRouter.get('/login', (req, res) => res.render("normal-patientLogin"));
 patientRouter.get('/forgetpass', unAuthenticated, (req, res) => res.render("normal-patientForgetpass"));
-patientRouter.post('/forgetpass', unAuthenticated, (req,res)=> patientController.forgetPassword(req,res))
+patientRouter.post('/forgetpass', unAuthenticated, (req, res) => patientController.forgetPassword(req, res))
 patientRouter.get('/homepage', isAuthenticated, patientController.renderHomePage);
 patientRouter.get('/addData/:type', isAuthenticated, patientController.renderAddPage);
 patientRouter.post('/addData/:type', isAuthenticated, patientController.updateRecord);
@@ -49,7 +49,7 @@ patientRouter.get('/aboutThisWeb', isAuthenticated, patientController.renderAbou
 // patientRouter.get('/aboutThisWeb', isAuthenticated, (req, res) => res.render("normal-aboutWeb", { layout: 'patient.hbs', screen_name: req.user.screen_name , darkmode: req.user.darkmode}));
 patientRouter.get('/detaildata/:day/:month/:year', isAuthenticated, patientController.renderdetail);
 patientRouter.get('/changepass', isAuthenticated, (req, res) => res.render("normal-changepass", { layout: 'patient.hbs' }));
-patientRouter.post('/changepass', isAuthenticated, (req,res)=> patientController.changePassword(req,res))
+patientRouter.post('/changepass', isAuthenticated, (req, res) => patientController.changePassword(req, res))
 patientRouter.get('/aboutme', isAuthenticated, patientController.renderAboutMe);
 patientRouter.post('/aboutme', isAuthenticated, patientController.updateAboutMe);
 patientRouter.post('/aboutme/mode', isAuthenticated, patientController.updateMode);

@@ -22,11 +22,11 @@ p {
     font-size: 0.875rem;
 }
 
-a{
+a {
     color: inherit;
 }
 
-.error{
+.error {
     width: 50%;
     height: 40px;
     border-radius: 0.5rem;
@@ -44,14 +44,14 @@ a{
     text-decoration: underline;
 }
 
-.errorPage{
+.errorPage {
     display: flex;
     flex-direction: column;
     align-items: center;
     /* font-size: 2rem; */
 }
 
-.errorPage p{
+.errorPage p {
     font-size: 2rem;
 }
 
@@ -257,7 +257,7 @@ iframe {
 }
 
 /* Login */
-.alertMessage{
+.alertMessage {
     display: flex;
     justify-content: center;
     color: red;
@@ -335,22 +335,22 @@ h4 {
     align-items: center;
 }
 
-.shiftRole{
+.shiftRole {
     padding-bottom: 3%;
     text-decoration: underline;
     text-align: center;
 }
 
-.shiftRole a{
+.shiftRole a {
     color: black;
 }
 
 /* Forget Password Page */
-#msg{
+#msg {
     font-size: 0.875rem;
 }
 
-.forget-error{
+.forget-error {
     width: 50%;
     height: 40px;
     border-radius: 0.5rem;
@@ -406,7 +406,8 @@ button.sentcode,.sendcode input {
     text-align: center;
 } */
 
-button.sentcode, .middle-login {
+button.sentcode,
+.middle-login {
     background-color: #668CB8;
     border: none;
     color: white;
@@ -423,12 +424,12 @@ button.sentcode {
 } */
 
 /* Change Password Page */
-.changepass-container{
+.changepass-container {
     width: 73.33%;
     margin: auto;
 }
 
-.changepass-container input{
+.changepass-container input {
     width: 100%;
     margin: 0.313rem auto 1rem auto;
 }
@@ -442,19 +443,24 @@ button.sentcode {
     margin: 0.313rem auto 1.125rem auto;
 } */
 
-button.change-sentcode, .change-login {
+button.change-sentcode,
+.change-login {
     background-color: #668CB8;
     border: none;
     color: white;
 }
 
-.change-container input ::placeholder, .change-sendcode ::placeholder {
+.change-container input ::placeholder,
+.change-sendcode ::placeholder {
     color: #CFCFCF;
     font-size: 0.75rem;
     font-style: italic;
 }
 
-button.change-sentcode,.change-sendcode input, .change-login, .changepass-container input{
+button.change-sentcode,
+.change-sendcode input,
+.change-login,
+.changepass-container input {
     height: 1.75rem;
     border-radius: 0.5rem;
     font-size: 1rem;
@@ -471,7 +477,7 @@ button.change-sentcode {
     height: 1.375rem;
 }  */
 
-.change-login{
+.change-login {
     display: block;
     height: 2rem;
     width: 19%;
@@ -543,11 +549,11 @@ button.change-sentcode {
     /* .change-sendcode input{
         width: 97.5%;
     } */
-    .changepass-container{
+    .changepass-container {
         width: 43.6%;
     }
 
-    .change-login{
+    .change-login {
         width: 12%;
     }
 }
@@ -756,7 +762,7 @@ button.change-sentcode {
         /* padding: 0 12% 0 13.16%; */
     }
 
-    .shiftRole{
+    .shiftRole {
         font-size: 1.75rem;
     }
 
@@ -788,11 +794,11 @@ button.change-sentcode {
     }
 
     /* Forget Password Page Web*/
-    #msg{
+    #msg {
         font-size: 1.625rem;
     }
 
-    .forget-error{
+    .forget-error {
         top: 360px;
     }
 
@@ -838,30 +844,33 @@ button.change-sentcode {
         font-size: 1.5rem;
     } */
 
-/* Change Password Page */
-.changepass-container{
-    width: 23.33%;
-    font-size: 1.625rem;
-}
+    /* Change Password Page */
+    .changepass-container {
+        width: 23.33%;
+        font-size: 1.625rem;
+    }
 
-.changepass-container input{
-    margin: 0.313rem auto 2rem auto;
-}
+    .changepass-container input {
+        margin: 0.313rem auto 2rem auto;
+    }
 
-/* .change-sendcode{
+    /* .change-sendcode{
     width: 15.52%;
 } */
 
-button.change-sentcode,.change-sendcode input, .change-login, .changepass-container input{
-    height: 3.063rem;
-    font-size: 1.625rem;
-    padding-left: 1rem;
-}
+    button.change-sentcode,
+    .change-sendcode input,
+    .change-login,
+    .changepass-container input {
+        height: 3.063rem;
+        font-size: 1.625rem;
+        padding-left: 1rem;
+    }
 
-.change-login{
-    width: 8.17%;
-    height: 3.875rem;
-    font-size: 2.215rem;
-}
+    .change-login {
+        width: 8.17%;
+        height: 3.875rem;
+        font-size: 2.215rem;
+    }
 
 }

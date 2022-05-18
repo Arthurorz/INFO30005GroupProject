@@ -21,7 +21,6 @@ const patientRouter = require('./routes/patientRouter.js');
 const normalRouter = require('./routes/normalRouter.js');
 const clinicianRouter = require('./routes/clinicianRouter.js');
 
-
 // configure Handlebars
 app.engine(
     'hbs',
@@ -43,11 +42,6 @@ app.use(flash());
 app.use(express.json()); // needed if POST data is in JSON format
 app.use(express.urlencoded({ extended: false })); // only needed for URL-encoded input
 
-// Tells the app to send the string: "Our demo app is working!" when you hit the '/' endpoint.
-app.get('/', (req, res) => {
-    res.send('Diabetes app listening on port 3000!');
-});
-
 // Track authenticated users through login sessions
 app.use(
     session({
@@ -65,74 +59,20 @@ app.use(
 )
 
 if (app.get('env') === 'production') {
-    app.set('trust proxy', 1); 
+    app.set('trust proxy', 1);
 }
 
 // Initialise Passport.js
 const passport = require('./passport')
 app.use(passport.authenticate('session'))
 
-// render page with normal header for testing
-app.use('/normal', normalRouter);
-app.get('/changepass', (req, res) => {
-    res.render("normal-clinicianLogin", {
-        layout: "normal.hbs"
-    });
-});
-app.use('/normal', normalRouter);
-app.get('/forget', (req, res) => {
-    res.render("normal-patientForgetpass", {
-        layout: "normal.hbs"
-    });
-});
 
-// render page with patient header for testing
+app.use('/normal', normalRouter);
 app.use('/patient', patientRouter);
-app.get('/change', (req, res) => {
-    res.render("patient-changePass", {
-        layout: "patient.hbs"
-    });
-});
-app.get('/aboutme', (req, res) => {
-    res.render("patient-aboutme", {
-        layout: "patient.hbs"
-    });
-});
-
-app.get('/data', (req, res) => {
-    res.render("patient-dataDetail", {
-        layout: "patient.hbs",
-    }); 
-}); 
-
-
-// render page with clinician header for testing
 app.use('/clinician', clinicianRouter);
 
-app.get('/individual', (req, res) => {
-    res.render("clinician-individualData", {
-        layout: "clinician.hbs",
-    }); 
-}); 
-app.get('/previous', (req, res) => {
-    res.render("clinician-previousNote", {
-        layout: "clinician.hbs",
-    }); 
-}); 
-app.get('/new', (req, res) => {
-    res.render("clinician-newPatient", {
-        layout: "clinician.hbs",
-    }); 
-}); 
-app.get('/caboutme', (req, res) => {
-    res.render("clinician-aboutme", {
-        layout: "clinician.hbs",
-    }); 
-}); 
-
-
 app.all('*', (req, res) => {  // 'default' route to catch user errors
-	res.status(404).render('normal-error', {errorCode: '404', message: 'That route is invalid.'})
+    res.status(404).render('normal-error', { errorCode: '404', message: 'That route is invalid.' })
 })
 
 // Tells the app to listen on port 3000 and logs that information to the console. 

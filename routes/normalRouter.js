@@ -9,9 +9,9 @@ const isAuthenticated = (req, res, next) => {
     return next();
 }
 
-const unAuthenticated = (req, res, next)=> {
-    if (req.isAuthenticated()){
-        if (req.user.screen_name === undefined){
+const unAuthenticated = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        if (req.user.screen_name === undefined) {
             return res.redirect('/clinician/dashboard');
         } else {
             return res.redirect('/patient/homepage');
