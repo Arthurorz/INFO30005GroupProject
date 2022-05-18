@@ -234,6 +234,10 @@ input[type=checkbox] {
     width: 4rem;
 }
 
+.recorded-exercise{
+    height: 4rem;
+}
+
 .time {
     margin-top: 5px;
 }
@@ -1122,6 +1126,11 @@ input[type=checkbox]:checked~.aboutme-text {
     .recorded {
         width: 9rem;
     }
+
+    .recorded-exercise{
+        height: 9rem;
+    }
+    
 
     .addbutton p {
         font-size: 1.625rem;
