@@ -2,6 +2,7 @@ const express = require("express");
 const normalRouter = express.Router();
 constnoemalController = require("../controllers/normalController.js");
 
+// Authentication middleware
 const isAuthenticated = (req, res, next) => {
     if (!req.isAuthenticated()) {
         return res.redirect('/normal/landingPage');
@@ -9,9 +10,10 @@ const isAuthenticated = (req, res, next) => {
     return next();
 }
 
-const unAuthenticated = (req, res, next)=> {
-    if (req.isAuthenticated()){
-        if (req.user.screen_name === undefined){
+// Unauthentication middleware
+const unAuthenticated = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        if (req.user.screen_name === undefined) {
             return res.redirect('/clinician/dashboard');
         } else {
             return res.redirect('/patient/homepage');

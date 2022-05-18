@@ -20,7 +20,7 @@ main {
     z-index: 1;
 }
 
-.clinician-header div:first-child{
+.clinician-header div:first-child {
     padding-left: 2.5%;
 }
 
@@ -50,13 +50,13 @@ main {
 .clinician-logOut {
     color: #668CB8;
     background-color: #FFFFFF;
-    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.24);
     border-radius: 1.25rem;
     width: 13.1875rem;
     height: 4.375rem;
     border: none;
     font-size: 1.875em;
-} 
+}
 
 .clinician-navBar a:hover {
     display: inline-block;
@@ -75,25 +75,25 @@ main {
     width: 75rem;
 }
 
-.topleft{
+.topleft {
     display: flex;
     flex-direction: column;
     font-size: 1.25rem;
     width: 17.375rem;
 }
- 
-.topleft span{
+
+.topleft span {
     display: flex;
     align-items: center;
     padding: 0.1875rem;
-} 
+}
 
-.topleft img{
+.topleft img {
     width: 2.5625rem;
     margin-right: 1.9375rem;
-} 
+}
 
-.topright{
+.topright {
     padding: 5.2rem 0 0 44rem;
     width: 14.688rem;
     height: 3.563rem;
@@ -101,14 +101,14 @@ main {
     align-items: stretch;
 }
 
-.topright form{
+.topright form {
     display: flex;
     border: 1px solid black;
     border-radius: 2.25rem;
     width: 100%;
 }
 
-.topright input{
+.topright input {
     background: transparent;
     padding-left: 1rem;
     font-size: 1.625rem;
@@ -117,13 +117,13 @@ main {
     border-radius: inherit;
     width: 80%;
 }
-  
+
 .topright input::placeholder {
     color: #CFCFCF;
     font-style: italic;
 }
 
-.topright form button{
+.topright form button {
     background-image: url("/30005image/Icon\ ionic-ios-search.png");
     padding-right: 2.5rem;
     border: none;
@@ -132,7 +132,7 @@ main {
     width: 1.75rem;
 }
 
-.topright form button img{
+.topright form button img {
     text-indent: -999px;
     overflow: hidden;
     height: 1.688rem;
@@ -140,130 +140,137 @@ main {
     margin: 0;
     border: 1px solid transparent;
     border-radius: inherit;
-    cursor: pointer;   
+    cursor: pointer;
 }
 
-table{
+table {
     margin: 0 auto 5rem auto;
     width: 75rem;
 }
 
-table, th, td{
+table,
+th,
+td {
     border: 1px solid #CFCFCF;
     border-collapse: collapse;
     text-align: center;
 }
 
-th,td{
+th,
+td {
     font-size: 1.625rem;
 }
 
-th{
+th {
     background-color: #BBD9F6;
     height: 4.563rem;
 }
 
-a{
+a {
     color: black;
 }
 
-td img{
+td img {
     width: 2.5rem;
     vertical-align: middle;
 }
 
 
-.one-slope{
+.one-slope {
     width: 11.625rem;
     background-color: white;
     padding: 0;
 }
 
-.slope{
+.slope {
     position: relative;
     border-bottom: 1px solid #CFCFCF;
     transform: rotate(20deg);
 }
 
-.inside_slope{
+.inside_slope {
     border-bottom: 1px solid #CFCFCF;
     transform: rotate(15deg);
 }
 
-.ind_slope{
+.ind_slope {
     border-bottom: 1px solid #CFCFCF;
     transform: rotate(18deg);
 }
 
-.large_slope{
+.large_slope {
     border-bottom: 1px solid #CFCFCF;
     transform: rotate(8deg);
 }
 
-td{
+td {
     height: 3.563rem;
 }
 
-.one-weight, .one-exercise{
+.one-weight,
+.one-exercise {
     width: 10.75rem;
 }
 
 /* Individual Patient Page */
-h1{
+h1 {
     margin: 13.75rem auto 3.9375rem auto;
     font-size: 2.375rem;
     text-align: center;
 }
 
-.individual-body{
+.individual-body {
     width: 87.18%;
     justify-content: space-between;
     margin: 0 auto;
     display: flex;
 }
 
- .individual-left{
-     width: 25.507%;
+.individual-left {
+    width: 25.507%;
 }
 
-.individual-left form{
+.individual-left form {
     border: none;
 }
 
-.individual-data{
+.individual-data {
     width: 64.33%;
-    height: 64.625rem; 
+    height: 64.625rem;
 }
 
-.personal-info{
+.personal-info {
     height: 50.3125rem;
     width: 100%;
     border: 1px solid #D3D3D3;
     border-radius: 1.3125rem;
 }
 
-.edit{
+.edit {
     margin: 0.8125rem 1.4375rem 0 24rem;
     height: 1.5625rem;
     width: 1.25rem;
 }
 
-.portrait{
+.portrait {
     width: 10.9375rem;
     display: block;
     margin: 0 auto;
 }
 
-h2{
+h2 {
     text-align: center;
     font-weight: normal;
 }
 
-.requirement{ 
+.requirement {
     margin: 2.4375rem 1.125rem 2.1875rem 1.125rem;
 }
 
-.blood-glucose, .weight, .exercise, .insulin{
+.blood-glucose,
+.weight,
+.exercise,
+.insulin {
     width: 11.8rem;
     height: 11.5rem;
     border-radius: 1.125rem;
@@ -271,46 +278,50 @@ h2{
     text-align: center;
     color: #668CB8;
     font-size: 1rem;
-    box-shadow: 0 3px 3px 0 rgba(0,0,0,0.24);
+    box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.24);
 }
 
-.top-two, .bottom-two{
+.top-two,
+.bottom-two {
     display: flex;
     justify-content: space-between;
 }
 
-h4{
+h4 {
     font-size: 1.125rem;
     padding: 0;
 }
 
-h5{
+h5 {
     font-size: 1.25rem;
     font-weight: bold;
     font-style: italic;
 }
 
-.top-two{
+.top-two {
     margin-bottom: 3.1875rem;
 }
 
-.blood-glucose img, .weight img, .exercise img, .insulin img{
+.blood-glucose img,
+.weight img,
+.exercise img,
+.insulin img {
     width: 6.75rem;
     display: block;
     margin: 0.5625rem auto 0.5625rem auto;
 }
 
-.message{
+.message {
     width: 26.6875rem;
     height: 14.25rem;
 }
 
-.support{
+.support {
     width: 91%;
     height: 9.19rem;
     border: 1px solid #707070;
     margin: 2.125rem 0 0.8125rem 0;
-    border-radius:1.625rem ;
+    border-radius: 1.625rem;
     font-size: 1.625rem;
     padding: 1rem;
 }
@@ -330,7 +341,9 @@ h5{
     border-color: #707070;
 } */
 
-.message-save, .note-save, .more-detail{
+.message-save,
+.note-save,
+.more-detail {
     border: none;
     background-color: #668CB8;
     color: white;
@@ -338,54 +351,56 @@ h5{
     border-radius: 0.5rem;
 }
 
-.message-save{
+.message-save {
     float: right;
     width: 9.9375rem;
     height: 3.875rem;
 }
 
-.individual-data{
+.individual-data {
     width: 64.33%;
-    height: 64.625rem; 
+    height: 64.625rem;
 }
 
-.individual-data{
+.individual-data {
     width: 64.33%;
-    height: 64.625rem; 
+    height: 64.625rem;
 }
 
-.individual-top, .top-left, .top-left span{
+.individual-top,
+.top-left,
+.top-left span {
     display: flex;
 }
 
-.top-left{
+.top-left {
     flex-direction: column;
     font-size: 1.25rem;
     padding-right: 30.5rem;
     width: 19rem;
 }
- 
-.top-left span{
+
+.top-left span {
     align-items: center;
     padding: 0.1875rem;
-} 
+}
 
-.top-left img{
+.top-left img {
     width: 2.5625rem;
     margin-right: 1.9375rem;
-} 
+}
 
-.top-right{
+.top-right {
     width: 18.8125rem;
-    height: 3.0625rem; 
+    height: 3.0625rem;
     margin-top: 5.8rem;
 }
 
-.top-right form{
+.top-right form {
     height: 100%;
 }
 
-select{
+select {
     background-color: #668CB8;
     border: 1px solid #707070;
     color: white;
@@ -394,77 +409,78 @@ select{
     height: 100%;
 }
 
-select a:hover{
-    width:8.875rem;
+select a:hover {
+    width: 8.875rem;
 }
 
-.year{
+.year {
     float: right;
 }
 
-.individual-table{
+.individual-table {
     margin-top: 0.625rem;
     width: auto;
     height: 55.75rem;
     overflow-y: auto;
 }
 
-.sam-table{
+.sam-table {
     width: 100%;
     margin-left: 0;
 }
 
-tr td{
+tr td {
     height: 3rem;
 }
 
-th{
+th {
     background-color: #BBD9F6;
     height: 4.375rem;
 }
 
-.leftone{
+.leftone {
     width: 9rem;
     background-color: white;
     padding: 0;
 }
 
-.sam-table .slope{
+.sam-table .slope {
     transform: rotate(20deg);
 }
 
-.table-weight, .table-exercise{
+.table-weight,
+.table-exercise {
     width: 10.25rem;
 }
 
-.note{
+.note {
     height: 36.188rem;
     margin: 4.313rem 7.6875rem 1.875rem 7.6875rem;
     display: flex;
 }
 
-.previous-note{
+.previous-note {
     border-radius: 1.563rem 0 0 1.563rem;
     height: 100%;
     width: 37.375rem;
 }
 
-h6{
+h6 {
     font-size: 2.125rem;
     font-weight: bold;
 }
 
-h6{
+h6 {
     padding: 1.188rem 0 0.938rem 1.625rem;
     border-radius: 1.563rem 0 0 0;
 }
 
-.pre-note{
+.pre-note {
     padding-top: 1.625rem;
     height: 30rem;
 }
 
-.pre-note ul{
+.pre-note ul {
     width: 100%;
     height: 30rem;
     /* display: table; */
@@ -474,16 +490,16 @@ h6{
     padding-left: 0;
 }
 
-.pre-note li{
+.pre-note li {
     list-style-type: none;
     font-size: 1.625rem;
 }
 
-li:hover{
+li:hover {
     background-color: #BBD9F6;
 }
 
-li div{
+li div {
     display: table-cell;
 }
 
@@ -501,8 +517,8 @@ li{
     list-style: none;
     display: table-row;
     /* height: 1.813rem; */
-    /* padding-bottom: 1.375rem; */
-    /* font-size: 1.625rem;
+/* padding-bottom: 1.375rem; */
+/* font-size: 1.625rem;
     border-bottom: 1px solid black;
 }
 
@@ -514,31 +530,34 @@ li div{
     display: table-cell;
 }  */
 
-.detail{
+.detail {
     width: 25rem;
     padding-left: 1.123rem;
 }
 
-.time{
+.time {
     font-size: 1.25rem;
 }
 
-.previous-note, h6, .subject, .today-note {
+.previous-note,
+h6,
+.subject,
+.today-note {
     border: 1px solid #707070;
 }
 
-.add-note{
+.add-note {
     width: 77rem;
     height: 100%;
 }
 
-.subject{
+.subject {
     width: 99.9%;
     height: 4.56rem;
-    border-radius: 0 1.563rem 0 0 ;
+    border-radius: 0 1.563rem 0 0;
 }
 
-.subject input{
+.subject input {
     border: none;
     border-radius: 0;
     height: 96%;
@@ -548,15 +567,16 @@ li div{
     font-weight: bold;
 }
 
-.subject input::placeholder, .today-note::placeholder{
+.subject input::placeholder,
+.today-note::placeholder {
     color: #CFCFCF;
 }
 
-.today-note{
+.today-note {
     height: 31.51rem;
 }
 
-.today-add{
+.today-add {
     width: 97%;
     border: none;
     height: 29.5rem;
@@ -566,20 +586,20 @@ li div{
     font-size: 1.625rem;
 }
 
-.more-detail{
+.more-detail {
     width: 12.5rem;
     height: 3.875rem;
     margin-left: 29rem;
 }
 
-.note-save{
+.note-save {
     float: right;
     margin: 0 7.6875rem 4rem 0;
     width: 13.25rem;
     height: 5.188rem;
 }
 
-.previous-note button{
+.previous-note button {
     float: right;
     width: 12.5rem;
     height: 3.875rem;
@@ -587,7 +607,7 @@ li div{
 }
 
 /* Edit Data Page */
-.editData-body{
+.editData-body {
     font-size: 22px;
     /* padding-top: 2.31%; */
     /* padding-left: 42.03%;
@@ -601,12 +621,12 @@ li div{
     /* align-items: center; */
 }
 
-.editData-body form{
+.editData-body form {
     width: 40%;
     padding-left: 25%;
 }
 
-.editData-body div:first-child{
+.editData-body div:first-child {
     padding-top: 1.25rem;
 }
 
@@ -614,13 +634,13 @@ li div{
     padding-top: 5.74%;
 } */
 
-.chooseRange{
+.chooseRange {
     padding-bottom: 3.625rem;
     width: 110%;
 }
 
 .chooseBox {
-    width: 25px; 
+    width: 25px;
     height: 25px;
 }
 
@@ -630,7 +650,7 @@ li div{
 } */
 
 .textBox {
-    width: 4rem; 
+    width: 4rem;
     font-size: 20px;
 }
 
@@ -656,7 +676,7 @@ li div{
     padding-left: 2.76%;
 } */
 
-.saveButton{
+.saveButton {
     color: #FFFFFF;
     background-color: #668CB8;
     border-radius: 8px;
@@ -667,10 +687,10 @@ li div{
     display: block;
     margin: 0 auto;
     margin-top: 2%;
-} 
+}
 
 /* New Patient Page */
-.newPatient-body{
+.newPatient-body {
     font-size: 22px;
     /* padding-top: 4.8%; */
     display: flex;
@@ -724,7 +744,7 @@ li div{
     border: 1px solid;
 }
 
-#briefBio{
+#briefBio {
     width: 242px;
     border-radius: 10px;
     height: 100px;
@@ -739,7 +759,7 @@ li div{
     height: 25px;
 } */
 
-.category{
+.category {
     font-size: 26px;
     padding-left: 0.73%;
 }
@@ -814,47 +834,47 @@ li div{
 
 /* About Me Page */
 
-.aboutMe-body{
+.aboutMe-body {
     display: flex;
     margin: 0 auto;
     margin-top: 9.75em;
     /* width: 55.83%; */
 }
 
-.aboutMe-left{
+.aboutMe-left {
     text-align: center;
     font-size: 1.625em;
     margin-left: 32.313rem;
 }
 
-.self-picture{
+.self-picture {
     width: 15.3125rem;
 }
 
-.aboutMe-right{
+.aboutMe-right {
     width: 33.875rem;
     align-items: center;
     margin-left: 17.813rem;
 }
 
-.aboutMe-right h2{
+.aboutMe-right h2 {
     margin-bottom: 0.375rem;
 }
 
-.aboutMe-right textarea{
+.aboutMe-right textarea {
     font-size: 1.625em;
     margin: auto;
     width: 83.1%;
     border: 1px solid #EDEDED;
-    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.24);
     border-radius: 1.25rem;
     height: 9.2rem;
     padding: 3.563rem 2.813rem;
-    
-    
+
+
 }
 
-.aboutMe-right .saveButton{
+.aboutMe-right .saveButton {
     margin-top: 8%;
 }
 
@@ -875,18 +895,18 @@ li div{
 } */
 
 /* Comment List Page*/
-.commentSearch{
+.commentSearch {
     width: 50.36%;
     display: flex;
     justify-content: end;
     margin: 0 auto 1.5625rem auto;
 }
 
-.commentSearch form{
+.commentSearch form {
     width: 24.41%;
 }
 
-.commentSearch input{
+.commentSearch input {
     border: 1px solid;
     width: 97%;
     border-radius: 2.25rem;
@@ -895,22 +915,22 @@ li div{
     padding-left: 0.5rem;
 }
 
-.commentSearch input::placeholder{
+.commentSearch input::placeholder {
     padding: 12px;
 }
 
-.commentSearch img{
+.commentSearch img {
     width: 1.6875rem;
     position: absolute;
     top: 31.5%;
     right: 26%;
 }
 
-.commentSearch button{
+.commentSearch button {
     display: contents;
 }
 
-.notFound{
+.notFound {
     display: table;
     margin: 0 auto;
     font-size: 2.375rem;
@@ -920,33 +940,38 @@ li div{
     padding: 20px;
 }
 
-.commentLine{
+.commentLine {
     width: 50.36%;
     margin: 0 auto;
     border: 1px solid #707070;
     display: flex;
 }
 
-.commentLine span{
+.commentLine span {
     font-size: 1.625rem;
 }
 
-.readComment{
+.readComment {
     width: 0.75rem;
     padding: 0.25rem;
     position: absolute;
 }
 
-.commentLeft{
+.commentLeft {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
     padding: 1rem;
+    width: 12%;
 }
 
-.commentLeft img{
+.commentLeft img {
     width: 4.625rem;
+}
+
+.patientName{
+    text-align: center;
 }
 
 /* .commentRight{
@@ -954,60 +979,59 @@ li div{
     flex-direction: column;
     justify-content: space-evenly;
 } */
-.commentRight{
+.commentRight {
     width: 88%;
     margin: 1.5625rem auto;
 }
 
-.commentData{
+.commentData {
     padding: 0 5px;
 }
 
-.commentLower{
+.commentLower {
     background-color: #AAA9A9;
     /* border: 1px solid #AAA9A9; */
     padding: 0 5px;
 }
 
-.commentUpper{
+.commentUpper {
     background-color: #F29393;
     /* border: 1px solid #AAA9A9; */
     padding: 0 6px;
 }
 
-.commentRight div{
+.commentRight div {
     display: flex;
     justify-content: space-between;
 }
 
-.commentRight p{
+.commentRight p {
     margin-top: 0.75rem;
     font-size: 1.25rem;
 }
 
 /* Previous Note */
-.noteLine{
+.noteLine {
     width: 50.36%;
     margin: 0 auto;
     border: 1px solid #707070;
     padding: 1rem;
 }
 
-.notelineTop{
+.notelineTop {
     display: flex;
     justify-content: space-between;
 }
 
-.notelineTop span:first-child{
+.notelineTop span:first-child {
     font-size: 1.625rem;
     font-weight: bold;
 }
 
-.notelineTop span:last-child{
+.notelineTop span:last-child {
     font-size: 1.25rem;
 }
 
-.notelineBottom{
+.notelineBottom {
     padding-top: 1.25rem;
 }
-

@@ -94,7 +94,7 @@ const helpers = {
     ifChecked: function (value, options) {
         if (value == true) {
             return options.fn(this);
-        }else{
+        } else {
             return options.inverse(this);
         }
     },
@@ -106,6 +106,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    
     // check if patient login
     ifNotLogin: function (screen_name, options) {
         if (screen_name == undefined) {
@@ -124,7 +125,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
-    ifTrue: function(value, options) {
+    ifTrue: function (value, options) {
         if (value == true) {
             return options.fn(this);
         }
@@ -143,7 +144,7 @@ const helpers = {
     },
     ifSearched: function (value, options) {
         if (value != "all" && value != undefined) {
-            
+
             return options.fn(this);
         }
         else {
@@ -158,6 +159,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    // Check if the user has photo
     ifPhoto: function (value, options) {
         if (value == true) {
             return options.fn(this);

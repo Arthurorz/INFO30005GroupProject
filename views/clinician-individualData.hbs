@@ -4,9 +4,9 @@
         <div class="personal-info">
             <a href="../editData/{{patient._id}}"><img class="edit" src="/edit.png" alt="edit"></a>
             {{#ifPhoto patient.photo}}
-            <img class = "portrait" src = "/photo_{{patient._id}}.png" alt="self photo">
+            <img class="portrait" src="/photo_{{patient._id}}.png" alt="self photo">
             {{else}}
-            <img class = "portrait" src = "/photo_newuser.png" alt="self photo">
+            <img class="portrait" src="/photo_newuser.png" alt="self photo">
             {{/ifPhoto}}
             <h2>Name: {{patient.first_name}} {{patient.last_name}}</h2>
             <h2>Clinician: {{patient.clinician.first_name}}</h2>
@@ -55,13 +55,8 @@
         </div>
         <form action="/clinician/individualData/support_msg/{{patient._id}}" method="post">
             <div class="message">
-                {{!-- <div class="support"> --}}
-                    {{!-- <input type="text" id="text" name="support_message" placeholder="{{patient.support_message}}">
-                    --}}
-                    <textarea class="support" type="text" id="text" required name="support_message"
-                        placeholder="{{patient.support_message}}"></textarea>
-                    {{!--
-                </div> --}}
+                <textarea class="support" type="text" id="text" required name="support_message"
+                    placeholder="{{patient.support_message}}"></textarea>
                 <button class="message-save" type="submit">Save</button>
             </div>
         </form>
@@ -238,7 +233,6 @@
         <div class="add-note">
             <div class="subject">
                 <input type="text" id="text" name="subject" required placeholder="Subject">
-                <!--<img src="./30005image/delete.png" alt="delete">-->
             </div>
             <div class="today-note">
                 <textarea class="today-add" type="text" id="text" required name="content"
@@ -250,8 +244,5 @@
         type="button">More Detail</button>
     <button class="note-save" type="submit">Save</button>
 </form>
-
-
-
 
 <script src="/js/hbshelp.js"></script>

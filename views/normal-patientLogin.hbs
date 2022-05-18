@@ -1,13 +1,11 @@
 <div class="login-background"></div>
 <div class="login">
-    {{!-- Page Header --}}
     <h4 class="loginTitle">Patient Login</h4>
     {{#each flash}}
     <div class="alertMessage">
         <p class="alert">{{this}}</p>
     </div>
     {{/each}}
-    {{!-- Login Box --}}
     <div class="loginContainer">
         <form action="/patient/login" method="post">
             <p for="email">Email Address:</p>

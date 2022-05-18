@@ -1,7 +1,4 @@
-{{!-- Page Header --}}
 <h1>About Diabetes</h1>
-
-{{!-- Page Body --}}
 <div class="aboutDia-body">
     <div class="aboutDia-top">
         <div>
@@ -65,7 +62,6 @@
     </div>
 </div>
 
-{{!-- Page Header --}}
 {{#ifNotLogin patient.screen_name}}
 <div class="aboutDia-footer">
     <h3>If you want to access more features, please <a href="/patient/login">Login</a>.</span></h3>
@@ -74,5 +70,5 @@
 
 <script src="/js/hbshelp.js"></script>
 <script>
-    isDarkmode({{patient.darkmode}})
+    isDarkmode({{ patient.darkmode }})
 </script>
