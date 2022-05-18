@@ -16,7 +16,11 @@
             <img class="readComment" src="/readComment.png" alt="">
             {{/ifChecked}}
             <div class="commentLeft">
-                <img src="/Photo_Pat.png" alt="">
+                {{#ifPhoto this.photo}}
+                <img src = "/photo_{{this.patient_id}}.png" alt="self photo">
+                {{else}}
+                <img src = "/photo_newuser.png" alt="self photo">
+                {{/ifPhoto}}
                 <span><a href='/clinician/individualData/{{this.patient_id}}'>{{this.patientName}}</a></span>
             </div>
 
@@ -50,32 +54,4 @@
         </div>
         {{/each}}
     </div>
-
-
-
-
-    {{!-- <div class="commentRight">
-        <div>
-            <span class="commentLower">Weight:107</span>
-            <span>Normal Range: 70-100Kg</span>
-            <span>2022.3.19 23:23</span>
-        </div>
-        <p>I am two pounds heavier today than yesterday.</p>
-    </div>
-
 </div>
-<div class="commentLine">
-    <img class="readComment" src="/readComment.png" alt="">
-    <div class="commentLeft">
-        <img src="/Photo_Pat.png" alt="">
-        <span>{{this.patientName}}</span>
-    </div>
-    <div class="commentRight">
-        <div>
-            <span class="commentUpper">Weight:107</span>
-            <span>Normal Range: 70-100Kg</span>
-            <span>2022.3.19 23:23</span>
-        </div>
-        <p>I am two pounds heavier today than yesterday.</p>
-    </div>
-</div> --}}
