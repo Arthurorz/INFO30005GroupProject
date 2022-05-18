@@ -66,7 +66,6 @@ if (app.get('env') === 'production') {
 const passport = require('./passport')
 app.use(passport.authenticate('session'))
 
-
 app.use('/normal', normalRouter);
 app.use('/patient', patientRouter);
 app.use('/clinician', clinicianRouter);

@@ -14,6 +14,7 @@ const isAuthenticated = (req, res, next) => {
     return next();
 }
 
+// Unauthentication middleware
 const unAuthenticated = (req, res, next) => {
     if (req.isAuthenticated() && req.user.screen_name !== undefined) {
         return res.redirect('homepage');
@@ -35,7 +36,6 @@ patientRouter.post('/login',
     })
 )
 
-// patientRouter.get('/login', (req, res) => res.render("normal-patientLogin"));
 patientRouter.get('/forgetpass', unAuthenticated, (req, res) => res.render("normal-patientForgetpass"));
 patientRouter.post('/forgetpass', unAuthenticated, (req, res) => patientController.forgetPassword(req, res))
 patientRouter.get('/homepage', isAuthenticated, patientController.renderHomePage);
@@ -45,8 +45,6 @@ patientRouter.get('/moredata', isAuthenticated, patientController.renderMoreData
 patientRouter.post('/moredata', isAuthenticated, patientController.searchDate);
 patientRouter.get('/aboutDiabetes', isAuthenticated, patientController.renderAboutDia)
 patientRouter.get('/aboutThisWeb', isAuthenticated, patientController.renderAboutWeb)
-// patientRouter.get('/aboutDiabetes', isAuthenticated, (req, res) => res.render("normal-aboutDia", { layout: 'patient.hbs', screen_name: req.user.screen_name , darkmode: req.user.darkmode}));
-// patientRouter.get('/aboutThisWeb', isAuthenticated, (req, res) => res.render("normal-aboutWeb", { layout: 'patient.hbs', screen_name: req.user.screen_name , darkmode: req.user.darkmode}));
 patientRouter.get('/detaildata/:day/:month/:year', isAuthenticated, patientController.renderdetail);
 patientRouter.get('/changepass', isAuthenticated, (req, res) => res.render("normal-changepass", { layout: 'patient.hbs' }));
 patientRouter.post('/changepass', isAuthenticated, (req, res) => patientController.changePassword(req, res))

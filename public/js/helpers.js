@@ -106,6 +106,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    
     // check if patient login
     ifNotLogin: function (screen_name, options) {
         if (screen_name == undefined) {
@@ -158,6 +159,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    // Check if the user has photo
     ifPhoto: function (value, options) {
         if (value == true) {
             return options.fn(this);

@@ -1,6 +1,6 @@
 // Check if have value in input box
 function isAddDataNull() {
-  var addData = document.getElementById("addData").value;
+var addData = document.getElementById("addData").value;
   var addComment = document.getElementById("addComment").value.length;
 
   if (addData < 0) {
@@ -53,12 +53,13 @@ function isNewPatientNull() {
   }
 }
 
-
+// Submit Date Form directly
 function submitDateForm() {
   var form = document.getElementById("dateForm");
   form.submit();
 }
 
+// Check if all fields are filled in change password
 function isChangePass() {
   var oldPassword = document.getElementById("oldPassword").value;
   var password = document.getElementById("password").value;
@@ -68,6 +69,7 @@ function isChangePass() {
   }
 }
 
+// Check if all fields are filled in forget password  
 function isForgetPass() {
   var email = document.getElementById("email").value;
   var password = document.getElementById("password").value;
@@ -77,6 +79,7 @@ function isForgetPass() {
   }
 }
 
+// Set Dark Mode directly
 function setDarkmode(darkmode) {
   if (darkmode == true) {
     var checkbox = document.getElementById('chk');
@@ -93,17 +96,14 @@ function setDarkmode(darkmode) {
 
 }
 
-function submitMode() {
-  var mode = document.getElementById("mode");
-  mode.submit();
-}
-
+// Check if it is dark mode
 function isDarkmode(darkmode) {
   if (darkmode == true) {
     document.body.classList.toggle('dark');
   }
 }
 
+// Show recent7 chart in patient homepage
 function showChart(dataList, dateList) {
   Highcharts.chart('glucose_container', {
     chart: {

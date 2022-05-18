@@ -46,7 +46,11 @@
                     alt="delete"></label>
             <div class="edit-body">
                 <div class="edit-detail">
-                    <img class="userphoto" src="/Photo_Pat.png" alt="userphoto">
+                    {{#ifPhoto patient.photo}}
+                    <img class="userphoto" src="/photo_{{patient._id}}.png" alt="self photo">
+                    {{else}}
+                    <img class="userphoto" src="/photo_newuser.png" alt="self photo">
+                    {{/ifPhoto}}
                     </label>
                     <div class="detail-change">
                         <div class="user-info">

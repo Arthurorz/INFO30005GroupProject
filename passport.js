@@ -28,7 +28,7 @@ passport.deserializeUser((userId, done) => {
     }
 })
 
-// Updated LocalStrategy function
+// Updated Clinidan LocalStrategy function
 passport.use("clinician-login",
     new LocalStrategy({
         usernameField: 'email',
@@ -67,6 +67,7 @@ passport.use("clinician-login",
         })
 )
 
+// Updated Patient LocalStrategy function
 passport.use("patient-login",
     new LocalStrategy({
         usernameField: 'email',

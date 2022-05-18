@@ -14,6 +14,7 @@ const isAuthenticated = (req, res, next) => {
     return next();
 }
 
+// Unauthentication middleware
 const unAuthenticated = (req, res, next) => {
     if (req.isAuthenticated() && req.user.screen_name === undefined) {
         return res.redirect('dashboard');
@@ -35,7 +36,6 @@ clinicianRouter.post('/login',
     })
 )
 
-// clinicianRouter.get('/login', (req, res) => res.render("normal-clinicianLogin"));
 clinicianRouter.get('/forgetpass', unAuthenticated, (req, res) => res.render("normal-clinicianForgetpass"));
 clinicianRouter.get('/dashboard', isAuthenticated, (req, res) => clinicianController.renderDashboard(req, res))
 clinicianRouter.get('/individualData/:id', isAuthenticated, (req, res) => clinicianController.renderPatientData(req, res))
