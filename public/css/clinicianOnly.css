@@ -943,10 +943,15 @@ li div{
     justify-content: space-around;
     align-items: center;
     padding: 1rem;
+    width: 12%;
 }
 
 .commentLeft img{
     width: 4.625rem;
+}
+
+.patientName{
+    text-align: center;
 }
 
 /* .commentRight{
