@@ -7,6 +7,7 @@
 </div>
 
 <div>
+    <!--error message-->
     {{#ifMSG msg}}
     <div class="notFound">{{msg}}</div>
     {{/ifMSG}}
@@ -27,6 +28,7 @@
 
         <div class="commentRight">
             <div>
+                <!--check if the data are in the range-->
                 {{#ifAboveRange this.value this.upper_bound}}
                 <span class="commentUpper">{{this.type}}: {{this.value}} {{this.unit}}</span>
                 {{else}}
@@ -36,7 +38,6 @@
                 <span class="commentData">{{this.type}}: {{this.value}} {{this.unit}}</span>
                 {{/ifBelowRange}}
                 {{/ifAboveRange}}
-                {{!-- {{this.type}}: {{this.value}} {{this.unit}}</span> --}}
                 <span>Normal Range: {{this.lower_bound}}-{{this.upper_bound}} {{this.unit}}</span>
                 <span>{{this.timeStamp}}</span>
             </div>

@@ -6,7 +6,7 @@ const Record = require('../models/record.js');
 const Note = require('../models/note.js');
 const bcrypt = require('bcryptjs')
 
-
+//used for rendering previous note page
 const renderPrevNotes = async (req, res) => {
     const id = req.params.id;
     const notes = await Note.find({ patient: id });
@@ -25,7 +25,7 @@ const renderPrevNotes = async (req, res) => {
     res.render('clinician-previousNote.hbs', { layout: 'clinician.hbs', notes: noteList });
 }
 
-
+// used for about me page when user change their bio
 const saveClinicianBio = async (req, res) => {
     try {
         const clinician = await Clinician.findById(req.user._id.toString());
@@ -37,13 +37,14 @@ const saveClinicianBio = async (req, res) => {
     }
 }
 
-
+// used in individual page when month and year are changed
 const searchDate = async (req, res) => {
     try {
+        //if user change month and year to default value
         if (req.body.month === "all" && req.body.year === "all") {
             return res.redirect('/clinician/individualData/' + req.params.id);
         }
-
+        //populate patient and notes
         const patient = await Patient.findOne({ _id: req.params.id }).populate({
             path: 'records',
             populate: {
@@ -64,6 +65,7 @@ const searchDate = async (req, res) => {
 
         const records = patient.records;
         const recordList = [];
+        //select chosen month and year and push into list
         if (req.body.month != "all" && req.body.year === "all") {
             for (i in records) {
                 if (records[i].record_id.date.substring(3, 5) === req.body.month) {
@@ -83,6 +85,7 @@ const searchDate = async (req, res) => {
                 }
             }
         }
+        //return a string for showing month
         var month = '';
         switch (req.body.month) {
             case "01":
@@ -144,6 +147,7 @@ const searchDate = async (req, res) => {
         console.log(err);
     }
 }
+//used for saving a new note
 const addNote = async (req, res) => {
     try {
 
@@ -160,22 +164,24 @@ const addNote = async (req, res) => {
         await SavePatient.save();
 
         res.redirect('/clinician/individualData/' + req.params.id);
-
-
     } catch (err) {
         console.log(err);
     }
 }
+
+//used for the search in comment page
 const searchComment = async (req, res) => {
     try {
         if (req.body.patientName == '') {
             renderCommentList(req, res);
         } else {
+            //update clinician viewed time to determine which comments are new updated
             const clinicianID = req.user._id.toString();
             const clinician = await Clinician.findById(clinicianID);
             const lastTime = clinician.lastTimeViewCommentList;
             clinician.lastTimeViewCommentList = new Date().toLocaleString("en-AU", { "timeZone": "Australia/Melbourne" });
             await clinician.save();
+
             const patients = (await Clinician.findById(clinicianID).populate({
                 path: 'patients',
                 populate: {
@@ -192,18 +198,16 @@ const searchComment = async (req, res) => {
             }).lean()).patients;
 
             var inputName = req.body.patientName.toLowerCase();
-            inputName = inputName[0].toUpperCase() + inputName.substring(1, inputName.length);
 
             const commentList = [];
             for (i in patients) {
                 const patient = patients[i].patient_id;
-                if (patient.first_name == inputName || patient.last_name == inputName) {
+                if (patient.first_name.toLowerCase().indexOf(inputName) != -1 || patient.last_name.toLowerCase().indexOf(inputName) != -1) {
                     for (j in patient.records) {
                         const record = patient.records[j].record_id;
+                        //check if there is valid comment in four data
                         if (record.data.weight.comment != '') {
-
                             commentList.push({
-                                //patientAvatar:  *******,
                                 timeStamp: record.data.weight.date,
                                 comment: record.data.weight.comment,
                                 patient_id: patient._id,
@@ -217,7 +221,6 @@ const searchComment = async (req, res) => {
                         }
                         if (record.data.glucose.comment != '') {
                             commentList.push({
-                                //patientAvatar:  *******,
                                 timeStamp: record.data.glucose.date,
                                 comment: record.data.glucose.comment,
                                 patient_id: patient._id,
@@ -231,7 +234,6 @@ const searchComment = async (req, res) => {
                         }
                         if (record.data.exercise.comment != '') {
                             commentList.push({
-                                //patientAvatar:  *******,
                                 timeStamp: record.data.exercise.date,
                                 comment: record.data.exercise.comment,
                                 patient_id: patient._id,
@@ -245,7 +247,6 @@ const searchComment = async (req, res) => {
                         }
                         if (record.data.insulin.comment != '') {
                             commentList.push({
-                                //patientAvatar:  *******,
                                 timeStamp: record.data.insulin.date,
                                 comment: record.data.insulin.comment,
                                 patient_id: patient._id,
@@ -279,9 +280,8 @@ const searchComment = async (req, res) => {
     } catch (err) {
         console.log(err);
     }
-
-
 }
+// used for clinician edit data page
 const editPatientData = async (req, res) => {
 
     const missBoundError = 'Need to add upper and lower bound';
@@ -290,9 +290,10 @@ const editPatientData = async (req, res) => {
         const patient = await Patient.findById(req.params.id);
         const todayRecord = await Record.findOne({ patientId: patient._id, date: new Date().toLocaleString("en-AU", { "timeZone": "Australia/Melbourne" }) });
         const patientData = await Patient.findById(req.params.id).lean();
+        
         if (req.body.weight_check == 'on') {
             patient.required_data.weight = true;
-
+            //check input valid or not  
             if (req.body.weight_upper != '' && req.body.weight_lower != '') {
                 if (parseInt(req.body.weight_upper) >= parseInt(req.body.weight_lower)) {
                     patient.bound.weight_upper = req.body.weight_upper;
@@ -310,6 +311,7 @@ const editPatientData = async (req, res) => {
 
         if (req.body.exercise_check == 'on') {
             patient.required_data.exercise = true;
+            //check input valid or not  
             if (req.body.exercise_upper != '' && req.body.exercise_lower != '') {
                 if (parseInt(req.body.exercise_upper) >= parseInt(req.body.exercise_lower)) {
                     patient.bound.exercise_upper = req.body.exercise_upper;
@@ -327,6 +329,7 @@ const editPatientData = async (req, res) => {
 
         if (req.body.insulin_check == 'on') {
             patient.required_data.insulin = true;
+            //check input valid or not  
             if (req.body.insulin_upper != '' && req.body.insulin_lower != '') {
                 if (parseInt(req.body.insulin_upper) >= parseInt(req.body.insulin_lower)) {
                     patient.bound.insulin_upper = req.body.insulin_upper;
@@ -344,6 +347,7 @@ const editPatientData = async (req, res) => {
 
         if (req.body.glucose_check == 'on') {
             patient.required_data.glucose = true;
+            //check input valid or not  
             if (req.body.glucose_upper != '' && req.body.glucose_lower != '') {
                 if (parseInt(req.body.glucose_upper) >= parseInt(req.body.glucose_lower)) {
                     patient.bound.glucose_upper = req.body.glucose_upper;
@@ -368,6 +372,7 @@ const editPatientData = async (req, res) => {
     }
 }
 
+//used for clinician to add new patient
 const addNewPatient = async (req, res) => {
 
     const missBoundError = 'Error: Need to add upper and lower bound';
@@ -380,7 +385,7 @@ const addNewPatient = async (req, res) => {
     }
     const clinicianID = req.user._id.toString();
 
-
+    //check if the email is registered
     const patient = await Patient.findOne({ email: req.body.email.toLowerCase() });
     if (!patient) {
         if (req.body.password == req.body.confirm_password) {
@@ -404,6 +409,7 @@ const addNewPatient = async (req, res) => {
 
                 if (req.body.weight_check == 'on') {
                     patient.required_data.weight = true;
+                    //check input valid or not  
                     if (req.body.weight_upper != '' && req.body.weight_lower != '') {
                         if (parseInt(req.body.weight_upper) >= parseInt(req.body.weight_lower)) {
                             patient.bound.weight_upper = req.body.weight_upper;
@@ -420,6 +426,7 @@ const addNewPatient = async (req, res) => {
 
                 if (req.body.exercise_check == 'on') {
                     patient.required_data.exercise = true;
+                    //check input valid or not  
                     if (req.body.exercise_upper != '' && req.body.exercise_lower != '') {
                         if (parseInt(req.body.exercise_upper) >= parseInt(req.body.exercise_lower)) {
                             patient.bound.exercise_upper = req.body.exercise_upper;
@@ -436,6 +443,7 @@ const addNewPatient = async (req, res) => {
 
                 if (req.body.insulin_check == 'on') {
                     patient.required_data.insulin = true;
+                    //check input valid or not  
                     if (req.body.insulin_upper != '' && req.body.insulin_lower != '') {
                         if (parseInt(req.body.insulin_upper) >= parseInt(req.body.insulin_lower)) {
                             patient.bound.insulin_upper = req.body.insulin_upper;
@@ -452,6 +460,7 @@ const addNewPatient = async (req, res) => {
 
                 if (req.body.glucose_check == 'on') {
                     patient.required_data.glucose = true;
+                    //check input valid or not  
                     if (req.body.glucose_upper != '' && req.body.glucose_lower != '') {
                         if (parseInt(req.body.glucose_upper) >= parseInt(req.body.glucose_lower)) {
                             patient.bound.glucose_upper = req.body.glucose_upper;
@@ -467,6 +476,7 @@ const addNewPatient = async (req, res) => {
                 }
 
                 await patient.save();
+                //bind patient to clinician
                 const clinician = await Clinician.findById(clinicianID);
                 clinician.patients.push({
                     patient_id: patient._id,
@@ -486,7 +496,7 @@ const addNewPatient = async (req, res) => {
     }
 }
 
-//render about me hbs page   not yet done
+//render about me hbs page 
 const renderClinicianData = async (req, res) => {
     try {
         const clinicianID = req.user._id.toString();
@@ -528,7 +538,6 @@ const renderCommentList = async (req, res) => {
                 if (record.data.weight.comment != '') {
 
                     commentList.push({
-                        //patientAvatar:  *******,
                         timeStamp: record.data.weight.date,
                         comment: record.data.weight.comment,
                         patient_id: patient._id,
@@ -543,7 +552,6 @@ const renderCommentList = async (req, res) => {
                 }
                 if (record.data.glucose.comment != '') {
                     commentList.push({
-                        //patientAvatar:  *******,
                         timeStamp: record.data.glucose.date,
                         comment: record.data.glucose.comment,
                         patient_id: patient._id,
@@ -558,7 +566,6 @@ const renderCommentList = async (req, res) => {
                 }
                 if (record.data.exercise.comment != '') {
                     commentList.push({
-                        //patientAvatar:  *******,
                         timeStamp: record.data.exercise.date,
                         comment: record.data.exercise.comment,
                         patient_id: patient._id,
@@ -573,7 +580,6 @@ const renderCommentList = async (req, res) => {
                 }
                 if (record.data.insulin.comment != '') {
                     commentList.push({
-                        //patientAvatar:  *******,
                         timeStamp: record.data.insulin.date,
                         comment: record.data.insulin.comment,
                         patient_id: patient._id,
@@ -602,7 +608,7 @@ const renderCommentList = async (req, res) => {
         res.send("error happened when rendering commentList page");
     }
 }
-
+//used to sort a List when time is in timeStamp format
 function sortByTimeStamp(List) {
 
     //insertion sort
@@ -619,7 +625,7 @@ function sortByTimeStamp(List) {
         List[j + 1] = temp;
     }
 }
-
+// compare two timestamp
 function compareByTimeStamp(timeStamp1, timeStamp2) {
     month1 = parseInt(timeStamp1.substring(3, 5));
     month2 = parseInt(timeStamp2.substring(3, 5));
@@ -759,7 +765,7 @@ const renderPatientData = async (req, res) => {
         console.log(err);
     }
 }
-
+//sort a list when date is in date format
 function sortByDate(recordList) {
     //insertion sort
     for (var i = 1; i < recordList.length; i++) {
@@ -775,7 +781,7 @@ function sortByDate(recordList) {
         recordList[j + 1] = temp;
     }
 }
-
+//compare two record's date
 function compareByDate(record1, record2) {
     month1 = parseInt(record1.record_id.date.substring(3, 5));
     month2 = parseInt(record2.record_id.date.substring(3, 5));
@@ -800,7 +806,7 @@ function compareByDate(record1, record2) {
     }
     return 1;
 }
-
+//used to save support message
 const saveSupportMsg = async (req, res) => {
     try {
         const patient = await Patient.findById(req.params.id);
@@ -944,7 +950,7 @@ async function initialRecord(patient_id) {
     }
 }
 
-// have problem in this function, not used in Deveriable 2
+// search the dashboard by patient name
 const searchDashboard = async (req, res) => {
     try {
         if (req.body.patientName == '') {
@@ -976,8 +982,6 @@ const searchDashboard = async (req, res) => {
                 if (patient.first_name.toLowerCase().indexOf(inputName) != -1 || patient.last_name.toLowerCase().indexOf(inputName) != -1) {
                     for (j in patient.records) {
                         const record = patient.records[j].record_id;
-
-
                         if (record.date == (new Date()).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" })) {
                             patientList.push({
                                 patient_id: patient._id,
@@ -990,6 +994,7 @@ const searchDashboard = async (req, res) => {
                     }
                 }
             }
+
             var msg = "";
             if (patientList.length == 0) {
                 msg = "No patient found";
@@ -1032,6 +1037,7 @@ async function addRecords(req, res) {
     await patient.save();
 }
 
+//used for change password page
 const changePassword = async (req, res) => {
     try {
 
@@ -1054,6 +1060,7 @@ const changePassword = async (req, res) => {
         console.log(err);
     }
 }
+//this method is used to compare two dates
 function compareDate(date1, date2) {
     month1 = parseInt(date1.substring(3, 5));
     month2 = parseInt(date2.substring(3, 5));
@@ -1073,8 +1080,9 @@ function compareDate(date1, date2) {
     } else {
         return 1;
     }
-
 }
+
+// used for forget password page
 const forgetPassword = async (req, res) => {
     try {
         const clinician = await Clinician.findOne({ email: req.body.email.toLowerCase() });

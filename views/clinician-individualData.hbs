@@ -3,6 +3,7 @@
     <div class="individual-left">
         <div class="personal-info">
             <a href="../editData/{{patient._id}}"><img class="edit" src="/edit.png" alt="edit"></a>
+            <!--if has pohot, render. if not, show default icon-->
             {{#ifPhoto patient.photo}}
             <img class="portrait" src="/photo_{{patient._id}}.png" alt="self photo">
             {{else}}
@@ -72,7 +73,7 @@
             <div class="top-right">
                 <form action="/clinician/individualData/searchDate/{{patient._id}}" method="post" id="dateForm">
                     <select class="mm" placeholder="MM" name="month" onchange="submitDateForm()">
-
+                        <!--if the month have been searched, it will show the searched info-->
                         {{#ifSearched input.month}}
                         <option value={{input.month}}>{{month}}</option>
                         {{/ifSearched}}

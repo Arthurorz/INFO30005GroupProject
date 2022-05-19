@@ -29,6 +29,7 @@
 
             <!--weight-->
             {{#ifRecorded this.today_record.data.weight.status}}
+            <!--check if the data are in the range-->
             <td style="background-color:
                         {{#ifAboveRange this.today_record.data.weight.value this.bound.weight_upper}}
                             #F29393
@@ -51,6 +52,7 @@
 
             <!--exercise-->
             {{#ifRecorded this.today_record.data.exercise.status}}
+            <!--check if the data are in the range-->
             <td style="background-color:
                         {{#ifAboveRange this.today_record.data.exercise.value this.bound.exercise_upper}}
                             #F29393
@@ -73,6 +75,7 @@
 
             <!--insulin-->
             {{#ifRecorded this.today_record.data.insulin.status}}
+            <!--check if the data are in the range-->
             <td style="background-color:
                         {{#ifAboveRange this.today_record.data.insulin.value this.bound.insulin_upper}}
                             #F29393
@@ -95,6 +98,7 @@
 
             <!--glucose-->
             {{#ifRecorded this.today_record.data.glucose.status}}
+            <!--check if the data are in the range-->
             <td style="background-color:
                         {{#ifAboveRange this.today_record.data.glucose.value this.bound.glucose_upper}}
                             #F29393

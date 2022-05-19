@@ -1,6 +1,7 @@
 <h1>About Me</h1>
 <div class=aboutMe-body>
     <div class=aboutMe-left>
+        <!--if have photo then show it, if not, use a defalut icon-->
         {{#ifPhoto clinician.photo}}
         <img class="self-picture" src="/photo_{{clinician._id}}.png" alt="self photo">
         {{else}}

@@ -3,6 +3,7 @@
         <div class="editData-body">
                 <div>
                         <div class="chooseRange">
+                                <!--if already required, need to show a checked box-->
                                 {{#ifChecked patient.required_data.weight}}
                                 <input class="chooseBox" type="checkbox" name="weight_check" checked="checked">
                                 {{else}}
@@ -34,6 +35,7 @@
                                 </div>
                         </div>
                         <div class="chooseRange">
+                                <!--if already required, need to show a checked box-->
                                 {{#ifChecked patient.required_data.exercise}}
                                 <input class="chooseBox" type="checkbox" name="exercise_check" checked="checked">
                                 {{else}}
@@ -65,6 +67,7 @@
                                 </div>
                         </div>
                         <div class="chooseRange">
+                                <!--if already required, need to show a checked box-->
                                 {{#ifChecked patient.required_data.insulin}}
                                 <input class="chooseBox" type="checkbox" name="insulin_check" checked="checked">
                                 {{else}}
@@ -96,6 +99,7 @@
                                 </div>
                         </div>
                         <div class="chooseRange">
+                                <!--if already required, need to show a checked box-->
                                 {{#ifChecked patient.required_data.glucose}}
                                 <input class="chooseBox" type="checkbox" name="glucose_check" checked="checked">
                                 {{else}}
