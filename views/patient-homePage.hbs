@@ -6,14 +6,14 @@
 <p class="homeSubtitle">My Plans</p>
 <div class="homeTop">
     {{!-- render todat's blood glucose --}}
-    {{#ifNotEmpty today.data.glucose.value}}
+    {{#ifHasDate today.data.glucose.date}}
     <div class="addbutton">
         <img class="recorded" src="/blood_glucose.png" alt="Blood Glucose">
         <p>Blood Glucose: <br>{{today.data.glucose.value}}&nbsp;nmol/L</p>
         <p class="time">{{today.data.glucose.date}}</p>
     </div>
     {{else}}
-    {{#ifTrue patient.required_data.glucose}}
+    {{#ifTrue patient.required_data.date}}
     <div class="addbutton">
         <a href='/patient/addData/glucose'>
             <img class="add" src="/addbutton.png" alt="Blood Glucose"></a>
@@ -21,10 +21,10 @@
     </div>
     {{else}}
     {{/ifTrue}}
-    {{/ifNotEmpty}}
+    {{/ifHasDate}}
 
     {{!-- Render today's weight--}}
-    {{#ifNotEmpty today.data.weight.value}}
+    {{#ifHasDate today.data.weight.date}}
     <div class="addbutton">
         <img class="recorded" src="/weightscale.png" alt="Weight">
         <p>Weight: <br>{{today.data.weight.value}}&nbsp;Kg</p>
@@ -39,10 +39,10 @@
     </div>
     {{else}}
     {{/ifTrue}}
-    {{/ifNotEmpty}}
+    {{/ifHasDate}}
 
     {{!-- Render today's exercise--}}
-    {{#ifNotEmpty today.data.exercise.value}}
+    {{#ifHasDate today.data.exercise.date}}
     <div class="addbutton">
         <img class="recorded-exercise" src="/recordedRunning.png" alt="Exercise">
         <p>Exercise: <br>{{today.data.exercise.value}}&nbsp;Steps</p>
@@ -57,10 +57,10 @@
     </div>
     {{else}}
     {{/ifTrue}}
-    {{/ifNotEmpty}}
+    {{/ifHasDate}}
 
     {{!-- Render today's insulin--}}
-    {{#ifNotEmpty today.data.insulin.value}}
+    {{#ifHasDate today.data.insulin.date}}
     <div class="addbutton">
         <img class="recorded" src="/doses.png" alt="Weight">
         <p>Dose of Insulin Taken: <br>{{today.data.insulin.value}}&nbsp;Doses</p>
@@ -75,7 +75,7 @@
     </div>
     {{else}}
     {{/ifTrue}}
-    {{/ifNotEmpty}}
+    {{/ifHasDate}}
 </div>
 {{!--Render the table for recent 7 days record.--}}
 <div class="tableTop">
