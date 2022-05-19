@@ -383,6 +383,7 @@ const addNewPatient = async (req, res) => {
     if (req.body.password.length < 8) {
         return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Password must be at least 8 characters long', input: req.body });
     }
+    
     const clinicianID = req.user._id.toString();
 
     //check if the email is registered

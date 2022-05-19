@@ -13,7 +13,7 @@
         <p class="time">{{today.data.glucose.date}}</p>
     </div>
     {{else}}
-    {{#ifTrue patient.required_data.date}}
+    {{#ifTrue patient.required_data.glucose}}
     <div class="addbutton">
         <a href='/patient/addData/glucose'>
             <img class="add" src="/addbutton.png" alt="Blood Glucose"></a>
