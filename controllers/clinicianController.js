@@ -9,7 +9,7 @@ const bcrypt = require('bcryptjs')
 //used for rendering previous note page
 const renderPrevNotes = async (req, res) => {
     const id = req.params.id;
-    const notes = await Note.find({ patient: id });
+    const notes = await Note.find({ patientId: id });
 
     const noteList = [];
     for (i in notes) {
