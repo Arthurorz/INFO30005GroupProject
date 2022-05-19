@@ -91,6 +91,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    // check if the comment has been checked
     ifChecked: function (value, options) {
         if (value == true) {
             return options.fn(this);
@@ -116,7 +117,6 @@ const helpers = {
             return options.inverse(this);
         }
     },
-
     ifNotEmpty: function (value, options) {
         if (value != 0 || value != "") {
             return options.fn(this);

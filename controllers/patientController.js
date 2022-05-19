@@ -345,10 +345,9 @@ const changePassword = async (req, res) => {
     }
 }
 
-
+// It is used to change the password when forget password and can not log in 
 const forgetPassword = async (req, res) => {
     try {
-
         const patient = await Patient.findOne({ email: req.body.email.toLowerCase() });
         if (!patient) {
             res.render('normal-patientForgetpass.hbs', { error: 'Incorrect email address' });

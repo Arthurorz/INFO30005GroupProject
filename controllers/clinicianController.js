@@ -290,7 +290,7 @@ const editPatientData = async (req, res) => {
         const patient = await Patient.findById(req.params.id);
         const todayRecord = await Record.findOne({ patientId: patient._id, date: new Date().toLocaleString("en-AU", { "timeZone": "Australia/Melbourne" }) });
         const patientData = await Patient.findById(req.params.id).lean();
-        
+
         if (req.body.weight_check == 'on') {
             patient.required_data.weight = true;
             //check input valid or not  
@@ -383,7 +383,7 @@ const addNewPatient = async (req, res) => {
     if (req.body.password.length < 8) {
         return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: 'Password must be at least 8 characters long', input: req.body });
     }
-    
+
     const clinicianID = req.user._id.toString();
 
     //check if the email is registered
