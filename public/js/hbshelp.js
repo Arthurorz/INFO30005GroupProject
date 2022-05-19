@@ -49,7 +49,7 @@ function isNewPatientNull() {
   var birth = document.getElementById("birth").value;
 
   if (familyName != "" && givenName != "" && email != "" && password != "" && confirmPassword != "" && height != "" && birth != "" && birth >= 1922 && birth <= 2022) {
-    alert("You have successfully submitted");
+    alert("You have filled in all the required information");
   }
 }
 
@@ -65,7 +65,7 @@ function isChangePass() {
   var password = document.getElementById("password").value;
   var confirmPassword = document.getElementById("confirmPassword").value;
   if (oldPassword != '' && password != '' && confirmPassword != '') {
-    alert("You have successfully submitted");
+    alert("You have filled in all the required information");
   }
 }
 
@@ -75,7 +75,7 @@ function isForgetPass() {
   var password = document.getElementById("password").value;
   var confirmPassword = document.getElementById("confirmPassword").value;
   if (email != '' && password != '' && confirmPassword != '') {
-    alert("You have successfully submitted");
+    alert("You have filled in all the required information");
   }
 }
 
