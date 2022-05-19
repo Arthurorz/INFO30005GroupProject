@@ -269,8 +269,7 @@ input[type=checkbox] {
     border-collapse: collapse;
 }
 
-.homeTable th,
-td {
+.homeTable th,td {
     border: 1px solid #CFCFCF;
     font-size: 0.6875rem;
     text-align: center;
@@ -308,7 +307,6 @@ td img {
 
 .homepage-footer a {
     text-decoration: underline;
-    /* color: black; */
 }
 
 
@@ -378,49 +376,6 @@ h1 {
     font-size: 1rem;
 }
 
-/* #popLayer {
-    top: 0;
-    left: 0;
-    position: absolute;
-    background-color: #EFEFEF;
-    width: 100%;
-    height: 100%;
-    opacity: .85;
-    display: none;
-}
-
-#popBox {
-    width: 78.93%;
-    background-color: #BBD9F6;
-    margin: 0 auto;
-    border-radius: 0.875rem;
-    padding: 1.5625rem 0 1.5625rem 0;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.24);
-    position: absolute;
-    top: 256px;
-    right: 10.67%;
-    display: none;
-}
-
-.boxTop {
-    width: 87.16%;
-    margin: 0 auto;
-    text-align: center;
-    background-color: white;
-    border-radius: 0.625rem;
-    line-height: 4.875rem;
-}
-
-.back {
-    background-color: #668CB8;
-    color: white;
-    height: 1.8125rem;
-    border-radius: 0.5rem;
-    border: none;
-    font-size: 0.875rem;
-    display: block;
-    margin: 1.5rem auto 0 auto;
-} */
 
 /* Daily Detail Data Page */
 .dataDatail {
@@ -460,7 +415,6 @@ h1 {
 /* Data Page */
 
 .data-top {
-    /* display: flex; */
     width: 80%;
     margin: auto;
 }
@@ -468,17 +422,8 @@ h1 {
 .data-top .tableTop {
     margin: 0;
     font-size: 0.625rem;
-    /* width: 36.54%; */
     float: left;
 }
-
-/* .data-top:first-child{
-    float: left;
-}
-
-.data-top:last-child{
-    float: right;
-} */
 
 .data-top .tableTop img {
     width: 1.063rem;
@@ -491,12 +436,9 @@ h1 {
 }
 
 .topright {
-    /* width: 8rem; */
     height: 1.75rem;
     float: right;
     margin-top: 2.35rem;
-    /* margin: 2.375rem 0 0 1.2rem; */
-    /* display: flex; */
 }
 
 .topright form {
@@ -529,12 +471,9 @@ select a:hover {
 
 .data-table a {
     text-decoration: underline;
-    /* color: black; */
 }
 
-table,
-th,
-td {
+table, th, td {
     border: 1px solid #CFCFCF;
     border-collapse: collapse;
     text-align: center;
@@ -562,7 +501,6 @@ td {
 }
 
 .data-table .slope {
-    /* transform: rotate(50deg); */
     display: none;
 }
 
@@ -570,8 +508,7 @@ td {
     transform: rotate(35deg);
 }
 
-.table-weight,
-.table-exercise {
+.table-weight, .table-exercise {
     width: 15%;
 }
 
@@ -692,25 +629,12 @@ td {
     padding-left: 1rem;
 }
 
-/* .boardName{
-    margin: auto 7.6875rem auto 0.6875rem;
-} */
 
 /* About Me Page */
 
 .edit-page {
     display: none;
     width: 100%;
-    /* height: 70%; */
-    /* background-color: white; */
-    position: absolute;
-}
-
-.edit-page {
-    display: none;
-    width: 100%;
-    /* height: 70%; */
-    /* background-color: white; */
     position: absolute;
 }
 
@@ -734,8 +658,7 @@ input[type=checkbox]:checked~.aboutme-text {
     margin-right: 2.125rem;
 }
 
-.aboutme-body,
-.edit-body {
+.aboutme-body, .edit-body {
     width: 74.66%;
     margin: 0 auto;
 }
@@ -745,8 +668,7 @@ input[type=checkbox]:checked~.aboutme-text {
     margin-bottom: 0.375rem;
 }
 
-.edit-body input,
-.user-bio textarea {
+.edit-body input, .user-bio textarea {
     border: 1px solid #707070;
     border-radius: 0.625rem;
 }
@@ -795,8 +717,7 @@ input[type=checkbox]:checked~.aboutme-text {
     width: 40%;
 }
 
-.user-info input,
-.user-info .short {
+.user-info input, .user-info .short {
     float: right;
     width: 50.71%;
 }
@@ -873,10 +794,12 @@ input[type=checkbox]:checked~.aboutme-text {
         font-size: 34px;
     }
 
+
     /* Menu List iPad*/
     .menu {
         margin-top: 370px;
     }
+
 
     /* Patient Homepage iPad */
     .homeTop {
@@ -886,6 +809,7 @@ input[type=checkbox]:checked~.aboutme-text {
     .homeMiddle {
         width: 52.5%;
     }
+
 
     /* Add Data Page iPad */
     .normalRange {
@@ -904,26 +828,6 @@ input[type=checkbox]:checked~.aboutme-text {
         transform: rotate(28deg);
     }
 
-    /* #popBox {
-        width: 68.33%;
-        right: 15.67%;
-    }
-
-    .boxTop {
-        width: 80%;
-    }
-
-    .boxButton {
-        width: 80%;
-    }
-
-    .boxButton button {
-        width: 40%;
-    }
-
-    .boxTop span {
-        right: 30%;
-    } */
 
     /* Daily Detail Data Page iPad */
     .dataDatail {
@@ -949,10 +853,8 @@ input[type=checkbox]:checked~.aboutme-text {
         padding: 1.5rem;
     }
 
-    /* .boardName {
-        margin: auto 20.6875rem auto 0.6875rem;
-    } */
-    /* more data page */
+    
+    /* more data page iPad */
 
     .data-top .tableTop {
         font-size: 0.8rem;
@@ -979,25 +881,23 @@ input[type=checkbox]:checked~.aboutme-text {
         font-size: 0.8rem;
     }
 
-    .table-weight,
-    .table-exercise {
+    .table-weight, .table-exercise {
         width: 18%;
     }
 
-    /* About Me Page */
+
+    /* About Me Page iPad */
 
     .mood {
         right: 47%;
         bottom: 14.5%;
     }
 
-    .edit-body img,
-    .userphoto {
+    .edit-body img, .userphoto {
         width: 23%;
     }
 
-    .user-info input,
-    .user-info li {
+    .user-info input, .user-info li {
         height: 80%;
         font-size: 0.8rem;
     }
@@ -1144,7 +1044,6 @@ input[type=checkbox]:checked~.aboutme-text {
         height: 9rem;
     }
 
-
     .addbutton p {
         font-size: 1.625rem;
     }
@@ -1177,9 +1076,7 @@ input[type=checkbox]:checked~.aboutme-text {
         vertical-align: middle;
     }
 
-    .homeTable th,
-    td,
-    tr {
+    .homeTable th, td, tr {
         font-size: 1.625rem;
     }
 
@@ -1187,8 +1084,7 @@ input[type=checkbox]:checked~.aboutme-text {
         transform: rotate(32deg);
     }
 
-    .homeTable td:nth-child(1),
-    .homeTable th {
+    .homeTable td:nth-child(1), .homeTable th {
         width: 16.5rem;
         height: 6.625rem;
     }
@@ -1197,6 +1093,7 @@ input[type=checkbox]:checked~.aboutme-text {
         margin: 1.5rem;
         font-size: 1.625rem;
     }
+
 
     /* Add Data Page Web */
     h1 {
@@ -1244,30 +1141,8 @@ input[type=checkbox]:checked~.aboutme-text {
         transform: rotate(35deg);
     }
 
-    /* #popBox {
-        width: 31.1%;
-        top: 410px;
-        right: 34.43%;
-        padding: 3.375rem 0 3.375rem 0;
-    }
 
-    .boxTop {
-        height: 9.625rem;
-    }
-
-    .boxTop span {
-        font-size: 1.875rem;
-        line-height: 9.625rem;
-    }
-
-    .back {
-        height: 3.375rem;
-        width: 45.35%;
-        font-size: 1.75rem;
-        margin: 2.8125rem auto 0 auto;
-    } */
-
-    /* Daily Detail Data Page iPad */
+    /* Daily Detail Data Page Web */
     .dataContainer {
         display: flex;
         flex-wrap: wrap;
@@ -1298,6 +1173,7 @@ input[type=checkbox]:checked~.aboutme-text {
         font-size: 2rem;
     }
 
+
     /* Motivation Web */
     .motiContainer {
         flex-direction: row;
@@ -1307,20 +1183,13 @@ input[type=checkbox]:checked~.aboutme-text {
     }
 
     .selfRank {
-        /* border: 1px solid #CFCFCF;
-        box-shadow: 3px 3px #EDEDED;
-        border-radius: 0.5rem; */
         margin: 0;
         width: 27.74%;
         height: 29rem;
         margin-top: 7.375rem;
-        /* display: flex;
-        flex-direction: column;
-        align-items: center; */
     }
 
     .rank {
-        /* font-weight: bold; */
         padding: 0.75rem;
     }
 
@@ -1334,15 +1203,10 @@ input[type=checkbox]:checked~.aboutme-text {
     }
 
     .badgeInfo {
-        /* position: absolute; */
         width: 1.75rem;
         top: 64%;
         left: 31.5%;
     }
-
-    /* .badgeAlert{
-        display: contents;
-    } */
 
     .leaderboard {
         margin-top: 0;
@@ -1351,15 +1215,7 @@ input[type=checkbox]:checked~.aboutme-text {
 
     .ranking {
         font-size: 1.625rem;
-        /* color: #668CB8; */
-        /* margin-top: -6px; */
     }
-
-    /* .firstLine{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    } */
 
     .crown {
         width: 3.125rem;
@@ -1370,11 +1226,7 @@ input[type=checkbox]:checked~.aboutme-text {
     }
 
     .secondLine {
-        /* display: flex; */
         width: 74.8%;
-        /* margin: 0 auto;
-        justify-content: space-between;
-        margin-top: -12px; */
     }
 
     .lineTwo_pic {
@@ -1383,23 +1235,14 @@ input[type=checkbox]:checked~.aboutme-text {
 
     .thirdLine {
         width: 59.96%;
-        /* margin: 0 auto;
-        display: flex;
-        justify-content: space-between; */
     }
 
     .board {
         width: 100%;
-        /* margin: 1.25rem auto; */
     }
 
     .boardLine {
-        /* display: flex;
-        align-items: center;
-        border: 1px solid #CFCFCF;
-        border-radius: 0.5rem; */
         height: 4.75rem;
-        /* margin-bottom: -1px; */
     }
 
     .boardPic {
@@ -1410,9 +1253,9 @@ input[type=checkbox]:checked~.aboutme-text {
         font-size: 1.25rem;
     }
 
-    /* more data page */
-    .data-top,
-    .individual-table {
+
+    /* more data page Web */
+    .data-top, .individual-table {
         width: 56.09%;
     }
 
@@ -1455,29 +1298,20 @@ input[type=checkbox]:checked~.aboutme-text {
         transform: rotate(30deg);
     }
 
-    .table-weight,
-    .table-exercise {
+    .table-weight, .table-exercise {
         width: 18%;
     }
 
     .boardRank {
         padding: 2rem;
-        /* font-size: 1.25rem; */
-        /* color: #668CB8; */
     }
-
-    /* .boardName{
-        margin: auto 13.6875rem auto 0.6875rem;
-    } */
 
     .year {
         margin-left: 0.5rem;
     }
 
-    /* About Me Page */
 
-
-
+    /* About Me Page Web */
     .mood {
         right: 61%;
         bottom: 11.5%;
@@ -1497,8 +1331,7 @@ input[type=checkbox]:checked~.aboutme-text {
         transform: translateX(63px);
     }
 
-    .moon,
-    .sun {
+    .moon, .sun {
         height: 30px;
     }
 
@@ -1512,8 +1345,7 @@ input[type=checkbox]:checked~.aboutme-text {
         margin-right: 8.8%;
     }
 
-    .aboutme-body,
-    .edit-body {
+    .aboutme-body, .edit-body {
         display: flex;
         width: 100%;
         margin: 0;
@@ -1544,8 +1376,7 @@ input[type=checkbox]:checked~.aboutme-text {
         margin-bottom: 1rem;
     }
 
-    .user-info input,
-    .user-info li {
+    .user-info input, .user-info li {
         height: 1.8rem;
         font-size: 1.625rem;
     }
@@ -1559,18 +1390,11 @@ input[type=checkbox]:checked~.aboutme-text {
         font-size: 1.3rem;
     }
 
-    .userphoto,
-    .edit-body img {
+    .userphoto, .edit-body img {
         width: 12rem;
     }
 
-    /* .text-bio{
-        padding-right: 17.5%;
-        width: 24.63%;
-    } */
-
-    .text-bio h2,
-    .bio-detail {
+    .text-bio h2, .bio-detail {
         font-size: 1.625rem;
     }
 
@@ -1578,15 +1402,12 @@ input[type=checkbox]:checked~.aboutme-text {
         height: 10.5rem;
     }
 
-    .user-bio,
-    .text-bio {
+    .user-bio, .text-bio {
         font-size: 1.625rem;
         height: 18.89%;
         margin: auto;
         width: 24.63%;
     }
-
-
 
     .user-bio textarea {
         font-size: 1.625rem;
