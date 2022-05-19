@@ -107,7 +107,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
-    
+
     // check if patient login
     ifNotLogin: function (screen_name, options) {
         if (screen_name == undefined) {

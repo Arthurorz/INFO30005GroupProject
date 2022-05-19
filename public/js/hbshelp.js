@@ -1,6 +1,6 @@
 // Check if have value in input box
 function isAddDataNull() {
-var addData = document.getElementById("addData").value;
+  var addData = document.getElementById("addData").value;
   var addComment = document.getElementById("addComment").value.length;
 
   if (addData < 0) {
@@ -41,24 +41,24 @@ function clicktest() {
 }
 
 // Check if the comment input is valid
-function commentInputTest(){
+function commentInputTest() {
   var comment = document.getElementById("addComment").value;
   var sub = document.getElementById("saveButton");
   if (comment.length > 140) {
     sub.disabled = 'true';
     alert("* must be lower than 140 characters");
 
-  }else if((comment!='') && comment.replace(/\s/g, '').length === 0){
+  } else if ((comment != '') && comment.replace(/\s/g, '').length === 0) {
     sub.disabled = 'true';
     alert("comment cannot be empty")
 
-  }else{
+  } else {
     sub.disabled = '';
   }
 }
 
 // Check if the note input is valid
-function noteInputTest(){
+function noteInputTest() {
   var note = document.getElementById("addNote").value;
   var sub = document.getElementById("noteSaveButton");
 
@@ -66,29 +66,29 @@ function noteInputTest(){
     sub.disabled = 'true';
     alert("* must be lower than 140 characters");
 
-  }else if((note!='') && (note.replace(/\s/g, '').length === 0)){
+  } else if ((note != '') && (note.replace(/\s/g, '').length === 0)) {
     sub.disabled = 'true';
     alert("comment cannot be empty");
 
-  }else{
+  } else {
     sub.disabled = '';
 
   }
 }
 
 // Check if the support message input is valid
-function supportMSGInputTest(){
+function supportMSGInputTest() {
   var supportMSG = document.getElementById("supportMSG").value;
   var sub = document.getElementById("supportMSGButton");
   if (supportMSG.length > 140) {
     sub.disabled = 'true';
     alert("* must be lower than 140 characters");
-    
-  }else if((supportMSG!='') && (supportMSG.replace(/\s/g, '').length === 0)){
+
+  } else if ((supportMSG != '') && (supportMSG.replace(/\s/g, '').length === 0)) {
     sub.disabled = 'true';
     alert("comment cannot be empty");
 
-  }else{
+  } else {
     sub.disabled = '';
   }
 }
