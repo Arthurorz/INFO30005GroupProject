@@ -18,6 +18,7 @@ Note = require('./models/note')
 
 //Routers
 const patientRouter = require('./routes/patientRouter.js');
+const normalRouter = require('./routes/normalRouter.js');
 const clinicianRouter = require('./routes/clinicianRouter.js');
 
 // configure Handlebars
