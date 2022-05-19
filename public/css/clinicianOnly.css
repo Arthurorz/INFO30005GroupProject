@@ -68,6 +68,7 @@ main {
     align-items: center;
 }
 
+
 /* Dashboard Page */
 .top {
     margin: 13.75rem auto 1.063rem auto;
@@ -182,24 +183,24 @@ td img {
     padding: 0;
 }
 
+.slope, .inside_slope, .ind_slope, .large_slope{
+    border-bottom: 1px solid #CFCFCF;
+}
+
 .slope {
     position: relative;
-    border-bottom: 1px solid #CFCFCF;
     transform: rotate(20deg);
 }
 
 .inside_slope {
-    border-bottom: 1px solid #CFCFCF;
     transform: rotate(15deg);
 }
 
 .ind_slope {
-    border-bottom: 1px solid #CFCFCF;
     transform: rotate(18deg);
 }
 
 .large_slope {
-    border-bottom: 1px solid #CFCFCF;
     transform: rotate(8deg);
 }
 
@@ -211,6 +212,7 @@ td {
 .one-exercise {
     width: 10.75rem;
 }
+
 
 /* Individual Patient Page */
 h1 {
@@ -325,21 +327,6 @@ h5 {
     font-size: 1.625rem;
     padding: 1rem;
 }
-
-/* .support input{
-    margin: 0.9375rem 0 0 1.125rem;
-    border: none;
-    height: 20%;
-    width: 90%;
-    font-size: 1.625rem;
-}
-
-.support input::placeholder{
-    color: #CFCFCF;
-    font-size: 1.625rem;
-    font-style: italic;
-    border-color: #707070;
-} */
 
 .message-save,
 .note-save,
@@ -483,7 +470,6 @@ h6 {
 .pre-note ul {
     width: 100%;
     height: 30rem;
-    /* display: table; */
     table-layout: fixed;
     overflow: hidden;
     overflow-y: scroll;
@@ -502,33 +488,6 @@ li:hover {
 li div {
     display: table-cell;
 }
-
-
-/* ul{
-    width: 100%;
-    height: 21.5rem;
-    padding-top: 1.625rem;
-    display: table;
-    table-layout: fixed;
-    padding-left: 0;
-}
-
-li{
-    list-style: none;
-    display: table-row;
-    /* height: 1.813rem; */
-/* padding-bottom: 1.375rem; */
-/* font-size: 1.625rem;
-    border-bottom: 1px solid black;
-}
-
-li:hover{
-    background-color: #BBD9F6;
-}
-
-li div{
-    display: table-cell;
-}  */
 
 .detail {
     width: 25rem;
@@ -581,8 +540,6 @@ h6,
     border: none;
     height: 29.5rem;
     padding: 1rem;
-    /* padding-left: 1rem;
-    padding-bottom: 4rem; */
     font-size: 1.625rem;
 }
 
@@ -606,19 +563,15 @@ h6,
     margin: 1.75rem 1.125rem 2.938rem 0;
 }
 
+
 /* Edit Data Page */
 .editData-body {
     font-size: 22px;
-    /* padding-top: 2.31%; */
-    /* padding-left: 42.03%;
-    align-items: center; */
     font-size: 22px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    /* height: 42.03%; */
-    /* align-items: center; */
 }
 
 .editData-body form {
@@ -630,10 +583,6 @@ h6,
     padding-top: 1.25rem;
 }
 
-/* .chooseRange{
-    padding-top: 5.74%;
-} */
-
 .chooseRange {
     padding-bottom: 3.625rem;
     width: 110%;
@@ -643,11 +592,6 @@ h6,
     width: 25px;
     height: 25px;
 }
-
-/* .category{
-    font-size: 26px;
-    padding-left: 0.73%;
-} */
 
 .textBox {
     width: 4rem;
@@ -666,16 +610,6 @@ h6,
     padding-left: 5.5%;
 }
 
-/* .rangeBox {
-    padding-left: 0.469%;
-    padding-right: 0.469%;
-} */
-
-/* .submit{
-    padding-top: 5.37%;
-    padding-left: 2.76%;
-} */
-
 .saveButton {
     color: #FFFFFF;
     background-color: #668CB8;
@@ -689,30 +623,12 @@ h6,
     margin-top: 2%;
 }
 
+
 /* New Patient Page */
 .newPatient-body {
     font-size: 22px;
-    /* padding-top: 4.8%; */
     display: flex;
 }
-
-/* .error{
-    width: 50%;
-    height: 40px;
-    border-radius: 0.5rem;
-    margin: 0 auto;
-    position: absolute;
-    top: 290px;
-    left: 25%;
-}
-
-.errormsg {
-    color: red;
-    line-height: 40px;
-    text-align: center;
-    font-style: italic;
-    text-decoration: underline;
-} */
 
 .newPatient-body .infoList {
     width: 25.5%;
@@ -728,7 +644,6 @@ h6,
 .newPatient-body .chooseList {
     width: 36.5%;
     height: 52.1%;
-    /* padding-left: 10.6%; */
     margin: 0 auto auto 10.6%;
 }
 
@@ -750,62 +665,10 @@ h6,
     height: 100px;
 }
 
-/* .chooseRange {
-    padding-top: 6%;
-} */
-
-/* .chooseBox {
-    width: 25px; 
-    height: 25px;
-} */
-
 .category {
     font-size: 26px;
     padding-left: 0.73%;
 }
-
-/* .textBox {
-    width: 41px; 
-    height: 22px; 
-    font-size: 20px;
-} */
-
-/* ::-webkit-input-placeholder {
-    color: #CFCFCF;
-    font-size: 20px;
-    font-style: italic;
-    font-style: bold;
-} */
-
-/* .textLine {
-    padding-top: 1.8%;
-    padding-left: 5.6%;
-} */
-
-/* .rangeBox {
-    padding-left: 0.65%;
-    padding-right: 0.65%;
-} */
-
-/* .sendCode {
-    padding-top: 8%;
-    padding-left: 12%;
-} */
-
-/* .codeButton {
-    color: #FFFFFF;
-    background-color: #668CB8;
-    border-radius: 8px;
-    width: 324px;
-    height: 43px;
-    border: none;
-    font-size: 26px;
-}
-
-.enterCode {
-    padding-top: 4.2%;
-    padding-left: 12%;
-} */
 
 .codeBox .textBox {
     width: 315px;
@@ -813,24 +676,6 @@ h6,
     text-align: center;
 }
 
-/* .codeBox ::-webkit-input-placeholder {
-    text-align: center;
-} */
-
-/* .submit{
-    padding-top: 2%;
-    padding-left: 45.26%;
-} */
-
-/* .saveButton {
-    color: #FFFFFF;
-    background-color: #668CB8;
-    border-radius: 8px;
-    width: 200px;
-    height: 78px;
-    border: none;
-    font-size: 34px;
-}  */
 
 /* About Me Page */
 
@@ -838,7 +683,6 @@ h6,
     display: flex;
     margin: 0 auto;
     margin-top: 9.75em;
-    /* width: 55.83%; */
 }
 
 .aboutMe-left {
@@ -878,21 +722,6 @@ h6,
     margin-top: 8%;
 }
 
-/* .self-intro{
-    margin: auto;
-    width: 100%;
-    border: 1px solid #EDEDED;
-    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.24);
-    border-radius: 1.25rem;
-    height: 16.438rem;
-} */
-
-/* .self-intro {
-    margin: auto;
-    margin-top: 3.5625em;
-    height: 16.4375em;
-    width: 83.39%;
-} */
 
 /* Comment List Page*/
 .commentSearch {
@@ -974,11 +803,6 @@ h6,
     text-align: center;
 }
 
-/* .commentRight{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-} */
 .commentRight {
     width: 88%;
     margin: 1.5625rem auto;
@@ -990,13 +814,11 @@ h6,
 
 .commentLower {
     background-color: #AAA9A9;
-    /* border: 1px solid #AAA9A9; */
     padding: 0 5px;
 }
 
 .commentUpper {
     background-color: #F29393;
-    /* border: 1px solid #AAA9A9; */
     padding: 0 6px;
 }
 
@@ -1009,6 +831,7 @@ h6,
     margin-top: 0.75rem;
     font-size: 1.25rem;
 }
+
 
 /* Previous Note */
 .noteLine {

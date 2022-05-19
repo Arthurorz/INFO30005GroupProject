@@ -48,7 +48,6 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* font-size: 2rem; */
 }
 
 .errorPage p {
@@ -87,6 +86,7 @@ a {
     height: 38px;
     border: none;
 }
+
 
 /* Landing Page */
 .mobile-head {
@@ -204,6 +204,7 @@ iframe {
     color: black
 }
 
+
 /* About This Website Page */
 .aboutWeb-body {
     width: 81.33%;
@@ -256,6 +257,7 @@ iframe {
     zoom: 1;
 }
 
+
 /* Login */
 .alertMessage {
     display: flex;
@@ -306,18 +308,6 @@ h4 {
     font-size: 0.75rem;
 }
 
-/* .rememberMe {
-    display: flex;
-    float: right;
-    justify-content: space-between;
-    padding: 0 3.39% 0 3.39%;
-    font-size: 0.75rem;
-}
-
-.rememberMe .checkbox {
-    width: 10px;
-} */
-
 .middle-login {
     display: block;
     height: 2rem;
@@ -344,6 +334,7 @@ h4 {
 .shiftRole a {
     color: black;
 }
+
 
 /* Forget Password Page */
 #msg {
@@ -387,25 +378,6 @@ button.sentcode {
     outline: none;
 }
 
-/* .forget-container input ::placeholder, */
-/* .sendcode ::placeholder {
-    color: #CFCFCF;
-    font-size: 0.75rem;
-    font-style: italic;
-}
-
-.sendcode {
-    width: 56%;
-    text-align: center;
-    margin: 0 auto 1.563rem auto;
-}
-
-button.sentcode,.sendcode input {
-    height: 1.75rem;
-    border-radius: 0.5rem;
-    text-align: center;
-} */
-
 button.sentcode,
 .middle-login {
     background-color: #668CB8;
@@ -417,11 +389,6 @@ button.sentcode {
     width: 100%;
 }
 
-/* .sendcode input {
-    width: 95.5%;
-    margin: 0.625rem 0 0 0;
-    height: 1.375rem;
-} */
 
 /* Change Password Page */
 .changepass-container {
@@ -433,15 +400,6 @@ button.sentcode {
     width: 100%;
     margin: 0.313rem auto 1rem auto;
 }
-
-/* .change-sendcode, button.change-sentcode,.change-sendcode input{
-    text-align: center;
-}
-
-.change-sendcode{
-    width: 48%;
-    margin: 0.313rem auto 1.125rem auto;
-} */
 
 button.change-sentcode,
 .change-login {
@@ -470,12 +428,6 @@ button.change-sentcode,
 button.change-sentcode {
     width: 100%;
 }
-
-/* .change-sendcode input {
-    width: 95.5%;
-    margin: 0.625rem 0 0 0;
-    height: 1.375rem;
-}  */
 
 .change-login {
     display: block;
@@ -546,9 +498,6 @@ button.change-sentcode {
     }
 
     /* Change Password Page */
-    /* .change-sendcode input{
-        width: 97.5%;
-    } */
     .changepass-container {
         width: 43.6%;
     }
@@ -557,6 +506,7 @@ button.change-sentcode {
         width: 12%;
     }
 }
+
 
 /* Web Screen */
 @media screen and (min-width: 1400px) {
@@ -598,6 +548,7 @@ button.change-sentcode {
         height: 4.375rem;
         font-size: 1.875em;
     }
+
 
     /* Landing Page Web*/
     .landing-body {
@@ -704,6 +655,7 @@ button.change-sentcode {
         padding: 0 0 0.6875em 0;
     }
 
+
     /* About This Website Page Web */
     .aboutWeb-top article {
         padding: 1.25em 1.25em 0 0;
@@ -759,17 +711,11 @@ button.change-sentcode {
 
     .ForgetPassword {
         font-size: 1.25rem;
-        /* padding: 0 12% 0 13.16%; */
     }
 
     .shiftRole {
         font-size: 1.75rem;
     }
-
-    /* .rememberMe .checkbox {
-        width: 20px;
-        height: 20px;
-    } */
 
     .loginContainer {
         padding: 0 13.16% 0 13.16%;
@@ -792,6 +738,7 @@ button.change-sentcode {
         font-size: 2.215rem;
         margin: 2rem auto;
     }
+
 
     /* Forget Password Page Web*/
     #msg {
@@ -825,24 +772,6 @@ button.change-sentcode {
         font-size: 1.5rem;
     }
 
-    /* .sendcode {
-        width: 49.01%;
-    }
-
-    button.sentcode {
-        height: 2.688rem;
-    } */
-
-    /* .sendcode input {
-        height: 2.688rem;
-        width: 97%;
-        margin: 0.688rem 0 0 0;
-    }
-
-    .sendcode input,
-    .forget-container input {
-        font-size: 1.5rem;
-    } */
 
     /* Change Password Page */
     .changepass-container {
@@ -853,10 +782,6 @@ button.change-sentcode {
     .changepass-container input {
         margin: 0.313rem auto 2rem auto;
     }
-
-    /* .change-sendcode{
-    width: 15.52%;
-} */
 
     button.change-sentcode,
     .change-sendcode input,
@@ -872,5 +797,4 @@ button.change-sentcode {
         height: 3.875rem;
         font-size: 2.215rem;
     }
-
 }
