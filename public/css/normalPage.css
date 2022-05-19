@@ -275,16 +275,8 @@ iframe {
     background-color: white;
 }
 
-h4 {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-align: center;
-    padding: 0.75rem;
-    font-weight: normal;
-    font-size: 1.125rem;
-}
-
 .loginContainer {
-    padding: 0 4.8% 0 3.39%;
+    padding: 1rem 4.8% 0 3.39%;
 }
 
 .loginContainer input {
@@ -357,6 +349,14 @@ h4 {
     text-align: center;
     font-style: italic;
     text-decoration: underline;
+}
+
+.forgetpassTitle {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-top: 0.75rem;
+    font-size: 1.125rem;
+    display: flex;
+    justify-content: center;
 }
 
 .forget-container {
@@ -718,7 +718,7 @@ button.change-sentcode {
     }
 
     .loginContainer {
-        padding: 0 13.16% 0 13.16%;
+        padding: 2rem 13.16% 0 13.16%;
     }
 
     .loginContainer input {
@@ -749,8 +749,13 @@ button.change-sentcode {
         top: 360px;
     }
 
+    .forgetpassTitle {
+        padding-top: 0.75rem;
+        font-size: 2.375rem;
+    }
+
     .forget-container {
-        margin-top: 3rem;
+        margin-top: 2rem;
         width: 73.68%;
     }
 
