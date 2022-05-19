@@ -153,6 +153,7 @@ const renderHomePage = async (req, res, next) => {
     }
 }
 
+// Sort the array by date
 function sortByDate(recordList) {
     //insertion sort
     for (var i = 1; i < recordList.length; i++) {
@@ -169,6 +170,7 @@ function sortByDate(recordList) {
     }
 }
 
+// Sort the array by date for record
 function sortByDate2(recordList) {
     //insertion sort
     for (var i = 1; i < recordList.length; i++) {
@@ -185,6 +187,7 @@ function sortByDate2(recordList) {
     }
 }
 
+// Compare date by date
 function compareDate(date1, date2) {
     month1 = parseInt(date1.substring(3, 5));
     month2 = parseInt(date2.substring(3, 5));
@@ -207,6 +210,7 @@ function compareDate(date1, date2) {
 
 }
 
+// Compare the date 
 function compareByDate(record1, record2) {
     month1 = parseInt(record1.date.substring(3, 5));
     month2 = parseInt(record2.date.substring(3, 5));
@@ -228,6 +232,7 @@ function compareByDate(record1, record2) {
     }
 }
 
+// Compare the date in another scenario
 function compareByDate2(record1, record2) {
     month1 = parseInt(record1.record_id.date.substring(3, 5));
     month2 = parseInt(record2.record_id.date.substring(3, 5));
@@ -288,6 +293,7 @@ const renderMoreData = async (req, res) => {
     }
 }
 
+// Render the detail data page for each day
 const renderdetail = async (req, res) => {
     try {
         const id = req.user._id;
@@ -303,6 +309,7 @@ const renderdetail = async (req, res) => {
     }
 }
 
+// Render the about me page
 const renderAboutMe = async (req, res) => {
     try {
         const id = req.user._id;
@@ -315,6 +322,7 @@ const renderAboutMe = async (req, res) => {
     }
 }
 
+// It is used to change the password of the patient
 const changePassword = async (req, res) => {
     try {
         const patientID = req.user._id;
@@ -337,8 +345,10 @@ const changePassword = async (req, res) => {
     }
 }
 
+
 const forgetPassword = async (req, res) => {
     try {
+
         const patient = await Patient.findOne({ email: req.body.email.toLowerCase() });
         if (!patient) {
             res.render('normal-patientForgetpass.hbs', { error: 'Incorrect email address' });
@@ -353,6 +363,7 @@ const forgetPassword = async (req, res) => {
     }
 }
 
+// Check whether the record is recorded
 function checkRecorded(record) {
     var flag = false
     for (i in record.data) {
@@ -364,12 +375,16 @@ function checkRecorded(record) {
     return flag;
 }
 
+// Calculate the engagement rate for the patient
 async function calEngagement(patientId) {
+
     const records = (await Record.find({ patientId: patientId }).lean()).filter((record) => checkRecorded(record));
     const patient = await Patient.findById(patientId);
     const startDate = patient.register_date;
     var flag = true;
     var interval = 0;
+
+    // Get the total number of days since the patient registered
     while (flag) {
         temp = new Date(new Date().getTime() - (interval * 24 * 60 * 60 * 1000)).toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" });
         if (temp == startDate) {
@@ -377,26 +392,37 @@ async function calEngagement(patientId) {
         }
         interval += 1
     }
+
+    // calculate the engagement rate
     patient.engagement = Math.round((records.length / interval).toFixed(2) * 100);
     await patient.save();
 }
 
+
+// Render the motivation page
 const renderLeaderBoard = async (req, res) => {
     try {
+        // Calculate the engagement rate for each patient
         const pre_patients = await Patient.find({}).lean();
         for (patient of pre_patients) {
             await calEngagement(patient._id);
         }
+
+        // Get the patient data after calculating the engagement rate and sort by engagement rate
         const patients = await Patient.find({}).lean();
         const thisPatient = await Patient.findById(req.user._id).lean();
         var index = 0;
         const sorted = patients.sort((a, b) => { return (b.engagement - a.engagement) });
+
+        // Get the rank of the patient
         for (patient of sorted) {
             if (patient._id.toString() == req.user._id.toString()) {
                 break;
             }
             index += 1;
         }
+
+        // Pass the data to the page
         const rank = index + 1;
         const first = sorted[0]
         const second = sorted[1]
@@ -409,6 +435,7 @@ const renderLeaderBoard = async (req, res) => {
     }
 }
 
+// Update the patient's profile
 const updateAboutMe = async (req, res) => {
     try {
         const patient_id = req.user._id;
@@ -429,6 +456,7 @@ const updateAboutMe = async (req, res) => {
     }
 }
 
+// Change the theme of the patient
 const updateMode = async (req, res) => {
     try {
         const patient_id = req.user._id;
@@ -446,8 +474,11 @@ const updateMode = async (req, res) => {
     }
 }
 
+
+// Search the records by date in more data page
 const searchDate = async (req, res) => {
     try {
+
         if (req.body.month == "all" && req.body.year == "all") {
             return res.redirect('/patient/moreData');
         }
@@ -481,6 +512,7 @@ const searchDate = async (req, res) => {
                 }
             }
         }
+
         var month = '';
         switch (req.body.month) {
             case "01":
@@ -530,6 +562,7 @@ const searchDate = async (req, res) => {
     }
 }
 
+// Render the about diabetes page for the patient
 const renderAboutDia = async (req, res) => {
     try {
         const id = req.user._id;
@@ -540,6 +573,7 @@ const renderAboutDia = async (req, res) => {
     }
 }
 
+// Render the about the website for the patient
 const renderAboutWeb = async (req, res) => {
     try {
         const id = req.user._id;
