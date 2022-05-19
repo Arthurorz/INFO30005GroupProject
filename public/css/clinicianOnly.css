@@ -725,10 +725,10 @@ h6,
 
 /* Comment List Page*/
 .commentSearch {
-    width: 50.36%;
+    width: 58%;
     display: flex;
     justify-content: end;
-    margin: 0 auto 1.5625rem auto;
+    margin: 0 auto;
 }
 
 .commentSearch form {
@@ -752,7 +752,7 @@ h6,
     width: 1.6875rem;
     position: absolute;
     top: 31.5%;
-    right: 26%;
+    right: 22%;
 }
 
 .commentSearch button {
@@ -770,7 +770,7 @@ h6,
 }
 
 .commentLine {
-    width: 50.36%;
+    width: 58%;
     margin: 0 auto;
     border: 1px solid #707070;
     display: flex;
@@ -825,11 +825,12 @@ h6,
 .commentRight div {
     display: flex;
     justify-content: space-between;
+    padding-right: 1%;
 }
 
 .commentRight p {
     margin-top: 0.75rem;
-    font-size: 1.25rem;
+    font-size: 1.625rem;
 }
 
 
