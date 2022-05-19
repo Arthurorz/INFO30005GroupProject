@@ -21,6 +21,7 @@ function clicktest() {
   var confirmPassword = document.getElementById("confirmPassword").value;
   var msg = document.getElementById("msg");
   var sub = document.getElementById("saveButton");
+
   if (password.length < 8) {
     msg.innerHTML = "* must be at least 8 characters long";
     msg.style.color = 'red';
@@ -36,7 +37,9 @@ function clicktest() {
       sub.disabled = 'true';
     }
   }
+
 }
+
 // Check if the comment input is valid
 function commentInputTest(){
   var comment = document.getElementById("addComment").value;
@@ -45,7 +48,6 @@ function commentInputTest(){
     sub.disabled = 'true';
     alert("* must be lower than 140 characters");
 
-    
   }else if((comment!='') && comment.replace(/\s/g, '').length === 0){
     sub.disabled = 'true';
     alert("comment cannot be empty")
@@ -59,12 +61,11 @@ function commentInputTest(){
 function noteInputTest(){
   var note = document.getElementById("addNote").value;
   var sub = document.getElementById("noteSaveButton");
-  alert("note: "+note);
+
   if (note.length > 140) {
     sub.disabled = 'true';
     alert("* must be lower than 140 characters");
 
-    
   }else if((note!='') && (note.replace(/\s/g, '').length === 0)){
     sub.disabled = 'true';
     alert("comment cannot be empty");
@@ -82,7 +83,6 @@ function supportMSGInputTest(){
   if (supportMSG.length > 140) {
     sub.disabled = 'true';
     alert("* must be lower than 140 characters");
-
     
   }else if((supportMSG!='') && (supportMSG.replace(/\s/g, '').length === 0)){
     sub.disabled = 'true';

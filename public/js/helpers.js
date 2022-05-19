@@ -7,7 +7,6 @@ const helpers = {
         return options.inverse(this);
 
     },
-
     // check if the input data's status is unrecorded
     ifNotRecorded: function (status, options) {
         if (status == "unrecorded") {
@@ -156,7 +155,6 @@ const helpers = {
             return options.inverse(this);
         }
     },
-    
     // Check if the engagement rate is greater than 80%
     ifreach80: function (value, options) {
         if (value >= 80) {
