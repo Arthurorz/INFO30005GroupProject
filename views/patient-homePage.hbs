@@ -1,6 +1,10 @@
 {{!--render supporting Message from clinician--}}
 <div class="SupportMessage">
-    <p>{{patient.support_message}}</p>
+    {{#ifMSG patient.support_message}}
+            <p>{{patient.support_message}}</p>
+    {{else}}
+        <p>Welcome to Diabetes@Home</p>
+    {{/ifMSG}}
     <p>——&nbsp;Doctor {{clinician.last_name}}</p>
 </div>
 <p class="homeSubtitle">My Plans</p>

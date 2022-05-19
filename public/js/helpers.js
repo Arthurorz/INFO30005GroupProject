@@ -99,6 +99,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    // check if there is message
     ifMSG: function (value, options) {
         if (value != "") {
             return options.fn(this);
@@ -117,6 +118,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    // check if the value is empty
     ifNotEmpty: function (value, options) {
         if (value != 0 || value != "") {
             return options.fn(this);
@@ -125,6 +127,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    // Check if the value is true
     ifTrue: function (value, options) {
         if (value == true) {
             return options.fn(this);
@@ -142,7 +145,8 @@ const helpers = {
             return options.inverse(this);
         }
     },
-    
+
+    // Check if the month or year is selected
     ifSearched: function (value, options) {
         if (value != "all" && value != undefined) {
 
@@ -152,6 +156,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    
     // Check if the engagement rate is greater than 80%
     ifreach80: function (value, options) {
         if (value >= 80) {
