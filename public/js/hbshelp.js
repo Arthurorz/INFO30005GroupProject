@@ -38,6 +38,26 @@ function clicktest() {
   }
 }
 
+function commentInputTest(){
+  var comment = document.getElementById("addComment").value;
+  var sub = document.getElementById("saveButton");
+  if (comment.length > 140) {
+    sub.disabled = 'true';
+    // msg.innerHTML = "* must be lower than 140 characters";
+    // msg.style.color = 'red';
+    
+  }else if(comment.replace(/\s/g, '').length === 0){
+    sub.disabled = 'true';
+    // msg.innerHTML = "Cannot be empty";
+    // msg.style.color = 'red';
+    
+    
+  }else{
+    sub.disabled = '';
+    //msg.style.color = 'green';
+  }
+}
+
 // Check if all fields are filled and correct
 function isNewPatientNull() {
   var familyName = document.getElementById("familyName").value;
