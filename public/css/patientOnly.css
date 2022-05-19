@@ -12,60 +12,6 @@ main {
 }
 
 /* Patient Header */
-
-
-.mood {
-    position: absolute;
-    right: 41%;
-    bottom: 39.5%;
-}
-
-body.dark,
-.edit-page.dark {
-    background: #292C35;
-    color: white;
-}
-
-.checkbox {
-    opacity: 0;
-    position: absolute;
-}
-
-.mood-change {
-    background-color: #668CB8;
-    border-radius: 50px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 5px;
-    position: relative;
-    height: 15px;
-    width: 60px;
-    transform: scale(1.5);
-}
-
-.mood-change .ball {
-    background-color: #fff;
-    border-radius: 50%;
-    position: absolute;
-    /* top: 2px; */
-    left: 1px;
-    height: 23px;
-    width: 23px;
-    transform: translateX(0px);
-    transition: transform 0.2s linear;
-}
-
-.checkbox:checked+.mood-change .ball {
-    transform: translateX(45px);
-}
-
-.moon,
-.sun {
-    height: 18px;
-}
-
 .patient-header {
     height: 55px;
     width: 100%;
@@ -630,6 +576,55 @@ table, th, td {
 
 
 /* About Me Page */
+.mood {
+    position: absolute;
+    right: 41%;
+    bottom: 39.5%;
+}
+
+body.dark,
+.edit-page.dark {
+    background: #292C35;
+    color: white;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.mood-change {
+    background-color: #668CB8;
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    position: relative;
+    height: 15px;
+    width: 60px;
+    transform: scale(1.5);
+}
+
+.mood-change .ball {
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 1px;
+    height: 23px;
+    width: 23px;
+    transform: translateX(0px);
+    transition: transform 0.2s linear;
+}
+
+.checkbox:checked+.mood-change .ball {
+    transform: translateX(45px);
+}
+
+.moon,.sun {
+    height: 18px;
+}
 
 .edit-page {
     display: none;
@@ -886,7 +881,6 @@ input[type=checkbox]:checked~.aboutme-text {
 
 
     /* About Me Page iPad */
-
     .mood {
         right: 47%;
         bottom: 14.5%;
