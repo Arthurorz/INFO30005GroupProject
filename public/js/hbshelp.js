@@ -37,7 +37,7 @@ function clicktest() {
     }
   }
 }
-
+// Check if the comment input is valid
 function commentInputTest(){
   var comment = document.getElementById("addComment").value;
   var sub = document.getElementById("saveButton");
@@ -47,9 +47,52 @@ function commentInputTest(){
     // msg.innerHTML = "* must be lower than 140 characters";
     // msg.style.color = 'red';
     
-  }else if(comment.replace(/\s/g, '').length === 0){
+  }else if((comment!='') && comment.replace(/\s/g, '').length === 0){
     sub.disabled = 'true';
     alert("comment cannot be empty")
+    // msg.innerHTML = "Cannot be empty";
+    // msg.style.color = 'red';
+  }else{
+    sub.disabled = '';
+    //msg.style.color = 'green';
+  }
+}
+
+// Check if the note input is valid
+function noteInputTest(){
+  var note = document.getElementById("addNote").value;
+  var sub = document.getElementById("noteSaveButton");
+  alert("note: "+note);
+  if (note.length > 140) {
+    sub.disabled = 'true';
+    alert("* must be lower than 140 characters");
+    // msg.innerHTML = "* must be lower than 140 characters";
+    // msg.style.color = 'red';
+    
+  }else if((note!='') && (note.replace(/\s/g, '').length === 0)){
+    sub.disabled = 'true';
+    alert("comment cannot be empty");
+    // msg.innerHTML = "Cannot be empty";
+    // msg.style.color = 'red';
+  }else{
+    sub.disabled = '';
+    //msg.style.color = 'green';
+  }
+}
+
+// Check if the support message input is valid
+function supportMSGInputTest(){
+  var supportMSG = document.getElementById("supportMSG").value;
+  var sub = document.getElementById("supportMSGButton");
+  if (supportMSG.length > 140) {
+    sub.disabled = 'true';
+    alert("* must be lower than 140 characters");
+    // msg.innerHTML = "* must be lower than 140 characters";
+    // msg.style.color = 'red';
+    
+  }else if((supportMSG!='') && (supportMSG.replace(/\s/g, '').length === 0)){
+    sub.disabled = 'true';
+    alert("comment cannot be empty");
     // msg.innerHTML = "Cannot be empty";
     // msg.style.color = 'red';
   }else{

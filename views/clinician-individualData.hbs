@@ -56,9 +56,9 @@
         </div>
         <form action="/clinician/individualData/support_msg/{{patient._id}}" method="post">
             <div class="message">
-                <textarea class="support" type="text" id="text" required name="support_message"
-                    placeholder="{{patient.support_message}}"></textarea>
-                <button class="message-save" type="submit">Save</button>
+                <textarea class="support" type="text" id="supportMSG" required name="support_message"
+                    onblur="supportMSGInputTest()" placeholder="{{patient.support_message}}"></textarea>
+                <button class="message-save" id="supportMSGButton" type="submit">Save</button>
             </div>
         </form>
     </div>
@@ -233,17 +233,17 @@
 
         <div class="add-note">
             <div class="subject">
-                <input type="text" id="text" name="subject" required placeholder="Subject">
+                <input type="text" id="text" name="subject" pattern="^[^\s]+[\s]*.+$" required placeholder="Subject">
             </div>
             <div class="today-note">
-                <textarea class="today-add" type="text" id="text" required name="content"
+                <textarea class="today-add" type="text" id="addNote" required name="content" onblur="noteInputTest()"
                     placeholder="Add a note..."></textarea>
             </div>
         </div>
     </div>
     <button class="more-detail" onclick="window.location.href='/clinician/individual/{{patient._id}}/prevNotes'"
         type="button">More Detail</button>
-    <button class="note-save" type="submit">Save</button>
+    <button class="note-save" id="noteSaveButton" type="submit">Save</button>
 </form>
 
 <script src="/js/hbshelp.js"></script>
