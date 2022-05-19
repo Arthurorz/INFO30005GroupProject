@@ -142,6 +142,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    
     ifSearched: function (value, options) {
         if (value != "all" && value != undefined) {
 
@@ -151,6 +152,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    // Check if the engagement rate is greater than 80%
     ifreach80: function (value, options) {
         if (value >= 80) {
             return options.fn(this);
