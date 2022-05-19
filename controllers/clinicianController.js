@@ -216,7 +216,8 @@ const searchComment = async (req, res) => {
                                 lower_bound: patient.bound.weight_lower,
                                 value: record.data.weight.value,
                                 type: 'weight',
-                                unit: 'kg'
+                                unit: 'kg',
+                                photo: patient.photo
                             });
                         }
                         if (record.data.glucose.comment != '') {
@@ -229,7 +230,8 @@ const searchComment = async (req, res) => {
                                 lower_bound: patient.bound.glucose_lower,
                                 value: record.data.glucose.value,
                                 type: 'glucose',
-                                unit: 'nmol/L'
+                                unit: 'nmol/L',
+                                photo: patient.photo
                             });
                         }
                         if (record.data.exercise.comment != '') {
@@ -242,7 +244,8 @@ const searchComment = async (req, res) => {
                                 lower_bound: patient.bound.exercise_lower,
                                 value: record.data.exercise.value,
                                 type: 'exercise',
-                                unit: 'steps'
+                                unit: 'steps',
+                                photo: patient.photo
                             });
                         }
                         if (record.data.insulin.comment != '') {
@@ -255,7 +258,8 @@ const searchComment = async (req, res) => {
                                 lower_bound: patient.bound.insulin_lower,
                                 value: record.data.insulin.value,
                                 type: 'insulin',
-                                unit: 'doses'
+                                unit: 'doses',
+                                photo: patient.photo
                             });
                         }
                     }
