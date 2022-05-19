@@ -7,6 +7,7 @@ const helpers = {
         return options.inverse(this);
 
     },
+
     // check if the input data's status is unrecorded
     ifNotRecorded: function (status, options) {
         if (status == "unrecorded") {
@@ -15,6 +16,7 @@ const helpers = {
         return options.inverse(this);
 
     },
+
     // check if the input data's status is not required
     ifNotRequired: function (status, options) {
         if (status == "Not required") {
@@ -50,6 +52,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+
     // check if the type of the input data is glucose
     ifglucose: function (value, options) {
         if (value == "glucose") {
@@ -58,6 +61,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+
     // check if the type of the input data is weight
     ifinsulin: function (value, options) {
         if (value == "insulin") {
@@ -66,6 +70,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+
     // check if the type of the input data is weight
     ifweight: function (value, options) {
         if (value == "weight") {
@@ -74,6 +79,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+
     // check if the type of the input data is exercise
     ifexercise: function (value, options) {
         if (value == "exercise") {
@@ -82,6 +88,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+
     // check if the record is null
     ifNull: function (value, options) {
         if (value == null) {
@@ -90,6 +97,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+
     // check if the comment has been checked
     ifChecked: function (value, options) {
         if (value == true) {
@@ -98,6 +106,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+
     // check if there is message
     ifMSG: function (value, options) {
         if (value != "") {
@@ -117,6 +126,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+
     // check if the value is empty
     ifNotEmpty: function (value, options) {
         if (value != 0 || value != "") {
@@ -126,6 +136,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+
     // Check if the value is true
     ifTrue: function (value, options) {
         if (value == true) {
@@ -135,6 +146,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+
     // check if the record has date(have typed in data)
     ifHasDate: function (value, options) {
         if (value != null) {
@@ -155,6 +167,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+
     // Check if the engagement rate is greater than 80%
     ifreach80: function (value, options) {
         if (value >= 80) {
@@ -164,6 +177,7 @@ const helpers = {
             return options.inverse(this);
         }
     },
+    
     // Check if the user has photo
     ifPhoto: function (value, options) {
         if (value == true) {

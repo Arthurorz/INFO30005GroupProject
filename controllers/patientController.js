@@ -4,7 +4,6 @@ const Clinician = require('../models/clinician.js');
 const { ConnectionPoolClosedEvent } = require('mongodb');
 const bcrypt = require('bcryptjs')
 
-
 //Update the record of patient according to the type and id
 const updateRecord = async (req, res, next) => {
     try {
@@ -107,7 +106,6 @@ const renderHomePage = async (req, res, next) => {
         const clinician = await Clinician.findById(patient.clinician).lean();
         const date = new Date().toLocaleDateString("en-AU", { "timeZone": "Australia/Melbourne" });
         const today = await Record.findOne({ date: date, patientId: id }).lean();
-
 
         //Get recent 7 days records, if there is no record for that day, insert null.
         const recent7 = [];
@@ -582,7 +580,6 @@ const renderAboutWeb = async (req, res) => {
         console.log(err);
     }
 }
-
 
 module.exports = {
     renderAddPage,

@@ -4,7 +4,6 @@ const express = require('express')
 const clinicianController = require('../controllers/clinicianController.js')
 const clinicianRouter = express.Router()
 
-
 // Authentication middleware
 const isAuthenticated = (req, res, next) => {
     if (!req.isAuthenticated() || req.user.screen_name !== undefined) {

@@ -147,10 +147,10 @@ const searchDate = async (req, res) => {
         console.log(err);
     }
 }
+
 //used for saving a new note
 const addNote = async (req, res) => {
     try {
-
         const SavePatient = await Patient.findById(req.params.id);
         const newNote = new Note({
             patientId: SavePatient._id,
@@ -276,11 +276,11 @@ const searchComment = async (req, res) => {
             res.render('clinician-commentList.hbs', { layout: 'clinician.hbs', commentList: commentList, msg: msg });
         }
 
-
     } catch (err) {
         console.log(err);
     }
 }
+
 // used for clinician edit data page
 const editPatientData = async (req, res) => {
 
@@ -362,7 +362,6 @@ const editPatientData = async (req, res) => {
             todayRecord.data.glucose.status = "Not required";
             patient.required_data.glucose = false;
         }
-
 
         await patient.save();
 
@@ -492,7 +491,6 @@ const addNewPatient = async (req, res) => {
             return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: passwordConfirmError, input: req.body });
         }
     } else {
-
         return res.render('clinician-newPatient.hbs', { layout: 'clinician.hbs', error: mailExistError, input: req.body });
     }
 }
@@ -508,6 +506,7 @@ const renderClinicianData = async (req, res) => {
         res.send("error happened when rendering clinician data");
     }
 }
+
 //render comment list page 
 const renderCommentList = async (req, res) => {
     try {
@@ -609,6 +608,7 @@ const renderCommentList = async (req, res) => {
         res.send("error happened when rendering commentList page");
     }
 }
+
 //used to sort a List when time is in timeStamp format
 function sortByTimeStamp(List) {
 
@@ -626,6 +626,7 @@ function sortByTimeStamp(List) {
         List[j + 1] = temp;
     }
 }
+
 // compare two timestamp
 function compareByTimeStamp(timeStamp1, timeStamp2) {
     month1 = parseInt(timeStamp1.substring(3, 5));
@@ -766,6 +767,7 @@ const renderPatientData = async (req, res) => {
         console.log(err);
     }
 }
+
 //sort a list when date is in date format
 function sortByDate(recordList) {
     //insertion sort
@@ -782,6 +784,7 @@ function sortByDate(recordList) {
         recordList[j + 1] = temp;
     }
 }
+
 //compare two record's date
 function compareByDate(record1, record2) {
     month1 = parseInt(record1.record_id.date.substring(3, 5));
@@ -807,6 +810,7 @@ function compareByDate(record1, record2) {
     }
     return 1;
 }
+
 //used to save support message
 const saveSupportMsg = async (req, res) => {
     try {
@@ -819,6 +823,7 @@ const saveSupportMsg = async (req, res) => {
     }
 
 }
+
 //render the clinician dashboard hbs page
 const renderDashboard = async (req, res) => {
     try {
@@ -831,7 +836,6 @@ const renderDashboard = async (req, res) => {
             patient = allPatient[i];
             await initialRecord(patient.patient_id.toString());
         }
-
 
         //get clinician's patients and populate their information
         const patients = (await Clinician.findById(clinicianID).populate({
@@ -904,7 +908,6 @@ async function initialRecord(patient_id) {
             patient.records.push({ record_id: newRecord._id });
             await patient.save();
 
-
             //Create records for unlogged days
             var flag = true;
             var i = 1
@@ -944,7 +947,6 @@ async function initialRecord(patient_id) {
         } else {
             console.log("record already exists");
         }
-
 
     } catch (err) {
         console.log(err);
@@ -1041,10 +1043,8 @@ async function addRecords(req, res) {
 //used for change password page
 const changePassword = async (req, res) => {
     try {
-
         const clinicianID = req.user._id.toString();
         const clinician = await Clinician.findById(clinicianID);
-
         if (bcrypt.compareSync(req.body.oldPassword, clinician.password)) {
             if (bcrypt.compareSync(req.body.password, clinician.password)) {
                 res.render('normal-changepass.hbs', { layout: 'clinician.hbs', error: "New password cannot be the same as the old password" });
@@ -1061,6 +1061,7 @@ const changePassword = async (req, res) => {
         console.log(err);
     }
 }
+
 //this method is used to compare two dates
 function compareDate(date1, date2) {
     month1 = parseInt(date1.substring(3, 5));
