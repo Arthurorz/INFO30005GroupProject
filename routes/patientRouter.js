@@ -3,8 +3,6 @@ const express = require('express')
 
 const patientRouter = express.Router()
 const patientController = require('../controllers/patientController.js')
-//add express validator
-const { body, validationResult, check } = require('express-validator')
 
 // Authentication middleware
 const isAuthenticated = (req, res, next) => {

@@ -1,6 +1,6 @@
 const express = require("express");
 const normalRouter = express.Router();
-constnoemalController = require("../controllers/normalController.js");
+
 
 // Authentication middleware
 const isAuthenticated = (req, res, next) => {

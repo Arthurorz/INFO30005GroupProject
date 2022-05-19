@@ -3,8 +3,7 @@ const express = require('express')
 
 const clinicianController = require('../controllers/clinicianController.js')
 const clinicianRouter = express.Router()
-// add Express-Validator
-const { body, validationResult, check } = require('express-validator')
+
 
 // Authentication middleware
 const isAuthenticated = (req, res, next) => {
@@ -56,14 +55,5 @@ clinicianRouter.post('/individualData/support_msg/:id', isAuthenticated, (req, r
 clinicianRouter.post('/aboutMe', isAuthenticated, (req, res) => clinicianController.saveClinicianBio(req, res))
 clinicianRouter.post('/individualData/searchDate/:id', isAuthenticated, (req, res) => clinicianController.searchDate(req, res))
 clinicianRouter.post('/changepass', isAuthenticated, (req, res) => clinicianController.changePassword(req, res))
-
-
-//if validator needed
-// clinicianRouter.post('/newPatient', 
-// body('name', 'cannot be empty').not().isEmpty().escape(), 
-// body('phone', 'must be a number').isNumeric().escape(), 
-// body('email', 'must be an email address').isEmail().escape(), 
-// body('password', 'must be at least 8 characters long').isLength({min:8}).escape(),
-// (req,res)=> clinicianController.addNewPatient(req,res))
 
 module.exports = clinicianRouter
