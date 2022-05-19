@@ -30,10 +30,10 @@
     "mongoose": "^6.3.3",
     "passport": "^0.5.2",
     "passport-local": "^1.0.0",
-    "password": "^0.1.1"
+    "password": "^0.1.1",
+    "dotenv": "^16.0.1"
   },
   "devDependencies": {
-    "dotenv": "^16.0.1",
     "prettier": "^2.6.2"
   }
 }

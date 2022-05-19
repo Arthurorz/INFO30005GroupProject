@@ -7,7 +7,7 @@
         <label for="pass">Old Password:</label>
         <input type="password" id="oldPassword" name="oldPassword" required placeholder="at least 8 characters">
         <label for="pass">New Password:</label>
-        <input type="password" id="password" name="password" required onblur="clicktest()"
+        <input type="password" id="password" name="password" pattern="^[^\s]*$" title="can not have space" required onblur="clicktest()"
             placeholder="at least 8 characters">
         <label for="pass">Confirm Password:</label>
         <input type="password" id="confirmPassword" name="confirm_password" required onblur="clicktest()"

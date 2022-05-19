@@ -10,7 +10,7 @@
                 <input type="email" id="email" name="email" required placeholder="123@xxx.com"
                     pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="must be a valid email address">
                 <label for="pass">Password:</label>
-                <input type="password" id="password" name="password" required onblur="clicktest()"
+                <input type="password" id="password" name="password" pattern="^[^\s]*$" title="can not have space" required onblur="clicktest()"
                     placeholder="at least 8 characters">
                 <label for="pass">Confirm Password:</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required onblur="clicktest()"
